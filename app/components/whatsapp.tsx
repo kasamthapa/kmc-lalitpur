@@ -91,6 +91,7 @@ export function WhatsAppFloat() {
 
   // Stop pulse after first open
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (open) setPulse(false);
   }, [open]);
 
