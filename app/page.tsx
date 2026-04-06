@@ -5,7 +5,11 @@ import Link from "next/link";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { AwardsCarousel } from "./components/awards-carousel";
-
+import {
+  BreadcrumbSchema,
+  CourseSchema,
+  WebPageSchema,
+} from "./components/schema";
 // ── SVG Icons ─────────────────────────────────────────────────────────────────
 const IconArrow = () => (
   <svg
@@ -341,7 +345,43 @@ export default function Home() {
   return (
     <main className="bg-white">
       <Header />
-
+      <WebPageSchema
+        title="KMC Lalitpur | Kathmandu Model Secondary School"
+        description="NEB affiliated +2 programs in Science, Management, Humanities & Law. 100% NEB pass rate, 150+ faculty, Balkumari Lalitpur."
+        path="/"
+      />
+      <CourseSchema
+        courses={[
+          {
+            name: "Science Stream (+2)",
+            description:
+              "NEB-affiliated +2 Science program covering Physics, Chemistry, Biology/Computer and Mathematics. Prepares students for MBBS, Engineering and BSc.",
+            provider: "KMC Lalitpur",
+            url: "/academics#science",
+          },
+          {
+            name: "Management Stream (+2)",
+            description:
+              "NEB-affiliated +2 Management program covering Accountancy, Business Studies, Economics and Mathematics. Prepares students for BBA, CA and BBS.",
+            provider: "KMC Lalitpur",
+            url: "/academics#management",
+          },
+          {
+            name: "Humanities Stream (+2)",
+            description:
+              "NEB-affiliated +2 Humanities program covering English, Social Studies, Economics and Mass Communication. Prepares students for BA, Journalism and Education.",
+            provider: "KMC Lalitpur",
+            url: "/academics#humanities",
+          },
+          {
+            name: "Law Stream (+2)",
+            description:
+              "NEB-affiliated +2 Law program covering Political Science, History, Social Studies and English. Prepares students for LLB and Civil Service.",
+            provider: "KMC Lalitpur",
+            url: "/academics#law",
+          },
+        ]}
+      />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden mt-[100px]">
         {/* YouTube background */}

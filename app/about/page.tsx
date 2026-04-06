@@ -2,9 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import type { Metadata } from "next";
+import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Kathmandu Model Secondary School — our story, mission, vision, values, principal's message, and why we are the premier +2 institution in Lalitpur, Nepal.",
+};
 
-// ─── Inline SVG Icons (sharp, geometric — not emoji-style) ───────────────────
-
+// ─── Icons ────────────────────────────────────────────────────────────────────
 const IconLightbulb = () => (
   <svg
     width="24"
@@ -20,7 +26,6 @@ const IconLightbulb = () => (
     <line x1="9" y1="21" x2="15" y2="21" />
   </svg>
 );
-
 const IconGlobe = () => (
   <svg
     width="24"
@@ -36,7 +41,6 @@ const IconGlobe = () => (
     <path d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" />
   </svg>
 );
-
 const IconHeart = () => (
   <svg
     width="24"
@@ -51,7 +55,6 @@ const IconHeart = () => (
     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
   </svg>
 );
-
 const IconBook = () => (
   <svg
     width="24"
@@ -65,11 +68,8 @@ const IconBook = () => (
   >
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
-    <line x1="12" y1="6" x2="16" y2="6" />
-    <line x1="12" y1="10" x2="16" y2="10" />
   </svg>
 );
-
 const IconUsers = () => (
   <svg
     width="24"
@@ -87,53 +87,6 @@ const IconUsers = () => (
     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
   </svg>
 );
-
-const IconStar = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-  </svg>
-);
-
-const IconArrowRight = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-
-const IconCheck = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
 const IconDiamond = () => (
   <svg
     width="24"
@@ -150,29 +103,72 @@ const IconDiamond = () => (
     <path d="M2 8.5L12 13l10-4.5" />
   </svg>
 );
+const IconCheck = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const IconArrow = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+const IconAward = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="8" r="6" />
+    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+  </svg>
+);
 
-// ────────────────────────────────────────────────────────────────────────────
-
+// ─── Data ─────────────────────────────────────────────────────────────────────
 const pillars = [
   {
     Icon: IconBook,
     title: "Academic Excellence",
-    desc: "Rigorous curriculum aligned with NEB standards and advanced teaching methodologies proven over 30 years.",
+    desc: "Rigorous NEB-aligned curriculum with advanced teaching methodologies and consistent 100% pass rates.",
   },
   {
     Icon: IconUsers,
     title: "Student-Centric",
-    desc: "Personalised mentorship and support tailored to each student's unique strengths and learning pace.",
+    desc: "Personalised mentorship and individual attention tailored to each student's unique strengths.",
   },
   {
     Icon: IconLightbulb,
     title: "Innovation",
-    desc: "21st-century skill development—critical thinking, digital fluency, and creative problem-solving.",
+    desc: "21st-century skill development — critical thinking, digital fluency, and creative problem-solving.",
   },
   {
     Icon: IconDiamond,
     title: "Holistic Growth",
-    desc: "Character building, sports, arts, and academics combined for complete personal development.",
+    desc: "Character building, sports, arts, debate, and academics combined for complete personal development.",
   },
 ];
 
@@ -187,147 +183,249 @@ const whyKMC = [
   },
   {
     title: "State-of-the-Art Facilities",
-    desc: "Modern labs, library, sports complex, auditorium, and cutting-edge digital infrastructure.",
+    desc: "Modern labs, library, auditorium, sports complex, hostel, and cutting-edge digital infrastructure.",
   },
   {
-    title: "Strong Track Record",
-    desc: "Consistent 98% pass rate with students securing top positions in national examinations.",
+    title: "100% NEB Pass Rate",
+    desc: "Consistent 100% pass rate every year with students securing top positions nationally.",
   },
   {
     title: "Holistic Development",
-    desc: "Balanced focus on academics, sports, arts, and character development for complete growth.",
+    desc: "Balanced focus on academics, sports, arts, counselling, and character development.",
   },
   {
     title: "Global Perspective",
-    desc: "International exchange programmes and collaborations for enhanced global exposure.",
+    desc: "International partnerships, MoU collaborations, and overseas university placement support.",
   },
 ];
 
+const milestones = [
+  {
+    year: "2000",
+    title: "Founded",
+    desc: "Established under the KMC Educational Network offering Science, Management, and Humanities streams.",
+  },
+  {
+    year: "2003",
+    title: "Lalitpur Campus",
+    desc: "Expanded to Balkumari, Lalitpur — KMC Lalitpur campus inaugurated serving thousands of students.",
+  },
+  {
+    year: "2010",
+    title: "ISO Certified",
+    desc: "Received ISO 9001:2015 certification for quality management systems in education.",
+  },
+  {
+    year: "2019",
+    title: "Law Department",
+    desc: "Formal establishment of the Law stream with dedicated faculty and comprehensive curriculum.",
+  },
+  {
+    year: "2022",
+    title: "Global Achievement",
+    desc: "Seven students accepted to 16 top global universities with combined scholarships over NPR 60 crore.",
+  },
+  {
+    year: "2023",
+    title: "National Award",
+    desc: "Awarded Best Campus of 2080 by the Government of Nepal, Ministry of Education, Science & Technology.",
+  },
+];
+
+const accreditations = [
+  { label: "NEB Affiliated", sub: "National Examinations Board" },
+  { label: "ISO 9001:2015", sub: "Quality Certified Institution" },
+  { label: "Best Campus 2080", sub: "Govt. of Nepal — MoEST" },
+  { label: "NEB Excellence Award", sub: "Academic Excellence" },
+];
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 export default function About() {
   return (
-    <main className="bg-white pt-16 md:pt-20">
+    <main className="bg-white pt-[100px]">
       <Header />
-
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
-        {/* Subtle geometric accent */}
-        <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[#C9A84C]/10 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+      <BreadcrumbSchema items={[{ name: "About Us", href: "/about" }]} />
+      <WebPageSchema
+        title="About Us | KMC Lalitpur"
+        description="Learn about Kathmandu Model Secondary School — established 2000, NEB affiliated, ISO 9001:2015 certified, Best Campus 2080 award winner, Balkumari Lalitpur."
+        path="/about"
+      />
+      {/* Hero */}
+      <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
+        <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#1a3a5c]/60 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          {/* Breadcrumb */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
-            <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+            <Link href="/" className="hover:text-amber-400 transition-colors">
               Home
             </Link>
             <span className="text-[#8ba7c7]/50">/</span>
-            <span className="text-[#C9A84C] font-medium">About Us</span>
+            <span className="text-amber-400 font-medium">About Us</span>
           </nav>
-
           <div className="max-w-3xl">
-            <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
-              Est. 1990
+            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
+              Est. 2000 · Balkumari, Lalitpur
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               About
               <br />
-              <span className="text-[#C9A84C]">KMC Lalitpur</span>
+              <span className="text-amber-400">KMC Lalitpur</span>
             </h1>
             <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
-              Three decades of academic excellence, character-building, and
-              transformative education in the Kathmandu Valley.
+              Two decades of academic excellence, character-building, and
+              transformative +2 education in the Kathmandu Valley.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Our Story ─────────────────────────────────────────────────────── */}
+      {/* Accreditation strip */}
+      <section className="bg-amber-400 py-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {accreditations.map((a, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#0B1F3A] flex items-center justify-center flex-shrink-0 text-amber-400">
+                  <IconAward />
+                </div>
+                <div>
+                  <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                    {a.label}
+                  </p>
+                  <p className="text-[#0B1F3A]/70 text-xs">{a.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
       <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Image + floating card */}
             <div className="relative pb-10 pr-10">
               <div className="relative h-[440px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/campus.png"
-                  alt="KMC Campus"
+                  alt="KMC Lalitpur Campus"
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/20 to-transparent" />
               </div>
-              {/* Floating stat card — anchored inside the padded container */}
               <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-xl">
-                <p className="text-[#C9A84C] text-4xl font-bold leading-none">
-                  30+
+                <p className="text-amber-400 text-4xl font-bold leading-none">
+                  22+
                 </p>
                 <p className="text-[#8ba7c7] text-sm mt-1">
                   Years of Excellence
                 </p>
               </div>
             </div>
-
-            {/* Text */}
             <div>
-              <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
                 Our Story
               </span>
               <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
                 Building Excellence
                 <br />
-                Since 1990
+                Since 2000
               </h2>
-              <p className="text-[#4a5568] leading-relaxed mb-5">
-                Kathmandu Model Secondary School was established with a vision
-                to provide world-class education in the Kathmandu Valley. Over
-                three decades, we have grown from a small institution into one
-                of the region's most respected educational establishments.
+              <p className="text-slate-600 leading-relaxed mb-5">
+                Kathmandu Model Secondary School was established in 2000 as part
+                of the KMC Educational Network, with a vision to provide
+                world-class +2 education in Nepal. Starting with Science,
+                Management, and Humanities streams, we quickly grew into one of
+                the most respected secondary institutions in the country.
               </p>
-              <p className="text-[#4a5568] leading-relaxed mb-8">
-                Our commitment to academic excellence, character development,
-                and holistic growth has shaped thousands of successful
-                individuals who now lead in various fields nationally and
-                internationally.
+              <p className="text-slate-600 leading-relaxed mb-8">
+                Our Lalitpur campus at Balkumari has shaped thousands of
+                successful individuals who now lead in medicine, engineering,
+                law, business, and public service — nationally and
+                internationally. Every year, more than 10,000 students appear
+                for our entrance examination — a testament to the trust parents
+                and students place in KMC.
               </p>
-
-              <div className="grid grid-cols-2 gap-6 pt-8 border-t border-[#e8e8e8]">
-                <div>
-                  <p className="text-4xl font-bold text-[#C9A84C] leading-none">
-                    2,500+
-                  </p>
-                  <p className="text-[#6b7280] text-sm mt-1.5 font-medium">
-                    Active Students
-                  </p>
-                </div>
-                <div>
-                  <p className="text-4xl font-bold text-[#C9A84C] leading-none">
-                    98%
-                  </p>
-                  <p className="text-[#6b7280] text-sm mt-1.5 font-medium">
-                    Pass Rate
-                  </p>
-                </div>
+              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#e8e8e8]">
+                {[
+                  { n: "2,500+", label: "Active Students" },
+                  { n: "100%", label: "NEB Pass Rate" },
+                  { n: "150+", label: "Expert Faculty" },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <p className="text-3xl font-bold text-amber-500 leading-none">
+                      {s.n}
+                    </p>
+                    <p className="text-slate-500 text-xs mt-1.5 font-medium">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mission, Vision & Values ──────────────────────────────────────── */}
+      {/* Timeline */}
       <section className="py-24 bg-[#f7f5f0]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-xl mb-14">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Our Journey
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              Key Milestones
+            </h2>
+          </div>
+          <div className="relative">
+            <div className="absolute left-[22px] md:left-1/2 top-0 bottom-0 w-px bg-amber-200 md:-translate-x-px" />
+            <div className="space-y-10">
+              {milestones.map((m, i) => (
+                <div
+                  key={i}
+                  className={`relative flex items-start gap-8 md:gap-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+                >
+                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-11 h-11 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs flex-shrink-0 shadow-lg z-10">
+                    {m.year.slice(2)}
+                  </div>
+                  <div
+                    className={`ml-16 md:ml-0 md:w-5/12 ${i % 2 === 0 ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
+                  >
+                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e8e8] hover:shadow-md hover:border-amber-200 transition-all">
+                      <span className="text-xs font-bold text-amber-600 tracking-wider">
+                        {m.year}
+                      </span>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mt-1 mb-2">
+                        {m.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        {m.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Vision Values */}
+      <section id="mission" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-xl mb-16">
-            <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
               Our Foundation
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
               Mission, Vision &amp; Values
             </h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Mission */}
             <div className="bg-[#0B1F3A] rounded-2xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/15 border border-[#C9A84C]/30 flex items-center justify-center text-[#C9A84C] mb-6">
+              <div className="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6">
                 <IconLightbulb />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Our Mission</h3>
@@ -338,9 +436,7 @@ export default function About() {
                 global landscape.
               </p>
             </div>
-
-            {/* Vision */}
-            <div className="bg-[#C9A84C] rounded-2xl p-8 flex flex-col">
+            <div className="bg-amber-400 rounded-2xl p-8 flex flex-col">
               <div className="w-12 h-12 rounded-xl bg-[#0B1F3A]/20 flex items-center justify-center text-[#0B1F3A] mb-6">
                 <IconGlobe />
               </div>
@@ -354,8 +450,6 @@ export default function About() {
                 service.
               </p>
             </div>
-
-            {/* Values */}
             <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 flex flex-col">
               <div className="w-12 h-12 rounded-xl bg-[#f7f5f0] border border-[#e8e8e8] flex items-center justify-center text-[#0B1F3A] mb-6">
                 <IconHeart />
@@ -372,7 +466,7 @@ export default function About() {
                   "Compassion",
                 ].map((v) => (
                   <li key={v} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/40 flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                    <span className="w-5 h-5 rounded-full bg-amber-400/15 border border-amber-400/40 flex items-center justify-center flex-shrink-0 text-amber-600">
                       <IconCheck />
                     </span>
                     <span className="text-[#374151] font-medium text-sm">
@@ -386,12 +480,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Four Pillars ──────────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Four Pillars */}
+      <section className="py-24 bg-[#f7f5f0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
-              <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
                 Our Pillars
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
@@ -400,30 +494,28 @@ export default function About() {
                 Stand For
               </h2>
             </div>
-            <p className="text-[#6b7280] max-w-xs leading-relaxed md:text-right">
-              Four essential pillars defining KMC's commitment to excellence
+            <p className="text-slate-500 max-w-xs leading-relaxed md:text-right text-sm">
+              Four essential pillars defining KMC Lalitpur&apos;s commitment to
+              excellence
             </p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {pillars.map(({ Icon, title, desc }, i) => (
               <div
                 key={i}
-                className="group relative bg-[#f7f5f0] hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 overflow-hidden"
+                className="group relative bg-white hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 overflow-hidden border border-[#e8e8e8] hover:border-[#0B1F3A]"
               >
-                {/* Number watermark */}
                 <span className="absolute top-4 right-5 text-6xl font-bold text-black/5 group-hover:text-white/5 leading-none select-none transition-colors duration-300">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-
                 <div className="relative">
-                  <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/15 group-hover:bg-[#C9A84C]/20 border border-[#C9A84C]/30 flex items-center justify-center text-[#C9A84C] mb-6 transition-colors duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-amber-400/15 group-hover:bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-6 transition-colors duration-300">
                     <Icon />
                   </div>
                   <h3 className="text-base font-bold text-[#0B1F3A] group-hover:text-white mb-3 transition-colors duration-300">
                     {title}
                   </h3>
-                  <p className="text-[#6b7280] group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
+                  <p className="text-slate-500 group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
                     {desc}
                   </p>
                 </div>
@@ -433,17 +525,16 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Principal's Message ───────────────────────────────────────────── */}
-      <section id="principal" className="py-24 bg-[#f7f5f0]">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Principal's Message */}
+      <section id="principal" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Image + name block */}
             <div>
               <div className="relative w-full max-w-sm">
                 <div className="relative h-[480px] rounded-2xl overflow-hidden">
                   <Image
                     src="/images/principal.png"
-                    alt="Mukunda Kumar Giri – Principal"
+                    alt="Mukunda Kumar Giri – Principal, KMC Lalitpur"
                     fill
                     className="object-cover"
                   />
@@ -453,65 +544,58 @@ export default function About() {
                   <p className="text-white font-bold text-lg leading-tight">
                     Mukunda Kumar Giri
                   </p>
-                  <p className="text-[#C9A84C] text-sm font-medium mt-1">
+                  <p className="text-amber-400 text-sm font-medium mt-1">
                     Principal, KMC Lalitpur
                   </p>
                 </div>
               </div>
             </div>
-
-            {/* Message */}
             <div className="pt-4">
-              <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
                 Leadership
               </span>
               <h2 className="text-4xl font-bold text-[#0B1F3A] mb-8 leading-tight">
-                Principal's
+                Principal&apos;s
                 <br />
                 Message
               </h2>
-
-              {/* Pull quote */}
-              <blockquote className="border-l-4 border-[#C9A84C] pl-6 mb-8">
+              <blockquote className="border-l-4 border-amber-400 pl-6 mb-8">
                 <p className="text-[#0B1F3A] text-lg font-medium italic leading-relaxed">
-                  "Education is the foundation of a better future — and at KMC,
-                  that foundation is built on excellence, empathy, and
-                  unwavering purpose."
+                  &quot;Education is the foundation of a better future — and at
+                  KMC Lalitpur, that foundation is built on excellence, empathy,
+                  and unwavering purpose.&quot;
                 </p>
               </blockquote>
-
-              <div className="space-y-4 text-[#4a5568] text-sm leading-relaxed">
+              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
                 <p>
-                  Welcome to Kathmandu Model Secondary School, where we believe
-                  education is the foundation of a better future. For more than
-                  three decades, KMC has been committed to providing not just
-                  academic excellence, but a transformative learning experience
-                  that shapes character and develops critical thinkers.
+                  Welcome to Kathmandu Model Secondary School, Lalitpur — where
+                  we believe education is the most powerful tool for building a
+                  better future. Since our establishment in 2000, KMC has been
+                  unwavering in its commitment to providing not just academic
+                  excellence, but a transformative learning experience that
+                  shapes character and develops critical thinkers.
                 </p>
                 <p>
                   Our approach is rooted in the belief that every student is
-                  unique with distinct talents and potential. We create an
-                  inclusive, nurturing environment where diversity is
-                  celebrated, and individual strengths are recognised and
-                  developed.
+                  unique, with distinct talents and potential. We create an
+                  inclusive, nurturing environment where diversity is celebrated
+                  and individual strengths are recognised and developed.
                 </p>
                 <p>
-                  In today's rapidly evolving world, we equip our students with
-                  21st-century skills—critical thinking, creativity,
-                  collaboration, and communication—alongside traditional
-                  academic rigour. Our state-of-the-art facilities and diverse
-                  co-curricular programmes ensure holistic development.
+                  In today&apos;s rapidly evolving world, we equip our students
+                  with 21st-century skills — critical thinking, creativity,
+                  collaboration, and communication — alongside rigorous academic
+                  preparation aligned with NEB standards.
                 </p>
                 <p>
-                  I invite you to join our community. Together, let's build a
-                  brighter future where learning knows no bounds and every
-                  student realises their fullest potential.
+                  I warmly invite you to join our growing community. Together,
+                  let&apos;s build a brighter future where learning knows no
+                  bounds and every student realises their fullest potential.
                 </p>
               </div>
-
               <div className="mt-8 pt-6 border-t border-[#e2ddd4]">
                 <p className="font-bold text-[#0B1F3A]">Mukunda Kumar Giri</p>
-                <p className="text-[#6b7280] text-sm">
+                <p className="text-slate-500 text-sm">
                   Principal, KMC Lalitpur
                 </p>
               </div>
@@ -520,11 +604,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Why Choose KMC ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Why Choose KMC */}
+      <section className="py-24 bg-[#f7f5f0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-xl mb-14">
-            <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
               Why KMC
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
@@ -533,24 +617,22 @@ export default function About() {
               KMC Lalitpur?
             </h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyKMC.map((item, i) => (
               <div
                 key={i}
-                className="group bg-[#f7f5f0] hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300"
+                className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 border border-[#e8e8e8] hover:border-[#0B1F3A]"
               >
-                {/* Index */}
                 <div className="flex items-center gap-3 mb-5">
-                  <span className="text-xs font-bold text-[#C9A84C] tracking-widest">
+                  <span className="text-xs font-bold text-amber-500 tracking-widest">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="flex-1 h-px bg-[#C9A84C]/30" />
+                  <span className="flex-1 h-px bg-amber-400/30" />
                 </div>
                 <h3 className="text-base font-bold text-[#0B1F3A] group-hover:text-white mb-3 transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-[#6b7280] group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
+                <p className="text-slate-500 group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
                   {item.desc}
                 </p>
               </div>
@@ -559,38 +641,99 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0B1F3A] relative overflow-hidden">
-        {/* Decorative accent */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-[#C9A84C]/10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[#C9A84C]/8" />
+      {/* Global Achievement */}
+      <section className="py-20 bg-[#0B1F3A]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/30 px-3 py-1.5 rounded">
+                Global Success
+              </span>
+              <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
+                Our Students Reach
+                <br />
+                the World&apos;s Best Universities
+              </h2>
+              <p className="text-slate-400 leading-relaxed mb-6 text-sm">
+                In 2022, seven brilliant students from KMC were accepted to 16
+                of the most prestigious universities and liberal arts colleges
+                in the world — with combined scholarships exceeding NPR 60
+                crore. This is a testament to the quality of education and
+                mentorship at KMC Lalitpur.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { n: "7", label: "Students" },
+                  { n: "16", label: "Top Universities" },
+                  { n: "60Cr+", label: "In Scholarships" },
+                  { n: "100%", label: "NEB Pass Rate" },
+                ].map((s, i) => (
+                  <div
+                    key={i}
+                    className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                  >
+                    <p className="text-2xl font-bold text-amber-400">{s.n}</p>
+                    <p className="text-slate-400 text-xs mt-1">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/alumni"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
+              >
+                Meet Our Alumni <IconArrow />
+              </Link>
+            </div>
+            <div className="relative h-80 rounded-2xl overflow-hidden">
+              <Image
+                src="/images/campus.png"
+                alt="KMC Lalitpur Students"
+                fill
+                className="object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-amber-400 font-bold text-lg">
+                  &quot;Academic Excellence through Quality Education&quot;
+                </p>
+                <p className="text-slate-300 text-sm mt-1">
+                  KMC Lalitpur Motto
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <span className="inline-block text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-6 border border-[#C9A84C]/40 px-3 py-1.5 rounded">
+      {/* CTA */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-amber-400/10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-amber-400/10" />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-6 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
             Join Us
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-6 leading-tight">
             Join Our Growing
             <br />
             Community
           </h2>
-          <p className="text-[#8ba7c7] text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+          <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
             Be part of an institution committed to excellence, innovation, and
             your success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admissions"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-[#0B1F3A] font-bold rounded-xl hover:bg-[#d4b560] transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
-              Apply Now
-              <IconArrowRight />
+              Apply Now <IconArrow />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#C9A84C]/50 text-[#C9A84C] font-bold rounded-xl hover:bg-[#C9A84C]/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold rounded-xl hover:bg-[#0B1F3A] hover:text-white transition-colors"
             >
               Get in Touch
             </Link>
