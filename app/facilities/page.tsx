@@ -411,7 +411,7 @@ const additionalFacilities = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Facilities() {
   return (
-    <main className="bg-white pt-[100px]">
+    <main className="bg-white pt-25">
       <Header />
 
       {/* Schema */}
@@ -424,7 +424,7 @@ export default function Facilities() {
 
       {/* Hero */}
       <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
             <Link href="/" className="hover:text-amber-400 transition-colors">
@@ -531,7 +531,7 @@ export default function Facilities() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/40 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A]">
                     {facility.icon}
@@ -556,7 +556,7 @@ export default function Facilities() {
                       key={j}
                       className="flex items-start gap-2.5 text-sm text-slate-700"
                     >
-                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                         <IconCheck />
                       </span>
                       {feature}
@@ -591,7 +591,7 @@ export default function Facilities() {
                 key={i}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-amber-400/30 hover:bg-white/8 transition-all duration-300 flex flex-col"
               >
-                <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mb-5 flex-shrink-0">
+                <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mb-5 shrink-0">
                   {item.icon}
                 </div>
                 <h3 className="font-bold text-white mb-3 text-sm">
@@ -657,7 +657,7 @@ export default function Facilities() {
                     key={i}
                     className="flex items-center gap-2.5 text-sm text-slate-600"
                   >
-                    <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 text-[#0B1F3A]">
+                    <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A]">
                       <IconCheck />
                     </span>
                     {f}
@@ -697,7 +697,7 @@ export default function Facilities() {
                     key={i}
                     className="flex items-center gap-2.5 text-sm text-slate-600"
                   >
-                    <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 text-[#0B1F3A]">
+                    <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A]">
                       <IconCheck />
                     </span>
                     {f}
@@ -720,7 +720,7 @@ export default function Facilities() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="bg-[#0B1F3A] rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-amber-400/10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full border border-amber-400/10" />
             </div>
             <div className="relative">
               <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/30 px-3 py-1.5 rounded">

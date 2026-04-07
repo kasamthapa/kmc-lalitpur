@@ -98,7 +98,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="bg-white pt-[100px]">
+    <main className="bg-white pt-25">
       <Header />
 
       {/* Schema */}
@@ -111,7 +111,7 @@ export default function Contact() {
 
       {/* Hero */}
       <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
             <Link href="/" className="hover:text-amber-400 transition-colors">
@@ -485,7 +485,7 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-[#e8e8e8] h-72 flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-[#e8e8e8] h-72 shrink-0">
                 <iframe
                   width="100%"
                   height="100%"
@@ -515,7 +515,7 @@ export default function Contact() {
                       key={i}
                       className="flex items-start gap-3 text-sm text-slate-600"
                     >
-                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                         <svg
                           width="10"
                           height="10"
@@ -567,7 +567,7 @@ export default function Contact() {
                   typically replies within an hour during working hours.
                 </p>
               </div>
-              <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
+              <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shrink-0 text-white">
                 <IconWhatsAppSVG size={20} />
               </div>
             </div>
@@ -581,7 +581,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200 group"
                 >
-                  <span className="text-xl flex-shrink-0">{action.emoji}</span>
+                  <span className="text-xl shrink-0">{action.emoji}</span>
                   <div>
                     <p className="font-bold text-white text-sm group-hover:text-white">
                       {action.label}

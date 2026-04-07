@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <main className="bg-white">
       <Header />
-      <section className="min-h-[80vh] flex items-center justify-center pt-[100px]">
+      <section className="min-h-[80vh] flex items-center justify-center pt-25">
         <div className="text-center px-4">
           <p className="text-8xl font-bold text-[#0B1F3A] mb-4">404</p>
           <h1 className="text-2xl font-bold text-[#0B1F3A] mb-3">

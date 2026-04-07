@@ -16,7 +16,8 @@ const gradients = [
   "linear-gradient(135deg, #2d6a4f, #1a2e5a)",
 ];
 
-function Lightbox({ image, onClose }) {
+type GalleryImage = { src: string; alt: string; category: string };
+function Lightbox({ image, onClose }: { image: GalleryImage | null; onClose: () => void }) {
   if (!image) return null;
 
   return (
@@ -35,7 +36,7 @@ function Lightbox({ image, onClose }) {
         >
           <X size={32} />
         </button>
-        <div className="relative w-full h-96 md:h-[600px]">
+        <div className="relative w-full h-96 md:h-150">
           <Image
             src={image.src}
             alt={image.alt}
@@ -53,7 +54,8 @@ function Lightbox({ image, onClose }) {
 }
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  type GalleryImage = { src: string; alt: string; category: string };
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const images = [
     {
       src: "/images/hero-main.png",
@@ -110,7 +112,7 @@ export default function Gallery() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-950 to-blue-900 text-white">
+      <section className="pt-24 pb-16 bg-linear-to-br from-blue-950 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-8 text-slate-300">
             <Link href="/" className="hover:text-gold-500 transition">
@@ -144,7 +146,7 @@ export default function Gallery() {
                   fill
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                <div className="absolute inset-0 bg-linear-to-t from-blue-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
                   <div className="p-6 w-full">
                     <div className="text-gold-500 text-sm font-semibold mb-2">
                       {image.category}
@@ -161,7 +163,7 @@ export default function Gallery() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 to-blue-100">
+      <section className="py-24 bg-linear-to-br from-blue-50 to-blue-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-blue-950 mb-6">
             Schedule a Campus Tour

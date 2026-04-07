@@ -117,7 +117,7 @@ export default function NewsPage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* Page Header */}
-        <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-16 mt-16">
+        <section className="bg-linear-to-br from-slate-900 to-slate-800 text-white pt-32 pb-16 mt-16">
           <div className="max-w-7xl mx-auto px-4">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               News & Updates
@@ -178,7 +178,7 @@ export default function NewsPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   {/* Featured Image */}
-                  <div className="relative h-96 lg:h-full bg-gradient-to-br from-slate-600 to-slate-900 overflow-hidden">
+                  <div className="relative h-96 lg:h-full bg-linear-to-br from-slate-600 to-slate-900 overflow-hidden">
                     <Image
                       src={featuredNews.image}
                       alt={featuredNews.title}
@@ -231,7 +231,7 @@ export default function NewsPage() {
                     className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-amber-300 group cursor-pointer"
                   >
                     {/* News Image */}
-                    <div className="relative h-48 bg-gradient-to-br from-slate-600 to-slate-900 overflow-hidden">
+                    <div className="relative h-48 bg-linear-to-br from-slate-600 to-slate-900 overflow-hidden">
                       <Image
                         src={news.image}
                         alt={news.title}
