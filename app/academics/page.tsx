@@ -8,144 +8,23 @@ import {
   CourseSchema,
   WebPageSchema,
 } from "../components/schema";
+import {
+  IconCheck,
+  IconArrow,
+  IconStar,
+  IconUsers,
+  IconBook,
+  IconZap,
+  IconGlobe,
+  IconScale,
+  IconMic,
+} from "../components/icons";
 export const metadata: Metadata = {
   title: "Academic Programs",
   description:
     "Explore KMC Lalitpur's NEB-affiliated +2 programs — Science, Management, Humanities, and Law. Detailed subject lists, eligibility criteria, entrance exam info, and career pathways.",
 };
 
-// ─── Icons ────────────────────────────────────────────────────────────────────
-const IconCheck = () => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-const IconArrow = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-const IconStar = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-const IconUsers = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
-const IconBook = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
-  </svg>
-);
-const IconZap = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-const IconGlobe = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <line x1="2" y1="12" x2="22" y2="12" />
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-const IconScale = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="12" y1="3" x2="12" y2="21" />
-    <path d="M3 6l9-3 9 3" />
-    <path d="M3 18l9 3 9-3" />
-    <path d="M3 6l4 6-4 6" />
-    <path d="M21 6l-4 6 4 6" />
-  </svg>
-);
-const IconMic = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-    <line x1="12" y1="19" x2="12" y2="23" />
-    <line x1="8" y1="23" x2="16" y2="23" />
-  </svg>
-);
 
 // ─── Stream data ──────────────────────────────────────────────────────────────
 const streams = [
@@ -153,7 +32,7 @@ const streams = [
     id: "science",
     title: "Science Stream",
     shortTitle: "Science",
-    icon: <IconZap />,
+    icon: <IconZap size={22} />,
     color: "bg-blue-950",
     lightColor: "bg-blue-50",
     borderColor: "border-blue-200",
@@ -214,7 +93,7 @@ const streams = [
     id: "management",
     title: "Management Stream",
     shortTitle: "Management",
-    icon: <IconGlobe />,
+    icon: <IconGlobe size={22} />,
     color: "bg-emerald-900",
     lightColor: "bg-emerald-50",
     borderColor: "border-emerald-200",
@@ -269,7 +148,7 @@ const streams = [
     id: "humanities",
     title: "Humanities Stream",
     shortTitle: "Humanities",
-    icon: <IconMic />,
+    icon: <IconMic size={22} />,
     color: "bg-purple-900",
     lightColor: "bg-purple-50",
     borderColor: "border-purple-200",
@@ -325,7 +204,7 @@ const streams = [
     id: "law",
     title: "Law Stream",
     shortTitle: "Law",
-    icon: <IconScale />,
+    icon: <IconScale size={22} />,
     color: "bg-amber-900",
     lightColor: "bg-amber-50",
     borderColor: "border-amber-200",
@@ -790,17 +669,17 @@ export default function Academics() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: <IconBook />,
+                icon: <IconBook size={22} />,
                 title: "Subject Matter Experts",
                 desc: "Educators with advanced degrees — many holding Masters and PhD qualifications — and years of experience in their specialized fields.",
               },
               {
-                icon: <IconUsers />,
+                icon: <IconUsers size={22} />,
                 title: "Mentors & Guides",
                 desc: "Beyond teaching, our faculty guide students personally through academic decisions, entrance preparation, and career planning.",
               },
               {
-                icon: <IconZap />,
+                icon: <IconZap size={22} />,
                 title: "Continuous Learners",
                 desc: "Regular professional development, workshops, and training to stay current with the latest pedagogical methods and curriculum changes.",
               },

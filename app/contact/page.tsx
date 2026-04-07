@@ -5,128 +5,20 @@ import { useState } from "react";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
+import { SITE_CONFIG } from "../config/site";
+import {
+  IconPhone,
+  IconMail,
+  IconMapPin,
+  IconClock,
+  IconArrow,
+  IconCheck,
+  IconFacebook,
+  IconInstagram,
+  IconYoutube,
+  IconWhatsAppSVG,
+} from "../components/icons";
 
-// ─── Icons ────────────────────────────────────────────────────────────────────
-const IconPhone = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.42 2 2 0 0 1 3.58 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.29 6.29l1.62-1.62a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-const IconMail = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
-  </svg>
-);
-const IconMapPin = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-const IconClock = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
-const IconArrow = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-const IconCheck = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-const IconFacebook = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-const IconInstagram = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
-);
-const IconYoutube = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" />
-  </svg>
-);
-const IconWhatsApp = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.536.946-2.504 2.29-2.504 3.785 0 3.641 3.4 6.747 7.601 6.747a7.56 7.56 0 003.856-1.047l.493-.292 5.123 1.342-.86-5.159.531-.892a7.52 7.52 0 001.226-4.26c0-4.426-3.582-8.019-7.989-8.019Z" />
-  </svg>
-);
 
 // ─── WhatsApp quick actions ───────────────────────────────────────────────────
 const waActions = [
@@ -156,20 +48,20 @@ const waActions = [
 const departments = [
   {
     name: "General Enquiries",
-    phone: "+977-1-5918595",
-    email: "info@kmclalitpur.edu.np",
+    phone: SITE_CONFIG.phone,
+    email: SITE_CONFIG.email,
     hours: "Sun–Fri, 8AM–5PM",
   },
   {
     name: "Admissions Office",
-    phone: "+977-1-5918595",
-    email: "admissions@kmclalitpur.edu.np",
+    phone: SITE_CONFIG.phone,
+    email: `admissions@${SITE_CONFIG.email.split("@")[1]}`,
     hours: "Sun–Fri, 9AM–4PM",
   },
   {
     name: "Principal's Office",
-    phone: "+977-1-5918595",
-    email: "principal@kmclalitpur.edu.np",
+    phone: SITE_CONFIG.phone,
+    email: `principal@${SITE_CONFIG.email.split("@")[1]}`,
     hours: "By appointment",
   },
 ];
@@ -251,50 +143,50 @@ export default function Contact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                icon: <IconPhone />,
+                icon: <IconPhone size={22} />,
                 title: "Phone",
                 lines: [
                   <a
                     key="p1"
-                    href="tel:+97715918595"
+                    href={SITE_CONFIG.phoneHref}
                     className="hover:text-amber-600 transition-colors"
                   >
-                    +977-1-5918595
+                    {SITE_CONFIG.phone}
                   </a>,
                 ],
               },
               {
-                icon: <IconMail />,
+                icon: <IconMail size={22} />,
                 title: "Email",
                 lines: [
                   <a
                     key="e1"
-                    href="mailto:info@kmclalitpur.edu.np"
+                    href={`mailto:${SITE_CONFIG.email}`}
                     className="hover:text-amber-600 transition-colors text-xs"
                   >
-                    info@kmclalitpur.edu.np
+                    {SITE_CONFIG.email}
                   </a>,
                   <a
                     key="e2"
-                    href="mailto:admissions@kmclalitpur.edu.np"
+                    href={`mailto:admissions@${SITE_CONFIG.email.split("@")[1]}`}
                     className="hover:text-amber-600 transition-colors text-xs"
                   >
-                    admissions@kmclalitpur.edu.np
+                    {`admissions@${SITE_CONFIG.email.split("@")[1]}`}
                   </a>,
                 ],
               },
               {
-                icon: <IconMapPin />,
+                icon: <IconMapPin size={22} />,
                 title: "Location",
                 lines: [
                   <a
                     key="m1"
-                    href="https://maps.google.com/?q=Balkumari,Lalitpur,Nepal"
+                    href={SITE_CONFIG.address.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-amber-600 transition-colors"
                   >
-                    Balkumari, Lalitpur
+                    {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.addressLocality}
                   </a>,
                   <span key="m2" className="text-slate-400 text-xs">
                     Kathmandu Valley, Nepal
@@ -302,7 +194,7 @@ export default function Contact() {
                 ],
               },
               {
-                icon: <IconClock />,
+                icon: <IconClock size={22} />,
                 title: "Office Hours",
                 lines: [
                   <span key="h1">Sun – Fri: 8 AM – 5 PM</span>,
@@ -358,7 +250,7 @@ export default function Contact() {
                     className="flex items-center gap-2 text-slate-600 hover:text-amber-600 transition-colors"
                   >
                     <span className="text-amber-500">
-                      <IconPhone />
+                      <IconPhone size={22} />
                     </span>
                     {dept.phone}
                   </a>
@@ -367,13 +259,13 @@ export default function Contact() {
                     className="flex items-center gap-2 text-slate-600 hover:text-amber-600 transition-colors"
                   >
                     <span className="text-amber-500">
-                      <IconMail />
+                      <IconMail size={22} />
                     </span>
                     <span className="text-xs">{dept.email}</span>
                   </a>
                   <div className="flex items-center gap-2 text-slate-500 text-xs">
                     <span className="text-amber-500">
-                      <IconClock />
+                      <IconClock size={22} />
                     </span>
                     {dept.hours}
                   </div>
@@ -650,7 +542,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold text-sm rounded-xl hover:bg-[#0B1F3A] hover:text-white hover:border-[#0B1F3A] transition-all"
               >
-                <IconMapPin />
+                <IconMapPin size={22} />
                 Get Directions on Google Maps
               </a>
             </div>
@@ -676,7 +568,7 @@ export default function Contact() {
                 </p>
               </div>
               <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
-                <IconWhatsApp />
+                <IconWhatsAppSVG size={20} />
               </div>
             </div>
 
@@ -712,7 +604,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#128C7E] transition-colors text-sm"
               >
-                <IconWhatsApp />
+                <IconWhatsAppSVG size={20} />
                 Open WhatsApp Chat
               </a>
             </div>
@@ -734,28 +626,28 @@ export default function Contact() {
             </div>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/kmcbagbazar"
+                href={SITE_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all"
               >
-                <IconFacebook /> Facebook
+                <IconFacebook size={20} /> Facebook
               </a>
               <a
-                href="https://www.instagram.com/kmclalitpur"
+                href={SITE_CONFIG.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all"
               >
-                <IconInstagram /> Instagram
+                <IconInstagram size={20} /> Instagram
               </a>
               <a
-                href="https://www.youtube.com/@kmclalitpur"
+                href={SITE_CONFIG.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
               >
-                <IconYoutube /> YouTube
+                <IconYoutube size={20} /> YouTube
               </a>
             </div>
           </div>
