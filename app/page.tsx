@@ -217,24 +217,7 @@ const programs = [
     careers: ["BBA", "CA", "BBS", "Finance"],
     href: "/academics#management",
   },
-  {
-    id: "humanities",
-    title: "Humanities",
-    color: "from-purple-900 to-purple-700",
-    icon: <IconBook />,
-    image: "/images/management.png",
-    tagline: "Journalism · Social Work · Education",
-    subjects: [
-      "English",
-      "Nepali",
-      "Social Studies",
-      "Economics",
-      "Optional Maths",
-    ],
-    eligibility: "CGPA 2.05+ | C in Maths & English",
-    careers: ["BA", "Journalism", "Education", "Civil Service"],
-    href: "/academics#humanities",
-  },
+
   {
     id: "law",
     title: "Law",
@@ -594,7 +577,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {programs.map((p) => (
               <div
                 key={p.id}
