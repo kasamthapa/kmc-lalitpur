@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { IconX, IconArrow } from "./icons";
 
 // ─── WhatsApp PNG Icon ────────────────────────────────────────────────────────
 // Place the uploaded PNG at: public/whatsapp.png
@@ -14,37 +15,6 @@ const IconWhatsApp = ({ size = 28 }: { size?: number }) => (
     className="rounded-lg"
     style={{ width: size, height: size }}
   />
-);
-
-const IconX = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-  >
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-
-const IconArrow = () => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
 );
 
 // ─── Quick actions ────────────────────────────────────────────────────────────
@@ -169,7 +139,7 @@ export function WhatsAppFloat() {
                     </p>
                   </div>
                   <span className="text-[#128C7E] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
-                    <IconArrow />
+                    <IconArrow size={13} />
                   </span>
                 </a>
               </li>
@@ -215,7 +185,7 @@ export function WhatsAppFloat() {
         <span
           className={`transition-all duration-200 w-14 h-14 rounded-[18px] bg-[#128C7E] text-white flex items-center justify-center ${open ? "scale-100 opacity-100" : "scale-0 opacity-0 absolute"}`}
         >
-          <IconX />
+          <IconX size={20} />
         </span>
       </button>
     </div>

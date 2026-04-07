@@ -35,23 +35,16 @@ export interface EventItem {
   url?: string;
 }
 
-// ─── Site constants ───────────────────────────────────────────────────────────
-const SITE_URL = "https://kmclalitpur.edu.np";
-const SITE_NAME = "Kathmandu Model Secondary School - KMC Lalitpur";
-const SITE_PHONE = "+977-1-5918595";
-const SITE_EMAIL = "info@kmclalitpur.edu.np";
-const SITE_ADDRESS = {
-  streetAddress: "Balkumari",
-  addressLocality: "Lalitpur",
-  addressRegion: "Bagmati Province",
-  postalCode: "44700",
-  addressCountry: "NP",
-};
-const SITE_GEO = {
-  latitude: "27.6667",
-  longitude: "85.3167",
-};
-const SITE_HOURS = ["Mo-Fr 08:00-17:00", "Sa 10:00-15:00"];
+import { SITE_CONFIG } from "../config/site";
+
+// ─── Site constants (aliased for readability within this file) ────────────────
+const SITE_URL = SITE_CONFIG.url;
+const SITE_NAME = SITE_CONFIG.name;
+const SITE_PHONE = SITE_CONFIG.phone;
+const SITE_EMAIL = SITE_CONFIG.email;
+const SITE_ADDRESS = SITE_CONFIG.address;
+const SITE_GEO = SITE_CONFIG.geo;
+const SITE_HOURS = SITE_CONFIG.hours.schema;
 
 // ─── 1. Global Organization Schema ───────────────────────────────────────────
 // Inject this in layout.tsx so it appears on EVERY page.
@@ -85,7 +78,7 @@ export function SchemaOrg() {
         image: `${SITE_URL}/images/campus.png`,
         telephone: SITE_PHONE,
         email: SITE_EMAIL,
-        foundingDate: "2000",
+        foundingDate: SITE_CONFIG.foundingYear,
         address: {
           "@type": "PostalAddress",
           ...SITE_ADDRESS,
@@ -97,10 +90,10 @@ export function SchemaOrg() {
         openingHours: SITE_HOURS,
         hasMap: "https://maps.google.com/?q=Balkumari,Lalitpur,Nepal",
         sameAs: [
-          "https://www.facebook.com/kmcbagbazar",
-          "https://www.instagram.com/kmclalitpur",
-          "https://www.youtube.com/@kmclalitpur",
-          "https://ktmmodelcollege.edu.np",
+          SITE_CONFIG.socials.facebook,
+          SITE_CONFIG.socials.instagram,
+          SITE_CONFIG.socials.youtube,
+          SITE_CONFIG.socials.parent,
         ],
         accreditation: [
           {
@@ -120,12 +113,8 @@ export function SchemaOrg() {
             },
           },
         ],
-        award: [
-          "Ministry of Education Excellence Award — Best Campus among 4000+ Schools",
-          "Best Campus of 2080 — Government of Nepal, Ministry of Education Science & Technology",
-          "NEB Excellence Award — Academic Excellence",
-        ],
-        numberOfStudents: 2500,
+        award: SITE_CONFIG.awards,
+        numberOfStudents: SITE_CONFIG.studentCount,
         department: [
           { "@type": "EducationalOrganization", name: "Science Department" },
           { "@type": "EducationalOrganization", name: "Management Department" },
@@ -135,7 +124,7 @@ export function SchemaOrg() {
         parentOrganization: {
           "@type": "Organization",
           name: "KMC Educational Network",
-          url: "https://ktmmodelcollege.edu.np",
+          url: SITE_CONFIG.socials.parent,
         },
       },
 
@@ -173,27 +162,10 @@ export function SchemaOrg() {
           "@type": "GeoCoordinates",
           ...SITE_GEO,
         },
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-            ],
-            opens: "08:00",
-            closes: "17:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Saturday",
-            opens: "10:00",
-            closes: "15:00",
-          },
-        ],
+        openingHoursSpecification: SITE_CONFIG.hours.opening.map((h) => ({
+          "@type": "OpeningHoursSpecification",
+          ...h,
+        })),
         priceRange: "NPR",
         currenciesAccepted: "NPR",
       },
