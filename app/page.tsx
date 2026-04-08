@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "./components/header";
@@ -65,24 +67,6 @@ const programs = [
     eligibility: "CGPA 2.05+ | C in Maths & English",
     careers: ["BBA", "CA", "BBS", "Finance"],
     href: "/academics#management",
-  },
-  {
-    id: "humanities",
-    title: "Humanities",
-    color: "from-purple-900 to-purple-700",
-    icon: <IconBook size={28} />,
-    image: "/images/management.png",
-    tagline: "Journalism · Social Work · Education",
-    subjects: [
-      "English",
-      "Nepali",
-      "Social Studies",
-      "Economics",
-      "Optional Maths",
-    ],
-    eligibility: "CGPA 2.05+ | C in Maths & English",
-    careers: ["BA", "Journalism", "Education", "Civil Service"],
-    href: "/academics#humanities",
   },
   {
     id: "law",
@@ -196,7 +180,7 @@ export default function Home() {
       <Header />
       <WebPageSchema
         title="KMC Lalitpur | Kathmandu Model Secondary School"
-        description="NEB affiliated +2 programs in Science, Management, Humanities & Law. 100% NEB pass rate, 150+ faculty, Balkumari Lalitpur."
+        description="NEB affiliated +2 programs in Science, Management & Law. 100% NEB pass rate, 150+ faculty, Balkumari Lalitpur."
         path="/"
       />
       <CourseSchema
@@ -214,13 +198,6 @@ export default function Home() {
               "NEB-affiliated +2 Management program covering Accountancy, Business Studies, Economics and Mathematics. Prepares students for BBA, CA and BBS.",
             provider: "KMC Lalitpur",
             url: "/academics#management",
-          },
-          {
-            name: "Humanities Stream (+2)",
-            description:
-              "NEB-affiliated +2 Humanities program covering English, Social Studies, Economics and Mass Communication. Prepares students for BA, Journalism and Education.",
-            provider: "KMC Lalitpur",
-            url: "/academics#humanities",
           },
           {
             name: "Law Stream (+2)",
@@ -269,8 +246,8 @@ export default function Home() {
             </h1>
             <p className="text-lg text-white/80 mb-10 leading-relaxed max-w-xl">
               Kathmandu Model Secondary School delivers world-class education
-              across Science, Management, Humanities, and Law — with 100% NEB
-              pass rate and a legacy of excellence.
+              across Science, Management, and Law — with 100% NEB pass rate and
+              a legacy of excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -443,7 +420,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {programs.map((p) => (
               <div
                 key={p.id}
@@ -566,7 +543,7 @@ export default function Home() {
                   {
                     step: "02",
                     title: "Appear for Entrance Exam",
-                    desc: "MCQ-based exam. Science: 100 marks. Management/Law/Humanities: 75 marks.",
+                    desc: "MCQ-based exam. Science: 100 marks. Management/Law: 75 marks.",
                   },
                   {
                     step: "03",

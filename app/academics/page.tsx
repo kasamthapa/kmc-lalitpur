@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Academic Programs",
   description:
-    "Explore KMC Lalitpur's NEB-affiliated +2 programs — Science, Management, Humanities, and Law. Detailed subject lists, eligibility criteria, entrance exam info, and career pathways.",
+    "Explore KMC Lalitpur's NEB-affiliated +2 programs — Science, Management, and Law. Detailed subject lists, eligibility criteria, entrance exam info, and career pathways.",
 };
 
 
@@ -145,62 +145,6 @@ const streams = [
     passRate: "97%",
   },
   {
-    id: "humanities",
-    title: "Humanities Stream",
-    shortTitle: "Humanities",
-    icon: <IconMic size={22} />,
-    color: "bg-purple-900",
-    lightColor: "bg-purple-50",
-    borderColor: "border-purple-200",
-    accentColor: "text-purple-700",
-    image: "/images/management.png",
-    tagline: "Journalism · Social Work · Education · Development",
-    overview:
-      "The Humanities stream is ideal for students interested in social sciences, communication, education, and public service. KMC's Humanities programme builds a strong foundation for higher studies in arts, journalism, mass communication, social work, and development studies.",
-    subjects: [
-      { name: "English", note: "Core" },
-      { name: "Nepali", note: "Core" },
-      { name: "Social Studies", note: "Core" },
-      { name: "Economics", note: "Core" },
-      { name: "Mass Communication", note: "Optional" },
-      { name: "Mathematics", note: "Optional" },
-      { name: "Computer Science", note: "Optional" },
-    ],
-    eligibility: {
-      cgpa: "2.05+",
-      subjects: ["C grade in Mathematics", "C grade in English"],
-      note: "Open to all SEE graduates meeting minimum criteria",
-    },
-    entranceExam: {
-      format: "Physical + Computer-based MCQ",
-      breakdown: [
-        { subject: "English", marks: 45 },
-        { subject: "General Knowledge", marks: 15 },
-        { subject: "Mathematics", marks: 15 },
-      ],
-      total: 75,
-      note: "Results published on the same day. Scholarship based on SEE (25%) + Entrance (75%).",
-    },
-    features: [
-      "Mass Communication practical room with recording facilities",
-      "Debate and public speaking competitions",
-      "Journalism and writing workshops with media professionals",
-      "Community engagement and social service projects",
-      "Civil service examination preparation guidance",
-      "Psychology and counselling awareness programmes",
-    ],
-    careers: [
-      "BA (Arts)",
-      "Journalism / Mass Comm.",
-      "BEd (Education)",
-      "Social Work",
-      "Civil Service",
-      "Development Studies",
-      "Public Administration",
-    ],
-    passRate: "96%",
-  },
-  {
     id: "law",
     title: "Law Stream",
     shortTitle: "Law",
@@ -292,7 +236,7 @@ export default function Academics() {
       <BreadcrumbSchema items={[{ name: "Academics", href: "/academics" }]} />
       <WebPageSchema
         title="Academic Programs | KMC Lalitpur"
-        description="Four NEB-affiliated +2 programs at KMC Lalitpur — Science, Management, Humanities, Law. Detailed subjects, eligibility, entrance exam info and career pathways."
+        description="Three NEB-affiliated +2 programs at KMC Lalitpur — Science, Management, and Law. Detailed subjects, eligibility, entrance exam info and career pathways."
         path="/academics"
       />
       <CourseSchema
@@ -310,13 +254,6 @@ export default function Academics() {
               "NEB-affiliated +2 Management program covering Accountancy, Business Studies, Economics and Mathematics. Entrance exam: 75 marks. Requires CGPA 2.05+ with C in Maths and English.",
             provider: "KMC Lalitpur",
             url: "/academics#management",
-          },
-          {
-            name: "Humanities Stream (+2)",
-            description:
-              "NEB-affiliated +2 Humanities program covering English, Nepali, Social Studies, Economics and Mass Communication. Entrance exam: 75 marks. Requires CGPA 2.05+.",
-            provider: "KMC Lalitpur",
-            url: "/academics#humanities",
           },
           {
             name: "Law Stream (+2)",

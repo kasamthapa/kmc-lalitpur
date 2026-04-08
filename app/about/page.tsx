@@ -77,7 +77,7 @@ const milestones = [
   {
     year: "2000",
     title: "Founded",
-    desc: "Established under the KMC Educational Network offering Science, Management, and Humanities streams.",
+    desc: "Established under the KMC Educational Network offering Science, Management, and Law streams.",
   },
   {
     year: "2003",
@@ -210,7 +210,7 @@ export default function About() {
                 Kathmandu Model Secondary School was established in 2000 as part
                 of the KMC Educational Network, with a vision to provide
                 world-class +2 education in Nepal. Starting with Science,
-                Management, and Humanities streams, we quickly grew into one of
+                Management, and Law streams, we quickly grew into one of
                 the most respected secondary institutions in the country.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">

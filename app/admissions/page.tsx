@@ -118,55 +118,6 @@ const streams = {
       },
     ],
   },
-  humanities: {
-    label: "Humanities Stream",
-    color: "bg-purple-900",
-    steps: [
-      {
-        num: 1,
-        title: "Fill Online Form",
-        details:
-          "Fill the online admission form on our website after SEE results. Attach a recent passport-size photo with white background.",
-        requirements: [
-          "Minimum CGPA 2.05 in SEE",
-          "C grade in Mathematics",
-          "C grade in English",
-          "Recent passport-size photo (white background)",
-        ],
-        info: "Prospectus, fee structure, model questions, entrance center, symbol number, date and time will be sent to your registered email ID.",
-      },
-      {
-        num: 2,
-        title: "Appear for Entrance Exam",
-        details:
-          "KMC conducts a physical and computer-based MCQ entrance exam. Model questions are sent to your email before the exam.",
-        requirements: [
-          "English: 45 marks",
-          "General Knowledge: 15 marks",
-          "Mathematics: 15 marks",
-          "Total: 75 marks",
-          "Computer-checked answers",
-          "Follow all invigilator instructions",
-        ],
-        info: "Results published on the same day. Scholarship calculated on SEE (25%) + Entrance (75%).",
-      },
-      {
-        num: 3,
-        title: "Secure Your Admission",
-        details:
-          "Students on the merit list are informed to admit directly within the given deadline.",
-        requirements: [
-          "Direct admission for merit list students",
-          "Deadline provided along with results",
-          "Merit list has more entries than available seats",
-          "Wide range of scholarships for deserving students",
-          "First-come-first-served scholarship basis",
-          "Get admission before scholarship quota fills",
-        ],
-        info: "KMC publishes higher numbers in the merit list than its intake capacity. Students should get admission before seats are fulfilled.",
-      },
-    ],
-  },
   law: {
     label: "Law Stream",
     color: "bg-amber-900",
@@ -313,7 +264,7 @@ const timeline = [
   },
 ];
 
-const streamKeys = ["science", "management", "humanities", "law"] as const;
+const streamKeys = ["science", "management", "law"] as const;
 type StreamKey = (typeof streamKeys)[number];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -383,7 +334,7 @@ export default function Admissions() {
                 {
                   n: "4",
                   label: "Academic Streams",
-                  sub: "Science, Management, Humanities, Law",
+                  sub: "Science, Management, Law",
                 },
                 {
                   n: "100%",
@@ -753,12 +704,6 @@ export default function Admissions() {
                     cgpa: "CGPA 2.05+",
                     req: "C grade in Mathematics & English",
                     color: "bg-emerald-50 border-emerald-200",
-                  },
-                  {
-                    stream: "Humanities",
-                    cgpa: "CGPA 2.05+",
-                    req: "C grade in Mathematics & English",
-                    color: "bg-purple-50 border-purple-200",
                   },
                   {
                     stream: "Law",

@@ -56,7 +56,7 @@ export default function Facilities() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group border border-blue-100">
               <div className="h-64 relative bg-blue-600 overflow-hidden">
                 <Image
-                  src="/images/science-lab.png"
+                  src="/images/science.png"
                   alt="Science Laboratory"
                   fill
                   className="object-cover group-hover:scale-110 transition duration-500"

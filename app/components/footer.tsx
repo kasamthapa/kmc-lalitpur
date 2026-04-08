@@ -41,7 +41,7 @@ export function Footer() {
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-6 max-w-xs">
               Kathmandu Model Secondary School, Balkumari, Lalitpur — delivering
-              academic excellence through Science, Management, Humanities, and
+              academic excellence through Science, Management, and
               Law programs since {SITE_CONFIG.foundingYear}.
             </p>
 
@@ -156,7 +156,6 @@ export function Footer() {
               {[
                 { label: "Science Stream", href: "/academics#science" },
                 { label: "Management Stream", href: "/academics#management" },
-                { label: "Humanities Stream", href: "/academics#humanities" },
                 { label: "Law Stream", href: "/academics#law" },
                 { label: "Scholarship Info", href: "/admissions#scholarships" },
                 { label: "Entrance Exam Guide", href: "/admissions#guide" },
