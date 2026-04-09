@@ -34,6 +34,7 @@ export function Footer() {
                   src="/logo.png"
                   alt="KMC Lalitpur"
                   fill
+                  sizes="(max-width: 768px) 100vw, 300px"
                   className="object-contain object-left"
                   priority
                 />

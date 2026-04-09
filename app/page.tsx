@@ -19,6 +19,7 @@ import {
   IconMic,
   IconChevronRight,
 } from "./components/icons";
+import { NoticeMarquee } from "./components/notice-marquee";
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },
@@ -277,22 +278,7 @@ export default function Home() {
       </section>
 
       {/* ── Notice / Announcement strip ──────────────────────────────────── */}
-      <div className="bg-amber-400 text-[#0B1F3A] py-3 overflow-hidden">
-        <div className="flex gap-16 animate-marquee whitespace-nowrap px-4">
-          {[
-            "🎓 Admissions Open for 2082/83 Academic Year",
-            "📢 Entrance Exam Registration Available Online",
-            "🏆 KMC Lalitpur — Ministry of Education Excellence Award Winner",
-            "📚 100% NEB Pass Rate — Consistently Every Year",
-            "🌟 Scholarships Available — Merit & Need Based",
-            "📞 Call +977-1-5918595 for Admission Enquiries",
-          ].map((notice, i) => (
-            <span key={i} className="text-sm font-semibold inline-block">
-              {notice}
-            </span>
-          ))}
-        </div>
-      </div>
+      <NoticeMarquee />
 
       {/* ── Stats ────────────────────────────────────────────────────────── */}
       <section className="py-14 bg-[#0B1F3A] text-white">
@@ -326,6 +312,7 @@ export default function Home() {
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent" />
@@ -430,6 +417,7 @@ export default function Home() {
                     src={p.image}
                     alt={`${p.title} Stream`}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-70"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
@@ -700,6 +688,7 @@ export default function Home() {
                   src={latestNews[0].image}
                   alt={latestNews[0].title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 to-transparent" />
@@ -729,6 +718,7 @@ export default function Home() {
                       src={news.image}
                       alt={news.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 300px"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
@@ -866,6 +856,7 @@ export default function Home() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-[#0B1F3A]/20 group-hover:bg-[#0B1F3A]/10 transition-colors" />

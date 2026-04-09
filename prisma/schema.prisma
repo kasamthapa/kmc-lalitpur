@@ -1,0 +1,117 @@
+// prisma/schema.prisma — Prisma 7
+//
+// Prisma 7 breaking change: url/directUrl are no longer valid here.
+// Connection URLs are managed in prisma.config.ts (migrations) and
+// the PrismaClient adapter (runtime). See app/lib/prisma.ts.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── News & Events ────────────────────────────────────────────────────────────
+
+model News {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String
+  slug            String   @unique
+  description     String?
+  content         String?
+  category        String?
+  imageUrl        String?  @map("image_url")
+  published       Boolean  @default(false)
+  featured        Boolean  @default(false)
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("news")
+}
+
+// ─── Gallery ──────────────────────────────────────────────────────────────────
+// Stores metadata only — actual images live on Cloudflare R2.
+// src is the R2 public URL of the image.
+
+model Gallery {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  src          String
+  alt          String
+  category     String?
+  caption      String?
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("gallery")
+}
+
+// ─── Contact Enquiries ────────────────────────────────────────────────────────
+
+model Enquiry {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  stream    String?
+  message   String
+  read      Boolean  @default(false)
+  responded Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("enquiries")
+}
+
+// ─── Scrolling Notice Board ───────────────────────────────────────────────────
+
+model Notice {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  text         String
+  active       Boolean   @default(true)
+  displayOrder Int       @default(0) @map("display_order")
+  startDate    DateTime? @map("start_date") @db.Date
+  endDate      DateTime? @map("end_date") @db.Date
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  @@map("notices")
+}
+
+// ─── Blog ─────────────────────────────────────────────────────────────────────
+
+model BlogPost {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String
+  slug            String   @unique
+  excerpt         String?
+  content         String?
+  category        String?
+  imageUrl        String?  @map("image_url")
+  author          String?
+  readTime        String?  @map("read_time")
+  published       Boolean  @default(false)
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("blog_posts")
+}
+
+// ─── Admin Users ──────────────────────────────────────────────────────────────
+
+model AdminUser {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email        String   @unique
+  name         String?
+  passwordHash String   @map("password_hash")
+  role         String   @default("editor")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("admin_users")
+}
+
+// NOTE: No Question or MockResult models.
+// Mock tests are handled via Microsoft Forms — no custom exam engine in the DB.

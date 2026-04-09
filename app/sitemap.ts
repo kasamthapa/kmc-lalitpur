@@ -61,12 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${BASE_URL}/academics#humanities`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
       url: `${BASE_URL}/academics#law`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -84,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/campus/faculty`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.75,
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/campus/hostel`,
@@ -129,6 +123,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/mock-test`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
 
     // ── Admission sub-sections ────────────────────────────────────────────────

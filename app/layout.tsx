@@ -101,9 +101,15 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add your actual verification codes from Google Search Console and Bing
-    // google: "your-google-verification-code",
-    // other: { "msvalidate.01": "your-bing-verification-code" },
+    // ── HOW TO GET THESE (do this after deploying) ──────────────────────────
+    // Google Search Console: https://search.google.com/search-console
+    //   → Add property → URL prefix → https://kmclalitpur.edu.np
+    //   → Verify via HTML tag → copy the content= value below
+    // google: "paste-google-verification-code-here",
+    //
+    // Bing Webmaster Tools: https://www.bing.com/webmasters
+    //   → Add site → verify via meta tag → copy the content= value below
+    // other: { "msvalidate.01": "paste-bing-verification-code-here" },
   },
 };
 

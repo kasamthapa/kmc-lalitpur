@@ -78,6 +78,8 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -85,16 +87,41 @@ export default function Contact() {
     >,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // Clear field error on change
+    if (fieldErrors[e.target.name]) {
+      setFieldErrors((prev) => { const next = { ...prev }; delete next[e.target.name]; return next; });
+    }
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
     setLoading(true);
-    // Simulate submission — replace with your actual form API endpoint
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setFieldErrors({});
+    setServerError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const json = await res.json();
+
+      if (!res.ok) {
+        if (json.errors && Object.keys(json.errors).length > 0) {
+          setFieldErrors(json.errors);
+        } else {
+          setServerError(json.message ?? "Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -306,6 +333,8 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
+                      setFieldErrors({});
+                      setServerError("");
                       setFormData({
                         name: "",
                         email: "",
@@ -334,8 +363,9 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.name ? "border-red-400" : "border-[#e8e8e8]"}`}
                       />
+                      {fieldErrors.name && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.name}</p>}
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
@@ -363,8 +393,9 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.email ? "border-red-400" : "border-[#e8e8e8]"}`}
                     />
+                    {fieldErrors.email && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.email}</p>}
                   </div>
 
                   {/* Subject + Stream */}
@@ -379,8 +410,9 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can we help?"
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.subject ? "border-red-400" : "border-[#e8e8e8]"}`}
                       />
+                      {fieldErrors.subject && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.subject}</p>}
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
@@ -412,18 +444,20 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us how we can help you..."
                       rows={5}
-                      className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none bg-[#f7f5f0]"
+                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none bg-[#f7f5f0] ${fieldErrors.message ? "border-red-400" : "border-[#e8e8e8]"}`}
                     />
+                    {fieldErrors.message && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.message}</p>}
                   </div>
+
+                  {serverError && (
+                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      {serverError}
+                    </p>
+                  )}
 
                   <button
                     onClick={handleSubmit}
-                    disabled={
-                      loading ||
-                      !formData.name ||
-                      !formData.email ||
-                      !formData.message
-                    }
+                    disabled={loading}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
                   >
                     {loading ? (
