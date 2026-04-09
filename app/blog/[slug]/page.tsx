@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { IconChevronRight, IconCalendar } from "@/app/components/icons";
+import { ArticleSchema } from "@/app/components/schema";
 
 // ── Shared post data (single source of truth) ─────────────────────────────────
 // When the DB has content, this becomes the fallback for slugs not in the DB.
@@ -494,6 +495,15 @@ export default async function BlogPostPage({
   ).slice(0, 3);
 
   return (
+    <>
+    <ArticleSchema
+      title={post.metaTitle ?? post.title}
+      description={post.metaDescription ?? post.excerpt}
+      image={post.image}
+      datePublished={post.date}
+      author={post.author}
+      url={`/blog/${post.slug}`}
+    />
     <main className="bg-white">
       <Header />
 
@@ -675,5 +685,6 @@ export default async function BlogPostPage({
 
       <Footer />
     </main>
+    </>
   );
 }

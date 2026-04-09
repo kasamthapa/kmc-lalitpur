@@ -316,7 +316,61 @@ export function EventSchema({ events }: { events: EventItem[] }) {
   );
 }
 
-// ─── 6. WebPage Schema ────────────────────────────────────────────────────────
+// ─── 6. Article Schema ────────────────────────────────────────────────────────
+// Use on blog post pages. Eligible for Google's "Top Stories" rich result.
+export function ArticleSchema({
+  title,
+  description,
+  image,
+  datePublished,
+  author,
+  url,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  author: string;
+  url: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: description,
+    image: image.startsWith("http") ? image : `${SITE_URL}${image}`,
+    datePublished: datePublished,
+    author: {
+      "@type": "Organization",
+      name: author,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "EducationalOrganization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url.startsWith("http") ? url : `${SITE_URL}${url}`,
+    },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// ─── 7. WebPage Schema ────────────────────────────────────────────────────────
 // Use on any page that needs extra context. Good for GEO — AI tools
 // read the description and about fields when generating answers.
 export function WebPageSchema({

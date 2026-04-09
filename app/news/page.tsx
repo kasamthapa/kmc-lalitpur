@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { prisma } from "@/app/lib/prisma";
 import { NewsClient, type NewsArticle, type NoticeCard } from "./_components/NewsClient";
+import { EventSchema } from "@/app/components/schema";
 
 export const metadata: Metadata = {
   title: "News & Updates",
@@ -135,5 +136,18 @@ async function getNotices(): Promise<NoticeCard[]> {
 export default async function NewsPage() {
   const [news, notices] = await Promise.all([getNews(), getNotices()]);
 
-  return <NewsClient initialNews={news} notices={notices} />;
+  // Build structured event data for Google rich results
+  const schemaEvents = notices.slice(0, 6).map((n) => ({
+    name: n.title,
+    description: n.title,
+    startDate: n.date,
+    location: "KMC Lalitpur, Balkumari, Lalitpur",
+  }));
+
+  return (
+    <>
+      <EventSchema events={schemaEvents} />
+      <NewsClient initialNews={news} notices={notices} />
+    </>
+  );
 }
