@@ -5,11 +5,7 @@ import Link from "next/link";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { AwardsCarousel } from "./components/awards-carousel";
-import {
-  BreadcrumbSchema,
-  CourseSchema,
-  WebPageSchema,
-} from "./components/schema";
+import { CourseSchema, WebPageSchema } from "./components/schema";
 import {
   IconArrow,
   IconCheck,
@@ -209,7 +205,7 @@ export default function Home() {
         ]}
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen flex items-center overflow-hidden mt-[100px]">
+      <section className="relative h-screen flex items-center overflow-hidden mt-25">
         {/* YouTube background */}
         <iframe
           className="absolute top-0 left-0 w-full h-full scale-110"
@@ -221,7 +217,7 @@ export default function Home() {
         />
         {/* Overlay */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent"
+          className="absolute inset-0 bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent"
           style={{ zIndex: 1 }}
         />
 
@@ -325,14 +321,15 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
             <div className="relative">
-              <div className="relative h-[480px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-120 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/30 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent" />
               </div>
               {/* Floating stat */}
               <div className="absolute -bottom-6 -right-6 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-2xl">
@@ -377,7 +374,7 @@ export default function Home() {
                   { label: "Innovation Focused", sub: "21st-century skills" },
                 ].map((f, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                       <IconCheck size={15} />
                     </span>
                     <div>
@@ -428,15 +425,16 @@ export default function Home() {
               >
                 {/* Image */}
                 <div
-                  className={`relative h-44 bg-gradient-to-br ${p.color} overflow-hidden flex-shrink-0`}
+                  className={`relative h-44 bg-linear-to-br ${p.color} overflow-hidden shrink-0`}
                 >
                   <Image
                     src={p.image}
                     alt={`${p.title} Stream`}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-70"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <div className="w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] mb-2">
                       {p.icon}
@@ -458,7 +456,7 @@ export default function Home() {
                           key={s}
                           className="flex items-center gap-2 text-sm text-slate-700"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
                           {s}
                         </li>
                       ))}
@@ -552,7 +550,7 @@ export default function Home() {
                   },
                 ].map((s) => (
                   <div key={s.step} className="flex gap-5 group">
-                    <div className="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm shrink-0 group-hover:scale-110 transition-transform">
                       {s.step}
                     </div>
                     <div>
@@ -613,7 +611,7 @@ export default function Home() {
                     key={i}
                     className="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10"
                   >
-                    <span className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs flex-shrink-0">
+                    <span className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs shrink-0">
                       {i + 1}
                     </span>
                     <div>
@@ -704,9 +702,10 @@ export default function Home() {
                   src={latestNews[0].image}
                   alt={latestNews[0].title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/70 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block bg-amber-400 text-[#0B1F3A] text-xs font-bold px-3 py-1 rounded-full mb-2">
                     {latestNews[0].category}
@@ -728,11 +727,12 @@ export default function Home() {
                   key={i}
                   className="group flex gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-[#e8e8e8] hover:border-amber-300 cursor-pointer p-4"
                 >
-                  <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                  <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden">
                     <Image
                       src={news.image}
                       alt={news.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 300px"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
@@ -836,7 +836,7 @@ export default function Home() {
                     key={i}
                     className="flex items-center gap-2.5 text-sm text-slate-700"
                   >
-                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0">
+                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
                       <IconCheck size={15} />
                     </span>
                     {activity}
@@ -870,6 +870,7 @@ export default function Home() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-[#0B1F3A]/20 group-hover:bg-[#0B1F3A]/10 transition-colors" />
@@ -883,8 +884,8 @@ export default function Home() {
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-[#0B1F3A] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-amber-400/10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-amber-400/10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full border border-amber-400/10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6 border border-amber-400/30 px-3 py-1.5 rounded">

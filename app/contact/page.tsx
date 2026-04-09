@@ -78,6 +78,8 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -85,20 +87,45 @@ export default function Contact() {
     >,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // Clear field error on change
+    if (fieldErrors[e.target.name]) {
+      setFieldErrors((prev) => { const next = { ...prev }; delete next[e.target.name]; return next; });
+    }
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
     setLoading(true);
-    // Simulate submission — replace with your actual form API endpoint
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setFieldErrors({});
+    setServerError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const json = await res.json();
+
+      if (!res.ok) {
+        if (json.errors && Object.keys(json.errors).length > 0) {
+          setFieldErrors(json.errors);
+        } else {
+          setServerError(json.message ?? "Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <main className="bg-white pt-[100px]">
+    <main className="bg-white pt-25">
       <Header />
 
       {/* Schema */}
@@ -111,7 +138,7 @@ export default function Contact() {
 
       {/* Hero */}
       <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
             <Link href="/" className="hover:text-amber-400 transition-colors">
@@ -306,6 +333,8 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
+                      setFieldErrors({});
+                      setServerError("");
                       setFormData({
                         name: "",
                         email: "",
@@ -334,8 +363,9 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.name ? "border-red-400" : "border-[#e8e8e8]"}`}
                       />
+                      {fieldErrors.name && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.name}</p>}
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
@@ -363,8 +393,9 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.email ? "border-red-400" : "border-[#e8e8e8]"}`}
                     />
+                    {fieldErrors.email && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.email}</p>}
                   </div>
 
                   {/* Subject + Stream */}
@@ -379,8 +410,9 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can we help?"
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.subject ? "border-red-400" : "border-[#e8e8e8]"}`}
                       />
+                      {fieldErrors.subject && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.subject}</p>}
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
@@ -412,18 +444,20 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us how we can help you..."
                       rows={5}
-                      className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none bg-[#f7f5f0]"
+                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none bg-[#f7f5f0] ${fieldErrors.message ? "border-red-400" : "border-[#e8e8e8]"}`}
                     />
+                    {fieldErrors.message && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.message}</p>}
                   </div>
+
+                  {serverError && (
+                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      {serverError}
+                    </p>
+                  )}
 
                   <button
                     onClick={handleSubmit}
-                    disabled={
-                      loading ||
-                      !formData.name ||
-                      !formData.email ||
-                      !formData.message
-                    }
+                    disabled={loading}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
                   >
                     {loading ? (
@@ -484,7 +518,7 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-[#e8e8e8] h-72 flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-[#e8e8e8] h-72 shrink-0">
                 <iframe
                   width="100%"
                   height="100%"
@@ -514,7 +548,7 @@ export default function Contact() {
                       key={i}
                       className="flex items-start gap-3 text-sm text-slate-600"
                     >
-                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                         <svg
                           width="10"
                           height="10"
@@ -566,7 +600,7 @@ export default function Contact() {
                   typically replies within an hour during working hours.
                 </p>
               </div>
-              <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
+              <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shrink-0 text-white">
                 <IconWhatsAppSVG size={20} />
               </div>
             </div>
@@ -580,7 +614,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200 group"
                 >
-                  <span className="text-xl flex-shrink-0">{action.emoji}</span>
+                  <span className="text-xl shrink-0">{action.emoji}</span>
                   <div>
                     <p className="font-bold text-white text-sm group-hover:text-white">
                       {action.label}

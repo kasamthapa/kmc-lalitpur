@@ -184,6 +184,7 @@ export default function About() {
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/20 to-transparent" />
@@ -410,6 +411,7 @@ export default function About() {
                     src="/images/principal.png"
                     alt="Mukunda Kumar Giri – Principal, KMC Lalitpur"
                     fill
+                    sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/70 via-transparent to-transparent" />
@@ -563,6 +565,7 @@ export default function About() {
                 src="/images/campus.png"
                 alt="KMC Lalitpur Students"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-60"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent" />

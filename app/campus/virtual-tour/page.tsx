@@ -155,6 +155,7 @@ export default function VirtualTourPage() {
                     src={area.image}
                     alt={area.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent opacity-0 group-hover:opacity-100 transition" />

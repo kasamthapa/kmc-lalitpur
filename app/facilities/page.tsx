@@ -59,6 +59,7 @@ export default function Facilities() {
                   src="/images/science.png"
                   alt="Science Laboratory"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -88,6 +89,7 @@ export default function Facilities() {
                   src="/images/computer-lab.png"
                   alt="Computer Laboratory"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -117,6 +119,7 @@ export default function Facilities() {
                   src="/images/library.png"
                   alt="Central Library"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -146,6 +149,7 @@ export default function Facilities() {
                   src="/images/sports-facility.png"
                   alt="Sports Complex"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -175,6 +179,7 @@ export default function Facilities() {
                   src="/images/cafeteria.png"
                   alt="Modern Cafeteria"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -204,6 +209,7 @@ export default function Facilities() {
                   src="/images/auditorium.png"
                   alt="Grand Auditorium"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>

@@ -318,6 +318,7 @@ export default function Academics() {
                 src="/images/teach.png"
                 alt="KMC Classroom"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/30 to-transparent" />
@@ -382,6 +383,7 @@ export default function Academics() {
                     src={stream.image}
                     alt={stream.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 to-transparent" />

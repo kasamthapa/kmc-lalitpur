@@ -10,51 +10,16 @@ type Message = {
   text: string;
 };
 
-// ─── Mock response engine ─────────────────────────────────────────────────────
-function getBotReply(input: string): string {
-  const q = input.toLowerCase();
+// API message format expected by /api/chatbot
+type ApiMessage = {
+  role: "user" | "model";
+  parts: string;
+};
 
-  if (q.match(/admission|apply|enroll|join/))
-    return `Admissions for the 2082/83 academic year are open! You need SEE results and relevant documents. For Science, minimum GPA 3.0 is required. Call us at ${SITE_CONFIG.phone} or visit our Admissions page for full details.`;
-
-  if (q.match(/fee|cost|price|tuition|charge/))
-    return "Fees vary by stream. Science is the highest, followed by Management and Law. We offer merit scholarships (up to 100% waiver) and need-based assistance. Contact our admissions office for the exact fee structure.";
-
-  if (q.match(/stream|science|management|humanities|law/))
-    return "KMC offers 3 streams at the +2 level:\n• Science (Physics, Chemistry, Biology/Computer)\n• Management (Accountancy, Economics, Business)\n• Law (Legal Studies & Social Sciences)\n\nVisit our Academics page to learn more.";
-
-  if (q.match(/hostel|room|accommodation|stay/))
-    return `Yes, we have hostel facilities! Options include Single (Rs. 12,000/month), Double (Rs. 8,500/month), and Dormitory (Rs. 6,000/month) rooms — all include 3 meals/day, Wi-Fi, and 24/7 security. Visit /campus/hostel for details.`;
-
-  if (q.match(/transport|bus|route|pickup/))
-    return "We run transport on 5 routes covering Kathmandu, Patan, Bhaktapur, Baneshwor, and Gwarko areas. Monthly passes start from Rs. 1,500. Visit /campus/transport for route details and stops.";
-
-  if (q.match(/contact|phone|email|address|location/))
-    return `📞 Phone: ${SITE_CONFIG.phone}\n📧 Email: ${SITE_CONFIG.email}\n📍 Address: ${SITE_CONFIG.address.display}\n\nOffice hours: Sun–Fri 8 AM–5 PM, Sat 10 AM–3 PM`;
-
-  if (q.match(/scholarship|discount|waiver|free/))
-    return "KMC offers merit-based scholarships (25%–100% fee waiver) based on our entrance exam scores. We also have scholarships for top sports athletes and students with financial need. Apply during the admission process.";
-
-  if (q.match(/result|pass rate|academic performance|topper/))
-    return "KMC Lalitpur has consistently achieved 100% pass rates in NEB examinations and has produced multiple district and national toppers. We received the NEB Excellence Award for Academic Excellence.";
-
-  if (q.match(/mock test|practice|exam prep|preparation/))
-    return "You can take free mock tests on our website at /mock-test! We have practice questions for Physics, Chemistry, Biology, Mathematics, Accountancy, Economics and more streams.";
-
-  if (q.match(/faculty|teacher|professor|staff/))
-    return "KMC has 150+ qualified educators, including 12+ PhD holders with an average of 11 years of teaching experience. Visit /campus/faculty to see our full team.";
-
-  if (q.match(/facilities|lab|library|sports|computer/))
-    return "Our campus has: Science Labs (Physics, Chemistry, Biology), Computer Lab (60 workstations), Library (15,000+ books), Auditorium (500 seats), Sports Complex, and a Cafeteria. Visit /facilities for the full tour.";
-
-  if (q.match(/hello|hi|hey|namaste/))
-    return "Namaste! 👋 I'm KMC's virtual assistant. I can help you with admissions, fees, streams, facilities, hostel, transport, and more. What would you like to know?";
-
-  if (q.match(/thank|thanks|धन्यवाद/))
-    return "You're welcome! 😊 Is there anything else I can help you with? Feel free to ask about admissions, academic programs, or campus facilities.";
-
-  return `I'm not sure about that specifically. For accurate information, please contact us directly:\n📞 ${SITE_CONFIG.phone}\n📧 ${SITE_CONFIG.email}\n\nOr visit our Contact page for more ways to reach us.`;
-}
+const FALLBACK_MESSAGE =
+  `Sorry, I'm having trouble connecting right now. Please call us at ` +
+  `${SITE_CONFIG.phone} or WhatsApp ${SITE_CONFIG.address.display.split(",")[0]} ` +
+  `+977 98511 38595`;
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export function Chatbot() {
@@ -79,24 +44,74 @@ export function Chatbot() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  function send() {
-    const text = input.trim();
-    if (!text) return;
+  async function send(overrideText?: string) {
+    const text = (overrideText ?? input).trim();
+    if (!text || typing) return;
 
     const userMsg: Message = { id: Date.now(), role: "user", text };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setTyping(true);
 
-    setTimeout(() => {
-      const botMsg: Message = {
-        id: Date.now() + 1,
-        role: "bot",
-        text: getBotReply(text),
-      };
-      setMessages((prev) => [...prev, botMsg]);
-      setTyping(false);
-    }, 900);
+    // Build history for the API — convert bot→model, exclude initial greeting
+    const history: ApiMessage[] = messages
+      .filter((m) => m.id !== 0) // skip the greeting message
+      .map((m) => ({
+        role: m.role === "user" ? "user" : "model",
+        parts: m.text,
+      }));
+    history.push({ role: "user", parts: text });
+
+    // Placeholder bot message that we'll stream into
+    const botId = Date.now() + 1;
+    setMessages((prev) => [...prev, { id: botId, role: "bot", text: "" }]);
+    setTyping(false);
+
+    try {
+      const res = await fetch("/api/chatbot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history }),
+      });
+
+      if (!res.ok || !res.body) {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === botId ? { ...m, text: FALLBACK_MESSAGE } : m
+          )
+        );
+        return;
+      }
+
+      // Stream response chunks into the bot message
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        accumulated += decoder.decode(value, { stream: true });
+        const snap = accumulated;
+        setMessages((prev) =>
+          prev.map((m) => (m.id === botId ? { ...m, text: snap } : m))
+        );
+      }
+
+      // Flush any remaining bytes
+      accumulated += decoder.decode();
+      if (accumulated) {
+        setMessages((prev) =>
+          prev.map((m) => (m.id === botId ? { ...m, text: accumulated } : m))
+        );
+      }
+    } catch {
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === botId ? { ...m, text: FALLBACK_MESSAGE } : m
+        )
+      );
+    }
   }
 
   function handleKey(e: React.KeyboardEvent) {
@@ -158,7 +173,10 @@ export function Chatbot() {
                       : "bg-white text-[#374151] rounded-tl-sm border border-[#eae6de] shadow-sm"
                   }`}
                 >
-                  {msg.text}
+                  {msg.text || (
+                    /* streaming cursor while text is empty */
+                    <span className="inline-block w-2 h-4 bg-[#6b7280] animate-pulse rounded-sm" />
+                  )}
                 </div>
               </div>
             ))}
@@ -190,10 +208,7 @@ export function Chatbot() {
               {quickReplies.map((qr) => (
                 <button
                   key={qr}
-                  onClick={() => {
-                    setInput(qr);
-                    setTimeout(send, 0);
-                  }}
+                  onClick={() => send(qr)}
                   className="text-xs px-3 py-1.5 rounded-full border border-[#eae6de] text-[#374151] hover:border-amber-400 hover:text-amber-600 transition"
                 >
                   {qr}
@@ -214,8 +229,8 @@ export function Chatbot() {
               className="flex-1 px-4 py-2.5 rounded-xl border border-[#eae6de] text-sm text-[#374151] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-amber-400 bg-[#f7f5f0]"
             />
             <button
-              onClick={send}
-              disabled={!input.trim()}
+              onClick={() => send()}
+              disabled={!input.trim() || typing}
               className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-white flex items-center justify-center hover:bg-[#162d54] disabled:opacity-40 transition shrink-0"
               aria-label="Send"
             >

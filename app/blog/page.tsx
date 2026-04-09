@@ -222,6 +222,7 @@ export default function BlogPage() {
                       src={featured.image}
                       alt={featured.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition duration-500"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent" />
@@ -271,6 +272,7 @@ export default function BlogPage() {
                           src={post.image}
                           alt={post.title}
                           fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
                           className="object-cover group-hover:scale-105 transition duration-500"
                         />
                         <span className="absolute top-3 left-3 px-2 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold rounded-full">
@@ -359,6 +361,7 @@ export default function BlogPage() {
                         src={post.image}
                         alt={post.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 300px"
                         className="object-cover"
                       />
                     </div>

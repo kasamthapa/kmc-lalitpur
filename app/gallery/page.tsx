@@ -51,7 +51,7 @@ function Lightbox({ image, onClose }: { image: GalleryImage | null; onClose: () 
           <IconX size={32} />
         </button>
         <div className="relative w-full h-96 md:h-[600px]">
-          <Image src={image.src} alt={image.alt} fill className="object-contain" />
+          <Image src={image.src} alt={image.alt} fill sizes="100vw" className="object-contain" />
         </div>
         <div className="mt-4 text-center">
           <p className="text-amber-400 font-semibold text-sm">{image.category}</p>
@@ -140,6 +140,7 @@ export default function Gallery() {
                     src={image.src}
                     alt={image.alt}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
