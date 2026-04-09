@@ -395,7 +395,6 @@ export default function Contact() {
                         <option value="">Select a stream</option>
                         <option value="science">Science</option>
                         <option value="management">Management</option>
-                        <option value="humanities">Humanities</option>
                         <option value="law">Law</option>
                         <option value="general">General Enquiry</option>
                       </select>

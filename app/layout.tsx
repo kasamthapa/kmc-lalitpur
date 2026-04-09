@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { WhatsAppFloat } from "./components/whatsapp";
+import { Chatbot } from "./components/chatbot";
 import { SchemaOrg } from "./components/schema";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | KMC Lalitpur",
   },
   description:
-    "Kathmandu Model Secondary School (KMC Lalitpur) in Balkumari, Lalitpur — NEB affiliated +2 programs in Science, Management, Humanities & Law. 100% NEB pass rate, 150+ faculty, world-class facilities.",
+    "Kathmandu Model Secondary School (KMC Lalitpur) in Balkumari, Lalitpur — NEB affiliated +2 programs in Science, Management & Law. 100% NEB pass rate, 150+ faculty, world-class facilities.",
   keywords: [
     "KMC Lalitpur",
     "Kathmandu Model Secondary School",
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     siteName: "KMC Lalitpur",
     title: "KMC Lalitpur | Kathmandu Model Secondary School",
     description:
-      "NEB affiliated +2 programs in Science, Management, Humanities & Law. 100% pass rate, 150+ expert faculty, world-class facilities in Balkumari, Lalitpur.",
+      "NEB affiliated +2 programs in Science, Management & Law. 100% pass rate, 150+ expert faculty, world-class facilities in Balkumari, Lalitpur.",
     images: [
       {
         url: "/images/og-image.png",
@@ -90,7 +91,7 @@ export const metadata: Metadata = {
     creator: "@kmclalitpur",
     title: "KMC Lalitpur | Kathmandu Model Secondary School",
     description:
-      "NEB affiliated +2 programs in Science, Management, Humanities & Law. 100% pass rate, world-class facilities in Lalitpur, Nepal.",
+      "NEB affiliated +2 programs in Science, Management & Law. 100% pass rate, world-class facilities in Lalitpur, Nepal.",
     images: ["/images/og-image.png"],
   },
   alternates: {
@@ -121,6 +122,7 @@ export default function RootLayout({
       <body className={`${geist.className} antialiased`}>
         {children}
         <WhatsAppFloat />
+        <Chatbot />
         <Analytics />
       </body>
     </html>

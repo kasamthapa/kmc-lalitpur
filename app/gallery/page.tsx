@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { ChevronRight, X } from "lucide-react";
+import { IconChevronRight, IconX } from "../components/icons";
 
 const gradients = [
   "linear-gradient(135deg, #1a2e5a, #4a90d9)",
@@ -17,35 +17,44 @@ const gradients = [
 ];
 
 type GalleryImage = { src: string; alt: string; category: string };
+
+const allImages: GalleryImage[] = [
+  { src: "/images/hero-main.png", alt: "Campus Overview", category: "Campus" },
+  { src: "/images/classroom.png", alt: "Interactive Learning", category: "Academics" },
+  { src: "/images/science-lab.png", alt: "Science Lab", category: "Facilities" },
+  { src: "/images/computer-lab.png", alt: "Computer Lab", category: "Technology" },
+  { src: "/images/library.png", alt: "Library", category: "Facilities" },
+  { src: "/images/sports-facility.png", alt: "Sports Complex", category: "Activities" },
+  { src: "/images/auditorium.png", alt: "Auditorium", category: "Events" },
+  { src: "/images/cafeteria.png", alt: "Cafeteria", category: "Campus" },
+  { src: "/images/student-event.png", alt: "Student Event", category: "Events" },
+  { src: "/images/graduation.png", alt: "Graduation Ceremony", category: "Celebrations" },
+  { src: "/images/awards-ceremony.png", alt: "Awards Ceremony", category: "Achievements" },
+  { src: "/images/admissions-process.png", alt: "Admissions Day", category: "Admissions" },
+];
+
+const categories = ["All", ...Array.from(new Set(allImages.map((i) => i.category)))];
+
 function Lightbox({ image, onClose }: { image: GalleryImage | null; onClose: () => void }) {
   if (!image) return null;
-
   return (
     <div
       className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <div
-        className="relative max-w-4xl w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 text-white hover:text-gold-500 transition"
+          className="absolute -top-12 right-0 text-white hover:text-amber-400 transition"
           aria-label="Close lightbox"
         >
-          <X size={32} />
+          <IconX size={32} />
         </button>
-        <div className="relative w-full h-96 md:h-150">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-contain"
-          />
+        <div className="relative w-full h-96 md:h-[600px]">
+          <Image src={image.src} alt={image.alt} fill className="object-contain" />
         </div>
         <div className="mt-4 text-center">
-          <p className="text-gold-500 font-semibold">{image.category}</p>
+          <p className="text-amber-400 font-semibold text-sm">{image.category}</p>
           <h3 className="text-white text-xl font-bold">{image.alt}</h3>
         </div>
       </div>
@@ -54,130 +63,117 @@ function Lightbox({ image, onClose }: { image: GalleryImage | null; onClose: () 
 }
 
 export default function Gallery() {
-  type GalleryImage = { src: string; alt: string; category: string };
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
-  const images = [
-    {
-      src: "/images/hero-main.png",
-      alt: "Campus Overview",
-      category: "Campus",
-    },
-    {
-      src: "/images/classroom.png",
-      alt: "Interactive Learning",
-      category: "Academics",
-    },
-    {
-      src: "/images/science-lab.png",
-      alt: "Science Lab",
-      category: "Facilities",
-    },
-    {
-      src: "/images/computer-lab.png",
-      alt: "Computer Lab",
-      category: "Technology",
-    },
-    { src: "/images/library.png", alt: "Library", category: "Facilities" },
-    {
-      src: "/images/sports-facility.png",
-      alt: "Sports",
-      category: "Activities",
-    },
-    { src: "/images/auditorium.png", alt: "Auditorium", category: "Events" },
-    { src: "/images/cafeteria.png", alt: "Cafeteria", category: "Campus" },
-    {
-      src: "/images/student-event.png",
-      alt: "Student Event",
-      category: "Events",
-    },
-    {
-      src: "/images/graduation.png",
-      alt: "Graduation",
-      category: "Celebrations",
-    },
-    {
-      src: "/images/awards-ceremony.png",
-      alt: "Awards",
-      category: "Achievements",
-    },
-    {
-      src: "/images/admissions-process.png",
-      alt: "Admissions",
-      category: "Admissions",
-    },
-  ];
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered =
+    activeCategory === "All"
+      ? allImages
+      : allImages.filter((img) => img.category === activeCategory);
 
   return (
     <main className="bg-white">
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-linear-to-br from-blue-950 to-blue-900 text-white">
+      <section className="pt-24 pb-16 bg-[#0B1F3A] text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-2 mb-8 text-slate-300">
-            <Link href="/" className="hover:text-gold-500 transition">
-              Home
-            </Link>
-            <ChevronRight size={16} />
-            <span className="text-gold-500 font-semibold">Gallery</span>
+          <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
+            <Link href="/" className="hover:text-amber-400 transition">Home</Link>
+            <IconChevronRight size={14} />
+            <span className="text-amber-400 font-semibold">Gallery</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Photo Gallery</h1>
-          <p className="text-xl text-slate-300 max-w-2xl">
-            Explore campus life, events, and achievements through our
-            comprehensive collection
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
+            Campus Life
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">Photo Gallery</h1>
+          <p className="text-xl text-[#8ba7c7] max-w-2xl">
+            Explore campus life, events, facilities, and achievements through our comprehensive photo collection.
           </p>
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="py-24 bg-white">
+      {/* Category Filter */}
+      <section className="py-6 bg-white border-b border-[#eae6de] sticky top-[100px] z-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {images.map((image, i) => (
-              <div
-                key={i}
-                onClick={() => setSelectedImage(image)}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition cursor-pointer h-80"
-                style={{ background: gradients[i % gradients.length] }}
+          <div className="flex flex-wrap gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
+                  activeCategory === cat
+                    ? "bg-[#0B1F3A] text-white shadow"
+                    : "bg-[#f7f5f0] text-[#374151] hover:bg-[#eae6de]"
+                }`}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-blue-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
-                  <div className="p-6 w-full">
-                    <div className="text-gold-500 text-sm font-semibold mb-2">
-                      {image.category}
-                    </div>
-                    <h3 className="text-white text-lg font-bold">
-                      {image.alt}
-                    </h3>
-                  </div>
-                </div>
-              </div>
+                {cat}
+                {cat !== "All" && (
+                  <span className="ml-1.5 opacity-60 text-xs">
+                    ({allImages.filter((i) => i.category === cat).length})
+                  </span>
+                )}
+              </button>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Gallery Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          {filtered.length === 0 ? (
+            <div className="text-center py-24">
+              <p className="text-5xl mb-4">🖼️</p>
+              <h3 className="text-xl font-bold text-[#0B1F3A]">No photos in this category</h3>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filtered.map((image, i) => (
+                <div
+                  key={`${image.src}-${i}`}
+                  onClick={() => setSelectedImage(image)}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition cursor-pointer h-80"
+                  style={{ background: gradients[i % gradients.length] }}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                    <div className="p-6 w-full">
+                      <div className="text-amber-400 text-xs font-semibold mb-2 uppercase tracking-wider">
+                        {image.category}
+                      </div>
+                      <h3 className="text-white text-lg font-bold">{image.alt}</h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          <p className="text-center text-sm text-[#6b7280] mt-10">
+            Showing {filtered.length} of {allImages.length} photos
+            {activeCategory !== "All" && ` in ${activeCategory}`}
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-24 bg-linear-to-br from-blue-50 to-blue-100">
+      <section className="py-20 bg-[#f7f5f0]">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-blue-950 mb-6">
-            Schedule a Campus Tour
-          </h2>
-          <p className="text-lg text-slate-700 mb-10">
-            Experience the excellence of KMC Lalitpur firsthand with a guided
-            campus tour
+          <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6">Schedule a Campus Tour</h2>
+          <p className="text-[#374151] text-lg mb-10">
+            Experience the excellence of KMC Lalitpur firsthand with a guided campus tour.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-blue-950 text-white font-bold rounded-lg hover:shadow-2xl transition"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0B1F3A] text-white font-bold rounded-xl hover:bg-[#162d54] hover:shadow-xl transition"
           >
             Contact Us
-            <ChevronRight className="ml-2" size={20} />
+            <IconChevronRight size={20} />
           </Link>
         </div>
       </section>

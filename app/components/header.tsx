@@ -40,13 +40,18 @@ const navItems = [
     dropdown: [
       { label: "Science Stream", href: "/academics#science" },
       { label: "Management Stream", href: "/academics#management" },
-      { label: "Humanities Stream", href: "/academics#humanities" },
       { label: "Law Stream", href: "/academics#law" },
     ],
   },
   { label: "Admissions", href: "/admissions" },
-  { label: "News", href: "/news" },
-  { label: "Gallery", href: "/gallery" },
+  {
+    label: "Media",
+    dropdown: [
+      { label: "News & Events", href: "/news" },
+      { label: "Blog", href: "/blog" },
+      { label: "Gallery", href: "/gallery" },
+    ],
+  },
   { label: "FAQ", href: "/faq" },
 ];
 
