@@ -19,6 +19,7 @@ import {
   IconMic,
   IconChevronRight,
 } from "./components/icons";
+import { NoticeMarquee } from "./components/notice-marquee";
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },
@@ -277,22 +278,7 @@ export default function Home() {
       </section>
 
       {/* ── Notice / Announcement strip ──────────────────────────────────── */}
-      <div className="bg-amber-400 text-[#0B1F3A] py-3 overflow-hidden">
-        <div className="flex gap-16 animate-marquee whitespace-nowrap px-4">
-          {[
-            "🎓 Admissions Open for 2082/83 Academic Year",
-            "📢 Entrance Exam Registration Available Online",
-            "🏆 KMC Lalitpur — Ministry of Education Excellence Award Winner",
-            "📚 100% NEB Pass Rate — Consistently Every Year",
-            "🌟 Scholarships Available — Merit & Need Based",
-            "📞 Call +977-1-5918595 for Admission Enquiries",
-          ].map((notice, i) => (
-            <span key={i} className="text-sm font-semibold inline-block">
-              {notice}
-            </span>
-          ))}
-        </div>
-      </div>
+      <NoticeMarquee />
 
       {/* ── Stats ────────────────────────────────────────────────────────── */}
       <section className="py-14 bg-[#0B1F3A] text-white">

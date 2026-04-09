@@ -21,6 +21,7 @@ const categories = [
 const posts = [
   {
     id: 1,
+    slug: "best-college-nepal-science-stream-2082",
     title: "Best College in Nepal for Science Stream in 2082 — Complete Guide",
     excerpt:
       "Choosing the right +2 Science college in Nepal is one of the most important decisions of your life. We compare top institutions on faculty quality, lab facilities, pass rates, and entrance prep success — and explain why KMC Lalitpur consistently ranks at the top.",
@@ -33,6 +34,7 @@ const posts = [
   },
   {
     id: 2,
+    slug: "top-plus2-colleges-lalitpur-2082",
     title: "Top +2 Colleges in Lalitpur for Science, Management & Law (2082)",
     excerpt:
       "Lalitpur has become one of Nepal's most competitive hubs for higher secondary education. Here is a detailed breakdown of the best +2 colleges in Lalitpur — what each offers, their NEB pass rates, and how to choose the right one for your stream and goals.",
@@ -45,6 +47,7 @@ const posts = [
   },
   {
     id: 3,
+    slug: "ioe-entrance-preparation-kmc-science",
     title:
       "IOE Entrance Preparation: How KMC Science Students Crack Engineering",
     excerpt:
@@ -58,6 +61,7 @@ const posts = [
   },
   {
     id: 4,
+    slug: "neb-exam-2082-preparation",
     title: "NEB Exam 2082: What to Expect and How to Prepare",
     excerpt:
       "Everything Grade 12 students need to know about the NEB board examination — marking scheme, practical weightage, model questions, and the proven study plan our faculty recommends for a 90%+ score.",
@@ -70,6 +74,7 @@ const posts = [
   },
   {
     id: 5,
+    slug: "management-vs-science-stream-after-see",
     title: "Management vs Science: Which Stream Should You Choose After SEE?",
     excerpt:
       "The stream you choose after SEE shapes your entire career path. This guide breaks down the real differences between Science, Management, and Law — career options, difficulty level, fees, and which suits your strengths.",
@@ -82,6 +87,7 @@ const posts = [
   },
   {
     id: 6,
+    slug: "best-school-management-nepal-kmc",
     title: "Best School for Management in Nepal: Why KMC Tops the List",
     excerpt:
       "From CMAT preparation to real-world business exposure, KMC's Management stream goes beyond textbooks. Learn why students across Kathmandu Valley choose KMC for their +2 Management education and how our alumni are leading in finance and entrepreneurship.",
@@ -94,6 +100,7 @@ const posts = [
   },
   {
     id: 7,
+    slug: "kmc-students-topped-neb-examinations",
     title: "How KMC Students Topped the NEB Examinations 3 Years Running",
     excerpt:
       "A deep dive into the study strategies, teacher mentorship, and daily routines that helped KMC students consistently outperform national averages in NEB board examinations.",
@@ -106,6 +113,7 @@ const posts = [
   },
   {
     id: 8,
+    slug: "kmc-to-google-alumni-sarina-maharjan",
     title: "From KMC to Google: An Alumni Interview with Sarina Maharjan",
     excerpt:
       "We sat down with Sarina (Science, Batch 2010) who is now a Software Engineer at Google to talk about her journey, lessons from KMC, and advice for current students.",
@@ -118,6 +126,7 @@ const posts = [
   },
   {
     id: 9,
+    slug: "kmc-talent-innovation-expo-2082-highlights",
     title:
       "KMC Talent & Innovation Expo 2082 — A Celebration of Student Creativity",
     excerpt:
@@ -131,6 +140,7 @@ const posts = [
   },
   {
     id: 10,
+    slug: "teaching-with-purpose-kmc-educator",
     title: "Teaching with Purpose: A Day in the Life of a KMC Educator",
     excerpt:
       "Principal Ramesh Ji and three senior teachers reflect on what drives them to come to school every day, and how they see their role beyond just teaching subjects.",
@@ -216,7 +226,7 @@ export default function BlogPage() {
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-5">
                   Featured
                 </p>
-                <div className="rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm hover:shadow-xl transition group cursor-pointer">
+                <Link href={`/blog/${featured.slug}`} className="block rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm hover:shadow-xl transition group">
                   <div className="relative h-64 md:h-80 bg-[#0B1F3A] overflow-hidden">
                     <Image
                       src={featured.image}
@@ -251,7 +261,7 @@ export default function BlogPage() {
                       Read Full Article <IconArrow size={16} />
                     </span>
                   </div>
-                </div>
+                </Link>
               </div>
             )}
 
@@ -263,9 +273,10 @@ export default function BlogPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {rest.map((post) => (
-                    <div
+                    <Link
                       key={post.id}
-                      className="group rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-lg transition cursor-pointer"
+                      href={`/blog/${post.slug}`}
+                      className="group rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-lg transition"
                     >
                       <div className="relative h-48 bg-[#0B1F3A] overflow-hidden">
                         <Image
@@ -295,7 +306,7 @@ export default function BlogPage() {
                           Read More <IconChevronRight size={14} />
                         </span>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -352,9 +363,10 @@ export default function BlogPage() {
               </h3>
               <div className="space-y-5">
                 {recentPosts.map((post) => (
-                  <div
+                  <Link
                     key={post.id}
-                    className="flex gap-3 group cursor-pointer"
+                    href={`/blog/${post.slug}`}
+                    className="flex gap-3 group"
                   >
                     <div className="relative w-16 h-14 rounded-lg overflow-hidden shrink-0 bg-[#0B1F3A]">
                       <Image
@@ -371,7 +383,7 @@ export default function BlogPage() {
                       </p>
                       <p className="text-xs text-[#6b7280] mt-1">{post.date}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
