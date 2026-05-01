@@ -88,6 +88,12 @@ export async function POST(req: NextRequest) {
   if (!lastMessage || lastMessage.role !== "user") {
     return apiError("Last message must be from user.");
   }
+  if (typeof lastMessage.parts !== "string" || lastMessage.parts.length > 2000) {
+    return apiError("Message too long. Please keep messages under 2000 characters.");
+  }
+  if (messages.length > 50) {
+    return apiError("Conversation too long. Please start a new chat.");
+  }
 
   try {
     const model = genAI.getGenerativeModel({

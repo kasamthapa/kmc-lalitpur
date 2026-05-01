@@ -1,10 +1,23 @@
 const requests = new Map<string, { count: number; resetAt: number }>();
 
+// Prune expired entries to prevent unbounded memory growth.
+// Runs on every 500th call — cheap enough to be inline, effective enough for production.
+let callCount = 0;
+function pruneExpired() {
+  if (++callCount % 500 !== 0) return;
+  const now = Date.now();
+  for (const [key, entry] of requests) {
+    if (now > entry.resetAt) requests.delete(key);
+  }
+}
+
 export function rateLimit(
   identifier: string,
   limit: number,
   windowSeconds: number
 ): { success: boolean; remaining: number } {
+  pruneExpired();
+
   const now = Date.now();
   const entry = requests.get(identifier);
 
