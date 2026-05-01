@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { IconX, IconArrow } from "./icons";
+import { SITE_CONFIG } from "../config/site";
 
 // ─── WhatsApp PNG Icon ────────────────────────────────────────────────────────
 // Place the uploaded PNG at: public/whatsapp.png
@@ -47,10 +48,8 @@ const actions = [
   },
 ];
 
-const WA_NUMBER = "9779851138595";
-
 function waLink(message: string) {
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────

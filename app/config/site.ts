@@ -10,6 +10,8 @@ export const SITE_CONFIG = {
   phoneAlt: "+977-1-5201334",
   phoneAltHref: "tel:+97715201334",
   email: "info@kmclalitpur.edu.np",
+  whatsapp: "+977 98511 38595",
+  whatsappNumber: "9779851138595",
   emisUrl: "https://emis.gov.np",
   foundingYear: "2000",
   studentCount: 2500,

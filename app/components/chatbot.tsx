@@ -18,8 +18,7 @@ type ApiMessage = {
 
 const FALLBACK_MESSAGE =
   `Sorry, I'm having trouble connecting right now. Please call us at ` +
-  `${SITE_CONFIG.phone} or WhatsApp ${SITE_CONFIG.address.display.split(",")[0]} ` +
-  `+977 98511 38595`;
+  `${SITE_CONFIG.phone} or WhatsApp ${SITE_CONFIG.whatsapp}`;
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export function Chatbot() {

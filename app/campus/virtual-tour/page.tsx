@@ -23,7 +23,7 @@ const areas = [
   {
     name: "Science Laboratories",
     desc: "Fully equipped Physics, Chemistry, and Biology labs meeting NEB practical examination standards.",
-    image: "/images/science-lab.png",
+    image: "/images/science.png",
     highlight: "3 Labs · Modern equipment",
   },
   {
