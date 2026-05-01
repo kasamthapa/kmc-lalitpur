@@ -23,7 +23,7 @@ export default function Facilities() {
       />
 
       {/* Hero */}
-      <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#1a3a5c]/60 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">

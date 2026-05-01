@@ -30,6 +30,7 @@ const navItems = [
     dropdown: [
       { label: "Facilities", href: "/facilities" },
       { label: "Faculty", href: "/campus/faculty" },
+      { label: "Student Committee", href: "/campus/student-committee" },
       { label: "Virtual Tour", href: "/campus/virtual-tour" },
       { label: "Hostel", href: "/campus/hostel" },
       { label: "Transport", href: "/campus/transport" },
@@ -207,7 +208,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <Link
           href="/"
-          className="flex items-center hover:opacity-85 transition-opacity flex-shrink-0"
+          className="flex items-center hover:opacity-85 transition-opacity shrink-0"
         >
           <div className="relative h-12 w-auto">
             <Image
@@ -285,7 +286,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden bg-white border-t border-[#eae6de] overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-175 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-5 pb-6 pt-2 overflow-y-auto max-h-[80vh]">

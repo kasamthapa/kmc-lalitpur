@@ -137,7 +137,7 @@ export default function Contact() {
       />
 
       {/* Hero */}
-      <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">

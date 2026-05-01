@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     "Learn about Kathmandu Model Secondary School — our story, mission, vision, values, principal's message, and why we are the premier +2 institution in Lalitpur, Nepal.",
 };
 
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const pillars = [
   {
@@ -116,7 +115,7 @@ const accreditations = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function About() {
   return (
-    <main className="bg-white pt-[100px]">
+    <main className="bg-white pt-28">
       <Header />
       <BreadcrumbSchema items={[{ name: "About Us", href: "/about" }]} />
       <WebPageSchema
@@ -125,8 +124,8 @@ export default function About() {
         path="/about"
       />
       {/* Hero */}
-      <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
+        <div className="absolute top-0 right-0 w-130 h-130 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#1a3a5c]/60 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
@@ -159,7 +158,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {accreditations.map((a, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#0B1F3A] flex items-center justify-center flex-shrink-0 text-amber-400">
+                <div className="w-9 h-9 rounded-full bg-[#0B1F3A] flex items-center justify-center shrink-0 text-amber-400">
                   <IconAward />
                 </div>
                 <div>
@@ -179,7 +178,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative pb-10 pr-10">
-              <div className="relative h-[440px] rounded-2xl overflow-hidden">
+              <div className="relative h-110 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
@@ -187,7 +186,7 @@ export default function About() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/20 to-transparent" />
               </div>
               <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
@@ -211,8 +210,8 @@ export default function About() {
                 Kathmandu Model Secondary School was established in 2000 as part
                 of the KMC Educational Network, with a vision to provide
                 world-class +2 education in Nepal. Starting with Science,
-                Management, and Law streams, we quickly grew into one of
-                the most respected secondary institutions in the country.
+                Management, and Law streams, we quickly grew into one of the
+                most respected secondary institutions in the country.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 Our Lalitpur campus at Balkumari has shaped thousands of
@@ -255,14 +254,14 @@ export default function About() {
             </h2>
           </div>
           <div className="relative">
-            <div className="absolute left-[22px] md:left-1/2 top-0 bottom-0 w-px bg-amber-200 md:-translate-x-px" />
+            <div className="absolute left-5.5 md:left-1/2 top-0 bottom-0 w-px bg-amber-200 md:-translate-x-px" />
             <div className="space-y-10">
               {milestones.map((m, i) => (
                 <div
                   key={i}
                   className={`relative flex items-start gap-8 md:gap-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
-                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-11 h-11 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs flex-shrink-0 shadow-lg z-10">
+                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-11 h-11 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs shrink-0 shadow-lg z-10">
                     {m.year.slice(2)}
                   </div>
                   <div
@@ -306,10 +305,10 @@ export default function About() {
               <h3 className="text-xl font-bold text-white mb-4">Our Mission</h3>
               <p className="text-[#8ba7c7] leading-relaxed text-sm flex-1">
                 To establish KMC Lalitpur as a center of academic excellence,
-                fostering transformative growth, we strive to create an inspiring
-                environment that equips learners with refined skills and
-                value-based knowledge, empowering them to excel and contribute
-                meaningfully to society.
+                fostering transformative growth, we strive to create an
+                inspiring environment that equips learners with refined skills
+                and value-based knowledge, empowering them to excel and
+                contribute meaningfully to society.
               </p>
             </div>
             <div className="bg-amber-400 rounded-2xl p-8 flex flex-col">
@@ -322,8 +321,8 @@ export default function About() {
               <p className="text-[#3d2e0a] leading-relaxed text-sm flex-1">
                 To establish itself as a center of academic excellence at par
                 with national and international standards, fostering
-                transformative growth by shaping minds from greatness to goodness
-                with integrity, innovation, and purpose.
+                transformative growth by shaping minds from greatness to
+                goodness with integrity, innovation, and purpose.
               </p>
             </div>
             <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 flex flex-col">
@@ -345,7 +344,7 @@ export default function About() {
                   "Optimism & Resilience",
                 ].map((v) => (
                   <li key={v} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-amber-400/15 border border-amber-400/40 flex items-center justify-center flex-shrink-0 text-amber-600">
+                    <span className="w-5 h-5 rounded-full bg-amber-400/15 border border-amber-400/40 flex items-center justify-center shrink-0 text-amber-600">
                       <IconCheck />
                     </span>
                     <span className="text-[#374151] font-medium text-sm">
@@ -423,11 +422,17 @@ export default function About() {
               { name: "Georgia Southwestern State University", country: "USA" },
               { name: "University of Missouri", country: "USA" },
               { name: "Mokpo KMC University", country: "South Korea" },
-              { name: "Yeoju Institute of Technology (YIT)", country: "South Korea" },
+              {
+                name: "Yeoju Institute of Technology (YIT)",
+                country: "South Korea",
+              },
               { name: "Shandong University", country: "China" },
               { name: "Tongren Polytechnic College", country: "China" },
               { name: "Qtec Learning Solutions", country: "United Kingdom" },
-              { name: "National Computer Council (NCC)", country: "United Kingdom" },
+              {
+                name: "National Computer Council (NCC)",
+                country: "United Kingdom",
+              },
             ].map((p, i) => (
               <div
                 key={i}
@@ -499,7 +504,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="relative w-full max-w-sm">
-                <div className="relative h-[480px] rounded-2xl overflow-hidden">
+                <div className="relative h-120 rounded-2xl overflow-hidden">
                   <Image
                     src="/images/principal.png"
                     alt="Mukunda Kumar Giri – Principal, KMC Lalitpur"
@@ -507,7 +512,7 @@ export default function About() {
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 via-transparent to-transparent" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white font-bold text-lg leading-tight">
@@ -610,79 +615,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* KSCC & Student Clubs */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Student Leadership
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              KMC Students&apos;
-              <br />
-              Catalyst Committee
-            </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mt-4">
-              KSCC is the umbrella body for all student-led clubs at KMC
-              Lalitpur. These autonomous clubs offer a wide range of activities
-              tailored to diverse interests — developing leadership, social, and
-              interpersonal skills.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                name: "Social Service Club",
-                desc: "Community outreach, donation drives, traffic safety campaigns, and awareness initiatives.",
-              },
-              {
-                name: "Mathematician Club",
-                desc: "Organizes the Math Olympiad and fosters a love for mathematics through collaborative events.",
-              },
-              {
-                name: "Art & Culture Club",
-                desc: "Curates cultural events, Group Rangoli, talent shows, and celebrates diverse forms of creative expression.",
-              },
-              {
-                name: "Debate & Quiz Club",
-                desc: "Essay competitions, debate tournaments, quiz contests, and creative writing events.",
-              },
-              {
-                name: "Science & Technology Club",
-                desc: "Technofest, science exhibitions, IT Bootcamp, and innovation workshops.",
-              },
-              {
-                name: "Law & Moot Court Club",
-                desc: "Mock Parliament, Moot Court competitions, legal awareness programs, and court visits.",
-              },
-              {
-                name: "Business & Entrepreneurship Club",
-                desc: "Business idea competitions, event management workshops, and startup mentorship sessions.",
-              },
-              {
-                name: "Sports & Fitness Club",
-                desc: "Basketball, cricket, swimming, badminton, table tennis, futsal, chess, and Fun Mania events.",
-              },
-            ].map((club, i) => (
-              <div
-                key={i}
-                className="bg-[#f7f5f0] border border-[#e8e8e8] rounded-2xl p-6 hover:border-amber-300 hover:shadow-md transition-all"
-              >
-                <span className="text-xs font-bold text-amber-600 tracking-widest">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-sm font-bold text-[#0B1F3A] mt-2 mb-2">
-                  {club.name}
-                </h3>
-                <p className="text-slate-500 text-xs leading-relaxed">
-                  {club.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Global Achievement */}
       <section className="py-20 bg-[#0B1F3A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -734,7 +666,7 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-amber-400 font-bold text-lg">
                   &quot;Academic Excellence through Quality Education&quot;
@@ -751,7 +683,7 @@ export default function About() {
       {/* CTA */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-amber-400/10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full border border-amber-400/10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">

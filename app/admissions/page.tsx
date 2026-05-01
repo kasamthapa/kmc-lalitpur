@@ -231,34 +231,34 @@ const documents = [
 
 const timeline = [
   {
-    period: "April – May",
+    step: "Step 1",
     event: "SEE Results Published",
     desc: "Online admission forms open on our website after SEE results are announced.",
   },
   {
-    period: "May – June",
+    step: "Step 2",
     event: "Entrance Examinations",
     desc: "Stream-specific entrance exams held. Symbol number and exam center sent via email.",
   },
   {
-    period: "June",
+    step: "Step 3",
     event: "Results & Merit List",
     desc: "Merit list published. Direct admission or interview schedule communicated.",
   },
   {
-    period: "June – July",
+    step: "Step 4",
     event: "Interviews (if required)",
     desc: "Interview rounds for students not in direct admission category.",
   },
   {
-    period: "July",
+    step: "Step 5",
     event: "Admission & Fee Payment",
     desc: "Confirm seat by paying fees within deadline. Scholarship applied at this stage.",
   },
   {
-    period: "August",
+    step: "Step 6",
     event: "Classes Commence",
-    desc: "Orientation and commencement of the new academic year 2082/83.",
+    desc: "Orientation and commencement of the new academic year.",
   },
 ];
 
@@ -280,7 +280,7 @@ export default function Admissions() {
         path="/admissions"
       />
       {/* Hero */}
-      <section className="relative pt-20 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
@@ -747,7 +747,7 @@ export default function Admissions() {
                     </div>
                     <div className="flex-1 bg-[#f7f5f0] rounded-2xl p-5 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-sm transition-all">
                       <span className="text-amber-600 font-bold text-xs tracking-wider uppercase">
-                        {item.period}
+                        {item.step}
                       </span>
                       <h3 className="font-bold text-[#0B1F3A] mt-1 mb-1">
                         {item.event}

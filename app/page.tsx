@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { AwardsCarousel } from "./components/awards-carousel";
+import { HeroVideo } from "./components/hero-video";
 import { CourseSchema, WebPageSchema } from "./components/schema";
 import {
   IconArrow,
@@ -208,14 +209,7 @@ export default function Home() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden mt-25">
         {/* YouTube background */}
-        <iframe
-          className="absolute top-0 left-0 w-full h-full scale-110"
-          src="https://www.youtube.com/embed/YGcczHq0Nmk?autoplay=1&mute=1&loop=1&playlist=YGcczHq0Nmk&controls=0&modestbranding=1&rel=0"
-          title="KMC Lalitpur Campus"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{ zIndex: 0, border: "none" }}
-        />
+        <HeroVideo />
         {/* Overlay */}
         <div
           className="absolute inset-0 bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent"
@@ -789,6 +783,44 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Student Achievers ────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#f7f5f0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Student Achievements
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4">
+              Our Students, Their Dreams
+            </h2>
+            <p className="text-[#6b7280] max-w-2xl mx-auto">
+              KMC graduates go on to become doctors, legal professionals, engineers, and business leaders — many on full scholarships.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div className="bg-white rounded-3xl border border-[#eae6de] shadow-sm overflow-hidden">
+              <Image
+                src="/images/student-achievers.png"
+                alt="Future Doctors and Legal Professionals from KMC Lalitpur — student achievers under full scholarship"
+                width={1400}
+                height={800}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="bg-white rounded-3xl border border-[#eae6de] shadow-sm overflow-hidden">
+              <Image
+                src="/images/student-achievers-2.png"
+                alt="Future Engineers and Chartered Accountants from KMC Lalitpur — student achievers under full scholarship"
+                width={1400}
+                height={800}
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </div>
       </section>

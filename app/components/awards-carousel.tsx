@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { IconChevronRight } from "./icons";
 
 const awards = [
   {
@@ -170,14 +170,14 @@ export function AwardsCarousel() {
                     className="w-10 h-10 rounded-full border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white transition-all duration-300 flex items-center justify-center"
                     aria-label="Previous award"
                   >
-                    <ChevronLeft size={20} />
+                    <span className="rotate-180 inline-flex"><IconChevronRight size={20} /></span>
                   </button>
                   <button
                     onClick={nextSlide}
                     className="w-10 h-10 rounded-full border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white transition-all duration-300 flex items-center justify-center"
                     aria-label="Next award"
                   >
-                    <ChevronRight size={20} />
+                    <IconChevronRight size={20} />
                   </button>
                 </div>
               </div>
@@ -202,18 +202,6 @@ export function AwardsCarousel() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes fadeSlideIn {
-          from {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }

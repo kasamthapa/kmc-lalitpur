@@ -605,7 +605,7 @@ export default async function BlogPostPage({
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 pb-0 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-0 bg-[#0B1F3A] text-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>

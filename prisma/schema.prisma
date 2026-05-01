@@ -34,8 +34,8 @@ model News {
 }
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
-// Stores metadata only — actual images live on Cloudflare R2.
-// src is the R2 public URL of the image.
+// Stores metadata only — actual images live on Cloudinary.
+// src is the Cloudinary secure URL of the image.
 
 model Gallery {
   id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

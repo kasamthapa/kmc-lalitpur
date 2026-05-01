@@ -86,7 +86,7 @@ export default async function FacultyDetailPage({
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 pb-12 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-12 bg-[#0B1F3A] text-white">
         <div className="max-w-5xl mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm flex-wrap">
