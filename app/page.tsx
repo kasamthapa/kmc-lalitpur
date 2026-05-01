@@ -682,7 +682,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Featured */}
-            <div className="lg:col-span-2 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:border-amber-300">
+            <Link
+              href="/news"
+              className="lg:col-span-2 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:border-amber-300"
+            >
               <div className="relative h-72 overflow-hidden">
                 <Image
                   src={latestNews[0].image}
@@ -704,14 +707,15 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Sidebar */}
             <div className="space-y-4">
               {latestNews.slice(1).map((news, i) => (
-                <div
+                <Link
                   key={i}
-                  className="group flex gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-[#e8e8e8] hover:border-amber-300 cursor-pointer p-4"
+                  href="/news"
+                  className="group flex gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-[#e8e8e8] hover:border-amber-300 p-4"
                 >
                   <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden">
                     <Image
@@ -731,7 +735,7 @@ export default function Home() {
                     </h4>
                     <p className="text-xs text-slate-400 mt-1">{news.date}</p>
                   </div>
-                </div>
+                </Link>
               ))}
 
               <Link

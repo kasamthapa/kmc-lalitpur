@@ -452,11 +452,94 @@ At KMC Lalitpur, teaching with purpose is not a motto on the wall. It's practice
 
 // ── Dynamic route ──────────────────────────────────────────────────────────────
 
+import { prisma } from "@/app/lib/prisma";
+
+// Allow dynamic DB slugs that weren't in generateStaticParams
+export const dynamicParams = true;
+export const revalidate = 60;
+
 type Params = { slug: string };
 
+// Unified shape used for rendering (works for both DB and hardcoded posts)
+interface RenderPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  image: string;
+  author: string;
+  readTime: string;
+  content: string;
+  metaTitle?: string;
+  metaDescription?: string;
+}
+
+function dbToRender(p: {
+  slug: string; title: string; excerpt: string | null;
+  createdAt: Date; category: string | null; imageUrl: string | null;
+  author: string | null; readTime: string | null; content: string | null;
+}): RenderPost {
+  return {
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.excerpt ?? "",
+    date: p.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+    category: p.category ?? "General",
+    image: p.imageUrl ?? "/images/hero-main.png",
+    author: p.author ?? "KMC Staff",
+    readTime: p.readTime ?? "5 min read",
+    content: p.content ?? "",
+  };
+}
+
+async function getPost(slug: string): Promise<RenderPost | null> {
+  // 1. Try DB first
+  try {
+    const dbPost = await prisma.blogPost.findUnique({
+      where: { slug, published: true },
+      select: {
+        slug: true, title: true, excerpt: true, createdAt: true,
+        category: true, imageUrl: true, author: true,
+        readTime: true, content: true,
+      },
+    });
+    if (dbPost) return dbToRender(dbPost);
+  } catch {
+    // DB unavailable — fall through
+  }
+
+  // 2. Fall back to hardcoded posts
+  const staticPost = BLOG_POSTS.find((p) => p.slug === slug);
+  if (!staticPost) return null;
+  return {
+    slug: staticPost.slug,
+    title: staticPost.title,
+    excerpt: staticPost.excerpt,
+    date: staticPost.date,
+    category: staticPost.category,
+    image: staticPost.image,
+    author: staticPost.author,
+    readTime: staticPost.readTime,
+    content: staticPost.content,
+    metaTitle: staticPost.metaTitle,
+    metaDescription: staticPost.metaDescription,
+  };
+}
+
 export async function generateStaticParams() {
-  // TODO (Step 15): also fetch slugs from DB blog_posts table
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  const staticSlugs = BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  try {
+    const dbSlugs = await prisma.blogPost.findMany({
+      where: { published: true },
+      select: { slug: true },
+    });
+    const all = [...staticSlugs, ...dbSlugs.map((p) => ({ slug: p.slug }))];
+    // deduplicate
+    return [...new Map(all.map((s) => [s.slug, s])).values()];
+  } catch {
+    return staticSlugs;
+  }
 }
 
 export async function generateMetadata({
@@ -465,7 +548,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = await getPost(slug);
   if (!post) return { title: "Post Not Found" };
 
   return {
@@ -486,13 +569,27 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params;
 
-  // TODO (Step 15): try DB first — prisma.blogPost.findUnique({ where: { slug } })
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = await getPost(slug);
   if (!post) notFound();
 
-  const related = BLOG_POSTS.filter(
-    (p) => p.slug !== slug && p.category === post.category
-  ).slice(0, 3);
+  // Related posts: try DB first, fall back to hardcoded
+  let related: RenderPost[] = [];
+  try {
+    const dbRelated = await prisma.blogPost.findMany({
+      where: { published: true, category: post.category, NOT: { slug } },
+      take: 3,
+      select: {
+        slug: true, title: true, excerpt: true, createdAt: true,
+        category: true, imageUrl: true, author: true, readTime: true, content: true,
+      },
+    });
+    related = dbRelated.map(dbToRender);
+  } catch {
+    related = BLOG_POSTS
+      .filter((p) => p.slug !== slug && p.category === post.category)
+      .slice(0, 3)
+      .map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt, date: p.date, category: p.category, image: p.image, author: p.author, readTime: p.readTime, content: p.content }));
+  }
 
   return (
     <>
@@ -630,7 +727,7 @@ export default async function BlogPostPage({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((r) => (
                 <Link
-                  key={r.id}
+                  key={r.slug}
                   href={`/blog/${r.slug}`}
                   className="group bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-lg transition"
                 >

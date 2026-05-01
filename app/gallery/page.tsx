@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { prisma } from "@/app/lib/prisma";
 import { GalleryClient, type GalleryImage } from "./_components/GalleryClient";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Photo Gallery",
   description:
@@ -28,7 +30,7 @@ async function getImages(): Promise<GalleryImage[]> {
   try {
     const rows = await prisma.gallery.findMany({
       orderBy: { displayOrder: "asc" },
-      select: { id: true, src: true, alt: true, category: true },
+      select: { id: true, src: true, alt: true, category: true, caption: true },
     });
 
     if (rows.length === 0) return FALLBACK_IMAGES;
@@ -38,6 +40,7 @@ async function getImages(): Promise<GalleryImage[]> {
       src: r.src,
       alt: r.alt,
       category: r.category ?? "General",
+      caption: r.caption,
     }));
   } catch (err) {
     console.error("[gallery page] DB fetch failed, using fallback:", err);

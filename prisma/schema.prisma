@@ -113,5 +113,52 @@ model AdminUser {
   @@map("admin_users")
 }
 
+// ─── Faculty & Staff ──────────────────────────────────────────────────────────
+
+model Faculty {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name         String
+  slug         String   @unique
+  title        String   // e.g. "Head of Science Department"
+  dept         String   // Science | Management | Law | Administration
+  qualification String
+  experience   String   // e.g. "12 years"
+  subjects     String?  // comma-separated
+  email        String?
+  bio          String?  // paragraph shown on detail page
+  achievements String?  // newline-separated list of achievements
+  imageUrl     String?  @map("image_url")
+  active       Boolean  @default(true)
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("faculty")
+}
+
+// ─── Alumni ───────────────────────────────────────────────────────────────────
+
+model Alumni {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  gradYear    String   @map("grad_year")       // e.g. "2078 B.S."
+  program     String                            // Science | Management | Law
+  currentRole String?  @map("current_role")    // e.g. "Software Engineer"
+  company     String?                           // e.g. "Ncell"
+  location    String?                           // e.g. "Kathmandu"
+  email       String?
+  phone       String?
+  bio         String?
+  imageUrl    String?  @map("image_url")
+  linkedIn    String?  @map("linked_in")
+  approved    Boolean  @default(false)          // admin must approve before shown publicly
+  featured    Boolean  @default(false)          // show in featured section
+  displayOrder Int     @default(0) @map("display_order")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("alumni")
+}
+
 // NOTE: No Question or MockResult models.
 // Mock tests are handled via Microsoft Forms — no custom exam engine in the DB.

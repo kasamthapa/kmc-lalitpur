@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "science stream Nepal",
     "management stream Nepal",
     "law stream Nepal",
-    "humanities stream Nepal",
+
     "Balkumari school Lalitpur",
     "NEB affiliated school Nepal",
     "KMC school Nepal",
@@ -61,11 +61,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.png", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "any" },
     ],
-    apple: [{ url: "/logo.png" }],
-    shortcut: "/logo.png",
+    apple: [{ url: "/favicon.png" }],
+    shortcut: "/favicon.png",
   },
   openGraph: {
     type: "website",
@@ -120,7 +119,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         {/* Global JSON-LD schema — appears on every page */}
         <SchemaOrg />

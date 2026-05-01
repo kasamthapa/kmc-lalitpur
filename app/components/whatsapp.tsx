@@ -14,6 +14,7 @@ const IconWhatsApp = ({ size = 28 }: { size?: number }) => (
     height={size}
     className="rounded-lg"
     style={{ width: size, height: size }}
+    loading="eager"
   />
 );
 

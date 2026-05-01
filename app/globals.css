@@ -18,6 +18,45 @@
     --foreground: #ededed;
   }
 }
+
+/* ── Typography & rendering ─────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Cursor: every interactive element shows a pointer ──────────────────── */
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+label[for],
+label:has(input),
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Remove tap highlight on mobile ────────────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Focus ring: visible but subtle ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
@@ -28,8 +67,8 @@
     transform: translateY(0);
   }
 }
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }

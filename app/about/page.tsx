@@ -305,10 +305,11 @@ export default function About() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Our Mission</h3>
               <p className="text-[#8ba7c7] leading-relaxed text-sm flex-1">
-                To provide comprehensive, high-quality education that develops
-                intellectually capable, emotionally mature, and socially
-                responsible individuals equipped to thrive in a rapidly changing
-                global landscape.
+                To establish KMC Lalitpur as a center of academic excellence,
+                fostering transformative growth, we strive to create an inspiring
+                environment that equips learners with refined skills and
+                value-based knowledge, empowering them to excel and contribute
+                meaningfully to society.
               </p>
             </div>
             <div className="bg-amber-400 rounded-2xl p-8 flex flex-col">
@@ -319,10 +320,10 @@ export default function About() {
                 Our Vision
               </h3>
               <p className="text-[#3d2e0a] leading-relaxed text-sm flex-1">
-                To be recognised as a premier institution of learning excellence
-                that nurtures leaders, innovators, and global citizens committed
-                to creating a better world through education, integrity, and
-                service.
+                To establish itself as a center of academic excellence at par
+                with national and international standards, fostering
+                transformative growth by shaping minds from greatness to goodness
+                with integrity, innovation, and purpose.
               </p>
             </div>
             <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 flex flex-col">
@@ -332,13 +333,16 @@ export default function About() {
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-5">
                 Our Values
               </h3>
-              <ul className="space-y-3 flex-1">
+              <ul className="space-y-2.5 flex-1">
                 {[
-                  "Excellence",
                   "Integrity",
-                  "Inclusivity",
+                  "Excellence",
                   "Innovation",
-                  "Compassion",
+                  "Collaboration",
+                  "Inclusivity & Social Equity",
+                  "Ethical Leadership",
+                  "Reliability & Accountability",
+                  "Optimism & Resilience",
                 ].map((v) => (
                   <li key={v} className="flex items-center gap-3">
                     <span className="w-5 h-5 rounded-full bg-amber-400/15 border border-amber-400/40 flex items-center justify-center flex-shrink-0 text-amber-600">
@@ -351,6 +355,95 @@ export default function About() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Institutional Objectives */}
+      <section className="py-24 bg-[#f7f5f0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-xl mb-14">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Our Purpose
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              Institutional
+              <br />
+              Objectives
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Achieve academic excellence with innovative teaching and practical learning.",
+              "Prepare capable students for higher studies and professional success.",
+              "Provide globally recognized quality education with practical and technical skills.",
+              "Encourage holistic growth through ECA and CCA programs.",
+              "Develop socially responsible and result-oriented professionals.",
+              "Build interpersonal skills like leadership, self-management, and communication.",
+              "Offer personalized attention through small classes and individual focus.",
+              "Produce professionals for business, law, development, and public sectors.",
+              "Create international collaborations for academic and global exposure.",
+              "Foster critical thinking, logical reasoning, and lifelong learning.",
+            ].map((obj, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-[#e8e8e8]"
+              >
+                <span className="w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 font-bold text-xs shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-slate-600 text-sm leading-relaxed">{obj}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* International Partnerships */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-xl mb-14">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Global Reach
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              International
+              <br />
+              Partnerships
+            </h2>
+            <p className="text-slate-500 text-sm leading-relaxed mt-4">
+              KMC has formalized Memorandums of Understanding (MoUs) with
+              leading universities worldwide, enabling student and faculty
+              exchange, collaborative research, and study-abroad opportunities.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { name: "Stony Brook University", country: "New York, USA" },
+              { name: "Georgia Southwestern State University", country: "USA" },
+              { name: "University of Missouri", country: "USA" },
+              { name: "Mokpo KMC University", country: "South Korea" },
+              { name: "Yeoju Institute of Technology (YIT)", country: "South Korea" },
+              { name: "Shandong University", country: "China" },
+              { name: "Tongren Polytechnic College", country: "China" },
+              { name: "Qtec Learning Solutions", country: "United Kingdom" },
+              { name: "National Computer Council (NCC)", country: "United Kingdom" },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className="group bg-[#f7f5f0] hover:bg-[#0B1F3A] rounded-2xl p-6 border border-[#e8e8e8] hover:border-[#0B1F3A] transition-colors duration-300"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-400/15 group-hover:bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-4 transition-colors duration-300">
+                  <IconGlobe />
+                </div>
+                <h3 className="text-sm font-bold text-[#0B1F3A] group-hover:text-white mb-1 transition-colors duration-300">
+                  {p.name}
+                </h3>
+                <p className="text-slate-500 group-hover:text-[#8ba7c7] text-xs transition-colors duration-300">
+                  {p.country}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -510,6 +603,79 @@ export default function About() {
                 </h3>
                 <p className="text-slate-500 group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
                   {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* KSCC & Student Clubs */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-xl mb-14">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Student Leadership
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              KMC Students&apos;
+              <br />
+              Catalyst Committee
+            </h2>
+            <p className="text-slate-500 text-sm leading-relaxed mt-4">
+              KSCC is the umbrella body for all student-led clubs at KMC
+              Lalitpur. These autonomous clubs offer a wide range of activities
+              tailored to diverse interests — developing leadership, social, and
+              interpersonal skills.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                name: "Social Service Club",
+                desc: "Community outreach, donation drives, traffic safety campaigns, and awareness initiatives.",
+              },
+              {
+                name: "Mathematician Club",
+                desc: "Organizes the Math Olympiad and fosters a love for mathematics through collaborative events.",
+              },
+              {
+                name: "Art & Culture Club",
+                desc: "Curates cultural events, Group Rangoli, talent shows, and celebrates diverse forms of creative expression.",
+              },
+              {
+                name: "Debate & Quiz Club",
+                desc: "Essay competitions, debate tournaments, quiz contests, and creative writing events.",
+              },
+              {
+                name: "Science & Technology Club",
+                desc: "Technofest, science exhibitions, IT Bootcamp, and innovation workshops.",
+              },
+              {
+                name: "Law & Moot Court Club",
+                desc: "Mock Parliament, Moot Court competitions, legal awareness programs, and court visits.",
+              },
+              {
+                name: "Business & Entrepreneurship Club",
+                desc: "Business idea competitions, event management workshops, and startup mentorship sessions.",
+              },
+              {
+                name: "Sports & Fitness Club",
+                desc: "Basketball, cricket, swimming, badminton, table tennis, futsal, chess, and Fun Mania events.",
+              },
+            ].map((club, i) => (
+              <div
+                key={i}
+                className="bg-[#f7f5f0] border border-[#e8e8e8] rounded-2xl p-6 hover:border-amber-300 hover:shadow-md transition-all"
+              >
+                <span className="text-xs font-bold text-amber-600 tracking-widest">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-sm font-bold text-[#0B1F3A] mt-2 mb-2">
+                  {club.name}
+                </h3>
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  {club.desc}
                 </p>
               </div>
             ))}

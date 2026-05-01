@@ -33,16 +33,16 @@ Certification: ISO 9001:2015
 Award: Best Campus 2080 — Govt. of Nepal
 
 STREAMS (3 only — Humanities does NOT exist at KMC):
-1. Science: CGPA 2.85+ (B+ in Science/Maths/OptMaths/English)
-   Entrance: Science 40 + Maths 40 + English 20 = 100 marks, 60 minutes
+1. Science: CGPA 2.8+ (B+ in Science/Maths/OptMaths/English)
+   Entrance: Maths 30% + Science 40% + English 20% + GK & IQ 10% = 100 marks, 60 minutes
    Careers: MBBS, Engineering, BSc, Pharmacy
 
-2. Management: CGPA 2.05+ (C in Maths/English)
-   Entrance: English 45 + GK 15 + Maths 15 = 75 marks, 60 minutes
+2. Management: CGPA 2.4+ (C grade in Maths & English)
+   Entrance: Maths 36% + English 36% + Nepali & GK 28% = 75 marks, 60 minutes
    Careers: BBA, CA, BBS, Finance
 
-3. Law (established 2019): CGPA 2.05+ (C in Maths/English)
-   Entrance: English 45 + GK 15 + Maths 15 = 75 marks, 60 minutes
+3. Law (established 2019): CGPA 2.4+ (C grade in Maths & English)
+   Entrance: English 30% + Nepali 30% + Social Studies & GK 40% = 75 marks, 60 minutes
    Careers: LLB, Civil Service, Advocacy
 
 SCHOLARSHIPS:

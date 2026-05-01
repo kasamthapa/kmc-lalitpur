@@ -28,7 +28,7 @@ const streams = {
         details:
           "Fill the online admission form available on our website after SEE results are announced. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.85 in SEE",
+          "Minimum CGPA 2.8 in SEE",
           "B+ grade in Science",
           "B+ grade in Mathematics",
           "B+ grade in Optional Mathematics",
@@ -43,12 +43,12 @@ const streams = {
         details:
           "KMC conducts a paper-based MCQ entrance exam. Model questions are provided via email before the exam date.",
         requirements: [
-          "Science: 40 marks",
-          "Mathematics: 40 marks",
-          "English: 20 marks",
-          "Total: 100 marks",
+          "Mathematics: 30%",
+          "Science: 40%",
+          "English: 20%",
+          "GK & IQ: 10%",
+          "Total: 100 marks — 60 minutes",
           "Answer sheets checked by computer",
-          "Follow all invigilator instructions",
         ],
         info: "Results published within 2 days. Students are informed via email/SMS about direct admission or interview requirement.",
       },
@@ -79,7 +79,7 @@ const streams = {
         details:
           "Fill the online admission form on our website after SEE results. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.05 in SEE",
+          "Minimum CGPA 2.4 in SEE",
           "C grade in Mathematics",
           "C grade in English",
           "Recent passport-size photo (white background)",
@@ -92,12 +92,11 @@ const streams = {
         details:
           "KMC conducts a physical and computer-based MCQ entrance exam. Model questions are sent to your email before the exam.",
         requirements: [
-          "English: 45 marks",
-          "General Knowledge: 15 marks",
-          "Mathematics: 15 marks",
-          "Total: 75 marks",
+          "Mathematics: 36%",
+          "English: 36%",
+          "Nepali & General Knowledge: 28%",
+          "Total: 75 marks — 60 minutes",
           "Computer-checked answers",
-          "Follow all invigilator instructions",
         ],
         info: "Results published on the same day or informed during examination. Scholarship calculated on SEE (25%) + Entrance (75%).",
       },
@@ -128,7 +127,7 @@ const streams = {
         details:
           "Fill the online admission form on our website after SEE results. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.05 in SEE",
+          "Minimum CGPA 2.4 in SEE",
           "C grade in Mathematics",
           "C grade in English",
           "Recent passport-size photo (white background)",
@@ -141,12 +140,11 @@ const streams = {
         details:
           "KMC conducts a physical and computer-based MCQ entrance exam. Model questions are sent to your email before the exam.",
         requirements: [
-          "English: 45 marks",
-          "General Knowledge: 15 marks",
-          "Mathematics: 15 marks",
-          "Total: 75 marks",
+          "English: 30%",
+          "Nepali: 30%",
+          "Social Studies & General Knowledge: 40%",
+          "Total: 75 marks — 60 minutes",
           "Computer-checked answers",
-          "Follow all invigilator instructions",
         ],
         info: "Results published on the same day. Scholarship calculated on SEE (25%) + Entrance (75%).",
       },
@@ -539,41 +537,161 @@ export default function Admissions() {
               Scholarships & Financial Aid
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-              KMC Lalitpur believes every deserving student should have access
-              to quality education. We offer multiple scholarship options.
+              KMC Lalitpur offers merit, need-based, and special scholarships.
+              All Grade XI scholarships are based on Cumulative Marks = SEE (25%) + KMC Entrance (75%).
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            {scholarships.map((s, i) => (
+          {/* Grade XI Merit Scholarship Table */}
+          <div className="mb-8">
+            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+              Grade XI — Admission Scholarship (Science, Management & Law)
+            </h3>
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left">S.N.</th>
+                    <th className="px-4 py-3 text-left">Cumulative Marks</th>
+                    <th className="px-4 py-3 text-center">Annual Fee</th>
+                    <th className="px-4 py-3 text-center">Tuition Fee</th>
+                    <th className="px-4 py-3 text-center">Quota</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  {[
+                    { sn: 1, marks: "85 & Above", annual: "100%", tuition: "100%", quota: 25 },
+                    { sn: 2, marks: "80 – 84", annual: "75%", tuition: "75%", quota: 25 },
+                    { sn: 3, marks: "75 – 79", annual: "50%", tuition: "50%", quota: 25 },
+                    { sn: 4, marks: "70 – 74", annual: "50%", tuition: "25%", quota: 25 },
+                    { sn: 5, marks: "65 – 69", annual: "25%", tuition: "25%", quota: 25 },
+                    { sn: 6, marks: "60 – 64", annual: "25%", tuition: "—", quota: 25 },
+                  ].map((r) => (
+                    <tr key={r.sn} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
+                      <td className="px-4 py-3 text-slate-400 text-xs">{r.sn}</td>
+                      <td className="px-4 py-3 text-white font-medium">{r.marks}</td>
+                      <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.annual}</td>
+                      <td className="px-4 py-3 text-center text-amber-300 font-semibold">{r.tuition}</td>
+                      <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.quota}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-slate-500 text-xs mt-2 italic">
+              Valid for first 3 months (until First Term Exam). First-come, first-served. Limited quota.
+            </p>
+          </div>
+
+          {/* Grade XII / Terminal Exam Scholarship */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* Grade XII based on Grade XI GPA */}
+            <div>
+              <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+                Grade XII — Based on Grade XI GPA
+              </h3>
+              <div className="overflow-x-auto rounded-2xl border border-white/10">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left">Final GPA</th>
+                      <th className="px-4 py-3 text-center">Scholarship</th>
+                      <th className="px-4 py-3 text-center">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5">
+                    {[
+                      { gpa: "3.91 & Above", schol: "100%", dur: "3 months" },
+                      { gpa: "3.86 – 3.90", schol: "75%", dur: "3 months" },
+                      { gpa: "3.81 – 3.85", schol: "50%", dur: "3 months" },
+                      { gpa: "3.71 – 3.80", schol: "25%", dur: "3 months" },
+                      { gpa: "3.61 – 3.70", schol: "10%", dur: "3 months" },
+                    ].map((r) => (
+                      <tr key={r.gpa} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
+                        <td className="px-4 py-3 text-white font-medium text-xs">{r.gpa}</td>
+                        <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.schol} on Tuition</td>
+                        <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.dur}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Terminal Exam Performance */}
+            <div>
+              <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+                Terminal Exam Performance
+              </h3>
+              <div className="overflow-x-auto rounded-2xl border border-white/10">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left">Marks in Terminal</th>
+                      <th className="px-4 py-3 text-center">Scholarship</th>
+                      <th className="px-4 py-3 text-center">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5">
+                    {[
+                      { marks: "Topper / 85%+", schol: "100%", dur: "3 months" },
+                      { marks: "80% and above", schol: "75%", dur: "3 months" },
+                      { marks: "75% and above", schol: "50%", dur: "3 months" },
+                      { marks: "70% and above", schol: "25%", dur: "3 months" },
+                      { marks: "65% and above", schol: "10%", dur: "3 months" },
+                    ].map((r) => (
+                      <tr key={r.marks} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
+                        <td className="px-4 py-3 text-white font-medium text-xs">{r.marks}</td>
+                        <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.schol} on Tuition</td>
+                        <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.dur}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Special Scholarships */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+            {[
+              {
+                title: "Sushil Memorial Scholarship",
+                badge: "Special",
+                desc: "Awarded to the top 2 students from the first entrance examination + 1 top student from the Madhesi community.",
+                details: ["Top 2 from first entrance exam", "1 Madhesi community student", "Based on entrance merit"],
+              },
+              {
+                title: "Government School Scholarship",
+                badge: "Special Entrance",
+                desc: "Separate entrance examination for students from government/public schools, conducted in collaboration with local government.",
+                details: ["Separate entrance test", "Limited scholarship seats", "Merit-based selection"],
+              },
+              {
+                title: "Need-Based Financial Aid",
+                badge: "Need Based",
+                desc: "Financial assistance for students from economically disadvantaged backgrounds who demonstrate academic potential.",
+                details: ["Income certificate required", "Academic performance considered", "Contact administration"],
+              },
+            ].map((s, i) => (
               <div
                 key={i}
-                className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-amber-400/30 hover:bg-white/8 transition-all"
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-amber-400/30 transition-all"
               >
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] flex-shrink-0">
-                    <IconAward size={22} />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] shrink-0">
+                    <IconAward size={18} />
                   </div>
-                  <span
-                    className={`text-xs font-bold px-3 py-1 rounded-full ${s.badgeColor}`}
-                  >
+                  <span className="text-xs font-bold px-2 py-1 rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/20">
                     {s.badge}
                   </span>
                 </div>
-                <h3 className="font-bold text-white text-lg mb-3">{s.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  {s.desc}
-                </p>
-                <ul className="space-y-2">
-                  {s.details.map((d, j) => (
-                    <li
-                      key={j}
-                      className="flex items-start gap-2.5 text-sm text-slate-300"
-                    >
-                      <span className="w-4 h-4 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center flex-shrink-0 mt-0.5 text-amber-400">
-                        <IconCheck />
-                      </span>
-                      {d}
+                <h3 className="font-bold text-white text-sm mb-2">{s.title}</h3>
+                <p className="text-slate-400 text-xs leading-relaxed mb-4">{s.desc}</p>
+                <ul className="space-y-1.5">
+                  {s.details.map((d) => (
+                    <li key={d} className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{d}
                     </li>
                   ))}
                 </ul>
@@ -583,7 +701,7 @@ export default function Admissions() {
 
           {/* Scholarship note */}
           <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-6 flex items-start gap-4">
-            <span className="text-amber-400 flex-shrink-0 mt-0.5">
+            <span className="text-amber-400 shrink-0 mt-0.5">
               <IconInfo />
             </span>
             <div>
@@ -695,19 +813,19 @@ export default function Admissions() {
                 {[
                   {
                     stream: "Science",
-                    cgpa: "CGPA 2.85+",
+                    cgpa: "CGPA 2.8+",
                     req: "B+ in Science, Maths, Optional Maths & English",
                     color: "bg-blue-50 border-blue-200",
                   },
                   {
                     stream: "Management",
-                    cgpa: "CGPA 2.05+",
+                    cgpa: "CGPA 2.4+",
                     req: "C grade in Mathematics & English",
                     color: "bg-emerald-50 border-emerald-200",
                   },
                   {
                     stream: "Law",
-                    cgpa: "CGPA 2.05+",
+                    cgpa: "CGPA 2.4+",
                     req: "C grade in Mathematics & English",
                     color: "bg-amber-50 border-amber-200",
                   },

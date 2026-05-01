@@ -42,16 +42,17 @@ const streams = [
     overview:
       "The Science stream is designed for students passionate about scientific inquiry and research. With advanced laboratory facilities and experienced faculty, KMC prepares students for careers in medicine, engineering, pharmacy, and scientific innovation.",
     subjects: [
+      { name: "Compulsory English", note: "Compulsory" },
+      { name: "Compulsory Nepali", note: "Compulsory" },
       { name: "Physics", note: "Core" },
       { name: "Chemistry", note: "Core" },
       { name: "Biology", note: "Core / Optional" },
-      { name: "Mathematics", note: "Core" },
       { name: "Computer Science", note: "Alternative to Biology" },
-      { name: "English", note: "Compulsory" },
-      { name: "Nepali", note: "Compulsory" },
+      { name: "Compulsory Maths / Social Studies & Life Skills", note: "Compulsory" },
     ],
+    timing: "Morning: 6:20 AM – 12:50 PM  |  Day: 11:00 AM – 5:30 PM",
     eligibility: {
-      cgpa: "2.85+",
+      cgpa: "2.8+",
       subjects: [
         "B+ in Science",
         "B+ in Mathematics",
@@ -61,11 +62,12 @@ const streams = [
       note: "Must have passed Optional Mathematics",
     },
     entranceExam: {
-      format: "Paper-based MCQ",
+      format: "Paper-based MCQ — 100 marks, 60 minutes",
       breakdown: [
-        { subject: "Science", marks: 40 },
-        { subject: "Mathematics", marks: 40 },
-        { subject: "English", marks: 20 },
+        { subject: "Mathematics", marks: "30%" },
+        { subject: "Science", marks: "40%" },
+        { subject: "English", marks: "20%" },
+        { subject: "GK & IQ", marks: "10%" },
       ],
       total: 100,
       note: "Results published within 2 days. Model questions sent via email.",
@@ -103,25 +105,25 @@ const streams = [
     overview:
       "The Management stream prepares students for careers in business, finance, and entrepreneurship. With a curriculum that covers NEB requirements while also preparing students for competitive exams like CA and BBA entrance, this stream builds practical business acumen.",
     subjects: [
+      { name: "Compulsory English", note: "Compulsory" },
+      { name: "Compulsory Nepali", note: "Compulsory" },
       { name: "Accountancy", note: "Core" },
-      { name: "Business Studies", note: "Core" },
       { name: "Economics", note: "Core" },
-      { name: "Mathematics", note: "Core" },
-      { name: "English", note: "Compulsory" },
-      { name: "Nepali", note: "Compulsory" },
-      { name: "Hotel Management / Computer", note: "Optional" },
+      { name: "Comp. Social Studies & Life Skills / Comp. Maths", note: "Compulsory" },
+      { name: "Computer Science / Business Maths / Business Studies", note: "Optional" },
     ],
+    timing: "Morning: 6:20 AM – 11:00 AM",
     eligibility: {
-      cgpa: "2.05+",
+      cgpa: "2.4+",
       subjects: ["C grade in Mathematics", "C grade in English"],
       note: "Open to all SEE graduates meeting minimum criteria",
     },
     entranceExam: {
-      format: "Physical + Computer-based MCQ",
+      format: "Physical + Computer-based MCQ — 75 marks, 60 minutes",
       breakdown: [
-        { subject: "English", marks: 45 },
-        { subject: "General Knowledge", marks: 15 },
-        { subject: "Mathematics", marks: 15 },
+        { subject: "Mathematics", marks: "36%" },
+        { subject: "English", marks: "36%" },
+        { subject: "Nepali & General Knowledge", marks: "28%" },
       ],
       total: 75,
       note: "Results published on the same day. Scholarship based on SEE (25%) + Entrance (75%).",
@@ -158,25 +160,28 @@ const streams = [
     overview:
       "Established in 2019, the Law stream at KMC Lalitpur provides a comprehensive introduction to legal studies and political science. Led by reputed academicians with professional law backgrounds, this stream prepares students for LLB, civil service, and careers in advocacy and public policy.",
     subjects: [
-      { name: "Political Science", note: "Core" },
-      { name: "History", note: "Core" },
-      { name: "Social Studies", note: "Core" },
-      { name: "English", note: "Compulsory" },
-      { name: "Nepali", note: "Compulsory" },
-      { name: "Mathematics", note: "Core" },
-      { name: "Economics", note: "Optional" },
+      { name: "Compulsory English", note: "Compulsory" },
+      { name: "Compulsory Nepali", note: "Compulsory" },
+      { name: "Comp. Social Studies & Life Skills", note: "Compulsory" },
+      { name: "Jurisprudence & Legal Theories (Gr. XI)", note: "Core" },
+      { name: "Procedural Law (Gr. XI)", note: "Core" },
+      { name: "Constitutional Law (Gr. XI)", note: "Core" },
+      { name: "Nepalese Legal System (Gr. XII)", note: "Core" },
+      { name: "Civil & Criminal Law & Justice (Gr. XII)", note: "Core" },
+      { name: "Legal Drafting (Gr. XII)", note: "Core" },
     ],
+    timing: "Morning: 6:20 AM – 11:00 AM",
     eligibility: {
-      cgpa: "2.05+",
+      cgpa: "2.4+",
       subjects: ["C grade in Mathematics", "C grade in English"],
       note: "Open to all SEE graduates meeting minimum criteria",
     },
     entranceExam: {
-      format: "Physical + Computer-based MCQ",
+      format: "Physical + Computer-based MCQ — 75 marks, 60 minutes",
       breakdown: [
-        { subject: "English", marks: 45 },
-        { subject: "General Knowledge", marks: 15 },
-        { subject: "Mathematics", marks: 15 },
+        { subject: "English", marks: "30%" },
+        { subject: "Nepali", marks: "30%" },
+        { subject: "Social Studies & General Knowledge", marks: "40%" },
       ],
       total: 75,
       note: "Results published on the same day. Scholarship based on SEE (25%) + Entrance (75%).",
@@ -244,21 +249,21 @@ export default function Academics() {
           {
             name: "Science Stream (+2)",
             description:
-              "NEB-affiliated +2 Science program covering Physics, Chemistry, Biology/Computer and Mathematics. Entrance exam: 100 marks. Requires CGPA 2.85+ with B+ in Science, Maths and English.",
+              "NEB-affiliated +2 Science program covering Physics, Chemistry, Biology/Computer and Mathematics. Entrance exam: 100 marks (Maths 30%, Science 40%, English 20%, GK & IQ 10%). Requires CGPA 2.8+ with B+ in Science, Maths and English.",
             provider: "KMC Lalitpur",
             url: "/academics#science",
           },
           {
             name: "Management Stream (+2)",
             description:
-              "NEB-affiliated +2 Management program covering Accountancy, Business Studies, Economics and Mathematics. Entrance exam: 75 marks. Requires CGPA 2.05+ with C in Maths and English.",
+              "NEB-affiliated +2 Management program covering Accountancy, Economics and Business Studies. Entrance exam: 75 marks (Maths 36%, English 36%, Nepali & GK 28%). Requires CGPA 2.4+ with C in Maths and English.",
             provider: "KMC Lalitpur",
             url: "/academics#management",
           },
           {
             name: "Law Stream (+2)",
             description:
-              "NEB-affiliated +2 Law program covering Political Science, History, Social Studies, English and Nepali. Entrance exam: 75 marks. Requires CGPA 2.05+.",
+              "NEB-affiliated +2 Law program covering Constitutional Law, Jurisprudence, Procedural Law (Gr. XI) and Nepalese Legal System, Civil & Criminal Law, Legal Drafting (Gr. XII). Entrance exam: 75 marks (English 30%, Nepali 30%, Social Studies & GK 40%). Requires CGPA 2.4+.",
             provider: "KMC Lalitpur",
             url: "/academics#law",
           },
@@ -415,7 +420,7 @@ export default function Academics() {
                           {b.subject}
                         </span>
                         <span className="text-amber-400 font-bold text-sm">
-                          {b.marks} marks
+                          {b.marks}
                         </span>
                       </div>
                     ))}
@@ -432,6 +437,18 @@ export default function Academics() {
                     {stream.entranceExam.note}
                   </p>
                 </div>
+
+                {/* Class Timing */}
+                {"timing" in stream && (
+                  <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-5">
+                    <p className="text-amber-700 text-xs font-bold tracking-wider uppercase mb-2">
+                      Class Timings
+                    </p>
+                    <p className="text-[#0B1F3A] text-sm font-medium leading-relaxed">
+                      {(stream as { timing: string }).timing}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Right: details */}
@@ -702,6 +719,117 @@ export default function Academics() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Professional IT Courses */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-xl mb-14">
+            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
+              Beyond the NEB Curriculum
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              Professional
+              <br />
+              IT Courses
+            </h2>
+            <p className="text-slate-500 text-sm leading-relaxed mt-4">
+              KMC Lalitpur offers three globally certified IT courses alongside
+              the NEB curriculum, in collaboration with{" "}
+              <strong className="text-[#0B1F3A]">NCC Education (UK)</strong> —
+              regulated by Ofqual and recognized in 40+ countries worldwide.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Cyber Security & Ethical Hacking",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                ),
+                topics: [
+                  "Cryptography Fundamentals",
+                  "Public-Key Infrastructure",
+                  "Web & Email Security",
+                  "Data Protection",
+                  "Vulnerability Assessment",
+                  "Authentication & Access Control",
+                  "Firewalls, VPN & Remote Access",
+                  "Wireless Security",
+                ],
+              },
+              {
+                title: "Artificial Intelligence",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                  </svg>
+                ),
+                topics: [
+                  "Problem Solving Using Search",
+                  "Knowledge Representation & Fuzzy Logic",
+                  "Machine Learning & Neural Networks",
+                  "Decision Trees & Genetic Algorithms",
+                  "Expert Systems & NLP",
+                  "Intelligent Agents",
+                ],
+              },
+              {
+                title: "Data Science",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                  </svg>
+                ),
+                topics: [
+                  "Data Collection and Analysis",
+                  "Algorithms & Data Representation",
+                  "Manipulating & Structuring Data",
+                  "Developing & Testing Program Code",
+                  "Inferential Statistics & Data Visualization",
+                  "Data Science Project Lifecycle",
+                ],
+              },
+            ].map((course, i) => (
+              <div
+                key={i}
+                className="bg-[#0B1F3A] rounded-2xl p-7 flex flex-col"
+              >
+                <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-5 shrink-0">
+                  {course.icon}
+                </div>
+                <h3 className="text-white font-bold text-base mb-4">
+                  {course.title}
+                </h3>
+                <ul className="space-y-2 flex-1">
+                  {course.topics.map((t) => (
+                    <li key={t} className="flex items-start gap-2 text-xs text-[#8ba7c7]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="font-bold text-[#0B1F3A] text-sm">NCC Education Certification</p>
+              <p className="text-slate-600 text-xs leading-relaxed mt-1">
+                Courses are certified by NCC Education UK, founded in 1976 and regulated by Ofqual.
+                Internationally recognized in 40+ centers worldwide — giving KMC students a globally
+                competitive edge.
+              </p>
+            </div>
+            <div className="shrink-0 px-5 py-3 bg-[#0B1F3A] text-amber-400 rounded-xl text-xs font-bold text-center">
+              NCC Education
+              <br />
+              <span className="text-white font-normal">UK Certified</span>
+            </div>
           </div>
         </div>
       </section>
