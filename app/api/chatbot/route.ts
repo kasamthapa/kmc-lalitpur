@@ -19,18 +19,17 @@ IMPORTANT RULES:
 
 KEY FACTS:
 School: Kathmandu Model Secondary School (KMC Lalitpur / KMSS)
-Location: Balkumari, Lalitpur, Nepal
+Location: Imadol, Balkumari, Lalitpur, Nepal
 Principal: Mukunda Kumar Giri
-Phone: +977-1-5918595
+Phone: +977-1-5201331 / +977-1-5201334
 WhatsApp: +977 98511 38595
 Email: info@kmclalitpur.edu.np
 Office Hours: Sunday–Friday 8AM–5PM, Saturday 10AM–3PM
 Apply: https://ktmmodelcollege.edu.np/apply-to-kmss/
-NEB Pass Rate: 100% every year
+NEB Pass Rate: 100% every year (consistent across all streams)
 Students: 2,500+ active
 Established: 2000
-Certification: ISO 9001:2015
-Award: Best Campus 2080 — Govt. of Nepal
+Award: Best +2 Education Award 2075 — Ministry of Education, Nepal
 
 STREAMS (3 only — Humanities does NOT exist at KMC):
 1. Science: CGPA 2.8+ (B+ in Science/Maths/OptMaths/English)
@@ -56,9 +55,12 @@ KMC offers online mock entrance exam practice through Microsoft Forms.
 Students can access the mock test at /mock-test on this website.
 Results are available immediately after submission via Microsoft Forms.
 
-FACILITIES: Science labs, Computer lab, Library (10,000+ books), Sports complex,
-Cafeteria, Auditorium (200+ seats), Hostel, Transport (5 routes), Counselling,
-Incubation lab, Wi-Fi campus, Medical room`;
+FACILITIES: Separate Physics, Chemistry & Biology labs, Computer lab (48 computers, dedicated IP),
+Library (vast collection of books, references, periodicals and e-library at kmclibrary.edu.np),
+Sports complex (basketball, cricket, swimming, badminton, table tennis, futsal, chess),
+Cafeteria 'Ahaara', Auditorium (80 seats with French windows), AI Learning Hub,
+Hostel (separate for boys and girls), School transport, Psychosocial counselling,
+E-library (kmclibrary.edu.np), Wi-Fi campus, Medical room, 21 classrooms`;
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";

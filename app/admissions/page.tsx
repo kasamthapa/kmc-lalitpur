@@ -303,7 +303,7 @@ export default function Admissions() {
               <p className="text-lg text-[#8ba7c7] leading-relaxed mb-8">
                 Begin your journey of academic excellence at Kathmandu Model
                 Secondary School, Lalitpur. Admissions are open — limited seats
-                available across all four streams.
+                available across all three streams.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -330,7 +330,7 @@ export default function Admissions() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 {
-                  n: "4",
+                  n: "3",
                   label: "Academic Streams",
                   sub: "Science, Management, Law",
                 },
@@ -898,10 +898,10 @@ export default function Admissions() {
                 immediate assistance.
               </p>
               <a
-                href="tel:+97715918595"
+                href="tel:+97715201331"
                 className="inline-flex items-center gap-1.5 text-amber-400 font-bold text-sm hover:text-amber-300 transition-colors"
               >
-                +977-1-5918595 <IconChevronRight />
+                +977-1-5201331 <IconChevronRight />
               </a>
             </div>
           </div>

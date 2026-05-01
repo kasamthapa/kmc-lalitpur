@@ -89,7 +89,7 @@ const streams = [
       "Agriculture",
       "BSc Nursing",
     ],
-    passRate: "98%",
+    passRate: "100%",
   },
   {
     id: "management",
@@ -144,7 +144,7 @@ const streams = [
       "Marketing",
       "Public Administration",
     ],
-    passRate: "97%",
+    passRate: "100%",
   },
   {
     id: "law",
@@ -187,12 +187,14 @@ const streams = [
       note: "Results published on the same day. Scholarship based on SEE (25%) + Entrance (75%).",
     },
     features: [
-      "Constitutional law and legal framework studies",
-      "Moot court and formal debate competitions",
-      "Mentorship from practicing advocates and legal professionals",
+      "Nepal's first +2 law school — pioneer in legal education at secondary level",
+      "Consistent 100% result for 5 consecutive years",
+      "15-day internship at prestigious law firms under renowned lawyers",
+      "Moot court, Mock Parliament, and formal debate competitions",
+      "Constitutional law, jurisprudence, civil and criminal law curriculum",
+      "Clinical legal education — court visits, custody visits, legal awareness programs",
       "Civil service and LLB entrance examination coaching",
-      "Model United Nations (MUN) participation",
-      "Legal writing and case study workshops",
+      "Legal research, analytical training, and case study workshops",
     ],
     careers: [
       "LLB / Law",
@@ -202,7 +204,7 @@ const streams = [
       "Diplomacy",
       "Political Science (BA)",
     ],
-    passRate: "95%",
+    passRate: "100%",
   },
 ];
 
@@ -290,7 +292,7 @@ export default function Academics() {
               <span className="text-amber-400">Excellence</span>
             </h1>
             <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
-              Four comprehensive NEB-aligned +2 programs designed to develop
+              Three comprehensive NEB-aligned +2 programs designed to develop
               critical thinking, foster creativity, and prepare students for
               global success.
             </p>

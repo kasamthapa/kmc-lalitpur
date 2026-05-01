@@ -100,17 +100,17 @@ const milestones = [
     desc: "Seven students accepted to 16 top global universities with combined scholarships over NPR 60 crore.",
   },
   {
-    year: "2023",
-    title: "National Award",
-    desc: "Awarded Best Campus of 2080 by the Government of Nepal, Ministry of Education, Science & Technology.",
+    year: "2019",
+    title: "Ministry Award",
+    desc: "Received the Best +2 Education Award 2075 from the Ministry of Education, Nepal — recognized as the top-ranked institution among 4,000+ Plus Two schools nationwide.",
   },
 ];
 
 const accreditations = [
   { label: "NEB Affiliated", sub: "National Examinations Board" },
   { label: "ISO 9001:2015", sub: "Quality Certified Institution" },
-  { label: "Best Campus 2080", sub: "Govt. of Nepal — MoEST" },
-  { label: "NEB Excellence Award", sub: "Academic Excellence" },
+  { label: "Best +2 Award 2075", sub: "Ministry of Education, Nepal" },
+  { label: "Top Among 4,000+ Schools", sub: "Nationwide Recognition" },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -146,7 +146,7 @@ export default function About() {
               <span className="text-amber-400">KMC Lalitpur</span>
             </h1>
             <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
-              Two decades of academic excellence, character-building, and
+              Over 25 years of academic excellence, character-building, and
               transformative +2 education in the Kathmandu Valley.
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function About() {
               </div>
               <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
-                  22+
+                  25+
                 </p>
                 <p className="text-[#8ba7c7] text-sm mt-1">
                   Years of Excellence

@@ -45,7 +45,7 @@ const faqCategories = [
     items: [
       {
         q: "What are the eligibility requirements for admission?",
-        a: "Students who have completed Grade 10 (SEE) from any NEB-recognized institution are eligible to apply. Minimum GPA requirements vary by stream: Science requires GPA 3.0+ and Management and Law require GPA 2.4+. Final selection is based on merit and scholarship examination performance.",
+        a: "Students who have completed Grade 10 (SEE) from any NEB-recognized institution are eligible to apply. Minimum GPA requirements vary by stream: Science requires GPA 2.8+ (with B+ in Science, Mathematics, Optional Mathematics and English), while Management and Law require GPA 2.4+ (with C grade in Mathematics and English). Final selection is based on entrance examination performance.",
       },
       {
         q: "When does the admission process start?",
@@ -105,7 +105,7 @@ const faqCategories = [
       },
       {
         q: "Is there a library?",
-        a: "Yes. The KMC library houses over 15,000 books covering all academic streams, reference materials, journals, and newspapers. Students can also access digital resources and study in dedicated reading rooms. The library is open Sunday–Friday from 8 AM to 5 PM.",
+        a: "Yes. The KMC library houses a vast collection of books, references, periodicals, and videos covering all academic streams. Students can also access digital resources anytime through the dedicated e-library platform at kmclibrary.edu.np. The library is open Sunday–Friday from 8 AM to 5 PM.",
       },
       {
         q: "What sports and extracurricular facilities does KMC have?",

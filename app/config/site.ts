@@ -15,12 +15,12 @@ export const SITE_CONFIG = {
   studentCount: 2500,
 
   address: {
-    streetAddress: "Balkumari",
+    streetAddress: "Imadol, Balkumari",
     addressLocality: "Lalitpur",
     addressRegion: "Bagmati Province",
     postalCode: "44700",
     addressCountry: "NP",
-    display: "Balkumari, Lalitpur, Kathmandu Valley, Nepal",
+    display: "Imadol, Balkumari, Lalitpur, Nepal",
     mapsUrl: "https://maps.google.com/?q=Balkumari,Lalitpur,Nepal",
   },
 
@@ -57,9 +57,10 @@ export const SITE_CONFIG = {
   },
 
   socials: {
-    facebook: "https://www.facebook.com/kmcbagbazar",
+    facebook: "https://www.facebook.com/KMCLalitpur",
     instagram: "https://www.instagram.com/kmclalitpur",
     youtube: "https://www.youtube.com/@kmclalitpur",
+    tiktok: "https://www.tiktok.com/@kmclalitpur",
     twitter: "@kmclalitpur",
     parent: "https://ktmmodelcollege.edu.np",
   },
@@ -73,8 +74,8 @@ export const SITE_CONFIG = {
   },
 
   awards: [
-    "Ministry of Education Excellence Award — Best Campus among 4000+ Schools",
-    "Best Campus of 2080 — Government of Nepal, Ministry of Education Science & Technology",
-    "NEB Excellence Award — Academic Excellence",
+    "Best +2 Education Award 2075 — Ministry of Education, Nepal",
+    "Excellence Award (Letter of Appreciation) — Ministry of Education, Nepal (2074 & 2075 B.S.)",
+    "Top-Ranked Among 4,000+ Plus Two Schools Nationwide",
   ],
 } as const;
