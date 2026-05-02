@@ -169,7 +169,7 @@ export function Sidebar({ userName }: { userName: string }) {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-52 bg-gray-950 shrink-0 h-screen sticky top-0 border-r border-white/[0.05]">
+      <aside className="hidden lg:flex flex-col w-56 bg-gray-950 shrink-0 h-screen sticky top-0 border-r border-white/[0.05]">
         <NavContent userName={userName} pathname={pathname} onClose={() => {}} />
       </aside>
 

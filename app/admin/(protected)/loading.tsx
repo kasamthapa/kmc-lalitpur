@@ -5,7 +5,7 @@ import { Spinner } from "@/app/components/page-skeleton";
 
 export default function AdminLoading() {
   return (
-    <div className="flex-1 flex items-center justify-center min-h-screen bg-gray-900">
+    <div className="flex-1 flex items-center justify-center min-h-screen bg-gray-950">
       <div className="flex flex-col items-center gap-4">
         <div className="text-amber-400">
           <Spinner size={36} />

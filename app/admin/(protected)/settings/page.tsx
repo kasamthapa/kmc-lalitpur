@@ -3,11 +3,33 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
+function EyeIcon({ open }: { open: boolean }) {
+  return open ? (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+      <line x1="1" y1="1" x2="23" y2="23" />
+    </svg>
+  ) : (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+const inputCls =
+  "w-full bg-gray-800 border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400/50 transition-all";
+const labelCls = "block text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1.5";
+
 export default function SettingsPage() {
   const { data: session } = useSession();
+
   const [current, setCurrent] = useState("");
   const [next, setNext] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [showCurrent, setShowCurrent] = useState(false);
+  const [showNext, setShowNext] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -41,102 +63,115 @@ export default function SettingsPage() {
       setConfirm("");
     } else {
       const json = await res.json();
-      setError(json.message ?? "Failed to update password.");
+      setError((json as { message?: string }).message ?? "Failed to update password.");
     }
   }
 
+  const name = session?.user?.name ?? "—";
+  const email = session?.user?.email ?? "—";
+  const role = (session?.user as { role?: string })?.role ?? "admin";
+
   return (
     <div className="p-6 max-w-2xl mx-auto">
+      {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-white text-2xl font-bold">Settings</h1>
-        <p className="text-gray-400 text-sm mt-1">Manage your admin account.</p>
+        <h1 className="text-white text-xl font-bold">Settings</h1>
+        <p className="text-gray-600 text-sm mt-0.5">Manage your account and admin preferences.</p>
       </div>
 
       {/* Account info */}
-      <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-6">
-        <h2 className="text-white font-semibold mb-4">Account</h2>
-        <div className="space-y-3">
-          <div>
-            <p className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">Name</p>
-            <p className="text-white text-sm">{session?.user?.name ?? "—"}</p>
-          </div>
-          <div>
-            <p className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">Email</p>
-            <p className="text-white text-sm">{session?.user?.email ?? "—"}</p>
-          </div>
-          <div>
-            <p className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">Role</p>
-            <p className="text-white text-sm capitalize">{session?.user?.role ?? "—"}</p>
-          </div>
+      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl overflow-hidden mb-5">
+        <div className="px-5 py-4 border-b border-white/[0.04]">
+          <h2 className="text-gray-300 text-sm font-bold">Account Information</h2>
+          <p className="text-gray-600 text-xs mt-0.5">Your admin identity — read-only.</p>
+        </div>
+        <div className="px-5 py-4 grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {[
+            { label: "Display name", value: name },
+            { label: "Email address", value: email },
+            { label: "Role", value: role.charAt(0).toUpperCase() + role.slice(1) },
+          ].map((row) => (
+            <div key={row.label}>
+              <p className={labelCls}>{row.label}</p>
+              <p className="text-white text-sm font-medium">{row.value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="px-5 py-3 bg-white/[0.02] border-t border-white/[0.04] flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+          <p className="text-gray-600 text-xs">Active session — JWT authenticated</p>
         </div>
       </div>
 
       {/* Change password */}
-      <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-6">
-        <h2 className="text-white font-semibold mb-4">Change Password</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl overflow-hidden mb-5">
+        <div className="px-5 py-4 border-b border-white/[0.04]">
+          <h2 className="text-gray-300 text-sm font-bold">Change Password</h2>
+          <p className="text-gray-600 text-xs mt-0.5">Use a strong password with at least 8 characters.</p>
+        </div>
+        <form onSubmit={handleSubmit} className="px-5 py-5 space-y-4">
           {error && (
-            <div className="bg-red-950 border border-red-800 text-red-300 text-sm rounded-lg px-4 py-3">
+            <div className="flex items-start gap-2.5 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl px-4 py-3">
+              <svg className="shrink-0 w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
               {error}
             </div>
           )}
           {success && (
-            <div className="bg-green-950 border border-green-800 text-green-300 text-sm rounded-lg px-4 py-3">
+            <div className="flex items-center gap-2.5 bg-green-500/10 border border-green-500/20 text-green-400 text-sm rounded-xl px-4 py-3">
+              <svg className="shrink-0 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
               {success}
             </div>
           )}
 
-          <div>
-            <label className="block text-gray-300 text-sm font-medium mb-1.5">
-              Current Password
-            </label>
-            <input
-              type="password"
-              value={current}
-              onChange={(e) => setCurrent(e.target.value)}
-              required
-              autoComplete="current-password"
-              placeholder="••••••••"
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors"
-            />
-          </div>
+          {(
+            [
+              { id: "current", label: "Current password", value: current, set: setCurrent, show: showCurrent, toggle: () => setShowCurrent((v) => !v), autocomplete: "current-password" },
+              { id: "next", label: "New password", value: next, set: setNext, show: showNext, toggle: () => setShowNext((v) => !v), autocomplete: "new-password" },
+              { id: "confirm", label: "Confirm new password", value: confirm, set: setConfirm, show: showConfirm, toggle: () => setShowConfirm((v) => !v), autocomplete: "new-password" },
+            ] as const
+          ).map((field) => (
+            <div key={field.id}>
+              <label htmlFor={field.id} className={labelCls}>{field.label}</label>
+              <div className="relative">
+                <input
+                  id={field.id}
+                  type={field.show ? "text" : "password"}
+                  value={field.value}
+                  onChange={(e) => field.set(e.target.value)}
+                  required
+                  autoComplete={field.autocomplete}
+                  placeholder="••••••••"
+                  className={`${inputCls} pr-11`}
+                />
+                <button
+                  type="button"
+                  onClick={field.toggle}
+                  tabIndex={-1}
+                  aria-label={field.show ? "Hide password" : "Show password"}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-300 transition-colors p-0.5"
+                >
+                  <EyeIcon open={field.show} />
+                </button>
+              </div>
+            </div>
+          ))}
 
-          <div>
-            <label className="block text-gray-300 text-sm font-medium mb-1.5">
-              New Password
-            </label>
-            <input
-              type="password"
-              value={next}
-              onChange={(e) => setNext(e.target.value)}
-              required
-              autoComplete="new-password"
-              placeholder="Min. 8 characters"
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-300 text-sm font-medium mb-1.5">
-              Confirm New Password
-            </label>
-            <input
-              type="password"
-              value={confirm}
-              onChange={(e) => setConfirm(e.target.value)}
-              required
-              autoComplete="new-password"
-              placeholder="Repeat new password"
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors"
-            />
-          </div>
-
-          <div className="flex justify-end">
+          <div className="flex justify-end pt-1">
             <button
               type="submit"
-              disabled={loading}
-              className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 disabled:opacity-60 text-gray-900 text-sm font-semibold rounded-lg transition-colors"
+              disabled={loading || !current || !next || !confirm}
+              className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 active:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-gray-900 text-sm font-bold rounded-xl transition-all flex items-center gap-2"
             >
+              {loading && (
+                <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+              )}
               {loading ? "Updating…" : "Update Password"}
             </button>
           </div>
@@ -144,17 +179,24 @@ export default function SettingsPage() {
       </div>
 
       {/* Site config note */}
-      <div className="bg-gray-800/50 border border-gray-700/50 rounded-xl p-5">
-        <h2 className="text-gray-300 font-semibold mb-2">Site Configuration</h2>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Global settings like the school phone number, email address, social links, and branding
-          are defined in{" "}
-          <code className="bg-gray-700 text-amber-300 px-1.5 py-0.5 rounded text-xs">
-            app/config/site.ts
-          </code>
-          . Changing these requires editing the file and redeploying — they are not managed
-          through this panel.
-        </p>
+      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl px-5 py-4">
+        <div className="flex items-start gap-3">
+          <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <div>
+            <h3 className="text-gray-300 text-sm font-bold mb-1">Site Configuration</h3>
+            <p className="text-gray-600 text-xs leading-relaxed">
+              Global settings like phone number, email, social links, and branding are defined in{" "}
+              <code className="bg-gray-800 text-amber-400 px-1.5 py-0.5 rounded text-[11px]">
+                app/config/site.ts
+              </code>
+              . Changes require a code edit and redeploy — they are not managed through this panel.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

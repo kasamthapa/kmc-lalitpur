@@ -161,9 +161,9 @@ function PhotoModal({
       }}
     >
       {/* panel */}
-      <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div className="bg-gray-900 border border-white/[0.08] rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
         {/* header */}
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-800">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
           <h2 className="text-white font-bold text-lg">
             {editingId ? "Edit Photo" : "Add New Photo"}
           </h2>
@@ -188,7 +188,7 @@ function PhotoModal({
             <p className="text-gray-300 text-sm font-medium mb-2">Photo</p>
 
             {uploading && (
-              <div className="border border-gray-700 rounded-xl p-5 flex items-center gap-3">
+              <div className="border border-white/[0.08] rounded-xl p-5 flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-amber-400 border-t-transparent rounded-full animate-spin shrink-0" />
                 <span className="text-gray-300 text-sm">
                   Uploading to Cloudinary…
@@ -278,7 +278,7 @@ function PhotoModal({
               value={alt}
               onChange={(e) => setAlt(e.target.value)}
               placeholder="Describe the photo"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+              className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
             />
           </div>
 
@@ -291,7 +291,7 @@ function PhotoModal({
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
+                className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
               >
                 <option value="">— Select —</option>
                 {CATEGORIES.map((c) => (
@@ -310,7 +310,7 @@ function PhotoModal({
                 value={order}
                 onChange={(e) => setOrder(e.target.value)}
                 min="0"
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
+                className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
               />
             </div>
           </div>
@@ -326,7 +326,7 @@ function PhotoModal({
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Caption shown below the photo"
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+              className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
             />
           </div>
 
@@ -422,24 +422,21 @@ export default function GalleryPage() {
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
         >
-          <div className="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-sm w-full">
-            <h3 className="text-white font-bold mb-2">Remove photo?</h3>
-            <p className="text-gray-400 text-sm mb-5">
-              The image on Cloudinary won&apos;t be deleted.
-            </p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setDeleteId(null)}
-                className="flex-1 py-2 bg-gray-800 hover:bg-gray-700 text-white text-sm rounded-lg"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => handleDelete(deleteId)}
-                className="flex-1 py-2 bg-red-600 hover:bg-red-500 text-white text-sm font-semibold rounded-lg"
-              >
-                Remove
-              </button>
+          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-9 h-9 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-sm">Remove photo?</h3>
+                <p className="text-gray-600 text-xs">The image on Cloudinary won&apos;t be deleted.</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <button onClick={() => setDeleteId(null)} className="flex-1 px-4 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] text-gray-300 text-sm font-semibold rounded-lg transition-colors">Cancel</button>
+              <button onClick={() => handleDelete(deleteId)} className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white text-sm font-bold rounded-lg transition-colors">Remove</button>
             </div>
           </div>
         </div>

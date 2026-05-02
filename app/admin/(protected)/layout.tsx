@@ -13,7 +13,7 @@ export default async function AdminLayout({
 
   return (
     <SessionWrapper>
-      <div className="flex min-h-screen bg-gray-900">
+      <div className="flex min-h-screen bg-gray-950">
         <Sidebar userName={session.user.name ?? session.user.email ?? "Admin"} />
         <main className="flex-1 min-w-0 overflow-auto">{children}</main>
       </div>
