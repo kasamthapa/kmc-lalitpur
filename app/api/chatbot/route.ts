@@ -95,6 +95,11 @@ export async function POST(req: NextRequest) {
     return apiError("Conversation too long. Please start a new chat.");
   }
 
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("[chatbot] GEMINI_API_KEY is not set");
+    return apiError("Service unavailable — API key not configured.", {}, 503);
+  }
+
   try {
     const model = genAI.getGenerativeModel({
       model: "gemini-2.0-flash",
@@ -123,6 +128,18 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
   } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error("[chatbot] Gemini error:", msg);
+
+    // Quota / rate limit
+    if (msg.includes("429") || msg.toLowerCase().includes("quota") || msg.toLowerCase().includes("rate")) {
+      return apiError("Quota exceeded. Please try again in a moment.", {}, 429);
+    }
+    // Invalid / missing key
+    if (msg.includes("400") || msg.includes("403") || msg.toLowerCase().includes("api key") || msg.toLowerCase().includes("invalid")) {
+      return apiError("API key error — please contact the site administrator.", {}, 503);
+    }
+
     return apiServerError(error, "chatbot");
   }
 }
