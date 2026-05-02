@@ -21,6 +21,7 @@ import {
   IconChevronRight,
 } from "./components/icons";
 import { NoticeMarquee } from "./components/notice-marquee";
+import { SITE_CONFIG } from "./config/site";
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },
@@ -249,7 +250,7 @@ export default function Home() {
                 <IconArrow />
               </Link>
               <a
-                href="https://wa.me/9779851138595?text=I+would+like+to+schedule+a+campus+visit"
+                href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+would+like+to+schedule+a+campus+visit`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/60 text-white font-bold rounded-xl hover:bg-white hover:text-[#0B1F3A] transition-all duration-200 backdrop-blur-sm"
@@ -931,7 +932,7 @@ export default function Home() {
               <IconArrow />
             </Link>
             <a
-              href="https://wa.me/9779851138595?text=I+want+to+know+more+about+KMC+Lalitpur"
+              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+want+to+know+more+about+KMC+Lalitpur`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors"
@@ -944,22 +945,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* Marquee animation */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-          display: inline-flex;
-          gap: 4rem;
-        }
-      `}</style>
     </main>
   );
 }

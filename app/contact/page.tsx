@@ -494,10 +494,10 @@ export default function Contact() {
                     We respond within 24 hours on working days. For urgent
                     enquiries call{" "}
                     <a
-                      href="tel:+97715918595"
+                      href={SITE_CONFIG.phoneHref}
                       className="text-amber-600 font-semibold"
                     >
-                      +977-1-5918595
+                      {SITE_CONFIG.phone}
                     </a>
                   </p>
                 </div>
@@ -609,7 +609,7 @@ export default function Contact() {
               {waActions.map((action) => (
                 <a
                   key={action.label}
-                  href={`https://wa.me/9779851138595?text=${encodeURIComponent(action.message)}`}
+                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(action.message)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200 group"
@@ -632,7 +632,7 @@ export default function Contact() {
                 Or send a custom message directly
               </p>
               <a
-                href="https://wa.me/9779851138595"
+                href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#128C7E] transition-colors text-sm"

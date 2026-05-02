@@ -15,6 +15,7 @@ import {
   IconPhone,
   IconInfo,
 } from "../components/icons";
+import { SITE_CONFIG } from "../config/site";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const streams = {
@@ -316,7 +317,7 @@ export default function Admissions() {
                   <IconArrow />
                 </a>
                 <a
-                  href="https://wa.me/9779851138595?text=I+want+to+know+about+admissions+at+KMC+Lalitpur"
+                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+want+to+know+about+admissions+at+KMC+Lalitpur`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors"
@@ -467,7 +468,7 @@ export default function Admissions() {
                 className="bg-white rounded-2xl border border-[#e8e8e8] overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="flex items-start gap-6 p-8">
-                  <div className="w-14 h-14 bg-amber-400 rounded-2xl flex items-center justify-center text-[#0B1F3A] font-bold text-xl flex-shrink-0 shadow-md">
+                  <div className="w-14 h-14 bg-amber-400 rounded-2xl flex items-center justify-center text-[#0B1F3A] font-bold text-xl shrink-0 shadow-md">
                     {step.num}
                   </div>
                   <div className="flex-1">
@@ -485,7 +486,7 @@ export default function Admissions() {
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {step.requirements.map((req, j) => (
                           <li key={j} className="flex items-start gap-2.5">
-                            <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                            <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                               <IconCheck />
                             </span>
                             <span className="text-slate-600 text-sm">
@@ -498,7 +499,7 @@ export default function Admissions() {
 
                     {step.info && (
                       <div className="flex items-start gap-3 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl">
-                        <span className="text-amber-600 flex-shrink-0 mt-0.5">
+                        <span className="text-amber-600 shrink-0 mt-0.5">
                           <IconInfo />
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">
@@ -742,7 +743,7 @@ export default function Admissions() {
               <div className="space-y-6">
                 {timeline.map((item, i) => (
                   <div key={i} className="flex gap-8 group">
-                    <div className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 text-[#0B1F3A] shadow-md z-10 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A] shadow-md z-10 group-hover:scale-110 transition-transform">
                       <IconCalendar size={22} />
                     </div>
                     <div className="flex-1 bg-[#f7f5f0] rounded-2xl p-5 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-sm transition-all">
@@ -790,7 +791,7 @@ export default function Admissions() {
               <ul className="space-y-3">
                 {documents.map((doc, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                       <IconCheck />
                     </span>
                     <span className="text-slate-600 text-sm">{doc}</span>
@@ -862,7 +863,7 @@ export default function Admissions() {
                 and meet our faculty.
               </p>
               <a
-                href="https://wa.me/9779851138595?text=I+would+like+to+schedule+a+campus+visit"
+                href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+would+like+to+schedule+a+campus+visit`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-amber-400 font-bold text-sm hover:text-amber-300 transition-colors"
@@ -917,7 +918,7 @@ export default function Admissions() {
             </div>
             <Link
               href="/faq"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
             >
               View FAQ <IconArrow />
             </Link>

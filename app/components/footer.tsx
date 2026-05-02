@@ -53,7 +53,7 @@ export function Footer() {
                   href={SITE_CONFIG.phoneHref}
                   className="flex items-center gap-3 hover:text-amber-400 transition-colors group"
                 >
-                  <span className="text-amber-400 flex-shrink-0">
+                  <span className="text-amber-400 shrink-0">
                     <IconPhone size={16} />
                   </span>
                   {SITE_CONFIG.phone}
@@ -64,7 +64,7 @@ export function Footer() {
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="flex items-center gap-3 hover:text-amber-400 transition-colors"
                 >
-                  <span className="text-amber-400 flex-shrink-0">
+                  <span className="text-amber-400 shrink-0">
                     <IconMail size={16} />
                   </span>
                   {SITE_CONFIG.email}
@@ -77,7 +77,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 hover:text-amber-400 transition-colors"
                 >
-                  <span className="text-amber-400 flex-shrink-0 mt-0.5">
+                  <span className="text-amber-400 shrink-0 mt-0.5">
                     <IconMapPin size={16} />
                   </span>
                   {SITE_CONFIG.address.display}

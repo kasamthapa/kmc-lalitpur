@@ -115,8 +115,9 @@ export default function TransportPage() {
         ]}
       />
       <WebPageSchema
-        name="Transport Service — KMC Lalitpur"
+        title="Transport Service — KMC Lalitpur"
         description="School transport routes, stops, and timings for KMC Lalitpur students."
+        path="/campus/transport"
       />
       <Header />
 

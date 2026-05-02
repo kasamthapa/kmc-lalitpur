@@ -279,7 +279,7 @@ export default function FacultyAdminPage() {
               {m.imageUrl ? (
                 <div className="relative h-24 overflow-hidden">
                   <Image src={m.imageUrl} alt={m.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/70" />
+                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-gray-900/70" />
                 </div>
               ) : (
                 <div className="h-1.5" style={{ background: deptColors[m.dept] ?? "#374151" }} />

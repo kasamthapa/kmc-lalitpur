@@ -127,7 +127,7 @@ export function AwardsCarousel() {
             <div className="grid grid-cols-1 md:grid-cols-5 md:h-96">
               {/* Left — Image */}
               <div
-                className={`md:col-span-2 bg-gradient-to-br ${award.fallbackGradient} overflow-hidden min-h-72 md:min-h-0`}
+                className={`md:col-span-2 bg-linear-to-br ${award.fallbackGradient} overflow-hidden min-h-72 md:min-h-0`}
                 style={{ position: "relative" }}
               >
                 <Image
@@ -137,7 +137,7 @@ export function AwardsCarousel() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="text-6xl md:text-7xl font-black text-amber-300 drop-shadow-lg">
                     {award.year}

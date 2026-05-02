@@ -133,7 +133,9 @@ const faqCategories = [
   },
 ];
 
-const flatFaqs = faqCategories.flatMap((c) => c.items);
+const flatFaqs = faqCategories.flatMap((c) =>
+  c.items.map(({ q, a }) => ({ question: q, answer: a }))
+);
 
 export default function FAQPage() {
   return (
@@ -141,8 +143,9 @@ export default function FAQPage() {
       <BreadcrumbSchema items={[{ name: "FAQ", href: "/faq" }]} />
       <FAQSchema items={flatFaqs} />
       <WebPageSchema
-        name="Frequently Asked Questions — KMC Lalitpur"
+        title="Frequently Asked Questions — KMC Lalitpur"
         description="Answers to common questions about admissions, programs, facilities, and fees at KMC Lalitpur."
+        path="/faq"
       />
       <Header />
 

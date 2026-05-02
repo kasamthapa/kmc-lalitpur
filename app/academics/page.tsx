@@ -328,7 +328,7 @@ export default function Academics() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent" />
             </div>
             <div>
               <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
@@ -368,7 +368,7 @@ export default function Academics() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
               <div
-                className={`w-14 h-14 rounded-2xl ${stream.color} flex items-center justify-center text-amber-400 flex-shrink-0`}
+                className={`w-14 h-14 rounded-2xl ${stream.color} flex items-center justify-center text-amber-400 shrink-0`}
               >
                 {stream.icon}
               </div>
@@ -393,7 +393,7 @@ export default function Academics() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-xs font-bold text-amber-400 tracking-wider uppercase">
                       Pass Rate
@@ -471,7 +471,7 @@ export default function Academics() {
                         className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]"
                       >
                         <div className="flex items-center gap-2">
-                          <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0">
+                          <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
                             <IconCheck />
                           </span>
                           <span className="text-slate-700 text-sm font-medium">
@@ -509,7 +509,7 @@ export default function Academics() {
                         key={s}
                         className="flex items-center gap-2 text-sm text-slate-700"
                       >
-                        <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0">
+                        <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
                           <IconCheck />
                         </span>
                         {s}
@@ -534,7 +534,7 @@ export default function Academics() {
                         key={i}
                         className="flex items-start gap-3 text-sm text-slate-600"
                       >
-                        <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0B1F3A]">
+                        <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
                           <IconStar />
                         </span>
                         {f}
@@ -594,7 +594,7 @@ export default function Academics() {
                 key={i}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-amber-400/30 hover:bg-white/8 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm mb-5 flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm mb-5 shrink-0">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="font-bold text-white mb-3 text-sm">
@@ -706,7 +706,7 @@ export default function Academics() {
                 key={i}
                 className="flex gap-5 bg-white rounded-2xl p-7 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:bg-amber-400 group-hover:text-[#0B1F3A] transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center text-amber-400 shrink-0 group-hover:bg-amber-400 group-hover:text-[#0B1F3A] transition-colors">
                   <span className="font-bold text-sm">
                     {String(i + 1).padStart(2, "0")}
                   </span>

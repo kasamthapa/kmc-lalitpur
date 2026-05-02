@@ -291,7 +291,7 @@ export default function AlumniAdminPage() {
                 {m.imageUrl ? (
                   <div className="relative h-24 overflow-hidden">
                     <Image src={m.imageUrl} alt={m.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/70" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent to-gray-900/70" />
                     {!m.approved && <span className="absolute top-2 left-2 bg-amber-400 text-gray-900 text-[9px] font-bold px-2 py-0.5 rounded-full">Pending</span>}
                     {m.featured && <span className="absolute top-2 right-2 bg-purple-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">Featured</span>}
                   </div>

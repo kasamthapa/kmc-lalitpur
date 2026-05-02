@@ -43,8 +43,9 @@ export default function HostelPage() {
         ]}
       />
       <WebPageSchema
-        name="Hostel Facilities — KMC Lalitpur"
+        title="Hostel Facilities — KMC Lalitpur"
         description="Safe and comfortable hostel accommodation for KMC students."
+        path="/campus/hostel"
       />
       <Header />
 

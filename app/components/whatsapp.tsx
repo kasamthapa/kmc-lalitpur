@@ -125,7 +125,7 @@ export function WhatsAppFloat() {
                   className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#f7f5f0] transition-colors group"
                 >
                   <span
-                    className="text-xl w-8 text-center flex-shrink-0"
+                    className="text-xl w-8 text-center shrink-0"
                     aria-hidden
                   >
                     {action.emoji}
@@ -138,7 +138,7 @@ export function WhatsAppFloat() {
                       {action.desc}
                     </p>
                   </div>
-                  <span className="text-[#128C7E] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                  <span className="text-[#128C7E] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                     <IconArrow size={13} />
                   </span>
                 </a>
@@ -149,7 +149,7 @@ export function WhatsAppFloat() {
           {/* Custom message footer */}
           <div className="px-5 py-4 bg-[#f7f5f0] border-t border-[#e8e8e8]">
             <a
-              href={`https://wa.me/${WA_NUMBER}`}
+              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#25D366] text-white text-sm font-bold rounded-xl hover:bg-[#128C7E] transition-colors"

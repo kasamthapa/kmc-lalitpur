@@ -74,8 +74,9 @@ export default function VirtualTourPage() {
         ]}
       />
       <WebPageSchema
-        name="Virtual Campus Tour — KMC Lalitpur"
+        title="Virtual Campus Tour — KMC Lalitpur"
         description="Explore the KMC Lalitpur campus virtually — labs, library, auditorium, sports complex and more."
+        path="/campus/virtual-tour"
       />
       <Header />
 

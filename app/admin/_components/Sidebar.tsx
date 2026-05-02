@@ -92,7 +92,7 @@ function NavContent({ userName, pathname, onClose }: { userName: string; pathnam
       {/* User */}
       <div className="px-4 py-3 border-b border-white/[0.06] shrink-0">
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center font-bold text-gray-900 text-[11px] shrink-0">
+          <div className="w-7 h-7 rounded-full bg-linear-to-br from-amber-400 to-amber-500 flex items-center justify-center font-bold text-gray-900 text-[11px] shrink-0">
             {userName.charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0">
