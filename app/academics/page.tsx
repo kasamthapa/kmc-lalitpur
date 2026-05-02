@@ -37,7 +37,7 @@ const streams = [
     lightColor: "bg-blue-50",
     borderColor: "border-blue-200",
     accentColor: "text-blue-700",
-    image: "/images/sceince.png",
+    image: "/images/science.png",
     tagline: "Medicine · Engineering · Research · Technology",
     overview:
       "The Science stream is designed for students passionate about scientific inquiry and research. With advanced laboratory facilities and experienced faculty, KMC prepares students for careers in medicine, engineering, pharmacy, and scientific innovation.",

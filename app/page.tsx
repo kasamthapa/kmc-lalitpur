@@ -35,7 +35,7 @@ const programs = [
     title: "Science",
     color: "from-blue-900 to-blue-700",
     icon: <IconZap size={28} />,
-    image: "/images/sceince.png",
+    image: "/images/science.png",
     tagline: "Medicine · Engineering · Research",
     subjects: [
       "Physics",
@@ -122,23 +122,23 @@ const whyKMC = [
 const testimonials = [
   {
     quote:
-      "KMC transformed my academic journey. The dedicated faculty and supportive environment helped me secure top marks in NEB and gain admission to a top medical college.",
-    name: "Ananya Sharma",
-    role: "Science Stream, 2080 — Now studying MBBS",
+      "KMC's Science faculty and lab facilities gave me the foundation I needed. I cleared the MBBS entrance and I owe a lot of that to the preparation classes and teachers here.",
+    name: "Sushma Karki",
+    role: "Science Stream Graduate — Now studying MBBS",
     stars: 5,
   },
   {
     quote:
-      "The holistic education at KMC goes beyond textbooks. My son developed leadership skills and confidence that opened doors to international scholarships.",
-    name: "Rajesh Patel",
-    role: "Parent — Management Stream student",
+      "My daughter joined KMC for the Law stream and the results speak for themselves — 100% pass rate, dedicated teachers, and a disciplined environment. Best decision we made.",
+    name: "Binod Adhikari",
+    role: "Parent — Law Stream student",
     stars: 5,
   },
   {
     quote:
-      "The modern facilities and innovative teaching methods made learning engaging. I'm now studying law at a top university. Thank you, KMC Lalitpur!",
-    name: "Priya Desai",
-    role: "Law Stream, 2079 — Now at Tribhuvan University",
+      "The Management faculty at KMC pushed us beyond the syllabus. The entrance prep classes helped me crack the BBA entrance. The campus culture is unlike any other school in Lalitpur.",
+    name: "Roshan Thapa Magar",
+    role: "Management Stream Graduate — BBA, Kathmandu University",
     stars: 5,
   },
 ];

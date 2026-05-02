@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const FALLBACK_IMAGES: GalleryImage[] = [
   { id: "f1", src: "/images/hero-main.png", alt: "Campus Overview", category: "Campus" },
   { id: "f2", src: "/images/classroom.png", alt: "Interactive Learning", category: "Academics" },
-  { id: "f3", src: "/images/science-lab.png", alt: "Science Lab", category: "Facilities" },
+  { id: "f3", src: "/images/science.png", alt: "Science Lab", category: "Facilities" },
   { id: "f4", src: "/images/computer-lab.png", alt: "Computer Lab", category: "Technology" },
   { id: "f5", src: "/images/library.png", alt: "Library", category: "Facilities" },
   { id: "f6", src: "/images/sports-facility.png", alt: "Sports Complex", category: "Activities" },

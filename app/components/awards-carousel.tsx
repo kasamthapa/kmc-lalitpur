@@ -30,14 +30,14 @@ const awards = [
 
   {
     id: 3,
-    title: "Best Institution Award",
-    year: "2076",
-    subtitle: "National Recognition",
+    title: "Excellence Award — Letter of Appreciation",
+    year: "2074",
+    subtitle: "Ministry of Education, Nepal",
     image: "/images/award3.png",
     fallbackGradient: "from-emerald-700 to-emerald-900",
     description:
-      "Honored as the best educational institution for comprehensive excellence and holistic development.",
-    highlight: "Premier Institution",
+      "Received the Letter of Appreciation from the Ministry of Education for outstanding contribution to secondary education in Nepal.",
+    highlight: "Government Recognition",
   },
   {
     id: 4,
@@ -52,25 +52,23 @@ const awards = [
   },
   {
     id: 5,
-    title: "Student Achievement Award",
-    year: "2080",
-    subtitle: "Innovation in Learning",
+    title: "100% NEB Pass Rate",
+    subtitle: "Consistent Every Year — All Streams",
     image: "/images/award5.png",
     fallbackGradient: "from-rose-700 to-rose-900",
     description:
-      "Recognition for students' exceptional achievements in academics, sports, and co-curricular activities.",
-    highlight: "Student Success",
+      "KMC Lalitpur has achieved a 100% NEB pass rate every single year across Science, Management, and Law streams — a record unmatched by peers.",
+    highlight: "Academic Excellence",
   },
   {
     id: 6,
-    title: "International MoU Partnership",
-    year: "2078",
-    subtitle: "Global Collaboration",
+    title: "Top-Ranked Among 4,000+ Schools",
+    subtitle: "Nationwide Recognition",
     image: "/images/award6.png",
     fallbackGradient: "from-teal-700 to-teal-900",
     description:
-      "Partnership with international educational institutions for curriculum exchange and student development.",
-    highlight: "Global Network",
+      "Recognised as the best +2 institution among over 4,000 plus-two schools across Nepal by the Ministry of Education.",
+    highlight: "National Ranking",
   },
 ];
 
