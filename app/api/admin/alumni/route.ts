@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
+import { requireAdminAuth } from "@/app/lib/admin-auth";
 
 export async function GET(req: NextRequest) {
+  const { response } = await requireAdminAuth();
+  if (response) return response;
+
   try {
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status"); // "pending" | "approved" | undefined (all)
@@ -26,6 +30,9 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const { response } = await requireAdminAuth();
+  if (response) return response;
+
   try {
     const body = await req.json();
     const { name, gradYear, program, currentRole, company, location, email, phone, bio, imageUrl, linkedIn, approved, featured, displayOrder } = body;

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
+import { requireAdminAuth } from "@/app/lib/admin-auth";
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { response } = await requireAdminAuth();
+  if (response) return response;
+
   try {
     const { id } = await params;
     const body = await req.json();
@@ -26,7 +30,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       },
     });
 
-    return NextResponse.json({ data: alumni });
+    return NextResponse.json({ success: true, data: alumni });
   } catch (err: unknown) {
     console.error("[PATCH /api/admin/alumni/[id]]", err);
     if ((err as { code?: string })?.code === "P2025") {
@@ -37,6 +41,9 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 }
 
 export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { response } = await requireAdminAuth();
+  if (response) return response;
+
   try {
     const { id } = await params;
     await prisma.alumni.delete({ where: { id } });
