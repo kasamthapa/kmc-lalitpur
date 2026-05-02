@@ -216,7 +216,7 @@ export function Header() {
               alt="Kathmandu Model Secondary School - KMC Lalitpur"
               height={48}
               width={200}
-              className="object-contain"
+              className="object-contain h-12 w-auto"
               priority
             />
           </div>
