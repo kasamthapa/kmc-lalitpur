@@ -526,8 +526,8 @@ export default function Contact() {
                   loading="lazy"
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.975082866928!2d85.31516807538053!3d27.671441426735868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a3c32ab111%3A0x95c5e67b1a3e7e2b!2sBalkumari%2C%20Lalitpur%2044700!5e0!3m2!1sen!2snp!4v1700000000000"
-                  title="KMC Lalitpur Location - Balkumari, Lalitpur"
+                  src="https://maps.google.com/maps?q=Kathmandu+Model+Secondary+School,+Balkumari,+Lalitpur,+Nepal&output=embed&z=17"
+                  title="KMC Lalitpur Location - Kathmandu Model Secondary School"
                 />
               </div>
 
