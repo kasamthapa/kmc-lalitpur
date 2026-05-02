@@ -277,7 +277,7 @@ export default function Admissions() {
       <BreadcrumbSchema items={[{ name: "Admissions", href: "/admissions" }]} />
       <WebPageSchema
         title="Admissions | KMC Lalitpur"
-        description="How to apply to KMC Lalitpur — entrance exam details, eligibility criteria, scholarship information, required documents and admission timeline for 2082/83."
+        description="How to apply to KMC Lalitpur — entrance exam details, eligibility criteria, scholarship information, required documents and admission timeline for 2083."
         path="/admissions"
       />
       {/* Hero */}
@@ -294,7 +294,7 @@ export default function Admissions() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
-                2082/83 Academic Year
+                2083 Academic Year
               </span>
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
                 Join Our
@@ -732,7 +732,7 @@ export default function Admissions() {
               Admission Timeline
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm">
-              Approximate schedule for the 2082/83 academic year admission
+              Approximate schedule for the 2083 academic year admission
               process
             </p>
           </div>
@@ -930,7 +930,7 @@ export default function Admissions() {
             </h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
               Don&apos;t wait — seats are limited and scholarships are
-              first-come-first-served. Apply online today for the 2082/83
+              first-come-first-served. Apply online today for the 2083
               academic year.
             </p>
             <a

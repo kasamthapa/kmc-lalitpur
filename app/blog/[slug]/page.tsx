@@ -45,11 +45,11 @@ Our dedicated entrance prep program runs parallel to the NEB curriculum. With re
 
 ## Conclusion
 
-If you're looking for the best +2 Science college in Nepal, KMC Lalitpur offers a proven track record, world-class facilities, and a supportive learning environment. Admissions are open for 2082/83 — contact us at +977-1-5918595.
+If you're looking for the best +2 Science college in Nepal, KMC Lalitpur offers a proven track record, world-class facilities, and a supportive learning environment. Admissions are open for 2083 — contact us at +977-1-5918595.
     `.trim(),
     metaTitle: "Best College in Nepal for Science Stream 2082 — KMC Lalitpur",
     metaDescription:
-      "Compare top +2 Science colleges in Nepal. KMC Lalitpur leads on NEB pass rates, faculty quality, lab facilities, and IOE entrance prep. Admissions open 2082/83.",
+      "Compare top +2 Science colleges in Nepal. KMC Lalitpur leads on NEB pass rates, faculty quality, lab facilities, and IOE entrance prep. Admissions open 2083.",
   },
   {
     id: 2,
@@ -92,7 +92,7 @@ Visit KMC Lalitpur at Balkumari, Lalitpur, or call +977-1-5918595 to schedule a 
     `.trim(),
     metaTitle: "Top +2 Colleges in Lalitpur 2082 — Science, Management & Law",
     metaDescription:
-      "Best +2 colleges in Lalitpur for 2082/83. Compare Science, Management & Law programs. KMC Lalitpur ranks #1 for NEB results and entrance exam success.",
+      "Best +2 colleges in Lalitpur for 2083. Compare Science, Management & Law programs. KMC Lalitpur ranks #1 for NEB results and entrance exam success.",
   },
   {
     id: 3,
@@ -133,7 +133,7 @@ Contact us at +977-1-5918595 for details on our entrance preparation program.
     `.trim(),
     metaTitle: "IOE Entrance Preparation at KMC Lalitpur — Science Students",
     metaDescription:
-      "How KMC Lalitpur Science students crack the IOE entrance exam. Mock tests, doubt sessions, Physics-Math intensive program. Admissions open 2082/83.",
+      "How KMC Lalitpur Science students crack the IOE entrance exam. Mock tests, doubt sessions, Physics-Math intensive program. Admissions open 2083.",
   },
   {
     id: 4,
@@ -761,7 +761,7 @@ export default async function BlogPostPage({
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Interested in Joining KMC?</h2>
           <p className="text-[#8ba7c7] mb-8">
-            Admissions are open for 2082/83. Visit our campus or get in touch with our team.
+            Admissions are open for 2083. Visit our campus or get in touch with our team.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

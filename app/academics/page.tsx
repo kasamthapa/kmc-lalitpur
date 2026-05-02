@@ -846,7 +846,7 @@ export default function Academics() {
             Ready to Choose Your Stream?
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
-            Apply now for the 2082/83 academic year. View the full admission
+            Apply now for the 2083 academic year. View the full admission
             guide or contact our admissions team for personalised guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

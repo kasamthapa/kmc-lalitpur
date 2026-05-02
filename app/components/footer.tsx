@@ -220,7 +220,7 @@ export function Footer() {
                 Admissions Open
               </p>
               <p className="text-slate-400 text-xs leading-relaxed mb-4">
-                Apply now for the 2082/83 academic year. Limited seats
+                Apply now for the 2083 academic year. Limited seats
                 available.
               </p>
               <Link

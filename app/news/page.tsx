@@ -73,7 +73,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
 
 // Hardcoded fallback notices (notice board on /news — different from homepage marquee)
 const FALLBACK_NOTICES: NoticeCard[] = [
-  { id: 1, title: "Admission Open for 2082/83 Academic Year", date: "April 1, 2026", type: "Admissions", urgent: true },
+  { id: 1, title: "Admission Open for 2083 Academic Year", date: "April 1, 2026", type: "Admissions", urgent: true },
   { id: 2, title: "Scholarship Examination Date: Baisakh 20, 2082", date: "March 28, 2026", type: "Examination", urgent: true },
   { id: 3, title: "Fee Payment Deadline — Chaitra 30", date: "March 20, 2026", type: "Finance", urgent: false },
   { id: 4, title: "Annual Sports Day — Baisakh 12, 2082", date: "March 15, 2026", type: "Events", urgent: false },

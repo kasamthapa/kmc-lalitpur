@@ -116,7 +116,7 @@ export default function VirtualTourPage() {
           {/* Video Embed */}
           <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-[#eae6de]" style={{ paddingTop: "56.25%" }}>
             <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/embed/YGcczHq0Nmk"
               title="KMC Lalitpur Campus Tour"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

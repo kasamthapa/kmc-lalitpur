@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const FALLBACK = [
-  "🎓 Admissions Open for 2082/83 Academic Year",
+  "🎓 Admissions Open for 2083 Academic Year",
   "📢 Entrance Exam Registration Available Online",
   "🏆 KMC Lalitpur — Ministry of Education Excellence Award Winner",
   "📚 100% NEB Pass Rate — Consistently Every Year",
