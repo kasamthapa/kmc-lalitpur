@@ -8,7 +8,7 @@ import { IconChevronRight, IconUsers, IconBook, IconMail, IconPhone } from "../.
 import { SITE_CONFIG } from "../../config/site";
 import { FacultyFilter } from "./_components/FacultyFilter";
 
-export const revalidate = 60;
+export const revalidate = 10;
 
 export const metadata: Metadata = {
   title: "Faculty & Staff",

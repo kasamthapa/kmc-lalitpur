@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiNotFound, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -36,6 +37,8 @@ export async function PATCH(
       where: { id },
       data: { ...(body as object), updatedAt: new Date() },
     });
+    revalidatePath("/campus/faculty");
+    revalidatePath(`/campus/faculty/${faculty.slug}`);
     return apiSuccess(faculty);
   } catch (error: unknown) {
     if ((error as { code?: string }).code === "P2025") return apiNotFound("Faculty member not found.");
@@ -53,6 +56,7 @@ export async function DELETE(
   const { id } = await params;
   try {
     await prisma.faculty.delete({ where: { id } });
+    revalidatePath("/campus/faculty");
     return apiSuccess({ deleted: true });
   } catch (error: unknown) {
     if ((error as { code?: string }).code === "P2025") return apiNotFound("Faculty member not found.");

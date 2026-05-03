@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -73,6 +74,7 @@ export async function POST(req: NextRequest) {
         displayOrder: typeof displayOrder === "number" ? displayOrder : 0,
       },
     });
+    revalidatePath("/campus/faculty");
     return apiSuccess(faculty, 201);
   } catch (error) {
     return apiServerError(error, "faculty POST");
