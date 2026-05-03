@@ -116,6 +116,7 @@ export default function CatalystPage() {
               width={1400}
               height={900}
               className="w-full h-auto"
+              priority
             />
           </div>
         </div>

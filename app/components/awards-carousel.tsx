@@ -136,6 +136,7 @@ export function AwardsCarousel() {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
+                  priority={currentIndex === 0}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">

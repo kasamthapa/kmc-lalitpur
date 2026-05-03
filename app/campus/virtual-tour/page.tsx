@@ -146,7 +146,7 @@ export default function VirtualTourPage() {
             <h2 className="text-4xl font-bold text-[#0B1F3A]">Campus Areas</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {areas.map((area) => (
+            {areas.map((area, idx) => (
               <div
                 key={area.name}
                 className="group rounded-2xl overflow-hidden bg-white border border-[#eae6de] hover:shadow-xl hover:border-amber-300 transition cursor-pointer"
@@ -158,6 +158,7 @@ export default function VirtualTourPage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition duration-500"
+                    priority={idx === 0}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent opacity-0 group-hover:opacity-100 transition" />
                 </div>
