@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -40,6 +41,8 @@ export async function POST(req: NextRequest) {
         endDate: endDate ? new Date(endDate as string) : null,
       },
     });
+    revalidatePath("/");
+    revalidatePath("/news");
     return apiSuccess(notice, 201);
   } catch (error) {
     return apiServerError(error, "notices POST");

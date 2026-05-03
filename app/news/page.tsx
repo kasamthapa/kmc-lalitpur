@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { prisma } from "@/app/lib/prisma";
 
-// Re-render at most every 60 s — reduces Neon cold-start hits
-export const revalidate = 60;
+// Revalidated immediately by admin write routes via revalidatePath()
+// Fallback: re-render every 10 s in case of missed revalidation
+export const revalidate = 10;
 import { NewsClient, type NewsArticle, type NoticeCard } from "./_components/NewsClient";
 import { EventSchema } from "@/app/components/schema";
 

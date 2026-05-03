@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiNotFound, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -37,6 +38,9 @@ export async function PATCH(
       where: { id },
       data: body as object,
     });
+    revalidatePath("/news");
+    revalidatePath(`/news/${article.slug}`);
+    revalidatePath("/");
     return apiSuccess(article);
   } catch (error: unknown) {
     if ((error as { code?: string }).code === "P2025") return apiNotFound("Article not found.");
@@ -56,6 +60,8 @@ export async function DELETE(
 
   try {
     await prisma.news.delete({ where: { id } });
+    revalidatePath("/news");
+    revalidatePath("/");
     return apiSuccess({ deleted: true });
   } catch (error: unknown) {
     if ((error as { code?: string }).code === "P2025") return apiNotFound("Article not found.");

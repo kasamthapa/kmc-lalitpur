@@ -4,7 +4,7 @@ import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiServerError } from "@/app/lib/api-response";
 import { NextResponse } from "next/server";
 
-export const revalidate = 300; // cache 5 min — marquee doesn't need to be instant
+export const dynamic = "force-dynamic"; // always fresh — revalidated by admin write routes
 
 export async function GET() {
   try {
