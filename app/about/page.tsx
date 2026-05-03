@@ -418,28 +418,28 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { name: "Stony Brook University", country: "New York, USA" },
-              { name: "Georgia Southwestern State University", country: "USA" },
-              { name: "University of Missouri", country: "USA" },
-              { name: "Mokpo KMC University", country: "South Korea" },
-              {
-                name: "Yeoju Institute of Technology (YIT)",
-                country: "South Korea",
-              },
-              { name: "Shandong University", country: "China" },
-              { name: "Tongren Polytechnic College", country: "China" },
-              { name: "Qtec Learning Solutions", country: "United Kingdom" },
-              {
-                name: "National Computer Council (NCC)",
-                country: "United Kingdom",
-              },
+              { name: "Stony Brook University", country: "New York, USA", logo: "/images/partnerships/Stony Brook University.png" },
+              { name: "Georgia Southwestern State University", country: "USA", logo: "/images/partnerships/Georgia Southwestern State University.png" },
+              { name: "University of Missouri", country: "USA", logo: "/images/partnerships/University of Missouri.png" },
+              { name: "Mokpo KMC University", country: "South Korea", logo: "/images/partnerships/Mokpo KMC University.png" },
+              { name: "Yeoju Institute of Technology (YIT)", country: "South Korea", logo: "/images/partnerships/Yeoju Institute of Technology (YIT).png" },
+              { name: "Shandong University", country: "China", logo: "/images/partnerships/Shandong University.png" },
+              { name: "Tongren Polytechnic College", country: "China", logo: "/images/partnerships/Tongren Polytechnic College.png" },
+              { name: "Qtec Learning Solutions", country: "United Kingdom", logo: "/images/partnerships/Qtec Learning Solutions.png" },
+              { name: "National Computer Council (NCC)", country: "United Kingdom", logo: "/images/partnerships/National Computer Council (NCC).png" },
             ].map((p, i) => (
               <div
                 key={i}
-                className="group bg-[#f7f5f0] hover:bg-[#0B1F3A] rounded-2xl p-6 border border-[#e8e8e8] hover:border-[#0B1F3A] transition-colors duration-300"
+                className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-6 border border-[#e8e8e8] hover:border-[#0B1F3A] transition-colors duration-300 flex flex-col"
               >
-                <div className="w-10 h-10 rounded-xl bg-amber-400/15 group-hover:bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-4 transition-colors duration-300">
-                  <IconGlobe />
+                <div className="h-16 flex items-center mb-4">
+                  <Image
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    width={160}
+                    height={64}
+                    className="object-contain max-h-14 w-auto group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                  />
                 </div>
                 <h3 className="text-sm font-bold text-[#0B1F3A] group-hover:text-white mb-1 transition-colors duration-300">
                   {p.name}
