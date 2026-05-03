@@ -63,7 +63,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https://res.cloudinary.com https://img.youtube.com https://i.ytimg.com https://maps.gstatic.com https://maps.googleapis.com https://*.ggpht.com",
               "frame-src https://www.youtube.com https://youtube.com https://www.google.com https://maps.google.com https://maps.googleapis.com",
-              "connect-src 'self' https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://maps.googleapis.com",
+              "connect-src 'self' https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://maps.googleapis.com https://api.cloudinary.com https://res.cloudinary.com",
               "font-src 'self' data:",
               "media-src 'self' https://res.cloudinary.com",
             ].join("; "),
