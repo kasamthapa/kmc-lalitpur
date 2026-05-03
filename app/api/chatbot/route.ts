@@ -29,19 +29,19 @@ Apply: https://ktmmodelcollege.edu.np/apply-to-kmss/
 NEB Pass Rate: 100% every year (consistent across all streams)
 Students: 2,500+ active
 Established: 2000
-Award: Best +2 Education Award 2075 — Ministry of Education, Nepal
+Award: Excellence Award (Letter of Appreciation) 2074 & 2075 B.S. — Ministry of Education, Nepal
 
 STREAMS (3 only — Humanities does NOT exist at KMC):
-1. Science: CGPA 2.8+ (B+ in Science/Maths/OptMaths/English)
-   Entrance: Maths 30% + Science 40% + English 20% + GK & IQ 10% = 100 marks, 60 minutes
+1. Science: Minimum grade B in SEE (B in Science, Maths, English)
+   Entrance: Maths 35 + Science 35 + English/Nepali/GK 30 = 100 marks, 60 minutes
    Careers: MBBS, Engineering, BSc, Pharmacy
 
-2. Management: CGPA 2.4+ (C grade in Maths & English)
-   Entrance: Maths 36% + English 36% + Nepali & GK 28% = 75 marks, 60 minutes
+2. Management: Minimum grade C+ in SEE (C+ in Maths & English)
+   Entrance: Maths 35 + English 35 + Nepali/GK 30 = 100 marks, 60 minutes
    Careers: BBA, CA, BBS, Finance
 
-3. Law (established 2019): CGPA 2.4+ (C grade in Maths & English)
-   Entrance: English 30% + Nepali 30% + Social Studies & GK 40% = 75 marks, 60 minutes
+3. Law (established 2019): Minimum grade C+ in SEE (C+ in Maths & English)
+   Entrance: English 30 + Nepali 30 + Social Studies & GK 40 = 100 marks, 60 minutes
    Careers: LLB, Civil Service, Advocacy
 
 SCHOLARSHIPS:

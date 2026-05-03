@@ -101,14 +101,14 @@ const milestones = [
   {
     year: "2019",
     title: "Ministry Award",
-    desc: "Received the Best +2 Education Award 2075 from the Ministry of Education, Nepal — recognized as the top-ranked institution among 4,000+ Plus Two schools nationwide.",
+    desc: "Received the Excellence Award (Letter of Appreciation) in 2074 & 2075 B.S. from the Ministry of Education, Nepal — recognized among 4,000+ Plus Two schools nationwide.",
   },
 ];
 
 const accreditations = [
   { label: "NEB Affiliated", sub: "National Examinations Board" },
   { label: "ISO 9001:2015", sub: "Quality Certified Institution" },
-  { label: "Best +2 Award 2075", sub: "Ministry of Education, Nepal" },
+  { label: "Excellence Award 2074 & 2075", sub: "Ministry of Education, Nepal" },
   { label: "Top Among 4,000+ Schools", sub: "Nationwide Recognition" },
 ];
 
@@ -120,7 +120,7 @@ export default function About() {
       <BreadcrumbSchema items={[{ name: "About Us", href: "/about" }]} />
       <WebPageSchema
         title="About Us | KMC Lalitpur"
-        description="Learn about Kathmandu Model Secondary School — established 2000, NEB affiliated, ISO 9001:2015 certified, Best Campus 2080 award winner, Balkumari Lalitpur."
+        description="Learn about Kathmandu Model Secondary School — established 2000, NEB affiliated, Excellence Award winner 2074 & 2075, Balkumari Lalitpur."
         path="/about"
       />
       {/* Hero */}

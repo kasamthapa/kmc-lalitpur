@@ -44,10 +44,9 @@ const streams = {
         details:
           "KMC conducts a paper-based MCQ entrance exam. Model questions are provided via email before the exam date.",
         requirements: [
-          "Mathematics: 30%",
-          "Science: 40%",
-          "English: 20%",
-          "GK & IQ: 10%",
+          "Mathematics: 35 marks",
+          "Science: 35 marks",
+          "English, Nepali & GK: 30 marks",
           "Total: 100 marks — 60 minutes",
           "Answer sheets checked by computer",
         ],
@@ -80,9 +79,9 @@ const streams = {
         details:
           "Fill the online admission form on our website after SEE results. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.4 in SEE",
-          "C grade in Mathematics",
-          "C grade in English",
+          "Minimum C+ grade in SEE",
+          "C+ grade in Mathematics",
+          "C+ grade in English",
           "Recent passport-size photo (white background)",
         ],
         info: "Prospectus, fee structure, model questions, entrance center, symbol number, date and time will be sent to your registered email ID.",
@@ -93,10 +92,10 @@ const streams = {
         details:
           "KMC conducts a physical and computer-based MCQ entrance exam. Model questions are sent to your email before the exam.",
         requirements: [
-          "Mathematics: 36%",
-          "English: 36%",
-          "Nepali & General Knowledge: 28%",
-          "Total: 75 marks — 60 minutes",
+          "Mathematics: 35 marks",
+          "English: 35 marks",
+          "Nepali & General Knowledge: 30 marks",
+          "Total: 100 marks — 60 minutes",
           "Computer-checked answers",
         ],
         info: "Results published on the same day or informed during examination. Scholarship calculated on SEE (25%) + Entrance (75%).",
@@ -128,9 +127,9 @@ const streams = {
         details:
           "Fill the online admission form on our website after SEE results. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.4 in SEE",
-          "C grade in Mathematics",
-          "C grade in English",
+          "Minimum C+ grade in SEE",
+          "C+ grade in Mathematics",
+          "C+ grade in English",
           "Recent passport-size photo (white background)",
         ],
         info: "Prospectus, fee structure, model questions, entrance center, symbol number, date and time will be sent to your registered email ID.",
@@ -141,10 +140,10 @@ const streams = {
         details:
           "KMC conducts a physical and computer-based MCQ entrance exam. Model questions are sent to your email before the exam.",
         requirements: [
-          "English: 30%",
-          "Nepali: 30%",
-          "Social Studies & General Knowledge: 40%",
-          "Total: 75 marks — 60 minutes",
+          "English: 30 marks",
+          "Nepali: 30 marks",
+          "Social Studies & General Knowledge: 40 marks",
+          "Total: 100 marks — 60 minutes",
           "Computer-checked answers",
         ],
         info: "Results published on the same day. Scholarship calculated on SEE (25%) + Entrance (75%).",
