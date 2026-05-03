@@ -115,8 +115,17 @@ async function getNews(): Promise<NewsArticle[]> {
 
 async function getNotices(): Promise<NoticeCard[]> {
   try {
+    const now = new Date();
     const rows = await prisma.notice.findMany({
-      where: { active: true },
+      where: {
+        active: true,
+        OR: [{ startDate: null }, { startDate: { lte: now } }],
+        AND: [
+          {
+            OR: [{ endDate: null }, { endDate: { gte: now } }],
+          },
+        ],
+      },
       orderBy: { displayOrder: "asc" },
       take: 6,
     });

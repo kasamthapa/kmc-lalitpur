@@ -8,8 +8,17 @@ export const dynamic = "force-dynamic"; // always fresh — revalidated by admin
 
 export async function GET() {
   try {
+    const now = new Date();
     const notices = await prisma.notice.findMany({
-      where: { active: true },
+      where: {
+        active: true,
+        OR: [{ startDate: null }, { startDate: { lte: now } }],
+        AND: [
+          {
+            OR: [{ endDate: null }, { endDate: { gte: now } }],
+          },
+        ],
+      },
       orderBy: { displayOrder: "asc" },
       select: { id: true, text: true },
     });
