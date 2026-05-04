@@ -7,6 +7,7 @@ async function getStats() {
   const [
     [totalNews, totalBlog, totalEnquiries, unreadEnquiries, activeNotices],
     [totalFaculty, totalAlumni, pendingAlumni, totalGallery, recent],
+    [totalApplications, pendingApplications],
   ] = await Promise.all([
     Promise.all([
       prisma.news.count(),
@@ -35,11 +36,15 @@ async function getStats() {
         },
       }),
     ]),
+    Promise.all([
+      prisma.entranceApplication.count(),
+      prisma.entranceApplication.count({ where: { status: "pending" } }),
+    ]),
   ]);
   return {
     totalNews, totalBlog, totalEnquiries, unreadEnquiries,
     activeNotices, totalFaculty, totalAlumni, pendingAlumni,
-    totalGallery, recent,
+    totalGallery, recent, totalApplications, pendingApplications,
   };
 }
 
@@ -56,7 +61,7 @@ export default async function DashboardPage() {
   const {
     totalNews, totalBlog, totalEnquiries, unreadEnquiries,
     activeNotices, totalFaculty, totalAlumni, pendingAlumni,
-    totalGallery, recent,
+    totalGallery, recent, totalApplications, pendingApplications,
   } = await getStats();
 
   const now = new Date();
@@ -158,12 +163,28 @@ export default async function DashboardPage() {
         </svg>
       ),
     },
+    {
+      label: "Entrance Applications",
+      value: totalApplications,
+      sub: pendingApplications > 0 ? `${pendingApplications} pending review` : "all reviewed",
+      href: "/admin/applications",
+      accent: pendingApplications > 0 ? "text-amber-400" : "text-cyan-400",
+      bg: pendingApplications > 0 ? "bg-amber-400/10" : "bg-cyan-400/10",
+      dot: pendingApplications > 0,
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
+      ),
+    },
   ];
 
   // Items that need attention
   const alerts: { text: string; href: string }[] = [];
   if (unreadEnquiries > 0) alerts.push({ text: `${unreadEnquiries} unread enquir${unreadEnquiries > 1 ? "ies" : "y"} waiting`, href: "/admin/enquiries" });
   if (pendingAlumni > 0) alerts.push({ text: `${pendingAlumni} alumni profile${pendingAlumni > 1 ? "s" : ""} pending approval`, href: "/admin/alumni" });
+  if (pendingApplications > 0) alerts.push({ text: `${pendingApplications} entrance application${pendingApplications > 1 ? "s" : ""} pending verification`, href: "/admin/applications" });
   if (activeNotices === 0) alerts.push({ text: "No active notices on the homepage marquee", href: "/admin/notices" });
 
   return (

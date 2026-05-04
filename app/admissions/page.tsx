@@ -307,9 +307,7 @@ export default function Admissions() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://ktmmodelcollege.edu.np/apply-to-kmss/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/admissions/entrance-form"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
                 >
                   Apply Online Now
