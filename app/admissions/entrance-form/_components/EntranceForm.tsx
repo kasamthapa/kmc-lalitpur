@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, ChangeEvent, FormEvent } from "react";
+import { useState, useRef, ChangeEvent, FormEvent, useEffect } from "react";
 import Image from "next/image";
 import imageCompression from "browser-image-compression";
 
@@ -63,11 +63,29 @@ interface FormData {
   seeEnglish:  string;
 }
 
+const DRAFT_KEY = "kmc_entrance_form_draft";
+
 const INITIAL: FormData = {
   fullName: "", dateOfBirth: "", gender: "", phone: "", email: "",
   address: "", stream: "", seeSchool: "", seeYear: "", seeGpa: "",
   seeMaths: "", seeScience: "", seeEnglish: "",
 };
+
+function loadDraft(): FormData {
+  try {
+    const saved = localStorage.getItem(DRAFT_KEY);
+    if (saved) return { ...INITIAL, ...JSON.parse(saved) };
+  } catch { /* ignore */ }
+  return INITIAL;
+}
+
+function saveDraft(data: FormData) {
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify(data)); } catch { /* ignore */ }
+}
+
+function clearDraft() {
+  try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+}
 
 const SEE_YEARS = ["2081", "2080", "2079", "2078", "2077", "2076", "2075"];
 const GRADE_OPTIONS = ["A+", "A", "B+", "B", "C+", "C", "D+", "D", "E", "NG"];
@@ -107,6 +125,7 @@ function Select({ children, ...props }: React.SelectHTMLAttributes<HTMLSelectEle
 // ── Main component ────────────────────────────────────────────────────────────
 export function EntranceForm() {
   const [form, setForm]           = useState<FormData>(INITIAL);
+  const [draftRestored, setDraftRestored] = useState(false);
   const [screenshotFile, setScreenshotFile] = useState<File | null>(null);
   const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -114,6 +133,16 @@ export function EntranceForm() {
   const [error, setError]         = useState<string | null>(null);
   const [referenceNo, setReferenceNo] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  // Restore draft on mount
+  useEffect(() => {
+    const draft = loadDraft();
+    const hasData = Object.values(draft).some((v) => v !== "");
+    if (hasData) { setForm(draft); setDraftRestored(true); }
+  }, []);
+
+  // Auto-save draft on every change
+  useEffect(() => { saveDraft(form); }, [form]);
 
   function set(field: keyof FormData) {
     return (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -189,6 +218,7 @@ export function EntranceForm() {
         throw new Error(json.message ?? "Submission failed. Please try again.");
       }
 
+      clearDraft();
       setReferenceNo(json.data!.referenceNo);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
@@ -239,6 +269,22 @@ export function EntranceForm() {
   // ── Form ────────────────────────────────────────────────────────────────────
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-8">
+
+      {/* Draft restored banner */}
+      {draftRestored && (
+        <div className="flex items-center justify-between bg-blue-50 border border-blue-200 rounded-xl px-5 py-3">
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            <p className="text-blue-800 text-sm font-medium">Your previous progress has been restored.</p>
+          </div>
+          <button type="button" onClick={() => { clearDraft(); setForm(INITIAL); setDraftRestored(false); }}
+            className="text-blue-600 text-xs hover:underline shrink-0 ml-4">
+            Start fresh
+          </button>
+        </div>
+      )}
 
       {/* ── Section 1: Personal Details ────────────────────────────────────── */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
