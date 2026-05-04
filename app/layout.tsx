@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { WhatsAppFloat } from "./components/whatsapp";
-import { Chatbot } from "./components/chatbot";
+import { FloatingWidgets } from "./components/FloatingWidgets";
 import { SchemaOrg } from "./components/schema";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -126,8 +125,7 @@ export default function RootLayout({
       </head>
       <body className={`${geist.className} antialiased`}>
         {children}
-        <WhatsAppFloat />
-        <Chatbot />
+        <FloatingWidgets />
         <Analytics />
       </body>
     </html>
