@@ -432,6 +432,12 @@ export function EntranceForm() {
             {/* Screenshot upload */}
             <div>
               <Label required>Upload Payment Screenshot</Label>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg px-3 py-2.5 mb-3">
+                <p className="text-blue-800 text-xs font-semibold mb-0.5">📱 Important — Take a screenshot, not a photo</p>
+                <p className="text-blue-700 text-xs leading-relaxed">
+                  After paying via eSewa / Khalti / bank, take a <strong>screenshot</strong> of the success screen (press Home + Power on iPhone, or Volume Down + Power on Android). Do <strong>not</strong> upload a camera photo — screenshots are small and upload faster.
+                </p>
+              </div>
               <p className="text-xs text-gray-400 mb-3">
                 Accepts PNG, JPG, WEBP, HEIC (iPhone), and PDF. Max 10 MB.
               </p>
