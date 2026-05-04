@@ -2,6 +2,24 @@
 
 import { useState, useRef, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
+import imageCompression from "browser-image-compression";
+
+// ── Image compression before upload ──────────────────────────────────────────
+async function compressIfImage(file: File): Promise<File> {
+  // Skip compression for PDFs
+  if (file.type === "application/pdf") return file;
+  try {
+    return await imageCompression(file, {
+      maxSizeMB: 0.5,        // target max 500 KB
+      maxWidthOrHeight: 1200, // enough resolution to read payment details
+      useWebWorker: true,
+      fileType: "image/webp", // convert everything to webp
+    });
+  } catch {
+    // If compression fails for any reason, upload original
+    return file;
+  }
+}
 
 // ── Cloudinary upload ─────────────────────────────────────────────────────────
 async function uploadToCloudinary(file: File): Promise<string> {
@@ -150,7 +168,8 @@ export function EntranceForm() {
 
     try {
       setUploading(true);
-      const paymentScreenshotUrl = await uploadToCloudinary(screenshotFile);
+      const compressed = await compressIfImage(screenshotFile);
+      const paymentScreenshotUrl = await uploadToCloudinary(compressed);
       setUploading(false);
 
       setSubmitting(true);
@@ -533,7 +552,7 @@ export function EntranceForm() {
               <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0"/>
               </svg>
-              Uploading payment proof…
+              Compressing & uploading payment proof…
             </>
           ) : submitting ? (
             <>
