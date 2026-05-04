@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/app/lib/prisma";
-import { apiSuccess, apiServerError } from "@/app/lib/api-response";
+import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
 import { sendApplicationDigest } from "@/app/lib/mailer";
 
@@ -14,8 +14,17 @@ export async function POST(req: NextRequest) {
     if (response) return response;
   }
 
+  // Check email is configured before hitting the DB
+  if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    return apiError(
+      "Email is not configured yet. Add EMAIL_HOST, EMAIL_USER, and EMAIL_PASS to your environment variables to enable digest emails.",
+      undefined,
+      503
+    );
+  }
+
   try {
-    const now       = new Date();
+    const now        = new Date();
     const startOfDay = new Date(now);
     startOfDay.setHours(0, 0, 0, 0);
 

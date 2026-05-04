@@ -377,11 +377,15 @@ export default function ApplicationsPage() {
 
   async function sendDigest() {
     setDigestSending(true); setDigestMsg(null);
-    const res = await fetch("/api/admin/applications/send-digest", { method: "POST" });
+    const res  = await fetch("/api/admin/applications/send-digest", { method: "POST" });
     const json = await res.json();
-    setDigestMsg(res.ok
-      ? `✅ Sent — ${json.data?.newToday ?? 0} new today, ${json.data?.pending ?? 0} pending`
-      : `❌ ${json.message ?? "Failed"}`);
+    if (res.ok) {
+      setDigestMsg(`✅ Sent — ${json.data?.newToday ?? 0} new today, ${json.data?.pending ?? 0} pending`);
+    } else if (res.status === 503) {
+      setDigestMsg("⚙️ Email not configured — add EMAIL_HOST, EMAIL_USER, EMAIL_PASS to env vars");
+    } else {
+      setDigestMsg(`❌ ${json.message ?? "Failed to send"}`);
+    }
     setDigestSending(false);
   }
 
