@@ -25,6 +25,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
     category: "Events",
     image: "/images/news4.png",
     featured: true,
+    isFallback: true,
   },
   {
     id: "2",
@@ -36,6 +37,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
     category: "Academic",
     image: "/images/news1.png",
     featured: false,
+    isFallback: true,
   },
   {
     id: "3",
@@ -47,6 +49,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
     category: "Cultural Events",
     image: "/images/news3.png",
     featured: false,
+    isFallback: true,
   },
   {
     id: "4",
@@ -58,6 +61,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
     category: "Community",
     image: "/images/news5.png",
     featured: false,
+    isFallback: true,
   },
   {
     id: "5",
@@ -69,6 +73,7 @@ const FALLBACK_NEWS: NewsArticle[] = [
     category: "Academic",
     image: "/images/news2.png",
     featured: false,
+    isFallback: true,
   },
 ];
 

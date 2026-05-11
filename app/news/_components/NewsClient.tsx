@@ -17,6 +17,7 @@ export interface NewsArticle {
   image: string | null;
   featured: boolean;
   slug: string;
+  isFallback?: boolean;
 }
 
 export interface NoticeCard {
@@ -168,39 +169,69 @@ export function NewsClient({
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-[#0B1F3A] mb-8">Featured Story</h2>
-            <Link
-              href={`/news/${featuredNews.slug}`}
-              className="block rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm hover:shadow-xl transition group"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative h-80 lg:h-full bg-[#0B1F3A] overflow-hidden">
-                  <Image
-                    src={featuredNews.image ?? PLACEHOLDER_IMG}
-                    alt={featuredNews.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
-                      {featuredNews.category ?? "News"}
-                    </span>
-                    <span className="text-[#6b7280] text-sm">{featuredNews.date}</span>
+            {featuredNews.isFallback ? (
+              <div className="block rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="relative h-80 lg:h-full bg-[#0B1F3A] overflow-hidden">
+                    <Image
+                      src={featuredNews.image ?? PLACEHOLDER_IMG}
+                      alt={featuredNews.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-5 leading-tight">
-                    {featuredNews.title}
-                  </h3>
-                  {featuredNews.description && (
-                    <p className="text-[#374151] leading-relaxed mb-8">{featuredNews.description}</p>
-                  )}
-                  <span className="inline-flex items-center gap-2 text-amber-600 font-bold">
-                    Read Full Story <IconArrow size={16} />
-                  </span>
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
+                        {featuredNews.category ?? "News"}
+                      </span>
+                      <span className="text-[#6b7280] text-sm">{featuredNews.date}</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-5 leading-tight">
+                      {featuredNews.title}
+                    </h3>
+                    {featuredNews.description && (
+                      <p className="text-[#374151] leading-relaxed">{featuredNews.description}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </Link>
+            ) : (
+              <Link
+                href={`/news/${featuredNews.slug}`}
+                className="block rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm hover:shadow-xl transition group"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="relative h-80 lg:h-full bg-[#0B1F3A] overflow-hidden">
+                    <Image
+                      src={featuredNews.image ?? PLACEHOLDER_IMG}
+                      alt={featuredNews.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
+                        {featuredNews.category ?? "News"}
+                      </span>
+                      <span className="text-[#6b7280] text-sm">{featuredNews.date}</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3A] mb-5 leading-tight">
+                      {featuredNews.title}
+                    </h3>
+                    {featuredNews.description && (
+                      <p className="text-[#374151] leading-relaxed mb-8">{featuredNews.description}</p>
+                    )}
+                    <span className="inline-flex items-center gap-2 text-amber-600 font-bold">
+                      Read Full Story <IconArrow size={16} />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            )}
           </div>
         </section>
       )}
@@ -211,42 +242,75 @@ export function NewsClient({
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-[#0B1F3A] mb-8">Latest News</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {otherNews.map((news) => (
-                <Link
-                  key={news.id}
-                  href={`/news/${news.slug}`}
-                  className="bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-xl transition group"
-                >
-                  <div className="relative h-48 bg-[#0B1F3A] overflow-hidden">
-                    <Image
-                      src={news.image ?? PLACEHOLDER_IMG}
-                      alt={news.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-110 transition duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-3 mb-3">
-                      <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
-                        {news.category ?? "News"}
-                      </span>
-                      <span className="text-[#6b7280] text-xs">{news.date}</span>
+              {otherNews.map((news) =>
+                news.isFallback ? (
+                  <div
+                    key={news.id}
+                    className="bg-white rounded-xl overflow-hidden border border-[#eae6de]"
+                  >
+                    <div className="relative h-48 bg-[#0B1F3A] overflow-hidden">
+                      <Image
+                        src={news.image ?? PLACEHOLDER_IMG}
+                        alt={news.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                      />
                     </div>
-                    <h3 className="font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-amber-600 transition leading-snug">
-                      {news.title}
-                    </h3>
-                    {news.description && (
-                      <p className="text-sm text-[#374151] line-clamp-2 mb-4 leading-relaxed">
-                        {news.description}
-                      </p>
-                    )}
-                    <span className="inline-flex items-center gap-1.5 text-amber-600 font-semibold text-sm">
-                      Read More <IconChevronRight size={14} />
-                    </span>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between gap-3 mb-3">
+                        <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
+                          {news.category ?? "News"}
+                        </span>
+                        <span className="text-[#6b7280] text-xs">{news.date}</span>
+                      </div>
+                      <h3 className="font-bold text-[#0B1F3A] mb-3 line-clamp-2 leading-snug">
+                        {news.title}
+                      </h3>
+                      {news.description && (
+                        <p className="text-sm text-[#374151] line-clamp-3 leading-relaxed">
+                          {news.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </Link>
-              ))}
+                ) : (
+                  <Link
+                    key={news.id}
+                    href={`/news/${news.slug}`}
+                    className="bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-xl transition group"
+                  >
+                    <div className="relative h-48 bg-[#0B1F3A] overflow-hidden">
+                      <Image
+                        src={news.image ?? PLACEHOLDER_IMG}
+                        alt={news.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-110 transition duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between gap-3 mb-3">
+                        <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
+                          {news.category ?? "News"}
+                        </span>
+                        <span className="text-[#6b7280] text-xs">{news.date}</span>
+                      </div>
+                      <h3 className="font-bold text-[#0B1F3A] mb-3 line-clamp-2 group-hover:text-amber-600 transition leading-snug">
+                        {news.title}
+                      </h3>
+                      {news.description && (
+                        <p className="text-sm text-[#374151] line-clamp-2 mb-4 leading-relaxed">
+                          {news.description}
+                        </p>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 text-amber-600 font-semibold text-sm">
+                        Read More <IconChevronRight size={14} />
+                      </span>
+                    </div>
+                  </Link>
+                )
+              )}
             </div>
           </div>
         </section>
