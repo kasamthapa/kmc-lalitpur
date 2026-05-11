@@ -45,7 +45,7 @@ const areas = [
     highlight: "500 seats · Full AV setup",
   },
   {
-    name: "Sports Complex",
+    name: "Sports ",
     desc: "Outdoor and indoor sports facilities including cricket ground, basketball court, and indoor games room.",
     image: "/images/facilities/sports.png",
     highlight: "Cricket · Basketball · TT",

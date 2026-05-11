@@ -302,7 +302,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Image */}
             <div className="relative pb-8 md:pb-0">
-              <div className="relative h-64 sm:h-80 lg:h-[30rem] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-64 sm:h-80 lg:h-120 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
@@ -313,7 +313,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent pointer-events-none" />
               </div>
               {/* Floating stat */}
-              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-[160px] md:max-w-none bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-2xl">
+              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-40 md:max-w-none bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-2xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
                   22+
                 </p>
