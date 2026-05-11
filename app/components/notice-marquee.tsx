@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 const FALLBACK = [
-  "🎓 Admissions Open for 2083 Academic Year",
-  "📢 Entrance Exam Registration Available Online",
+
+
   "🏆 KMC Lalitpur — Ministry of Education Excellence Award Winner",
   "📚 97% NEB Pass Rate — Consistently Every Year",
-  "🌟 Scholarships Available — Merit & Need Based",
-  "📞 Call +977-1-5918595 for Admission Enquiries",
+  "🌟 Merit & Need-Based Scholarships Available",
+  "📞 Call +977-1-5201331 for Admission Enquiries",
 ];
 
 export function NoticeMarquee() {

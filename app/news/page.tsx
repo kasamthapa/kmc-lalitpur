@@ -17,69 +17,69 @@ export const metadata: Metadata = {
 const FALLBACK_NEWS: NewsArticle[] = [
   {
     id: "1",
-    slug: "kmc-talent-innovation-expo-2082",
-    title: "KMC Talent and Innovation Expo 2082",
+    slug: "kmc-talent-innovation-expo",
+    title: "KMC Talent and Innovation Expo — Students Shine Bright",
     description:
-      "Successfully completed the KMC Talent and Innovation Expo 2082 at KMC Lalitpur on 12th Mangshir. Students showcased projects spanning science, technology, arts, and entrepreneurship.",
-    date: "February 2, 2026",
+      "KMC Lalitpur successfully hosted its annual Talent and Innovation Expo at the KMC Seminar Hall. Students showcased remarkable projects spanning science, technology, arts, and entrepreneurship, drawing appreciation from faculty and guests alike.",
+    date: "Recent",
     category: "Events",
     image: "/images/news4.png",
     featured: true,
   },
   {
     id: "2",
-    slug: "kmc-olympiad-2082",
-    title: "Celebrating Mathematical Talent: KMC Lalitpur Olympiad 2082",
+    slug: "kmc-mbbs-achievers-panel",
+    title: "Voices of Experience — MBBS Achievers Panel Discussion",
     description:
-      "KMC Lalitpur proudly organized the Olympiad 2082 to celebrate and nurture mathematical excellence among students.",
-    date: "January 30, 2026",
+      "KMC Lalitpur hosted an inspiring panel discussion featuring alumni who cleared MBBS entrance examinations. Current Science stream students gained invaluable insights into preparation strategies and college life.",
+    date: "Recent",
     category: "Academic",
     image: "/images/news1.png",
     featured: false,
   },
   {
     id: "3",
-    slug: "theme-drama-competition-2082",
-    title: "Theme Drama Competition 2082 — A Showcase of Student Creativity",
+    slug: "theme-drama-competition",
+    title: "Theme Drama Competition — A Showcase of Student Creativity",
     description:
-      "The Theme Drama Competition 2082 was successfully conducted on 26th Mangshir at the KMC Seminar Hall.",
-    date: "February 2, 2026",
+      "The annual Theme Drama Competition was successfully conducted at the KMC Seminar Hall. Students from all streams delivered powerful performances, demonstrating exceptional creativity, teamwork, and stage presence.",
+    date: "Recent",
     category: "Cultural Events",
     image: "/images/news3.png",
     featured: false,
   },
   {
     id: "4",
-    slug: "world-ngo-day-celebration",
-    title: "World NGO Day Celebration — Building Partnerships for Change",
+    slug: "kmc-community-outreach",
+    title: "KMC Community Outreach — Building Partnerships for Change",
     description:
-      "Students engaged in community service and social responsibility initiatives.",
-    date: "February 1, 2026",
+      "KMC Lalitpur students participated in community service and social responsibility initiatives. The programme reinforced the institution's commitment to nurturing socially aware and responsible citizens.",
+    date: "Recent",
     category: "Community",
     image: "/images/news5.png",
     featured: false,
   },
   {
     id: "5",
-    slug: "kmc-student-catalyst-committee-debate",
+    slug: "kmc-debate-speech-event",
     title: "KMC Student Catalyst Committee Celebrates Young Orators",
     description:
-      "The KMC Student Catalyst Committee successfully organized a Debate & Speech Event.",
-    date: "January 28, 2026",
+      "The KMC Student Catalyst Committee organised a Debate & Speech Event that brought out the best in student communication and critical thinking. Participants from all streams competed with confidence and eloquence.",
+    date: "Recent",
     category: "Academic",
-    image: "/images/news3.png",
+    image: "/images/news2.png",
     featured: false,
   },
 ];
 
 // Hardcoded fallback notices (notice board on /news — different from homepage marquee)
 const FALLBACK_NOTICES: NoticeCard[] = [
-  { id: 1, title: "Admission Open for 2083 Academic Year", date: "April 1, 2026", type: "Admissions", urgent: true },
-  { id: 2, title: "Scholarship Examination Date: Baisakh 20, 2082", date: "March 28, 2026", type: "Examination", urgent: true },
-  { id: 3, title: "Fee Payment Deadline — Chaitra 30", date: "March 20, 2026", type: "Finance", urgent: false },
-  { id: 4, title: "Annual Sports Day — Baisakh 12, 2082", date: "March 15, 2026", type: "Events", urgent: false },
-  { id: 5, title: "NEB Practical Examination Schedule Released", date: "March 10, 2026", type: "Examination", urgent: false },
-  { id: 6, title: "Hostel Application Deadline — Chaitra 25", date: "March 5, 2026", type: "Hostel", urgent: false },
+  { id: 1, title: "Merit & Need-Based Scholarships Available for Deserving Students", date: "Recent", type: "General", urgent: false },
+  { id: 2, title: "Hostel & Transport Facilities Available — Contact Admin Office", date: "Recent", type: "General", urgent: false },
+  { id: 3, title: "Library Timing: Sunday–Friday 8 AM – 5 PM", date: "Recent", type: "General", urgent: false },
+  { id: 4, title: "Extra Classes Available for Science, Management & Law Streams", date: "Recent", type: "Academic", urgent: false },
+  { id: 5, title: "Contact Admin Office for Fee & Other Enquiries", date: "Recent", type: "Finance", urgent: false },
+  { id: 6, title: "Campus Open for Visits: Sunday–Friday 9 AM – 4 PM", date: "Recent", type: "General", urgent: false },
 ];
 
 async function getNews(): Promise<NewsArticle[]> {
