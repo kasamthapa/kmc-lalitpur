@@ -208,7 +208,7 @@ export default function Home() {
         ]}
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen flex items-center overflow-hidden mt-25">
+      <section className="relative h-screen flex items-center overflow-hidden">
         {/* YouTube background */}
         <HeroVideo />
         {/* Overlay */}
@@ -219,7 +219,7 @@ export default function Home() {
 
         {/* Content */}
         <div
-          className="relative max-w-7xl mx-auto w-full px-4 sm:px-6"
+          className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 pt-20 md:pt-0"
           style={{ zIndex: 2 }}
         >
           <div className="max-w-2xl">
@@ -229,7 +229,7 @@ export default function Home() {
               NEB Affiliated · Est. 2000 · Balkumari, Lalitpur
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.05] tracking-tight">
               Shape Your
               <br />
               <span className="text-amber-400">Future</span> at
