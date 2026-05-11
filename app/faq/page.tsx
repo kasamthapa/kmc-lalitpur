@@ -45,7 +45,7 @@ const faqCategories = [
     items: [
       {
         q: "What are the eligibility requirements for admission?",
-        a: "Students who have completed Grade 10 (SEE) from any NEB-recognized institution are eligible to apply. Minimum GPA requirements vary by stream: Science requires GPA 2.8+ (with B+ in Science, Mathematics, Optional Mathematics and English), while Management and Law require GPA 2.4+ (with C grade in Mathematics and English). Final selection is based on entrance examination performance.",
+        a: "Students who have completed Grade 10 (SEE) from any NEB-recognized institution are eligible to apply. All streams require a minimum GPA of 2.0: Science requires GPA 2.0+ (with B+ in Science, Mathematics, Optional Mathematics and English), while Management and Law require GPA 2.0+ (with C grade in Mathematics and English). Final selection is based on entrance examination performance.",
       },
       {
         q: "When does the admission process start?",

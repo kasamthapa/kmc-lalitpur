@@ -52,7 +52,7 @@ const streams = [
     ],
     timing: "Morning: 6:20 AM – 12:50 PM  |  Day: 11:00 AM – 5:30 PM",
     eligibility: {
-      cgpa: "2.8+",
+      cgpa: "2.0+",
       subjects: [
         "B+ in Science",
         "B+ in Mathematics",
@@ -114,7 +114,7 @@ const streams = [
     ],
     timing: "Morning: 6:20 AM – 11:00 AM",
     eligibility: {
-      cgpa: "2.4+",
+      cgpa: "2.0+",
       subjects: ["C grade in Mathematics", "C grade in English"],
       note: "Open to all SEE graduates meeting minimum criteria",
     },
@@ -172,7 +172,7 @@ const streams = [
     ],
     timing: "Morning: 6:20 AM – 11:00 AM",
     eligibility: {
-      cgpa: "2.4+",
+      cgpa: "2.0+",
       subjects: ["C grade in Mathematics", "C grade in English"],
       note: "Open to all SEE graduates meeting minimum criteria",
     },
@@ -251,21 +251,21 @@ export default function Academics() {
           {
             name: "Science Stream (+2)",
             description:
-              "NEB-affiliated +2 Science program covering Physics, Chemistry, Biology/Computer and Mathematics. Entrance exam: 100 marks (Maths 30%, Science 40%, English 20%, GK & IQ 10%). Requires CGPA 2.8+ with B+ in Science, Maths and English.",
+              "NEB-affiliated +2 Science program covering Physics, Chemistry, Biology/Computer and Mathematics. Entrance exam: 100 marks (Maths 30%, Science 40%, English 20%, GK & IQ 10%). Requires GPA 2.0+ with B+ in Science, Maths and English.",
             provider: "KMC Lalitpur",
             url: "/academics#science",
           },
           {
             name: "Management Stream (+2)",
             description:
-              "NEB-affiliated +2 Management program covering Accountancy, Economics and Business Studies. Entrance exam: 75 marks (Maths 36%, English 36%, Nepali & GK 28%). Requires CGPA 2.4+ with C in Maths and English.",
+              "NEB-affiliated +2 Management program covering Accountancy, Economics and Business Studies. Entrance exam: 75 marks (Maths 36%, English 36%, Nepali & GK 28%). Requires GPA 2.0+ with C in Maths and English.",
             provider: "KMC Lalitpur",
             url: "/academics#management",
           },
           {
             name: "Law Stream (+2)",
             description:
-              "NEB-affiliated +2 Law program covering Constitutional Law, Jurisprudence, Procedural Law (Gr. XI) and Nepalese Legal System, Civil & Criminal Law, Legal Drafting (Gr. XII). Entrance exam: 75 marks (English 30%, Nepali 30%, Social Studies & GK 40%). Requires CGPA 2.4+.",
+              "NEB-affiliated +2 Law program covering Constitutional Law, Jurisprudence, Procedural Law (Gr. XI) and Nepalese Legal System, Civil & Criminal Law, Legal Drafting (Gr. XII). Entrance exam: 75 marks (English 30%, Nepali 30%, Social Studies & GK 40%). Requires GPA 2.0+.",
             provider: "KMC Lalitpur",
             url: "/academics#law",
           },
@@ -497,7 +497,7 @@ export default function Academics() {
                   </h3>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl font-bold text-[#0B1F3A]">
-                      CGPA {stream.eligibility.cgpa}
+                      GPA {stream.eligibility.cgpa}
                     </span>
                     <span className="text-slate-500 text-sm">
                       minimum required

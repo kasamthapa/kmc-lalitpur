@@ -27,7 +27,7 @@ const streams = [
     format: "Science 40 + Maths 40 + English 20",
     total: "100 marks",
     duration: "60 minutes",
-    eligibility: "CGPA 2.85+ (B+ in Science/Maths/OptMaths/English)",
+    eligibility: "GPA 2.0+ (B+ in Science/Maths/OptMaths/English)",
     formUrl: SITE_CONFIG.mockTestForms.science,
   },
   {
@@ -45,7 +45,7 @@ const streams = [
     format: "English 45 + GK 15 + Maths 15",
     total: "75 marks",
     duration: "60 minutes",
-    eligibility: "CGPA 2.05+ (C in Maths/English)",
+    eligibility: "GPA 2.0+ (C in Maths/English)",
     formUrl: SITE_CONFIG.mockTestForms.management,
   },
   {
@@ -62,7 +62,7 @@ const streams = [
     format: "English 45 + GK 15 + Maths 15",
     total: "75 marks",
     duration: "60 minutes",
-    eligibility: "CGPA 2.05+ (C in Maths/English)",
+    eligibility: "GPA 2.0+ (C in Maths/English)",
     formUrl: SITE_CONFIG.mockTestForms.law,
   },
 ];

@@ -29,7 +29,7 @@ const streams = {
         details:
           "Fill the online admission form available on our website after SEE results are announced. Attach a recent passport-size photo with white background.",
         requirements: [
-          "Minimum CGPA 2.8 in SEE",
+          "Minimum GPA 2.0 in SEE",
           "B+ grade in Science",
           "B+ grade in Mathematics",
           "B+ grade in Optional Mathematics",
@@ -811,19 +811,19 @@ export default function Admissions() {
                 {[
                   {
                     stream: "Science",
-                    cgpa: "CGPA 2.8+",
+                    cgpa: "GPA 2.0+",
                     req: "B+ in Science, Maths, Optional Maths & English",
                     color: "bg-blue-50 border-blue-200",
                   },
                   {
                     stream: "Management",
-                    cgpa: "CGPA 2.4+",
+                    cgpa: "GPA 2.0+",
                     req: "C grade in Mathematics & English",
                     color: "bg-emerald-50 border-emerald-200",
                   },
                   {
                     stream: "Law",
-                    cgpa: "CGPA 2.4+",
+                    cgpa: "GPA 2.0+",
                     req: "C grade in Mathematics & English",
                     color: "bg-amber-50 border-amber-200",
                   },
