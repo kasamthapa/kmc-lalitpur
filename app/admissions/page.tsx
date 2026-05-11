@@ -370,6 +370,32 @@ export default function Admissions() {
         </div>
       </section>
 
+      {/* ── Entrance Exam CTA Banner ─────────────────────────────────────── */}
+      <section className="bg-amber-400 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <span className="text-3xl hidden sm:block">🎓</span>
+            <div>
+              <p className="text-[#0B1F3A] font-bold text-lg leading-tight">
+                2083 Entrance Examinations — Now Open
+              </p>
+              <p className="text-[#0B1F3A]/70 text-sm mt-0.5">
+                Apply online for Science, Management, or Law stream. Limited seats available.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://app.kmclalitpur.edu.np/applicant/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-7 py-3 bg-[#0B1F3A] text-white font-bold rounded-xl hover:bg-[#162e57] transition-colors whitespace-nowrap"
+          >
+            Apply for Entrance
+            <IconArrow size={16} />
+          </a>
+        </div>
+      </section>
+
       {/* Quick Process Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -514,7 +540,7 @@ export default function Admissions() {
 
           <div className="text-center mt-10">
             <a
-              href="https://ktmmodelcollege.edu.np/apply-to-kmss/"
+              href="https://app.kmclalitpur.edu.np/applicant/login"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
@@ -933,7 +959,7 @@ export default function Admissions() {
               academic year.
             </p>
             <a
-              href="https://ktmmodelcollege.edu.np/apply-to-kmss/"
+              href="https://app.kmclalitpur.edu.np/applicant/login"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-10 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
