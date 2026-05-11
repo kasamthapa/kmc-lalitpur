@@ -307,7 +307,9 @@ export default function Admissions() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="/admissions/entrance-form"
+                  href="https://app.kmclalitpur.edu.np/applicant/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
                 >
                   Apply Online Now
