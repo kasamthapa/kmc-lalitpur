@@ -21,6 +21,7 @@ import {
   IconChevronRight,
 } from "./components/icons";
 import { NoticeMarquee } from "./components/notice-marquee";
+import { EntrancePopup } from "./components/entrance-popup";
 import { SITE_CONFIG } from "./config/site";
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
@@ -176,6 +177,7 @@ const latestNews = [
 export default function Home() {
   return (
     <main className="bg-white">
+      <EntrancePopup />
       <Header />
       <WebPageSchema
         title="KMC Lalitpur | Kathmandu Model Secondary School"
