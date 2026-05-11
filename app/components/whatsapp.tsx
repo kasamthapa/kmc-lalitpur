@@ -65,101 +65,92 @@ export function WhatsAppFloat() {
     if (open) setPulse(false);
   }, [open]);
 
-  // Close on outside click
+  // Close on outside click — only fires setState when panel is actually open
   useEffect(() => {
     function handler(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+      if (open && ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, [open]);
 
   return (
     <div
       ref={ref}
       className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
     >
-      {/* ── Expanded panel ─────────────────────────────────────────────── */}
-      <div
-        className={`transition-all duration-300 origin-bottom-right ${
-          open
-            ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 scale-95 translate-y-2 pointer-events-none"
-        }`}
-      >
-        <div className="bg-white rounded-2xl shadow-2xl border border-[#e8e8e8] w-72 overflow-hidden">
-          {/* Panel header */}
-          <div className="bg-[#128C7E] px-5 py-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <IconWhatsApp size={32} />
-              </div>
-              <div>
-                <p className="text-white font-bold text-sm leading-tight">
-                  KMC Lalitpur
-                </p>
-                <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-[#25D366] inline-block" />
-                  <p className="text-white/80 text-xs">
-                    Typically replies instantly
-                  </p>
+      {/* ── Expanded panel — only rendered when open so it never blocks touches ── */}
+      {open && (
+        <div className="animate-in fade-in zoom-in-95 duration-200 origin-bottom-right">
+          <div className="bg-white rounded-2xl shadow-2xl border border-[#e8e8e8] w-72 overflow-hidden">
+            {/* Panel header */}
+            <div className="bg-[#128C7E] px-5 py-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                  <IconWhatsApp size={32} />
                 </div>
-              </div>
-            </div>
-            <p className="text-white/70 text-xs mt-3 leading-relaxed">
-              Hi there 👋 How can we help you today? Choose a topic below or
-              send us a custom message.
-            </p>
-          </div>
-
-          {/* Action list */}
-          <ul className="divide-y divide-[#f0ece4]">
-            {actions.map((action) => (
-              <li key={action.label}>
-                <a
-                  href={waLink(action.message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#f7f5f0] transition-colors group"
-                >
-                  <span
-                    className="text-xl w-8 text-center shrink-0"
-                    aria-hidden
-                  >
-                    {action.emoji}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-[#0B1F3A] group-hover:text-[#128C7E] transition-colors leading-tight">
-                      {action.label}
-                    </p>
-                    <p className="text-xs text-[#6b7280] mt-0.5">
-                      {action.desc}
+                <div>
+                  <p className="text-white font-bold text-sm leading-tight">
+                    KMC Lalitpur
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <span className="w-2 h-2 rounded-full bg-[#25D366] inline-block" />
+                    <p className="text-white/80 text-xs">
+                      Typically replies instantly
                     </p>
                   </div>
-                  <span className="text-[#128C7E] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                    <IconArrow size={13} />
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+                </div>
+              </div>
+              <p className="text-white/70 text-xs mt-3 leading-relaxed">
+                Hi there 👋 How can we help you today? Choose a topic below or
+                send us a custom message.
+              </p>
+            </div>
 
-          {/* Custom message footer */}
-          <div className="px-5 py-4 bg-[#f7f5f0] border-t border-[#e8e8e8]">
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#25D366] text-white text-sm font-bold rounded-xl hover:bg-[#128C7E] transition-colors"
-            >
-              <IconWhatsApp size={18} />
-              Send a Custom Message
-            </a>
+            {/* Action list */}
+            <ul className="divide-y divide-[#f0ece4]">
+              {actions.map((action) => (
+                <li key={action.label}>
+                  <a
+                    href={waLink(action.message)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#f7f5f0] transition-colors group"
+                  >
+                    <span className="text-xl w-8 text-center shrink-0" aria-hidden>
+                      {action.emoji}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-[#0B1F3A] group-hover:text-[#128C7E] transition-colors leading-tight">
+                        {action.label}
+                      </p>
+                      <p className="text-xs text-[#6b7280] mt-0.5">{action.desc}</p>
+                    </div>
+                    <span className="text-[#128C7E] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                      <IconArrow size={13} />
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Custom message footer */}
+            <div className="px-5 py-4 bg-[#f7f5f0] border-t border-[#e8e8e8]">
+              <a
+                href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#25D366] text-white text-sm font-bold rounded-xl hover:bg-[#128C7E] transition-colors"
+              >
+                <IconWhatsApp size={18} />
+                Send a Custom Message
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* ── Floating button ─────────────────────────────────────────────── */}
       <button

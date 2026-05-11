@@ -138,6 +138,8 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const activeDropdownRef = useRef<string | null>(null);
+  activeDropdownRef.current = activeDropdown;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -146,7 +148,9 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const handler = () => setActiveDropdown(null);
+    const handler = () => {
+      if (activeDropdownRef.current !== null) setActiveDropdown(null);
+    };
     document.addEventListener("click", handler);
     return () => document.removeEventListener("click", handler);
   }, []);
