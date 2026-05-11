@@ -22,7 +22,7 @@ School: Kathmandu Model Secondary School (KMC Lalitpur / KMSS)
 Location: Imadol, Balkumari, Lalitpur, Nepal
 Principal: Mukunda Kumar Giri
 Phone: +977-1-5201331 / +977-1-5201334
-WhatsApp: +977 98511 38595
+WhatsApp: +977 97684 48360
 Email: info@kmclalitpur.edu.np
 Office Hours: Sunday–Friday 8AM–5PM, Saturday 10AM–3PM
 Apply: https://ktmmodelcollege.edu.np/apply-to-kmss/
