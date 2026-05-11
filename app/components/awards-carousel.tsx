@@ -20,11 +20,11 @@ const awards = [
     id: 2,
     title: "NEB Outstanding Results",
     year: "2079",
-    subtitle: "95% Pass Rate Achievement",
+    subtitle: "97% Pass Rate Achievement",
     image: "/images/awards/award2.png",
     fallbackGradient: "from-blue-800 to-blue-950",
     description:
-      "Consecutive 95% NEB pass rate with exceptional student performance across all streams.",
+      "Consecutive 97% NEB pass rate with exceptional student performance across all streams.",
     highlight: "Excellence in Education",
   },
 
@@ -46,7 +46,7 @@ const awards = [
     image: "/images/awards/award3.png",
     fallbackGradient: "from-rose-700 to-rose-900",
     description:
-      "KMC Lalitpur has achieved a 95% NEB pass rate every single year across Science, Management, and Law streams — a record unmatched by peers.",
+      "KMC Lalitpur has achieved a 97% NEB pass rate every single year across Science, Management, and Law streams — a record unmatched by peers.",
     highlight: "Academic Excellence",
   },
 ];
