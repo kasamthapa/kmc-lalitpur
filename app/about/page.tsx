@@ -186,7 +186,7 @@ export default function About() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/20 to-transparent pointer-events-none" />
               </div>
               <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
@@ -512,7 +512,7 @@ export default function About() {
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white font-bold text-lg leading-tight">
@@ -666,7 +666,7 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-amber-400 font-bold text-lg">
                   &quot;Academic Excellence through Quality Education&quot;

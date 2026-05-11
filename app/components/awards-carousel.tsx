@@ -138,7 +138,7 @@ export function AwardsCarousel() {
                   className="object-cover"
                   priority={currentIndex === 0}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent pointer-events-none" />
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="text-6xl md:text-7xl font-black text-amber-300 drop-shadow-lg">
                     {award.year}

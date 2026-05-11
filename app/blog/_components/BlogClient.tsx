@@ -91,7 +91,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition duration-500"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent pointer-events-none" />
                     {featured.category && (
                       <span className="absolute top-4 left-4 px-3 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold rounded-full">
                         {featured.category}

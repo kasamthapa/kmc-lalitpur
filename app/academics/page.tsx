@@ -328,7 +328,7 @@ export default function Academics() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent pointer-events-none" />
             </div>
             <div>
               <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
@@ -393,7 +393,7 @@ export default function Academics() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-xs font-bold text-amber-400 tracking-wider uppercase">
                       Pass Rate
