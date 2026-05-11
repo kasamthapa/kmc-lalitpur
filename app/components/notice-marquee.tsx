@@ -6,7 +6,7 @@ const FALLBACK = [
   "🎓 Admissions Open for 2083 Academic Year",
   "📢 Entrance Exam Registration Available Online",
   "🏆 KMC Lalitpur — Ministry of Education Excellence Award Winner",
-  "📚 100% NEB Pass Rate — Consistently Every Year",
+  "📚 95% NEB Pass Rate — Consistently Every Year",
   "🌟 Scholarships Available — Merit & Need Based",
   "📞 Call +977-1-5918595 for Admission Enquiries",
 ];

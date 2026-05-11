@@ -37,7 +37,7 @@ KMC houses fully equipped Physics, Chemistry, and Biology laboratories with mode
 
 ## NEB Results
 
-KMC Lalitpur has maintained a 100% NEB pass rate for over 15 consecutive years. Our students consistently appear in the top-50 merit list at the national level.
+KMC Lalitpur has maintained a 95% NEB pass rate for over 15 consecutive years. Our students consistently appear in the top-50 merit list at the national level.
 
 ## Entrance Exam Preparation
 
@@ -178,11 +178,11 @@ The NEB exam consists of theory papers (worth 75 marks each) and practical/proje
 
 ## KMC's Results
 
-KMC students have maintained a 100% NEB pass rate. Our faculty provides model question sets, topic-wise notes, and exam strategy sessions in the months leading up to the examination.
+KMC students have maintained a 95% NEB pass rate. Our faculty provides model question sets, topic-wise notes, and exam strategy sessions in the months leading up to the examination.
     `.trim(),
     metaTitle: "NEB Exam 2082 Preparation Guide — KMC Lalitpur",
     metaDescription:
-      "Complete NEB Grade 12 exam 2082 preparation guide. Marking scheme, study plan, common mistakes, and how KMC Lalitpur achieves 100% pass rate every year.",
+      "Complete NEB Grade 12 exam 2082 preparation guide. Marking scheme, study plan, common mistakes, and how KMC Lalitpur achieves 95% pass rate every year.",
   },
   {
     id: 5,
@@ -314,7 +314,7 @@ KMC's peer culture is academically positive. Students study together, quiz each 
 
 ## The Result
 
-100% NEB pass rate. Multiple district and national rank holders. Consistent merit-list appearances year after year.
+95% NEB pass rate. Multiple district and national rank holders. Consistent merit-list appearances year after year.
 
 These results reflect not genius, but a system — and every KMC student benefits from that system.
     `.trim(),

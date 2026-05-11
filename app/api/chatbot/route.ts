@@ -26,7 +26,7 @@ WhatsApp: +977 97684 48360
 Email: info@kmclalitpur.edu.np
 Office Hours: Sunday–Friday 8AM–5PM, Saturday 10AM–3PM
 Apply: https://ktmmodelcollege.edu.np/apply-to-kmss/
-NEB Pass Rate: 100% every year (consistent across all streams)
+NEB Pass Rate: 95% every year (consistent across all streams)
 Students: 2,500+ active
 Established: 2000
 Award: Excellence Award (Letter of Appreciation) 2074 & 2075 B.S. — Ministry of Education, Nepal

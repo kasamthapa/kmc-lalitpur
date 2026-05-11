@@ -89,7 +89,7 @@ const streams = [
       "Agriculture",
       "BSc Nursing",
     ],
-    passRate: "100%",
+    passRate: "95%",
   },
   {
     id: "management",
@@ -144,7 +144,7 @@ const streams = [
       "Marketing",
       "Public Administration",
     ],
-    passRate: "100%",
+    passRate: "95%",
   },
   {
     id: "law",
@@ -204,7 +204,7 @@ const streams = [
       "Diplomacy",
       "Political Science (BA)",
     ],
-    passRate: "100%",
+    passRate: "95%",
   },
 ];
 

@@ -26,7 +26,7 @@ const pillars = [
   {
     Icon: IconBook,
     title: "Academic Excellence",
-    desc: "Rigorous NEB-aligned curriculum with advanced teaching methodologies and consistent 100% pass rates.",
+    desc: "Rigorous NEB-aligned curriculum with advanced teaching methodologies and consistent 95% pass rates.",
   },
   {
     Icon: IconUsers,
@@ -59,8 +59,8 @@ const whyKMC = [
     desc: "Modern labs, library, auditorium, sports complex, hostel, and cutting-edge digital infrastructure.",
   },
   {
-    title: "100% NEB Pass Rate",
-    desc: "Consistent 100% pass rate every year with students securing top positions nationally.",
+    title: "95% NEB Pass Rate",
+    desc: "Consistent 95% pass rate every year with students securing top positions nationally.",
   },
   {
     title: "Holistic Development",
@@ -224,7 +224,7 @@ export default function About() {
               <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#e8e8e8]">
                 {[
                   { n: "2,500+", label: "Active Students" },
-                  { n: "100%", label: "NEB Pass Rate" },
+                  { n: "95%", label: "NEB Pass Rate" },
                   { n: "150+", label: "Expert Faculty" },
                 ].map((s, i) => (
                   <div key={i}>
@@ -640,7 +640,7 @@ export default function About() {
                   { n: "7", label: "Students" },
                   { n: "16", label: "Top Universities" },
                   { n: "60Cr+", label: "In Scholarships" },
-                  { n: "100%", label: "NEB Pass Rate" },
+                  { n: "95%", label: "NEB Pass Rate" },
                 ].map((s, i) => (
                   <div
                     key={i}

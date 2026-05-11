@@ -25,7 +25,7 @@ import { SITE_CONFIG } from "./config/site";
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },
-  { value: "100%", label: "NEB Pass Rate" },
+  { value: "95%", label: "NEB Pass Rate" },
   { value: "10,000+", label: "Students Annually" },
   { value: "6", label: "National Awards" },
 ];
@@ -105,8 +105,8 @@ const whyKMC = [
   },
   {
     icon: <IconZap size={28} />,
-    title: "100% NEB Results",
-    desc: "Consistent 100% pass rate every year with students topping national examinations.",
+    title: "95% NEB Results",
+    desc: "Consistent 95% pass rate every year with students topping national examinations.",
   },
   {
     icon: <IconGlobe size={28} />,
@@ -130,7 +130,7 @@ const testimonials = [
   },
   {
     quote:
-      "My daughter joined KMC for the Law stream and the results speak for themselves — 100% pass rate, dedicated teachers, and a disciplined environment. Best decision we made.",
+      "My daughter joined KMC for the Law stream and the results speak for themselves — 95% pass rate, dedicated teachers, and a disciplined environment. Best decision we made.",
     name: "Binod Adhikari",
     role: "Parent — Law Stream student",
     stars: 5,
@@ -179,7 +179,7 @@ export default function Home() {
       <Header />
       <WebPageSchema
         title="KMC Lalitpur | Kathmandu Model Secondary School"
-        description="NEB affiliated +2 programs in Science, Management & Law. 100% NEB pass rate, 150+ faculty, Balkumari Lalitpur."
+        description="NEB affiliated +2 programs in Science, Management & Law. 95% NEB pass rate, 150+ faculty, Balkumari Lalitpur."
         path="/"
       />
       <CourseSchema
@@ -238,7 +238,7 @@ export default function Home() {
             </h1>
             <p className="text-base md:text-lg text-white/80 mb-6 md:mb-10 leading-relaxed max-w-xl">
               Kathmandu Model Secondary School delivers world-class education
-              across Science, Management, and Law — with 100% NEB pass rate and
+              across Science, Management, and Law — with 95% NEB pass rate and
               a legacy of excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

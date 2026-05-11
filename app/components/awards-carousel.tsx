@@ -9,7 +9,7 @@ const awards = [
     id: 1,
     title: "Ministry of Education Excellence Award",
     subtitle: "Among 4000+ Schools",
-    image: "/images/award1.png",
+    image: "/images/awards/award1.png",
     fallbackGradient: "from-amber-700 to-amber-900",
     description:
       "Recognized for outstanding educational standards and institutional management by the Ministry of Education.",
@@ -20,31 +20,20 @@ const awards = [
     id: 2,
     title: "NEB Outstanding Results",
     year: "2079",
-    subtitle: "100% Pass Rate Achievement",
-    image: "/images/award2.png",
+    subtitle: "95% Pass Rate Achievement",
+    image: "/images/awards/award2.png",
     fallbackGradient: "from-blue-800 to-blue-950",
     description:
-      "Consecutive 100% NEB pass rate with exceptional student performance across all streams.",
+      "Consecutive 95% NEB pass rate with exceptional student performance across all streams.",
     highlight: "Excellence in Education",
   },
 
-  {
-    id: 3,
-    title: "Excellence Award — Letter of Appreciation",
-    year: "2074",
-    subtitle: "Ministry of Education, Nepal",
-    image: "/images/award3.png",
-    fallbackGradient: "from-emerald-700 to-emerald-900",
-    description:
-      "Received the Letter of Appreciation from the Ministry of Education for outstanding contribution to secondary education in Nepal.",
-    highlight: "Government Recognition",
-  },
   {
     id: 4,
     title: "Academic Excellence Award",
     year: "2075",
     subtitle: "Top Performer",
-    image: "/images/award4.png",
+    image: "/images/awards/award4.png",
     fallbackGradient: "from-purple-800 to-purple-950",
     description:
       "Excellence in academic performance with consistent high achievement in national examinations.",
@@ -52,23 +41,13 @@ const awards = [
   },
   {
     id: 5,
-    title: "100% NEB Pass Rate",
+    title: "97% NEB Pass Rate",
     subtitle: "Consistent Every Year — All Streams",
-    image: "/images/award5.png",
+    image: "/images/awards/award3.png",
     fallbackGradient: "from-rose-700 to-rose-900",
     description:
-      "KMC Lalitpur has achieved a 100% NEB pass rate every single year across Science, Management, and Law streams — a record unmatched by peers.",
+      "KMC Lalitpur has achieved a 95% NEB pass rate every single year across Science, Management, and Law streams — a record unmatched by peers.",
     highlight: "Academic Excellence",
-  },
-  {
-    id: 6,
-    title: "Top-Ranked Among 4,000+ Schools",
-    subtitle: "Nationwide Recognition",
-    image: "/images/award6.png",
-    fallbackGradient: "from-teal-700 to-teal-900",
-    description:
-      "Recognised as the best +2 institution among over 4,000 plus-two schools across Nepal by the Ministry of Education.",
-    highlight: "National Ranking",
   },
 ];
 
@@ -169,7 +148,9 @@ export function AwardsCarousel() {
                     className="w-10 h-10 rounded-full border-2 border-amber-400 text-amber-500 hover:bg-amber-400 hover:text-white transition-all duration-300 flex items-center justify-center"
                     aria-label="Previous award"
                   >
-                    <span className="rotate-180 inline-flex"><IconChevronRight size={20} /></span>
+                    <span className="rotate-180 inline-flex">
+                      <IconChevronRight size={20} />
+                    </span>
                   </button>
                   <button
                     onClick={nextSlide}
@@ -200,7 +181,6 @@ export function AwardsCarousel() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }
