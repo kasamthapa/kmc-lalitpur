@@ -286,7 +286,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden bg-white border-t border-[#eae6de] overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-175 opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-175 opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="px-5 pb-6 pt-2 overflow-y-auto max-h-[80vh]">
