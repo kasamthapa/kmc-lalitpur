@@ -17,7 +17,7 @@ const areas = [
   {
     name: "Main Campus Building",
     desc: "Our 5-storey main academic block housing all classrooms, faculty rooms, and administrative offices.",
-    image: "/images/hero-main.png",
+    image: "/images/campus.png",
     highlight: "Built in 2005 · 50+ rooms",
   },
   {
@@ -29,37 +29,37 @@ const areas = [
   {
     name: "Computer Lab",
     desc: "High-performance computers with broadband internet, used for both classwork and entrance prep.",
-    image: "/images/computer-lab.png",
+    image: "/images/facilities/computerLab.png",
     highlight: "60 workstations · 100 Mbps",
   },
   {
     name: "Library",
     desc: "A quiet reading sanctuary with over 15,000 books, journals, newspapers, and digital resources.",
-    image: "/images/library.png",
+    image: "/images/facilities/library.png",
     highlight: "15,000+ books · Study halls",
   },
   {
     name: "Auditorium",
     desc: "A 500-seat auditorium used for annual events, debates, cultural programs, and guest lectures.",
-    image: "/images/auditorium.png",
+    image: "/images/facilities/auditorium.png",
     highlight: "500 seats · Full AV setup",
   },
   {
     name: "Sports Complex",
     desc: "Outdoor and indoor sports facilities including cricket ground, basketball court, and indoor games room.",
-    image: "/images/sports-facility.png",
+    image: "/images/facilities/sports.png",
     highlight: "Cricket · Basketball · TT",
   },
   {
     name: "Cafeteria",
     desc: "Clean, hygienic, and affordable cafeteria serving Nepali and continental meals throughout the day.",
-    image: "/images/cafeteria.png",
+    image: "/images/facilities/canteen.png",
     highlight: "300 seats · Hygienic kitchen",
   },
   {
     name: "Classroom",
     desc: "Bright, ventilated, and smartboard-equipped classrooms designed for effective interactive learning.",
-    image: "/images/classroom.png",
+    image: "/images/facilities/classroom.png",
     highlight: "Smart boards · 40 seats",
   },
 ];
@@ -84,7 +84,9 @@ export default function VirtualTourPage() {
       <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
-            <Link href="/" className="hover:text-amber-400 transition">Home</Link>
+            <Link href="/" className="hover:text-amber-400 transition">
+              Home
+            </Link>
             <IconChevronRight size={14} />
             <span className="hover:text-amber-400 transition">Campus</span>
             <IconChevronRight size={14} />
@@ -98,7 +100,9 @@ export default function VirtualTourPage() {
               Virtual Campus Tour
             </h1>
             <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Can&apos;t visit in person? Explore every corner of our campus right from your screen — from world-class labs to our sprawling sports complex.
+              Can&apos;t visit in person? Explore every corner of our campus
+              right from your screen — from world-class labs to our sprawling
+              sports complex.
             </p>
           </div>
         </div>
@@ -108,13 +112,23 @@ export default function VirtualTourPage() {
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Video Tour</p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">See KMC in Action</h2>
-            <p className="text-[#6b7280]">Watch our campus walkthrough video to get a real feel of life at KMC Lalitpur.</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
+              Video Tour
+            </p>
+            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
+              See KMC in Action
+            </h2>
+            <p className="text-[#6b7280]">
+              Watch our campus walkthrough video to get a real feel of life at
+              KMC Lalitpur.
+            </p>
           </div>
 
           {/* Video Embed */}
-          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-[#eae6de]" style={{ paddingTop: "56.25%" }}>
+          <div
+            className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-[#eae6de]"
+            style={{ paddingTop: "56.25%" }}
+          >
             <iframe
               src="https://www.youtube.com/embed/YGcczHq0Nmk"
               title="KMC Lalitpur Campus Tour"
@@ -142,7 +156,9 @@ export default function VirtualTourPage() {
       <section className="py-20 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Photo Gallery</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
+              Photo Gallery
+            </p>
             <h2 className="text-4xl font-bold text-[#0B1F3A]">Campus Areas</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -163,8 +179,12 @@ export default function VirtualTourPage() {
                   <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent opacity-0 group-hover:opacity-100 transition" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-[#0B1F3A] mb-2 group-hover:text-amber-600 transition">{area.name}</h3>
-                  <p className="text-sm text-[#6b7280] mb-3 leading-relaxed line-clamp-2">{area.desc}</p>
+                  <h3 className="font-bold text-[#0B1F3A] mb-2 group-hover:text-amber-600 transition">
+                    {area.name}
+                  </h3>
+                  <p className="text-sm text-[#6b7280] mb-3 leading-relaxed line-clamp-2">
+                    {area.desc}
+                  </p>
                   <span className="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">
                     {area.highlight}
                   </span>
@@ -180,7 +200,8 @@ export default function VirtualTourPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Experience It in Person</h2>
           <p className="text-[#8ba7c7] text-lg mb-10">
-            Nothing beats a guided campus tour. Schedule your visit and meet our faculty and students in person.
+            Nothing beats a guided campus tour. Schedule your visit and meet our
+            faculty and students in person.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

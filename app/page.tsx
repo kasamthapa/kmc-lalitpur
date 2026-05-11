@@ -238,8 +238,8 @@ export default function Home() {
             </h1>
             <p className="text-base md:text-lg text-white/80 mb-6 md:mb-10 leading-relaxed max-w-xl">
               Kathmandu Model Secondary School delivers world-class education
-              across Science, Management, and Law — with 97% NEB pass rate and
-              a legacy of excellence.
+              across Science, Management, and Law — with 97% NEB pass rate and a
+              legacy of excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -799,7 +799,8 @@ export default function Home() {
               Our Students, Their Dreams
             </h2>
             <p className="text-[#6b7280] max-w-2xl mx-auto">
-              KMC graduates go on to become doctors, legal professionals, engineers, and business leaders — many on full scholarships.
+              KMC graduates go on to become doctors, legal professionals,
+              engineers, and business leaders — many on full scholarships.
             </p>
           </div>
 
@@ -944,7 +945,6 @@ export default function Home() {
       </section>
 
       <Footer />
-
     </main>
   );
 }
