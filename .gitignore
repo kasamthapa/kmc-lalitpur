@@ -44,4 +44,6 @@ next-env.d.ts
 
 # Internal project context — not for public repo
 KMC_PROJECT_CONTEXT.md
+CLAUDE.md
+AGENTS.md
 .env*.local
