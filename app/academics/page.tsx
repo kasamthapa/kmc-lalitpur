@@ -170,7 +170,7 @@ const streams = [
     image: "/images/law.png",
     tagline: "Legal Studies · Politics · Advocacy · Civil Service",
     overview:
-      "Established in 2019, the Law stream at KMC Lalitpur provides a comprehensive introduction to legal studies and political science. Led by reputed academicians with professional law backgrounds, this stream prepares students for LLB, civil service, and careers in advocacy and public policy.",
+      "Established in 2019, the Law stream at KMC Lalitpur provides a comprehensive introduction to legal studies and political science. Led by reputed academicians with professional law backgrounds, this stream prepares students for BA.LLB, civil service, and careers in advocacy and public policy.",
     subjects: [
       { name: "Compulsory English", note: "Compulsory" },
       { name: "Compulsory Nepali", note: "Compulsory" },
@@ -205,11 +205,11 @@ const streams = [
       "Moot court, Mock Parliament, and formal debate competitions",
       "Constitutional law, jurisprudence, civil and criminal law curriculum",
       "Clinical legal education — court visits, custody visits, legal awareness programs",
-      "Civil service and LLB entrance examination coaching",
+      "Civil service and BA.LLB entrance examination coaching",
       "Legal research, analytical training, and case study workshops",
     ],
     careers: [
-      "LLB / Law",
+      "BA.LLB / Law",
       "Civil Service",
       "Advocacy & Legal Aid",
       "Public Policy",
