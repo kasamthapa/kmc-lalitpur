@@ -13,18 +13,18 @@ export const metadata: Metadata = {
 };
 
 const clubs = [
-  { name: "Event Management Club",    folder: "EMC" },
-  { name: "Art & Culture Club",       folder: "ArtCulture" },
-  { name: "Dance Club",               folder: "dance" },
-  { name: "Eco Club",                 folder: "eco" },
-  { name: "Legal Club",               folder: "Legal" },
-  { name: "Literature Club",          folder: "literature" },
-  { name: "Maths Club",               folder: "maths" },
-  { name: "Music Club",               folder: "music" },
-  { name: "Outreach Team",            folder: "outreachTeam" },
-  { name: "Science & Technology Club",folder: "scienceAndTechnology" },
-  { name: "Social Club",              folder: "Social" },
-  { name: "Sports Club",              folder: "Sports" },
+  { name: "Event Management Club", folder: "EMC" },
+  { name: "Art & Culture Club", folder: "ArtCulture" },
+  { name: "Dance Club", folder: "dance" },
+  { name: "Eco Club", folder: "eco" },
+  { name: "Legal Club", folder: "Legal" },
+  { name: "Literature Club", folder: "literature" },
+  { name: "Maths Club", folder: "maths" },
+  { name: "Music Club", folder: "music" },
+  { name: "Outreach Team", folder: "outreachTeam" },
+  { name: "Science & Technology Club", folder: "scienceAndTechnology" },
+  { name: "Social Club", folder: "Social" },
+  { name: "Sports Club", folder: "Sports" },
 ];
 
 export default function CatalystPage() {
@@ -105,7 +105,7 @@ export default function CatalystPage() {
           </div>
           <div className="bg-[#f7f5f0] rounded-3xl border border-[#eae6de] overflow-hidden">
             <Image
-              src="/images/catalyst/members/members.png"
+              src="/images/catalyst/members/Executives&Heads.png"
               alt="KMC Student Catalyst Committee — executives and club heads"
               width={1400}
               height={900}
