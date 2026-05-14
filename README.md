@@ -205,17 +205,7 @@ npm run db:seed       # Seed the admin user
 | `DIRECT_URL` | ✅ | Neon direct connection (for migrations) |
 | `NEXTAUTH_SECRET` | ✅ | Random secret for JWT signing |
 | `NEXTAUTH_URL` | ✅ | Full URL of the site |
-| `ADMIN_EMAIL` | ✅ | Initial admin account email |
-| `ADMIN_PASSWORD` | ✅ | Initial admin account password |
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | ✅ | Cloudinary cloud name |
 | `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET` | ✅ | Cloudinary unsigned upload preset |
 | `GEMINI_API_KEY` | ⚠️ | Google Gemini key (chatbot won't work without it) |
 
----
-
-## After Going Live
-
-1. **Google Search Console** → verify site ownership → submit `https://kmclalitpur.edu.np/sitemap.xml`
-2. **Bing Webmaster Tools** → verify site ownership → submit sitemap
-3. Add verification codes to `app/layout.tsx` under `metadata.verification`
-4. Change the admin password immediately after first login
