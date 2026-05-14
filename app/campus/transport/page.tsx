@@ -112,7 +112,7 @@ export default function TransportPage() {
             <IconMapPin size={20} className="text-[#0B1F3A]" />
           </div>
           <p className="text-[#0B1F3A] font-semibold text-base leading-snug">
-            Door-to-door convenience — our transport drops every student at the{" "}
+            Our transport drops every student at the{" "}
             <span className="underline underline-offset-2">nearest location to their home</span>{" "}
             within the covered areas.
           </p>
