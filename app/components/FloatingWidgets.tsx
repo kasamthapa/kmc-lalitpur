@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import { WhatsAppFloat } from "./whatsapp";
-import { Chatbot } from "./chatbot";
 
 export function FloatingWidgets() {
   const pathname = usePathname();
@@ -11,7 +10,7 @@ export function FloatingWidgets() {
   return (
     <>
       <WhatsAppFloat />
-      <Chatbot />
+      {/* <Chatbot /> — temporarily disabled */}
     </>
   );
 }
