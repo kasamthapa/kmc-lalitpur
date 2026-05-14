@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import type { Metadata } from "next";
-import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
+import { BreadcrumbSchema, WebPageSchema, PrincipalSchema } from "../components/schema";
 import {
   IconLightbulb,
   IconGlobe,
@@ -123,6 +123,7 @@ export default function About() {
         description="Learn about Kathmandu Model Secondary School — established 2000, NEB affiliated, Excellence Award winner 2074 & 2075, Balkumari Lalitpur."
         path="/about"
       />
+      <PrincipalSchema />
       {/* Hero */}
       <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute top-0 right-0 w-130 h-130 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />

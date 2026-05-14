@@ -315,6 +315,7 @@ export default async function Home() {
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />

@@ -6,7 +6,7 @@ import { FloatingWidgets } from "./components/FloatingWidgets";
 import { SitePopup } from "./components/SitePopup";
 import { SchemaOrg } from "./components/schema";
 
-const geist = Geist({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"], display: "swap" });
 
 // ── Viewport ──────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
       "NEB affiliated +2 programs in Science, Management & Law. 97% pass rate, 150+ expert faculty, world-class facilities in Balkumari, Lalitpur.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "KMC Lalitpur - Kathmandu Model Secondary School, Balkumari, Lalitpur",
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     title: "KMC Lalitpur | Kathmandu Model Secondary School",
     description:
       "NEB affiliated +2 programs in Science, Management & Law. 97% pass rate, world-class facilities in Lalitpur, Nepal.",
-    images: ["/images/og-image.png"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://kmclalitpur.edu.np",

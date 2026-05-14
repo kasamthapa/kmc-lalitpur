@@ -3,11 +3,12 @@
 // other AI/search engines understand exactly what KMC Lalitpur is.
 //
 // Usage:
-//   import { SchemaOrg, BreadcrumbSchema, FAQSchema, CourseSchema } from "../components/schema";
+//   import { SchemaOrg, BreadcrumbSchema, FAQSchema, CourseSchema, PrincipalSchema } from "../components/schema";
 //   <SchemaOrg />                          ← on every page via layout
 //   <BreadcrumbSchema items={[...]} />     ← on every inner page
 //   <FAQSchema items={[...]} />            ← on FAQ page
 //   <CourseSchema courses={[...]} />       ← on academics page
+//   <PrincipalSchema />                    ← on about page
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export interface BreadcrumbItem {
@@ -88,7 +89,8 @@ export function SchemaOrg() {
           ...SITE_GEO,
         },
         openingHours: SITE_HOURS,
-        hasMap: "https://maps.google.com/?q=Balkumari,Lalitpur,Nepal",
+        numberOfEmployees: { "@type": "QuantitativeValue", minValue: 150 },
+        hasMap: "https://www.google.com/maps/place/Kathmandu+Model+Secondary+School/@27.6583,85.3222,17z",
         sameAs: [
           SITE_CONFIG.socials.facebook,
           SITE_CONFIG.socials.instagram,
@@ -258,7 +260,7 @@ export function CourseSchema({ courses }: { courses: CourseItem[] }) {
           url: SITE_URL,
         },
         url: `${SITE_URL}${course.url}`,
-        educationalLevel: "HighSchool",
+        educationalLevel: "UpperSecondaryEducation",
         inLanguage: ["en", "ne"],
         locationCreated: {
           "@type": "Place",
@@ -316,7 +318,32 @@ export function EventSchema({ events }: { events: EventItem[] }) {
   );
 }
 
-// ─── 6. Article Schema ────────────────────────────────────────────────────────
+// ─── 6. Principal / Person Schema ────────────────────────────────────────────
+// Use on the About page. Signals to AI/search who leads the institution.
+export function PrincipalSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mukunda Kumar Giri",
+    jobTitle: "Principal",
+    worksFor: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+    affiliation: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+    url: `${SITE_URL}/about`,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// ─── 7. Article Schema ────────────────────────────────────────────────────────
 // Use on blog post pages. Eligible for Google's "Top Stories" rich result.
 export function ArticleSchema({
   title,
@@ -370,7 +397,7 @@ export function ArticleSchema({
   );
 }
 
-// ─── 7. WebPage Schema ────────────────────────────────────────────────────────
+// ─── 8. WebPage Schema ────────────────────────────────────────────────────────
 // Use on any page that needs extra context. Good for GEO — AI tools
 // read the description and about fields when generating answers.
 export function WebPageSchema({

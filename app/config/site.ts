@@ -27,8 +27,8 @@ export const SITE_CONFIG = {
   },
 
   geo: {
-    latitude: "27.6667",
-    longitude: "85.3167",
+    latitude: "27.6583",
+    longitude: "85.3222",
   },
 
   hours: {

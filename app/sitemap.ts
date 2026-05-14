@@ -3,6 +3,7 @@
 // Submit this URL to Google Search Console and Bing Webmaster Tools
 
 import type { MetadataRoute } from "next";
+import { prisma } from "./lib/prisma";
 
 const BASE_URL = "https://kmclalitpur.edu.np";
 
@@ -10,9 +11,28 @@ const BASE_URL = "https://kmclalitpur.edu.np";
 // changeFrequency: how often the page content changes
 // priority: 1.0 = most important, 0.1 = least important
 // Google uses priority as a hint, not a guarantee
+// Note: hash fragments (#section) are NOT valid in sitemaps — removed.
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
+
+  // ── Dynamic blog post URLs ───────────────────────────────────────────────────
+  let blogEntries: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true },
+      orderBy: { updatedAt: "desc" },
+    });
+    blogEntries = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: post.updatedAt.toISOString(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    }));
+  } catch {
+    // DB unavailable at build time — skip dynamic entries gracefully
+  }
 
   return [
     // ── Core pages ──────────────────────────────────────────────────────────
@@ -45,26 +65,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-
-    // ── Academic stream anchors (helps Google index each stream) ─────────────
-    {
-      url: `${BASE_URL}/academics#science`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/academics#management`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/academics#law`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
     },
 
     // ── Campus pages ─────────────────────────────────────────────────────────
@@ -137,18 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // ── Admission sub-sections ────────────────────────────────────────────────
-    {
-      url: `${BASE_URL}/admissions#scholarships`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/admissions#guide`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    // ── Dynamic blog posts ───────────────────────────────────────────────────
+    ...blogEntries,
   ];
 }
