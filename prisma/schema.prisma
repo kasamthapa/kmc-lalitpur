@@ -210,6 +210,7 @@ model Popup {
   title        String?                                  // headline text
   body         String?                                  // paragraph / description
   imageUrl     String?  @map("image_url")              // optional banner image
+  imageFit     String   @default("natural") @map("image_fit") // natural | cover
   buttons      String?                                  // JSON: [{label,url,style}]
   active       Boolean  @default(false)                 // only one should be active at a time
   showOnce     Boolean  @default(true) @map("show_once") // hide after user dismisses (localStorage)

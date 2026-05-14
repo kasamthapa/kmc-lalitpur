@@ -17,6 +17,7 @@ interface PopupItem {
   title: string | null;
   body: string | null;
   imageUrl: string | null;
+  imageFit: string;
   buttons: string | null; // JSON string
   active: boolean;
   showOnce: boolean;
@@ -59,6 +60,7 @@ const blankForm = {
   title: "",
   body: "",
   imageUrl: "",
+  imageFit: "natural" as "natural" | "cover",
   buttons: [] as PopupButton[],
   active: false,
   showOnce: true,
@@ -115,6 +117,7 @@ export default function PopupsAdminPage() {
       title: p.title ?? "",
       body: p.body ?? "",
       imageUrl: p.imageUrl ?? "",
+      imageFit: (p.imageFit as "natural" | "cover") ?? "natural",
       buttons: parseButtons(p.buttons),
       active: p.active,
       showOnce: p.showOnce,
@@ -197,6 +200,7 @@ export default function PopupsAdminPage() {
           title: form.title || null,
           body: form.body || null,
           imageUrl: form.imageUrl || null,
+          imageFit: form.imageFit,
           buttons: form.buttons.length > 0 ? JSON.stringify(form.buttons) : null,
           active: form.active,
           showOnce: form.showOnce,
@@ -434,6 +438,29 @@ export default function PopupsAdminPage() {
                     className="mt-1.5 text-xs text-gray-500 hover:text-red-400 transition-colors">
                     Remove image
                   </button>
+                )}
+
+                {/* Image fit — only show when image is present */}
+                {form.imageUrl && (
+                  <div className="mt-4">
+                    <label className={labelCls}>Image Display</label>
+                    <div className="flex gap-2">
+                      {([
+                        { value: "natural", label: "Natural", desc: "Full image visible, no cropping" },
+                        { value: "cover",   label: "Cover",   desc: "Fills width, may crop top/bottom" },
+                      ] as const).map((opt) => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => setForm((f) => ({ ...f, imageFit: opt.value }))}
+                          className={`flex-1 px-3 py-2.5 rounded-xl border text-left transition-all ${form.imageFit === opt.value ? "border-amber-400 bg-amber-400/10" : "border-white/[0.08] bg-gray-800 hover:border-white/20"}`}
+                        >
+                          <p className={`text-xs font-bold ${form.imageFit === opt.value ? "text-amber-400" : "text-gray-300"}`}>{opt.label}</p>
+                          <p className="text-[10px] text-gray-600 mt-0.5">{opt.desc}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
 
