@@ -19,7 +19,6 @@ import {
   IconChevronRight,
 } from "./components/icons";
 import { NoticeMarquee } from "./components/notice-marquee";
-import { EntrancePopup } from "./components/entrance-popup";
 import { SITE_CONFIG } from "./config/site";
 import { prisma } from "./lib/prisma";
 
@@ -185,7 +184,6 @@ export default async function Home() {
   const latestNews = await getLatestNews();
   return (
     <main className="bg-white">
-      <EntrancePopup />
       <Header />
       <WebPageSchema
         title="KMC Lalitpur | Kathmandu Model Secondary School"
