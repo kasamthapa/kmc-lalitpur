@@ -81,6 +81,10 @@ const streams = [
       "Science Olympiad and inter-school competitions",
       "Guest lectures from medical and engineering professionals",
       "Digital learning resources and LMS access",
+      "Pre-medical & pre-engineering classes",
+      "Extra Saturday classes for advanced preparation",
+      "Mock test every Saturday",
+      "Numerical classes for problem-solving mastery",
     ],
     careers: [
       "MBBS / Medicine",
