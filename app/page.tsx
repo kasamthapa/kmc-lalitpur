@@ -162,13 +162,19 @@ async function getLatestNews() {
       select: { id: true, title: true, slug: true, category: true, imageUrl: true, createdAt: true, featured: true },
     });
     if (rows.length === 0) return FALLBACK_NEWS;
-    return rows.map((r) => ({
+    const dbNews = rows.map((r) => ({
       title: r.title,
       slug: r.slug,
       date: r.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
       category: r.category ?? "News",
       image: r.imageUrl ?? "/images/news4.png",
     }));
+    // Pad with fallback items if DB has fewer than 4 articles
+    if (dbNews.length < 4) {
+      const needed = 4 - dbNews.length;
+      dbNews.push(...FALLBACK_NEWS.slice(0, needed));
+    }
+    return dbNews;
   } catch {
     return FALLBACK_NEWS;
   }
