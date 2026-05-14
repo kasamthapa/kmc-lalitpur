@@ -96,12 +96,12 @@ export default async function NewsArticlePage({
       {/* Featured Image */}
       {article.imageUrl && (
         <div className="max-w-4xl mx-auto px-4 -mt-8">
-          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl" style={{ paddingTop: "56.25%" }}>
             <Image
               src={article.imageUrl}
               alt={article.title}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </div>
