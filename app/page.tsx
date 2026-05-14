@@ -84,7 +84,7 @@ const programs = [
       "Nepali",
     ],
     eligibility: "GPA 2.0+ | C in Maths & English",
-    careers: ["LLB", "Civil Service", "Advocacy", "Public Policy"],
+    careers: ["BA.LLB", "Civil Service", "Advocacy", "Public Policy"],
     href: "/academics#law",
   },
 ];
@@ -211,7 +211,7 @@ export default async function Home() {
           {
             name: "Law Stream (+2)",
             description:
-              "NEB-affiliated +2 Law program covering Political Science, History, Social Studies and English. Prepares students for LLB and Civil Service.",
+              "NEB-affiliated +2 Law program covering Political Science, History, Social Studies and English. Prepares students for BA.LLB and Civil Service.",
             provider: "KMC Lalitpur",
             url: "/academics#law",
           },
