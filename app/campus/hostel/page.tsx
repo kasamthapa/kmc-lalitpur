@@ -21,14 +21,13 @@ const amenities = [
   "Fully furnished rooms (beds, wardrobes, study desks)",
   "Three nutritious meals per day (dal bhat + snacks)",
   "24-hour security with CCTV surveillance",
-  "High-speed Wi-Fi in all rooms and common areas",
   "Dedicated quiet study halls open until 10 PM",
   "Attached bathrooms with hot water",
   "Laundry service (2×/week)",
   "Indoor recreation room (TT, carom, board games)",
   "Medical room with first-aid provisions",
   "Regular hostel warden on duty",
-  "Prayer/meditation room",
+  "Yoga and meditation room",
   "Weekly general cleaning and pest control",
 ];
 
@@ -83,7 +82,7 @@ export default function HostelPage() {
                 { label: "Capacity", value: "200+" },
                 { label: "Meals/Day", value: "3" },
                 { label: "Security", value: "24/7" },
-                { label: "Wi-Fi", value: "Free" },
+                { label: "Hot Water", value: "24/7" },
               ].map((s) => (
                 <div key={s.label} className="bg-white/10 rounded-2xl p-6 text-center">
                   <div className="text-3xl font-bold text-amber-400 mb-2">{s.value}</div>
