@@ -15,7 +15,7 @@ export async function PATCH(
 
   try {
     const body = await req.json();
-    const { title, body: bodyText, imageUrl, imageFit, buttons, active, showOnce, delaySeconds } = body;
+    const { title, body: bodyText, imageUrl, imageFit, buttons, active, frequency, delaySeconds } = body;
 
     // If activating this popup, deactivate all others first
     if (active) {
@@ -34,7 +34,7 @@ export async function PATCH(
         ...(imageFit !== undefined && { imageFit: imageFit || "natural" }),
         ...(buttons !== undefined && { buttons: buttons || null }),
         ...(active !== undefined && { active }),
-        ...(showOnce !== undefined && { showOnce }),
+        ...(frequency !== undefined && { frequency: frequency || "session" }),
         ...(delaySeconds !== undefined && { delaySeconds }),
       },
     });

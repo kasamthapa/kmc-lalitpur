@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { title, body: bodyText, imageUrl, imageFit, buttons, active, showOnce, delaySeconds } = body;
+    const { title, body: bodyText, imageUrl, imageFit, buttons, active, frequency, delaySeconds } = body;
 
     // If activating this popup, deactivate all others first
     if (active) {
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
         imageFit: imageFit || "natural",
         buttons: buttons || null,
         active: active ?? false,
-        showOnce: showOnce ?? true,
+        frequency: frequency || "session",
         delaySeconds: delaySeconds ?? 2,
       },
     });

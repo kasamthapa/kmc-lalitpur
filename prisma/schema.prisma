@@ -213,7 +213,7 @@ model Popup {
   imageFit     String   @default("natural") @map("image_fit") // natural | cover
   buttons      String?                                  // JSON: [{label,url,style}]
   active       Boolean  @default(false)                 // only one should be active at a time
-  showOnce     Boolean  @default(true) @map("show_once") // hide after user dismisses (localStorage)
+  frequency    String   @default("session")             // every_visit | session | once_per_browser
   delaySeconds Int      @default(2) @map("delay_seconds")
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")

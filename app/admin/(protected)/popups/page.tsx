@@ -20,7 +20,7 @@ interface PopupItem {
   imageFit: string;
   buttons: string | null; // JSON string
   active: boolean;
-  showOnce: boolean;
+  frequency: string;
   delaySeconds: number;
   createdAt: string;
 }
@@ -56,6 +56,14 @@ function parseButtons(raw: string | null): PopupButton[] {
   try { return JSON.parse(raw) as PopupButton[]; } catch { return []; }
 }
 
+type Frequency = "every_visit" | "session" | "once_per_browser";
+
+const FREQUENCY_OPTIONS: { value: Frequency; label: string; desc: string }[] = [
+  { value: "every_visit",       label: "Every visit",        desc: "Shows on every page load" },
+  { value: "session",           label: "Once per session",   desc: "Shows once; reappears next visit (recommended)" },
+  { value: "once_per_browser",  label: "Once per browser",   desc: "Never shows again after dismissed" },
+];
+
 const blankForm = {
   title: "",
   body: "",
@@ -63,7 +71,7 @@ const blankForm = {
   imageFit: "natural" as "natural" | "cover",
   buttons: [] as PopupButton[],
   active: false,
-  showOnce: true,
+  frequency: "session" as Frequency,
   delaySeconds: 2,
 };
 
@@ -120,7 +128,7 @@ export default function PopupsAdminPage() {
       imageFit: (p.imageFit as "natural" | "cover") ?? "natural",
       buttons: parseButtons(p.buttons),
       active: p.active,
-      showOnce: p.showOnce,
+      frequency: (p.frequency as Frequency) ?? "session",
       delaySeconds: p.delaySeconds,
     });
     setImagePreview(p.imageUrl ?? null);
@@ -203,7 +211,7 @@ export default function PopupsAdminPage() {
           imageFit: form.imageFit,
           buttons: form.buttons.length > 0 ? JSON.stringify(form.buttons) : null,
           active: form.active,
-          showOnce: form.showOnce,
+          frequency: form.frequency,
           delaySeconds: form.delaySeconds,
         }),
       });
@@ -328,7 +336,9 @@ export default function PopupsAdminPage() {
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       {p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20">● LIVE</span>}
                       {!p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-gray-700 text-gray-500">Inactive</span>}
-                      {p.showOnce && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Show once</span>}
+                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        {p.frequency === "every_visit" ? "Every visit" : p.frequency === "session" ? "Once/session" : "Once/browser"}
+                      </span>
                       <span className="text-[9px] text-gray-600">{p.delaySeconds}s delay</span>
                     </div>
                     {p.title && <p className="text-white font-semibold text-sm truncate">{p.title}</p>}
@@ -539,7 +549,33 @@ export default function PopupsAdminPage() {
                 )}
               </div>
 
-              {/* Settings row */}
+              {/* Frequency */}
+              <div>
+                <label className={labelCls}>Show frequency</label>
+                <div className="space-y-2">
+                  {FREQUENCY_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => setForm((f) => ({ ...f, frequency: opt.value }))}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border text-left transition-all ${form.frequency === opt.value ? "border-amber-400 bg-amber-400/10" : "border-white/[0.08] bg-gray-800 hover:border-white/20"}`}
+                    >
+                      <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center ${form.frequency === opt.value ? "border-amber-400" : "border-gray-600"}`}>
+                        {form.frequency === opt.value && <div className="w-2 h-2 rounded-full bg-amber-400" />}
+                      </div>
+                      <div>
+                        <p className={`text-sm font-semibold ${form.frequency === opt.value ? "text-amber-400" : "text-gray-300"}`}>{opt.label}</p>
+                        <p className="text-xs text-gray-600 mt-0.5">{opt.desc}</p>
+                      </div>
+                      {opt.value === "session" && (
+                        <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20 shrink-0">Recommended</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Delay + Active */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className={labelCls}>Delay (seconds)</label>
@@ -550,12 +586,7 @@ export default function PopupsAdminPage() {
                     className={inputCls}
                   />
                 </div>
-                <div className="flex flex-col justify-end gap-3 pb-0.5">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" checked={form.showOnce} onChange={(e) => setForm({ ...form, showOnce: e.target.checked })}
-                      className="w-4 h-4 rounded accent-amber-400" />
-                    <span className="text-gray-400 text-sm">Show once per visitor</span>
-                  </label>
+                <div className="flex flex-col justify-end pb-0.5">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })}
                       className="w-4 h-4 rounded accent-amber-400" />

@@ -17,7 +17,7 @@ interface ActivePopup {
   imageFit: string;
   buttons: string | null;
   active: boolean;
-  showOnce: boolean;
+  frequency: string; // every_visit | session | once_per_browser
   delaySeconds: number;
 }
 
@@ -26,19 +26,32 @@ function parseButtons(raw: string | null): PopupButton[] {
   try { return JSON.parse(raw) as PopupButton[]; } catch { return []; }
 }
 
-const STORAGE_PREFIX = "kmc_popup_seen_";
+const LS_PREFIX = "kmc_popup_seen_";
+const SS_PREFIX = "kmc_popup_session_";
+
+function shouldShow(popup: ActivePopup): boolean {
+  if (popup.frequency === "every_visit") return true;
+  if (popup.frequency === "session") {
+    return !sessionStorage.getItem(`${SS_PREFIX}${popup.id}`);
+  }
+  // once_per_browser
+  return !localStorage.getItem(`${LS_PREFIX}${popup.id}`);
+}
+
+function markSeen(popup: ActivePopup) {
+  if (popup.frequency === "every_visit") return;
+  if (popup.frequency === "session") {
+    sessionStorage.setItem(`${SS_PREFIX}${popup.id}`, "1");
+  } else {
+    localStorage.setItem(`${LS_PREFIX}${popup.id}`, "1");
+  }
+}
 
 function isExternal(url: string) {
   return url.startsWith("http://") || url.startsWith("https://");
 }
 
-function BtnEl({
-  btn,
-  onClose,
-}: {
-  btn: PopupButton;
-  onClose: () => void;
-}) {
+function BtnEl({ btn, onClose }: { btn: PopupButton; onClose: () => void }) {
   const base =
     btn.style === "primary"
       ? "flex-1 min-w-[120px] px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-[#0B1F3A] font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-md text-center"
@@ -71,7 +84,7 @@ export function SitePopup() {
       .then((r) => r.json())
       .then(({ data }: { data: ActivePopup | null }) => {
         if (!data) return;
-        if (data.showOnce && localStorage.getItem(`${STORAGE_PREFIX}${data.id}`)) return;
+        if (!shouldShow(data)) return;
         setPopup(data);
         timer = setTimeout(() => setVisible(true), data.delaySeconds * 1000);
       })
@@ -83,9 +96,7 @@ export function SitePopup() {
   function dismiss() {
     setVisible(false);
     setTimeout(() => setPopup(null), 300);
-    if (popup?.showOnce) {
-      localStorage.setItem(`${STORAGE_PREFIX}${popup.id}`, "1");
-    }
+    if (popup) markSeen(popup);
   }
 
   if (!popup) return null;
@@ -94,8 +105,6 @@ export function SitePopup() {
   const hasImage = !!popup.imageUrl;
   const hasText = !!(popup.title || popup.body);
   const hasButtons = buttons.length > 0;
-
-  // image-only popup → wider, no padding below image
   const imageOnly = hasImage && !hasText && !hasButtons;
 
   return (
@@ -108,13 +117,10 @@ export function SitePopup() {
       />
 
       {/* Popup */}
-      <div
-        className={`fixed inset-0 z-[201] flex items-center justify-center p-4 pointer-events-none transition-all duration-300 ${visible ? "opacity-100" : "opacity-0"}`}
-      >
-        <div
-          className={`relative pointer-events-auto bg-white rounded-3xl shadow-[0_32px_80px_rgba(0,0,0,0.25)] overflow-hidden w-full transition-all duration-300 ${visible ? "scale-100 translate-y-0" : "scale-95 translate-y-4"} ${imageOnly ? "max-w-lg" : "max-w-md"}`}
-        >
-          {/* ── Close button ──────────────────────────────────────────────── */}
+      <div className={`fixed inset-0 z-[201] flex items-center justify-center p-4 pointer-events-none transition-all duration-300 ${visible ? "opacity-100" : "opacity-0"}`}>
+        <div className={`relative pointer-events-auto bg-white rounded-3xl shadow-[0_32px_80px_rgba(0,0,0,0.25)] overflow-hidden w-full transition-all duration-300 ${visible ? "scale-100 translate-y-0" : "scale-95 translate-y-4"} ${imageOnly ? "max-w-lg" : "max-w-md"}`}>
+
+          {/* Close button */}
           <button
             onClick={dismiss}
             aria-label="Close"
@@ -125,7 +131,7 @@ export function SitePopup() {
             </svg>
           </button>
 
-          {/* ── Image ─────────────────────────────────────────────────────── */}
+          {/* Image */}
           {hasImage && (
             <div
               className={`w-full overflow-hidden ${popup.imageFit === "cover" ? "relative" : ""}`}
@@ -133,59 +139,31 @@ export function SitePopup() {
             >
               {popup.imageFit === "cover" ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={popup.imageUrl!}
-                  alt={popup.title ?? "Announcement"}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <img src={popup.imageUrl!} alt={popup.title ?? "Announcement"} className="absolute inset-0 w-full h-full object-cover" />
               ) : (
-                /* Natural — show full image, no cropping */
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={popup.imageUrl!}
-                  alt={popup.title ?? "Announcement"}
-                  className="w-full h-auto block"
-                  style={{ maxHeight: "70vh", objectFit: "contain" }}
-                />
+                <img src={popup.imageUrl!} alt={popup.title ?? "Announcement"} className="w-full h-auto block" style={{ maxHeight: "70vh", objectFit: "contain" }} />
               )}
             </div>
           )}
 
-          {/* ── Text + Buttons ────────────────────────────────────────────── */}
+          {/* Text + Buttons */}
           {(hasText || hasButtons) && (
             <div className={`px-6 pb-6 ${hasImage ? "pt-5" : "pt-8"}`}>
-              {/* Decorative top bar if no image */}
-              {!hasImage && (
-                <div className="w-10 h-1 bg-amber-400 rounded-full mb-5" />
-              )}
-
-              {popup.title && (
-                <h2 className="text-[#0B1F3A] font-bold text-xl leading-snug mb-2">
-                  {popup.title}
-                </h2>
-              )}
-              {popup.body && (
-                <p className="text-[#6b7280] text-sm leading-relaxed mb-5">
-                  {popup.body}
-                </p>
-              )}
-
+              {!hasImage && <div className="w-10 h-1 bg-amber-400 rounded-full mb-5" />}
+              {popup.title && <h2 className="text-[#0B1F3A] font-bold text-xl leading-snug mb-2">{popup.title}</h2>}
+              {popup.body && <p className="text-[#6b7280] text-sm leading-relaxed mb-5">{popup.body}</p>}
               {hasButtons && (
-                <div className={`flex flex-wrap gap-3 ${!hasText ? "pt-1" : ""}`}>
-                  {buttons.map((btn, i) => (
-                    <BtnEl key={i} btn={btn} onClose={dismiss} />
-                  ))}
+                <div className="flex flex-wrap gap-3">
+                  {buttons.map((btn, i) => <BtnEl key={i} btn={btn} onClose={dismiss} />)}
                 </div>
               )}
             </div>
           )}
 
-          {/* Image-only: close text link at bottom */}
           {imageOnly && (
             <div className="pb-4 text-center">
-              <button onClick={dismiss} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
-                Close
-              </button>
+              <button onClick={dismiss} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">Close</button>
             </div>
           )}
         </div>
