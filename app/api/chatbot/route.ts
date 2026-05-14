@@ -55,12 +55,12 @@ KMC offers online mock entrance exam practice through Microsoft Forms.
 Students can access the mock test at /mock-test on this website.
 Results are available immediately after submission via Microsoft Forms.
 
-FACILITIES: Separate Physics, Chemistry & Biology labs, Computer lab (48 computers, dedicated IP),
+FACILITIES: Separate Physics, Chemistry & Biology labs, Computer lab (52 computers, dedicated IP),
 Library (vast collection of books, references, periodicals and e-library at kmclibrary.edu.np),
 Sports complex (basketball, cricket, swimming, badminton, table tennis, futsal, chess),
-Cafeteria 'Ahaara', Auditorium (80 seats with French windows), AI Learning Hub,
+Cafeteria (clean, fresh & hygienic meals), Auditorium (230 seats with French windows), Moot Court,
 Hostel (separate for boys and girls), School transport, Psychosocial counselling,
-E-library (kmclibrary.edu.np), Wi-Fi campus, Medical room, 21 classrooms`;
+E-library (kmclibrary.edu.np), Medical room, 21 classrooms`;
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";

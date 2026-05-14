@@ -7,7 +7,7 @@ import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
 export const metadata: Metadata = {
   title: "Facilities & Infrastructure",
   description:
-    "Explore KMC Lalitpur's world-class facilities — 21 classrooms, 52-computer lab, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court, hostel, and more.",
+    "Explore KMC Lalitpur's world-class facilities — 21 classrooms, 52-computer lab, 230-seat auditorium, cafeteria, E-library, science labs, moot court, hostel, and more.",
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -18,7 +18,7 @@ export default function Facilities() {
       <BreadcrumbSchema items={[{ name: "Facilities", href: "/facilities" }]} />
       <WebPageSchema
         title="Facilities & Infrastructure | KMC Lalitpur"
-        description="KMC Lalitpur offers world-class facilities — 21 modern classrooms, 52-computer lab with dedicated IP, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court and hostel."
+        description="KMC Lalitpur offers world-class facilities — 21 modern classrooms, 52-computer lab with dedicated IP, 230-seat auditorium, cafeteria, E-library, science labs, moot court and hostel."
         path="/facilities"
       />
 
@@ -45,7 +45,7 @@ export default function Facilities() {
             </h1>
             <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
               Every detail, from our 21 spacious classrooms and science labs
-              to the cafeteria Ahaara and moot court, is designed to inspire
+              to the cafeteria and moot court, is designed to inspire
               and empower KMC students.
             </p>
           </div>
@@ -193,23 +193,21 @@ export default function Facilities() {
               </ul>
             </div>
 
-            {/* Cafeteria Ahaara */}
+            {/* Cafeteria */}
             <div className="bg-[#f7f5f0] border border-[#e8e8e8] rounded-2xl p-7 flex flex-col">
               <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-5 shrink-0">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 11l19-9-9 19-2-8-8-2z"/>
                 </svg>
               </div>
-              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">
-                Cafeteria — <span className="text-amber-600">&lsquo;Ahaara&rsquo;</span>
-              </h3>
+              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">Cafeteria</h3>
               <p className="text-slate-600 text-sm leading-relaxed flex-1">
-                With modern technology, colorful furnishings, and industry-trained
-                staff, Ahaara serves fresh, delightful meals in a sunlit, vibrant
-                ambiance — a true home away from home.
+                A clean, well-maintained cafeteria serving fresh and hygienic meals
+                daily in a comfortable and welcoming environment — keeping students
+                energised throughout the day.
               </p>
               <ul className="mt-4 space-y-1.5">
-                {["Fresh, hygienic meals daily", "Industry-trained staff", "Colorful modern ambiance", "Sunlit vibrant space"].map((f) => (
+                {["Fresh & hygienic meals daily", "Clean & well-maintained", "Comfortable seating", "Affordable for students"].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{f}
                   </li>
