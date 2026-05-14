@@ -7,7 +7,7 @@ import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
 export const metadata: Metadata = {
   title: "Facilities & Infrastructure",
   description:
-    "Explore KMC Lalitpur's world-class facilities — AI Learning Hub, 21 classrooms, 48-computer lab, 80-seat auditorium, cafeteria Ahaara, E-library, science labs, hostel, and more.",
+    "Explore KMC Lalitpur's world-class facilities — AI Learning Hub, 21 classrooms, 52-computer lab, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court, hostel, and more.",
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -18,7 +18,7 @@ export default function Facilities() {
       <BreadcrumbSchema items={[{ name: "Facilities", href: "/facilities" }]} />
       <WebPageSchema
         title="Facilities & Infrastructure | KMC Lalitpur"
-        description="KMC Lalitpur offers world-class facilities — AI Learning Hub, 21 modern classrooms, 48-computer lab with dedicated IP, 80-seat auditorium, cafeteria Ahaara, E-library, science labs and hostel."
+        description="KMC Lalitpur offers world-class facilities — AI Learning Hub, 21 modern classrooms, 52-computer lab with dedicated IP, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court and hostel."
         path="/facilities"
       />
 
@@ -54,8 +54,8 @@ export default function Facilities() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14">
             {[
               { n: "21", label: "Classrooms" },
-              { n: "48", label: "Computers" },
-              { n: "80", label: "Seat Auditorium" },
+              { n: "52", label: "Computers" },
+              { n: "230", label: "Seat Auditorium" },
               { n: "10K+", label: "Library Books" },
             ].map((s, i) => (
               <div
@@ -128,14 +128,14 @@ export default function Facilities() {
                   <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
                 </svg>
               </div>
-              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">Computer Lab — 48 Computers</h3>
+              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">Computer Lab — 52 Computers</h3>
               <p className="text-slate-600 text-sm leading-relaxed flex-1">
-                Well-equipped with 48 computers, high-speed internet with dedicated IP,
+                Well-equipped with 52 computers, high-speed internet with dedicated IP,
                 and a spacious, naturally lit environment designed to enhance digital
                 learning and technical skill development.
               </p>
               <ul className="mt-4 space-y-1.5">
-                {["48 workstations", "Dedicated IP internet", "Spacious & naturally lit", "Professional software"].map((f) => (
+                {["52 workstations", "Dedicated IP internet", "Spacious & naturally lit", "Professional software"].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{f}
                   </li>
@@ -172,14 +172,36 @@ export default function Facilities() {
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">80-Seat Auditorium</h3>
+              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">230-Seat Auditorium</h3>
               <p className="text-slate-600 text-sm leading-relaxed flex-1">
                 A simple yet elegant auditorium featuring French windows for natural
                 light and fresh air, alongside internet hookup facilities for each of
-                its 80 plush red seats.
+                its 230 plush red seats.
               </p>
               <ul className="mt-4 space-y-1.5">
-                {["80 plush red seats", "French windows (natural light)", "Internet hookup at each seat", "Events & assemblies"].map((f) => (
+                {["230 plush red seats", "French windows (natural light)", "Internet hookup at each seat", "Events & assemblies"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-xs text-slate-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Moot Court */}
+            <div className="bg-[#f7f5f0] border border-[#e8e8e8] rounded-2xl p-7 flex flex-col">
+              <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-5 shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21V11h6v10"/>
+                </svg>
+              </div>
+              <h3 className="text-[#0B1F3A] font-bold text-base mb-3">Moot Court</h3>
+              <p className="text-slate-600 text-sm leading-relaxed flex-1">
+                A dedicated moot court facility for Law stream students to practise advocacy,
+                argumentation, and courtroom procedures in a realistic legal setting under
+                the guidance of experienced faculty.
+              </p>
+              <ul className="mt-4 space-y-1.5">
+                {["Realistic courtroom setup", "Law stream exclusive", "Advocacy & argumentation practice", "Faculty-guided sessions"].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{f}
                   </li>

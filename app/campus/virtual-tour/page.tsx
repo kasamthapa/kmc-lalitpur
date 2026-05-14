@@ -40,9 +40,9 @@ const areas = [
   },
   {
     name: "Auditorium",
-    desc: "A 500-seat auditorium used for annual events, debates, cultural programs, and guest lectures.",
+    desc: "A 230-seat auditorium used for annual events, debates, cultural programs, and guest lectures.",
     image: "/images/facilities/auditorium.png",
-    highlight: "500 seats · Full AV setup",
+    highlight: "230 seats · Full AV setup",
   },
   {
     name: "Sports ",
@@ -60,7 +60,7 @@ const areas = [
     name: "Classroom",
     desc: "Bright, ventilated, and smartboard-equipped classrooms designed for effective interactive learning.",
     image: "/images/facilities/classroom.png",
-    highlight: "Smart boards · 40 seats",
+    highlight: "Smart boards · 30 seats",
   },
 ];
 
