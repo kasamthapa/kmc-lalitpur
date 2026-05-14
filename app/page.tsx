@@ -38,7 +38,7 @@ const programs = [
     title: "Science",
     color: "from-blue-900 to-blue-700",
     icon: <IconZap size={28} />,
-    image: "/images/science.png",
+    image: "/images/science-v2.png",
     tagline: "Medicine · Engineering · Research",
     subjects: [
       "Physics",

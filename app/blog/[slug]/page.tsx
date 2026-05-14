@@ -20,7 +20,7 @@ export const BLOG_POSTS = [
       "Choosing the right +2 Science college in Nepal is one of the most important decisions of your life. We compare top institutions on faculty quality, lab facilities, pass rates, and entrance prep success — and explain why KMC Lalitpur consistently ranks at the top.",
     date: "April 6, 2026",
     category: "School Rankings",
-    image: "/images/science.png",
+    image: "/images/science-v2.png",
     author: "KMC Academic Team",
     readTime: "8 min read",
     featured: true,

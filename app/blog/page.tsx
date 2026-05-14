@@ -16,7 +16,7 @@ const FALLBACK_POSTS: BlogPost[] = [
     excerpt:
       "Choosing the right +2 Science college in Nepal is one of the most important decisions of your life. We compare top institutions on faculty quality, lab facilities, pass rates, and entrance prep success.",
     category: "School Rankings",
-    imageUrl: "/images/science.png",
+    imageUrl: "/images/science-v2.png",
     author: "KMC Academic Team",
     readTime: "8 min read",
     featured: true,
