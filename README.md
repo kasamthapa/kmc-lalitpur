@@ -141,9 +141,9 @@ DATABASE_URL="postgresql://user:password@host/dbname?sslmode=require&pgbouncer=t
 # Neon PostgreSQL — direct (migrations only)
 DIRECT_URL="postgresql://user:password@host/dbname?sslmode=require"
 
-# Admin account (change after first login)
-ADMIN_EMAIL="admin@kmclalitpur.edu.np"
-ADMIN_PASSWORD="ChangeMe@123"
+# Admin account — set these before seeding (see .env.example)
+ADMIN_EMAIL="your-admin-email"
+ADMIN_PASSWORD="your-secure-password"
 
 # NextAuth
 NEXTAUTH_SECRET="generate with: openssl rand -base64 32"
