@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -53,6 +54,8 @@ export async function POST(req: NextRequest) {
         featured: b.featured === true,
       },
     });
+    revalidatePath("/blog");
+    revalidatePath("/");
     return apiSuccess(post, 201);
   } catch (error: unknown) {
     if ((error as { code?: string }).code === "P2002") {

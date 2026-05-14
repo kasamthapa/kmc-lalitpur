@@ -21,7 +21,7 @@ function createPrismaClient() {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
-    max: 10,
+    max: 3, // Neon free tier safe limit (PgBouncer handles pooling above this)
   });
 
   const adapter = new PrismaPg(pool);

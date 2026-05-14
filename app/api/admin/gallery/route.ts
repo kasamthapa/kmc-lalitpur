@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
@@ -43,6 +44,7 @@ export async function POST(req: NextRequest) {
         displayOrder: typeof b.displayOrder === "number" ? b.displayOrder : 0,
       },
     });
+    revalidatePath("/gallery");
     return apiSuccess(item, 201);
   } catch (error) {
     return apiServerError(error, "gallery POST");

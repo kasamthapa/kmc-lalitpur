@@ -22,7 +22,7 @@ import { NoticeMarquee } from "./components/notice-marquee";
 import { SITE_CONFIG } from "./config/site";
 import { prisma } from "./lib/prisma";
 
-export const revalidate = 10;
+export const revalidate = 60;
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/app/lib/prisma";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
 
@@ -60,6 +61,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    revalidatePath("/alumni");
     return NextResponse.json({ data: alumni }, { status: 201 });
   } catch (err) {
     console.error("[POST /api/admin/alumni]", err);

@@ -93,7 +93,7 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setFieldErrors({});
@@ -350,7 +350,7 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <div className="bg-white rounded-2xl p-8 border border-[#e8e8e8] space-y-5">
+                <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-[#e8e8e8] space-y-5">
                   {/* Name + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
@@ -456,7 +456,7 @@ export default function Contact() {
                   )}
 
                   <button
-                    onClick={handleSubmit}
+                    type="submit"
                     disabled={loading}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
                   >
@@ -500,7 +500,7 @@ export default function Contact() {
                       {SITE_CONFIG.phone}
                     </a>
                   </p>
-                </div>
+                </form>
               )}
             </div>
 

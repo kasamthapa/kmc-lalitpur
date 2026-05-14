@@ -30,6 +30,9 @@ model News {
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
 
+  @@index([published])
+  @@index([featured])
+  @@index([createdAt])
   @@map("news")
 }
 
@@ -46,6 +49,8 @@ model Gallery {
   displayOrder Int      @default(0) @map("display_order")
   createdAt    DateTime @default(now()) @map("created_at")
 
+  @@index([category])
+  @@index([displayOrder])
   @@map("gallery")
 }
 
@@ -63,6 +68,9 @@ model Enquiry {
   responded Boolean  @default(false)
   createdAt DateTime @default(now()) @map("created_at")
 
+  @@index([stream])
+  @@index([createdAt])
+  @@index([read])
   @@map("enquiries")
 }
 
@@ -77,6 +85,8 @@ model Notice {
   endDate      DateTime? @map("end_date") @db.Date
   createdAt    DateTime  @default(now()) @map("created_at")
 
+  @@index([active])
+  @@index([displayOrder])
   @@map("notices")
 }
 
@@ -97,6 +107,9 @@ model BlogPost {
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
 
+  @@index([published])
+  @@index([featured])
+  @@index([createdAt])
   @@map("blog_posts")
 }
 
@@ -133,6 +146,9 @@ model Faculty {
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
+  @@index([active])
+  @@index([dept])
+  @@index([displayOrder])
   @@map("faculty")
 }
 
@@ -157,6 +173,9 @@ model Alumni {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
+  @@index([approved])
+  @@index([featured])
+  @@index([displayOrder])
   @@map("alumni")
 }
 
@@ -218,5 +237,6 @@ model Popup {
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
+  @@index([active])
   @@map("popups")
 }
