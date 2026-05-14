@@ -42,7 +42,7 @@ const FALLBACK_POSTS: BlogPost[] = [
     excerpt:
       "KMC Lalitpur students have one of the highest IOE entrance success rates in Lalitpur. Our dedicated entrance prep classes and mock tests are designed to get you into Pulchowk and beyond.",
     category: "Tips & Guides",
-    imageUrl: "/images/computer-lab.png",
+    imageUrl: "/images/facilities/computerLab.png",
     author: "KMC Science Department",
     readTime: "6 min read",
     featured: false,
