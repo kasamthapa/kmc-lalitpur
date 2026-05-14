@@ -13,7 +13,8 @@ interface GalleryItem {
   displayOrder: number;
 }
 
-const CATEGORIES = [
+// Seed categories shown before any images are uploaded
+const DEFAULT_CATEGORIES = [
   "Events",
   "Campus",
   "Sports",
@@ -67,12 +68,14 @@ async function uploadToCloudinary(file: File, folder: string): Promise<string> {
 function PhotoModal({
   initial,
   editingId,
+  existingCategories,
   onSave,
   onClose,
 }: {
   initial: typeof BLANK;
   editingId: string | null;
-  onSave: () => void;
+  existingCategories: string[];
+  onSave: (newCategory?: string) => void;
   onClose: () => void;
 }) {
   const [src, setSrc] = useState(initial.src);
@@ -83,6 +86,10 @@ function PhotoModal({
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  // New-category inline creation
+  const [isNewCat, setIsNewCat] = useState(false);
+  const [newCatValue, setNewCatValue] = useState("");
 
   async function handleFile(file: File) {
     setError("");
@@ -109,16 +116,13 @@ function PhotoModal({
     if (file) handleFile(file);
   }
 
+  const resolvedCategory = isNewCat ? newCatValue.trim() : category;
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!src) {
-      setError("Please upload an image first.");
-      return;
-    }
-    if (!alt.trim()) {
-      setError("Alt text is required.");
-      return;
-    }
+    if (!src) { setError("Please upload an image first."); return; }
+    if (!alt.trim()) { setError("Alt text is required."); return; }
+    if (isNewCat && !newCatValue.trim()) { setError("Please enter a category name."); return; }
 
     setSaving(true);
     setError("");
@@ -126,13 +130,11 @@ function PhotoModal({
       const body = {
         src,
         alt: alt.trim(),
-        category: category || null,
+        category: resolvedCategory || null,
         caption: caption.trim() || null,
         displayOrder: parseInt(order, 10) || 0,
       };
-      const url = editingId
-        ? `/api/admin/gallery/${editingId}`
-        : "/api/admin/gallery";
+      const url = editingId ? `/api/admin/gallery/${editingId}` : "/api/admin/gallery";
       const method = editingId ? "PATCH" : "POST";
       const res = await fetch(url, {
         method,
@@ -143,7 +145,7 @@ function PhotoModal({
         const j = await res.json().catch(() => ({}));
         throw new Error((j as { message?: string })?.message ?? "Save failed");
       }
-      onSave();
+      onSave(isNewCat ? newCatValue.trim() : undefined);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Save failed");
     } finally {
@@ -288,18 +290,46 @@ function PhotoModal({
               <label className="block text-gray-300 text-sm font-medium mb-1.5">
                 Category
               </label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
-              >
-                <option value="">— Select —</option>
-                {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+              {isNewCat ? (
+                /* ── new category input ── */
+                <div className="flex gap-1.5">
+                  <input
+                    autoFocus
+                    type="text"
+                    value={newCatValue}
+                    onChange={(e) => setNewCatValue(e.target.value)}
+                    placeholder="e.g. Alumni Day"
+                    className="flex-1 min-w-0 bg-gray-800 border border-amber-400/60 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => { setIsNewCat(false); setNewCatValue(""); }}
+                    title="Cancel"
+                    className="px-2.5 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-xs transition-colors"
+                  >✕</button>
+                </div>
+              ) : (
+                /* ── existing categories dropdown ── */
+                <select
+                  value={category}
+                  onChange={(e) => {
+                    if (e.target.value === "__new__") {
+                      setIsNewCat(true);
+                      setCategory("");
+                    } else {
+                      setCategory(e.target.value);
+                    }
+                  }}
+                  className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
+                >
+                  <option value="">— None —</option>
+                  {existingCategories.map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                  <option disabled>──────────</option>
+                  <option value="__new__">＋ New category…</option>
+                </select>
+              )}
             </div>
             <div>
               <label className="block text-gray-300 text-sm font-medium mb-1.5">
@@ -362,6 +392,16 @@ export default function GalleryPage() {
   });
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [filterCat, setFilterCat] = useState("All");
+  const [extraCategories, setExtraCategories] = useState<string[]>([]);
+
+  // All unique categories: defaults + any from DB + any newly created this session
+  const allCategories = Array.from(
+    new Set([
+      ...DEFAULT_CATEGORIES,
+      ...items.map((i) => i.category).filter(Boolean) as string[],
+      ...extraCategories,
+    ])
+  );
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -408,7 +448,11 @@ export default function GalleryPage() {
               : BLANK
           }
           editingId={modal.item?.id ?? null}
-          onSave={() => {
+          existingCategories={allCategories}
+          onSave={(newCat) => {
+            if (newCat && !allCategories.includes(newCat)) {
+              setExtraCategories((prev) => [...prev, newCat]);
+            }
             setModal({ open: false });
             load();
           }}
@@ -461,7 +505,7 @@ export default function GalleryPage() {
       {/* ── category filter ───────────────────────────────────────────── */}
       {items.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-5">
-          {["All", ...CATEGORIES].map((cat) => (
+          {["All", ...allCategories].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilterCat(cat)}
