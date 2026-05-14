@@ -26,6 +26,16 @@ const areas = [
   { name: "Thankot",     zone: "Kathmandu" },
   { name: "Sukedhara",   zone: "Kathmandu" },
   { name: "Chabahil",    zone: "Kathmandu" },
+  { name: "Bhaktapur",   zone: "Bhaktapur" },
+  { name: "Thimi",       zone: "Bhaktapur" },
+  { name: "Suryabinayak",zone: "Bhaktapur" },
+  { name: "Lokanthali",  zone: "Bhaktapur" },
+  { name: "Gatthaghar",  zone: "Bhaktapur" },
+  { name: "Madhyapur",   zone: "Bhaktapur" },
+  { name: "Balkot",      zone: "Bhaktapur" },
+  { name: "Jagati",      zone: "Bhaktapur" },
+  { name: "Katunje",     zone: "Bhaktapur" },
+  { name: "Sipadol",     zone: "Bhaktapur" },
 ];
 
 const policies = [
@@ -42,6 +52,7 @@ const policies = [
 export default function TransportPage() {
   const lalitpurAreas = areas.filter((a) => a.zone === "Lalitpur");
   const kathmanduAreas = areas.filter((a) => a.zone === "Kathmandu");
+  const bhaktapurAreas = areas.filter((a) => a.zone === "Bhaktapur");
 
   return (
     <main className="bg-white">
@@ -81,7 +92,7 @@ export default function TransportPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             {[
-              { label: "Areas Covered", value: "13+" },
+              { label: "Areas Covered", value: "22+" },
               { label: "Students Served", value: "400+" },
               { label: "Fleet Size",     value: "8 Buses" },
             ].map((s) => (
@@ -136,6 +147,29 @@ export default function TransportPage() {
                   className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f0f4f9] border border-[#d0dce8] hover:bg-[#1a4a7a] hover:text-white hover:border-[#1a4a7a] transition-all duration-200 group cursor-default"
                 >
                   <IconMapPin size={14} className="text-[#1a4a7a] group-hover:text-white transition-colors" />
+                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
+                    {area.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bhaktapur */}
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-3 h-3 rounded-full bg-[#7b2d8b]" />
+              <h3 className="text-lg font-bold text-[#0B1F3A]">Bhaktapur</h3>
+              <span className="text-xs font-semibold text-[#7b2d8b] bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full">All Areas</span>
+              <div className="flex-1 h-px bg-[#eae6de]" />
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {bhaktapurAreas.map((area) => (
+                <div
+                  key={area.name}
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f9f0fa] border border-[#ddb8e4] hover:bg-[#7b2d8b] hover:text-white hover:border-[#7b2d8b] transition-all duration-200 group cursor-default"
+                >
+                  <IconMapPin size={14} className="text-[#7b2d8b] group-hover:text-white transition-colors" />
                   <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
                     {area.name}
                   </span>
