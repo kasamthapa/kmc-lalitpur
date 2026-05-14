@@ -472,26 +472,73 @@ export default function Academics() {
                   <h3 className="font-bold text-[#0B1F3A] mb-4 text-sm uppercase tracking-wider">
                     Subjects
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {stream.subjects.map((s) => (
-                      <div
-                        key={s.name}
-                        className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]"
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                            <IconCheck />
-                          </span>
-                          <span className="text-slate-700 text-sm font-medium">
-                            {s.name}
+                  {stream.id === "law" ? (
+                    /* Law: split into Grade XI and Grade XII columns */
+                    (() => {
+                      const common  = stream.subjects.filter(s => !s.name.includes("Gr. XI") && !s.name.includes("Gr. XII"));
+                      const gradeXI  = stream.subjects.filter(s => s.name.includes("Gr. XI"));
+                      const gradeXII = stream.subjects.filter(s => s.name.includes("Gr. XII"));
+                      const SubjectCard = ({ s }: { s: { name: string; note: string } }) => (
+                        <div className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]">
+                          <div className="flex items-center gap-2">
+                            <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
+                              <IconCheck />
+                            </span>
+                            <span className="text-slate-700 text-sm font-medium">
+                              {s.name.replace(" (Gr. XI)", "").replace(" (Gr. XII)", "")}
+                            </span>
+                          </div>
+                          <span className="text-xs text-slate-400 font-medium">{s.note}</span>
+                        </div>
+                      );
+                      return (
+                        <div className="space-y-4">
+                          {/* Common subjects */}
+                          {common.length > 0 && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {common.map(s => <SubjectCard key={s.name} s={s} />)}
+                            </div>
+                          )}
+                          {/* Grade XI & XII side by side */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">Grade XI</p>
+                              <div className="space-y-2">
+                                {gradeXI.map(s => <SubjectCard key={s.name} s={s} />)}
+                              </div>
+                            </div>
+                            <div>
+                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">Grade XII</p>
+                              <div className="space-y-2">
+                                {gradeXII.map(s => <SubjectCard key={s.name} s={s} />)}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })()
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {stream.subjects.map((s) => (
+                        <div
+                          key={s.name}
+                          className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
+                              <IconCheck />
+                            </span>
+                            <span className="text-slate-700 text-sm font-medium">
+                              {s.name}
+                            </span>
+                          </div>
+                          <span className="text-xs text-slate-400 font-medium">
+                            {s.note}
                           </span>
                         </div>
-                        <span className="text-xs text-slate-400 font-medium">
-                          {s.note}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Eligibility */}
