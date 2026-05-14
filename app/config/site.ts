@@ -34,9 +34,8 @@ export const SITE_CONFIG = {
   hours: {
     display: [
       { days: "Sunday – Friday", time: "8 AM – 5 PM" },
-      { days: "Saturday", time: "10 AM – 3 PM" },
     ],
-    schema: ["Mo-Fr 08:00-17:00", "Sa 10:00-15:00"],
+    schema: ["Su-Fr 08:00-17:00"],
     opening: [
       {
         dayOfWeek: [
@@ -49,11 +48,6 @@ export const SITE_CONFIG = {
         ],
         opens: "08:00",
         closes: "17:00",
-      },
-      {
-        dayOfWeek: "Saturday",
-        opens: "10:00",
-        closes: "15:00",
       },
     ],
   },
