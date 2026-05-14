@@ -118,8 +118,24 @@ export default async function NewsArticlePage({
           )}
 
           {article.content ? (
-            <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed whitespace-pre-line">
-              {article.content}
+            <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed">
+              {article.content.split(/(\[youtube:[^\]]+\])/).map((part, idx) => {
+                const match = part.match(/^\[youtube:([a-zA-Z0-9_-]+)\]$/);
+                if (match) {
+                  return (
+                    <div key={idx} className="relative w-full rounded-2xl overflow-hidden shadow-lg my-8" style={{ paddingTop: "56.25%" }}>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${match[1]}`}
+                        title="KMC News Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                      />
+                    </div>
+                  );
+                }
+                return part ? <p key={idx} className="whitespace-pre-line">{part}</p> : null;
+              })}
             </div>
           ) : (
             <p className="text-slate-500 italic">Full article content coming soon.</p>

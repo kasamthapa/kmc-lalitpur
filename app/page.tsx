@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "./components/header";
@@ -23,6 +21,9 @@ import {
 import { NoticeMarquee } from "./components/notice-marquee";
 import { EntrancePopup } from "./components/entrance-popup";
 import { SITE_CONFIG } from "./config/site";
+import { prisma } from "./lib/prisma";
+
+export const revalidate = 10;
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
   { value: "22+", label: "Years of Excellence" },
@@ -145,36 +146,37 @@ const testimonials = [
   },
 ];
 
-const latestNews = [
-  {
-    title: "KMC Talent and Innovation Expo 2082",
-    date: "February 2, 2026",
-    category: "Events",
-    image: "/images/news4.png",
-    featured: true,
-  },
-  {
-    title: "Voices of Experience – MBBS Achievers Panel Discussion",
-    date: "February 2, 2026",
-    category: "Academic",
-    image: "/images/news1.png",
-  },
-  {
-    title: "Theme Drama Competition 2082 at KMC Seminar Hall",
-    date: "February 2, 2026",
-    category: "Cultural",
-    image: "/images/news3.png",
-  },
-  {
-    title: "World NGO Day — Building Partnerships for Change",
-    date: "February 1, 2026",
-    category: "Community",
-    image: "/images/news5.png",
-  },
+const FALLBACK_NEWS = [
+  { title: "KMC Talent and Innovation Expo 2082", date: "Recent", category: "Events", image: "/images/news4.png", slug: "" },
+  { title: "Voices of Experience – MBBS Achievers Panel Discussion", date: "Recent", category: "Academic", image: "/images/news1.png", slug: "" },
+  { title: "Theme Drama Competition 2082 at KMC Seminar Hall", date: "Recent", category: "Cultural", image: "/images/news3.png", slug: "" },
+  { title: "World NGO Day — Building Partnerships for Change", date: "Recent", category: "Community", image: "/images/news5.png", slug: "" },
 ];
 
+async function getLatestNews() {
+  try {
+    const rows = await prisma.news.findMany({
+      where: { published: true },
+      orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
+      take: 4,
+      select: { id: true, title: true, slug: true, category: true, imageUrl: true, createdAt: true, featured: true },
+    });
+    if (rows.length === 0) return FALLBACK_NEWS;
+    return rows.map((r) => ({
+      title: r.title,
+      slug: r.slug,
+      date: r.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+      category: r.category ?? "News",
+      image: r.imageUrl ?? "/images/news4.png",
+    }));
+  } catch {
+    return FALLBACK_NEWS;
+  }
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default function Home() {
+export default async function Home() {
+  const latestNews = await getLatestNews();
   return (
     <main className="bg-white">
       <EntrancePopup />
@@ -680,7 +682,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Featured */}
             <Link
-              href="/news"
+              href={latestNews[0]?.slug ? `/news/${latestNews[0].slug}` : "/news"}
               className="lg:col-span-2 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:border-amber-300"
             >
               <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden">
@@ -711,7 +713,7 @@ export default function Home() {
               {latestNews.slice(1).map((news, i) => (
                 <Link
                   key={i}
-                  href="/news"
+                  href={news.slug ? `/news/${news.slug}` : "/news"}
                   className="group flex gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-[#e8e8e8] hover:border-amber-300 p-4"
                 >
                   <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden">
