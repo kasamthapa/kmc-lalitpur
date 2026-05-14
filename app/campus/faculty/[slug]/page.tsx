@@ -64,12 +64,25 @@ export default async function FacultyDetailPage({
 
   if (!member || !member.active) notFound();
 
+  // Smart parsing — handles newline, bullet, dash, or comma-separated entries
   const achievements = member.achievements
-    ? member.achievements.split("\n").map((a) => a.trim()).filter(Boolean)
+    ? (() => {
+        const raw = member.achievements;
+        // Try newlines first
+        const byLine = raw.split(/\r?\n/).map((a) => a.replace(/^[\s•\-\*]+/, "").trim()).filter(Boolean);
+        if (byLine.length > 1) return byLine;
+        // Fall back to comma/semicolon separation
+        return raw.split(/[,;]/).map((a) => a.replace(/^[\s•\-\*]+/, "").trim()).filter(Boolean);
+      })()
+    : [];
+
+  // Smart bio formatting — normalize whitespace, preserve paragraphs
+  const bioParas = member.bio
+    ? member.bio.split(/\n{2,}/).map((p) => p.replace(/\n/g, " ").trim()).filter(Boolean)
     : [];
 
   const subjects = member.subjects
-    ? member.subjects.split(",").map((s) => s.trim()).filter(Boolean)
+    ? member.subjects.split(/[,،]/).map((s) => s.trim()).filter(Boolean)
     : [];
 
   const initials = member.name
@@ -154,10 +167,14 @@ export default async function FacultyDetailPage({
           {/* Left: Bio + Achievements */}
           <div className="lg:col-span-2 space-y-8">
             {/* Bio */}
-            {member.bio && (
+            {bioParas.length > 0 && (
               <div className="bg-white rounded-2xl p-7 border border-[#eae6de]">
                 <h2 className="text-[#0B1F3A] font-bold text-xl mb-4">About</h2>
-                <p className="text-[#374151] leading-relaxed whitespace-pre-wrap">{member.bio}</p>
+                <div className="space-y-3">
+                  {bioParas.map((para, i) => (
+                    <p key={i} className="text-[#374151] leading-relaxed">{para}</p>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -184,7 +201,7 @@ export default async function FacultyDetailPage({
             )}
 
             {/* Empty state if no bio or achievements */}
-            {!member.bio && achievements.length === 0 && (
+            {bioParas.length === 0 && achievements.length === 0 && (
               <div className="bg-white rounded-2xl p-7 border border-[#eae6de] text-center text-[#6b7280]">
                 <p>Profile details coming soon.</p>
               </div>

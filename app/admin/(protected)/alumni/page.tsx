@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import Image from "next/image";
+import { CropModal } from "@/app/admin/_components/CropModal";
 
 async function uploadToCloudinary(file: File): Promise<string> {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -70,6 +71,10 @@ export default function AlumniAdminPage() {
   const [uploadError, setUploadError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Crop state
+  const [cropSrc, setCropSrc] = useState<string | null>(null);
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
+
   const [deleteTarget, setDeleteTarget] = useState<AlumniMember | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [toast, setToast] = useState("");
@@ -114,13 +119,11 @@ export default function AlumniAdminPage() {
 
   function closeModal() { setModal({ open: false }); }
 
-  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+  async function uploadBlob(blob: Blob) {
     setUploadError("");
-    setImagePreview(URL.createObjectURL(file));
     setUploading(true);
     try {
+      const file = new File([blob], "photo.jpg", { type: "image/jpeg" });
       const url = await uploadToCloudinary(file);
       setForm((f) => ({ ...f, imageUrl: url }));
       setImagePreview(url);
@@ -132,6 +135,30 @@ export default function AlumniAdminPage() {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
     }
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setPendingFile(file);
+    setCropSrc(URL.createObjectURL(file));
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }
+
+  async function handleCropDone(blob: Blob) {
+    setCropSrc(null);
+    setPendingFile(null);
+    setImagePreview(URL.createObjectURL(blob));
+    await uploadBlob(blob);
+  }
+
+  async function handleCropSkip() {
+    if (!pendingFile) return;
+    const blob = pendingFile;
+    setCropSrc(null);
+    setPendingFile(null);
+    setImagePreview(URL.createObjectURL(blob));
+    await uploadBlob(blob);
   }
 
   async function handleSave(e: React.FormEvent) {
@@ -463,6 +490,24 @@ export default function AlumniAdminPage() {
                 </div>
               </div>
 
+              {/* Where this appears */}
+              <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-3">Where this appears on the website</p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-2 h-2 rounded-full ${form.approved ? "bg-green-400" : "bg-gray-600"}`} />
+                    <span className="text-gray-300 text-xs font-medium">Campus → Alumni page</span>
+                    <span className="ml-auto text-[10px] text-gray-600">{form.approved ? "Visible" : "Pending"}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-2 h-2 rounded-full ${form.featured ? "bg-amber-400" : "bg-gray-600"}`} />
+                    <span className="text-gray-300 text-xs font-medium">Homepage → Testimonials / Featured Alumni</span>
+                    <span className="ml-auto text-[10px] text-gray-600">{form.featured ? "Featured" : "Not featured"}</span>
+                  </div>
+                </div>
+                <p className="text-gray-600 text-[10px] mt-3">Use the checkboxes below to control visibility.</p>
+              </div>
+
               <div className="flex gap-6">
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={form.approved} onChange={(e) => setForm({ ...form, approved: e.target.checked })}
@@ -472,7 +517,7 @@ export default function AlumniAdminPage() {
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })}
                     className="w-4 h-4 rounded accent-amber-400" />
-                  <span className="text-gray-400 text-sm">Featured</span>
+                  <span className="text-gray-400 text-sm">Featured (homepage)</span>
                 </label>
               </div>
 
@@ -487,6 +532,16 @@ export default function AlumniAdminPage() {
             </form>
           </div>
         </div>
+      )}
+
+      {/* Crop Modal */}
+      {cropSrc && (
+        <CropModal
+          imageSrc={cropSrc}
+          onDone={handleCropDone}
+          onSkip={handleCropSkip}
+          onCancel={() => { setCropSrc(null); setPendingFile(null); }}
+        />
       )}
 
       {/* Delete modal */}
