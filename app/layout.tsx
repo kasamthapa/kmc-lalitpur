@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { FloatingWidgets } from "./components/FloatingWidgets";
+import { SitePopup } from "./components/SitePopup";
 import { SchemaOrg } from "./components/schema";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -126,6 +127,7 @@ export default function RootLayout({
       <body className={`${geist.className} antialiased`}>
         {children}
         <FloatingWidgets />
+        <SitePopup />
         <Analytics />
       </body>
     </html>

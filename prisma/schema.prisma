@@ -204,3 +204,18 @@ model EntranceApplication {
   @@index([referenceNo])
   @@map("entrance_applications")
 }
+
+model Popup {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title        String?                                  // headline text
+  body         String?                                  // paragraph / description
+  imageUrl     String?  @map("image_url")              // optional banner image
+  buttons      String?                                  // JSON: [{label,url,style}]
+  active       Boolean  @default(false)                 // only one should be active at a time
+  showOnce     Boolean  @default(true) @map("show_once") // hide after user dismisses (localStorage)
+  delaySeconds Int      @default(2) @map("delay_seconds")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("popups")
+}
