@@ -25,13 +25,18 @@ const stats = [
 ];
 
 // ── KMC Alumni Association members ────────────────────────────────────────────
-// TODO: replace placeholder data with real member data provided by admin
-const ASSOCIATION_MEMBERS: {
-  name: string;
-  role: string;
-  imageUrl: string | null;
-}[] = [
-  // e.g. { name: "Ram Bahadur Thapa", role: "President", imageUrl: null },
+const ASSOCIATION_MEMBERS = [
+  { name: "Aadip Raut",           role: "President",       college: "Himalayan College of Engineering",                    image: "/images/alumni-association/aadip-raut.png" },
+  { name: "Himal Bista",          role: "Vice President",  college: "Kathmandu School of Law",                            image: "/images/alumni-association/himal-bista.png" },
+  { name: "Meriyan Karki",        role: "Vice President",  college: "Himalayan College of Engineering",                    image: "/images/alumni-association/meriyan-karki.png" },
+  { name: "Sunita Khadka",        role: "Secretary",       college: "Khwopa College of Law",                              image: "/images/alumni-association/sunita-khadka.png" },
+  { name: "Minendra Yadav",       role: "Joint Secretary", college: "Kathmandu School of Law",                            image: "/images/alumni-association/minendra-yadav.png" },
+  { name: "Saurav Shah",          role: "Treasurer",       college: "Model Institute of Technology (MIT)",                 image: "/images/alumni-association/saurav-shah.png" },
+  { name: "Suchana K.C.",         role: "Board Member",    college: "Techspire College",                                  image: "/images/alumni-association/suchana-kc.png" },
+  { name: "Sujata Bhattarai",     role: "Board Member",    college: "Kathmandu Model College",                            image: "/images/alumni-association/sujata-bhattarai.png" },
+  { name: "Reeju Koirala",        role: "Board Member",    college: "Nepal Academy of Tourism, Hotel & Mountaineering",   image: "/images/alumni-association/reeju-koirala.png" },
+  { name: "Dayal Sharan Satsangi",role: "Board Member",    college: "Kathmandu Medical College & Teaching Hospital",      image: "/images/alumni-association/dayal-satsangi.png" },
+  { name: "Sweekriti Sharma",     role: "Board Member",    college: "Kathmandu University School of Law",                 image: "/images/alumni-association/sweekriti-sharma.png" },
 ];
 
 export default function AlumniPage() {
@@ -113,9 +118,9 @@ export default function AlumniPage() {
                 return (
                   <div key={i} className="text-center group">
                     <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden border-2 border-[#eae6de] group-hover:border-amber-400 transition mb-3">
-                      {m.imageUrl ? (
+                      {m.image ? (
                         <Image
-                          src={m.imageUrl}
+                          src={m.image}
                           alt={m.name}
                           width={96}
                           height={96}
@@ -129,6 +134,7 @@ export default function AlumniPage() {
                     </div>
                     <p className="font-bold text-[#0B1F3A] text-sm leading-snug">{m.name}</p>
                     <p className="text-xs text-amber-600 font-semibold mt-0.5">{m.role}</p>
+                    <p className="text-xs text-[#6b7280] mt-1 leading-tight">{m.college}</p>
                   </div>
                 );
               })}
