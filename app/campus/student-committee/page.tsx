@@ -13,24 +13,18 @@ export const metadata: Metadata = {
 };
 
 const clubs = [
-  { name: "Event Management Club", logo: "/images/catalyst/clubs/EMC.png" },
-  {
-    name: "Art & Culture Club",
-    logo: "/images/catalyst/clubs/art-culture.png",
-  },
-  { name: "Dance Club", logo: "/images/catalyst/clubs/dance.png" },
-  { name: "Eco Club", logo: "/images/catalyst/clubs/eco.png" },
-  { name: "Legal Club", logo: "/images/catalyst/clubs/legal.png" },
-  { name: "Literature Club", logo: "/images/catalyst/clubs/literature.png" },
-  { name: "Maths Club", logo: "/images/catalyst/clubs/maths.png" },
-  { name: "Music Club", logo: "/images/catalyst/clubs/music.png" },
-  { name: "Outreach Team", logo: "/images/catalyst/clubs/outreachTeam.png" },
-  {
-    name: "Science & Technology Club",
-    logo: "/images/catalyst/clubs/science-and-technology.png",
-  },
-  { name: "Social Club", logo: "/images/catalyst/clubs/social.png" },
-  { name: "Sports Club", logo: "/images/catalyst/clubs/sports.png" },
+  { name: "Event Management Club",    folder: "EMC" },
+  { name: "Art & Culture Club",       folder: "ArtCulture" },
+  { name: "Dance Club",               folder: "dance" },
+  { name: "Eco Club",                 folder: "eco" },
+  { name: "Legal Club",               folder: "Legal" },
+  { name: "Literature Club",          folder: "literature" },
+  { name: "Maths Club",               folder: "maths" },
+  { name: "Music Club",               folder: "music" },
+  { name: "Outreach Team",            folder: "outreachTeam" },
+  { name: "Science & Technology Club",folder: "scienceAndTechnology" },
+  { name: "Social Club",              folder: "Social" },
+  { name: "Sports Club",              folder: "Sports" },
 ];
 
 export default function CatalystPage() {
@@ -137,24 +131,37 @@ export default function CatalystPage() {
               dance, and community service.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {clubs.map((club) => (
               <div
                 key={club.name}
-                className="flex flex-col items-center gap-3 bg-white rounded-2xl p-5 border border-[#eae6de] hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+                className="bg-white rounded-2xl border border-[#eae6de] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
               >
-                <div className="w-16 h-16 relative flex items-center justify-center">
+                {/* Members photo */}
+                <div className="relative w-full aspect-video bg-[#0B1F3A]">
                   <Image
-                    src={club.logo}
-                    alt={`${club.name} logo`}
-                    width={64}
-                    height={64}
-                    className="object-contain w-full h-full"
+                    src={`/images/catalyst/clubs/${club.folder}/members.png`}
+                    alt={`${club.name} members`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <span className="text-xs font-semibold text-[#0B1F3A] text-center leading-snug">
-                  {club.name}
-                </span>
+                {/* Logo + name */}
+                <div className="flex items-center gap-4 px-5 py-4">
+                  <div className="w-12 h-12 shrink-0 bg-[#f7f5f0] rounded-xl p-2 border border-[#eae6de] flex items-center justify-center">
+                    <Image
+                      src={`/images/catalyst/clubs/${club.folder}/logo.png`}
+                      alt={`${club.name} logo`}
+                      width={40}
+                      height={40}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <span className="font-bold text-[#0B1F3A] leading-snug">
+                    {club.name}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
