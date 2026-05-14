@@ -62,6 +62,13 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
       {/* Faculty Grid */}
       <section className="py-16 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4">
+          {filtered.length === 0 && (
+            <div className="text-center py-24">
+              <p className="text-4xl mb-4">👨‍🏫</p>
+              <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">Faculty profiles coming soon</h3>
+              <p className="text-[#6b7280]">We&apos;re updating our faculty directory. Check back soon.</p>
+            </div>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filtered.map((member) => {
               const color = deptColors[member.dept] ?? "#374151";

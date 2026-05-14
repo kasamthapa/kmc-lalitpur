@@ -23,26 +23,6 @@ const deptColors: Record<string, string> = {
   Administration: "#374151",
 };
 
-// Fallback hardcoded data used when DB has no faculty entries yet
-const FALLBACK_FACULTY = [
-  { id: "f1", name: "Dr. Rajendra Adhikari", slug: "", title: "Head of Science Department", dept: "Science", qualification: "PhD Physics, TU", experience: "18 years", subjects: "Physics, Mechanics", email: "r.adhikari@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f2", name: "Ms. Sita Karmacharya", slug: "", title: "Senior Lecturer", dept: "Science", qualification: "M.Sc Chemistry, TU", experience: "12 years", subjects: "Chemistry, Organic Chemistry", email: "s.karmacharya@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f3", name: "Mr. Binod Shrestha", slug: "", title: "Lecturer", dept: "Science", qualification: "M.Sc Biology, KU", experience: "9 years", subjects: "Biology, Botany", email: "b.shrestha@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f4", name: "Ms. Priya Manandhar", slug: "", title: "Lecturer", dept: "Science", qualification: "BE Computer Engineering, IOE", experience: "7 years", subjects: "Computer Science", email: "p.manandhar@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f5", name: "Mr. Ashok Tamrakar", slug: "", title: "Lab Instructor", dept: "Science", qualification: "B.Sc Physics, TU", experience: "10 years", subjects: "Physics Practical", email: "a.tamrakar@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f6", name: "Mr. Dipak Thapa", slug: "", title: "Head of Management", dept: "Management", qualification: "MBA Finance, PU", experience: "15 years", subjects: "Accountancy, Finance", email: "d.thapa@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f7", name: "Ms. Reena Shakya", slug: "", title: "Senior Lecturer", dept: "Management", qualification: "MBS Economics, TU", experience: "11 years", subjects: "Economics, Business Studies", email: "r.shakya@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f8", name: "Mr. Suresh Maharjan", slug: "", title: "Lecturer", dept: "Management", qualification: "MBS Marketing, TU", experience: "8 years", subjects: "Marketing", email: "s.maharjan@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f9", name: "Ms. Nirmala Basnet", slug: "", title: "Lecturer", dept: "Management", qualification: "BBA, KUSOM", experience: "6 years", subjects: "Business Maths", email: "n.basnet@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f10", name: "Adv. Sunita Rana", slug: "", title: "Head of Law", dept: "Law", qualification: "LLM Constitutional Law, TU", experience: "16 years", subjects: "Constitutional Law", email: "s.rana@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f11", name: "Adv. Bikash Giri", slug: "", title: "Lecturer", dept: "Law", qualification: "LLB, Kathmandu Law Campus", experience: "8 years", subjects: "Criminal Law", email: "b.giri@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f12", name: "Ms. Kamala Dhakal", slug: "", title: "Lecturer", dept: "Law", qualification: "LLB, TU", experience: "6 years", subjects: "Civil Law, Human Rights", email: "k.dhakal@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f13", name: "Mr. Narayan Shrestha", slug: "", title: "Principal", dept: "Administration", qualification: "M.Ed, TU", experience: "22 years", subjects: "School Administration", email: "principal@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f14", name: "Ms. Laxmi Pradhan", slug: "", title: "Vice Principal", dept: "Administration", qualification: "M.Ed, TU", experience: "18 years", subjects: "Academic Affairs", email: "vp@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f15", name: "Mr. Raju Chitrakar", slug: "", title: "Admissions Coordinator", dept: "Administration", qualification: "BBS, TU", experience: "10 years", subjects: "Admissions & Records", email: "admissions@kmclalitpur.edu.np", imageUrl: null },
-  { id: "f16", name: "Ms. Sarita Tuladhar", slug: "", title: "Accounts Officer", dept: "Administration", qualification: "BBA Finance, PU", experience: "8 years", subjects: "Fee & Finance", email: "accounts@kmclalitpur.edu.np", imageUrl: null },
-];
-
 async function getFaculty() {
   try {
     const rows = await prisma.faculty.findMany({
@@ -54,10 +34,9 @@ async function getFaculty() {
         email: true, imageUrl: true,
       },
     });
-    if (rows.length === 0) return FALLBACK_FACULTY;
     return rows;
   } catch {
-    return FALLBACK_FACULTY;
+    return [];
   }
 }
 
