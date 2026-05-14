@@ -7,7 +7,7 @@ import { BreadcrumbSchema, WebPageSchema } from "../components/schema";
 export const metadata: Metadata = {
   title: "Facilities & Infrastructure",
   description:
-    "Explore KMC Lalitpur's world-class facilities — AI Learning Hub, 21 classrooms, 52-computer lab, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court, hostel, and more.",
+    "Explore KMC Lalitpur's world-class facilities — 21 classrooms, 52-computer lab, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court, hostel, and more.",
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -18,7 +18,7 @@ export default function Facilities() {
       <BreadcrumbSchema items={[{ name: "Facilities", href: "/facilities" }]} />
       <WebPageSchema
         title="Facilities & Infrastructure | KMC Lalitpur"
-        description="KMC Lalitpur offers world-class facilities — AI Learning Hub, 21 modern classrooms, 52-computer lab with dedicated IP, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court and hostel."
+        description="KMC Lalitpur offers world-class facilities — 21 modern classrooms, 52-computer lab with dedicated IP, 230-seat auditorium, cafeteria Ahaara, E-library, science labs, moot court and hostel."
         path="/facilities"
       />
 
@@ -44,9 +44,9 @@ export default function Facilities() {
               <span className="text-amber-400">&amp; Campus</span>
             </h1>
             <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
-              Every detail, from our 21 spacious classrooms to the AI Learning
-              Hub and cafeteria Ahaara, is designed to inspire and empower
-              KMC students.
+              Every detail, from our 21 spacious classrooms and science labs
+              to the cafeteria Ahaara and moot court, is designed to inspire
+              and empower KMC students.
             </p>
           </div>
 
@@ -83,22 +83,6 @@ export default function Facilities() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* AI Learning Hub */}
-            <div className="bg-[#0B1F3A] rounded-2xl p-7 flex flex-col">
-              <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-5 shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-                </svg>
-              </div>
-              <span className="inline-block text-amber-400 text-[10px] font-bold tracking-widest uppercase mb-2">New</span>
-              <h3 className="text-white font-bold text-base mb-3">AI Learning Hub</h3>
-              <p className="text-[#8ba7c7] text-sm leading-relaxed flex-1">
-                Our newly established AI Learning Hub integrates cutting-edge artificial
-                intelligence tools into the curriculum, offering students opportunities
-                to explore future-ready technology and innovative problem-solving.
-              </p>
-            </div>
-
             {/* Classrooms */}
             <div className="bg-[#f7f5f0] border border-[#e8e8e8] rounded-2xl p-7 flex flex-col">
               <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-5 shrink-0">
