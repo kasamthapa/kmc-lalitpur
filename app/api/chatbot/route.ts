@@ -50,11 +50,6 @@ SCHOLARSHIPS:
 - Government School: Separate entrance test for govt school students
 - Need-based: Income-based financial aid
 
-MOCK TESTS:
-KMC offers online mock entrance exam practice through Microsoft Forms.
-Students can access the mock test at /mock-test on this website.
-Results are available immediately after submission via Microsoft Forms.
-
 FACILITIES: Separate Physics, Chemistry & Biology labs, Computer lab (52 computers, dedicated IP),
 Library (vast collection of books, references, periodicals and e-library at kmclibrary.edu.np),
 Sports complex (basketball, cricket, swimming, badminton, table tennis, futsal, chess),

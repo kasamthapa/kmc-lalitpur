@@ -61,14 +61,6 @@ export const SITE_CONFIG = {
     parent: "https://ktmmodelcollege.edu.np",
   },
 
-  // Microsoft Forms URLs for mock entrance exams.
-  // Leave as empty string until the school provides the real URLs.
-  mockTestForms: {
-    science: "",
-    management: "",
-    law: "",
-  },
-
   awards: [
     "Best +2 Education Award 2075 — Ministry of Education, Nepal",
     "Excellence Award (Letter of Appreciation) — Ministry of Education, Nepal (2074 & 2075 B.S.)",
