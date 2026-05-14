@@ -94,14 +94,15 @@ export default function AlumniPage() {
           </div>
 
           {/* Group Photo */}
-          <div className="rounded-3xl overflow-hidden border border-[#eae6de] shadow-lg mb-14 bg-[#0B1F3A]">
-            <div className="relative w-full aspect-video flex items-center justify-center">
-              {/* Replace src with actual group photo when available */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white/40">
-                <IconUsers size={48} />
-                <p className="mt-3 text-sm font-medium">Group photo coming soon</p>
-              </div>
-            </div>
+          <div className="rounded-3xl overflow-hidden border border-[#eae6de] shadow-lg mb-14">
+            <Image
+              src="/images/alumni-association/group.png"
+              alt="KMC Alumni Association of Lalitpur — Group Photo"
+              width={1400}
+              height={900}
+              className="w-full h-auto"
+              priority
+            />
           </div>
 
           {/* Members grid */}
