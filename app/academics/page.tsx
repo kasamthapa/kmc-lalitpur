@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     "Explore KMC Lalitpur's NEB-affiliated +2 programs — Science, Management, and Law. Detailed subject lists, eligibility criteria, entrance exam info, and career pathways.",
 };
 
-
 // ─── Stream data ──────────────────────────────────────────────────────────────
 const streams = [
   {
@@ -48,7 +47,10 @@ const streams = [
       { name: "Chemistry", note: "Core" },
       { name: "Biology", note: "Core / Optional" },
       { name: "Computer Science", note: "Alternative to Biology" },
-      { name: "Compulsory Maths / Social Studies & Life Skills", note: "Compulsory" },
+      {
+        name: "Compulsory Maths / Social Studies & Life Skills",
+        note: "Compulsory",
+      },
     ],
     timing: "Morning: 6:20 AM – 12:50 PM  |  Day: 11:00 AM – 5:30 PM",
     eligibility: {
@@ -109,8 +111,14 @@ const streams = [
       { name: "Compulsory Nepali", note: "Compulsory" },
       { name: "Accountancy", note: "Core" },
       { name: "Economics", note: "Core" },
-      { name: "Comp. Social Studies & Life Skills / Comp. Maths", note: "Compulsory" },
-      { name: "Computer Science / Business Maths / Business Studies", note: "Optional" },
+      {
+        name: "Comp. Social Studies & Life Skills / Mathematics",
+        note: "Compulsory",
+      },
+      {
+        name: "Business Maths / Computer Science/Hotel Management / Business Studies",
+        note: "Optional",
+      },
     ],
     timing: "Morning: 6:20 AM – 11:00 AM",
     eligibility: {
@@ -130,7 +138,7 @@ const streams = [
     },
     features: [
       "Business simulation exercises and case study analysis",
-      "CA and BBA entrance examination preparation",
+      "CA, ACCA and BBA entrance examination preparation",
       "Financial literacy and investment management modules",
       "Entrepreneurship incubation and ideation lab access",
       "Hotel Management and Computer practical rooms",
@@ -204,7 +212,7 @@ const streams = [
       "Diplomacy",
       "Political Science (BA)",
     ],
-    passRate: "97%",
+    passRate: "100%",
   },
 ];
 
@@ -749,8 +757,17 @@ export default function Academics() {
               {
                 title: "Cyber Security & Ethical Hacking",
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 ),
                 topics: [
@@ -767,8 +784,18 @@ export default function Academics() {
               {
                 title: "Artificial Intelligence",
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                   </svg>
                 ),
                 topics: [
@@ -783,8 +810,19 @@ export default function Academics() {
               {
                 title: "Data Science",
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
                   </svg>
                 ),
                 topics: [
@@ -809,7 +847,10 @@ export default function Academics() {
                 </h3>
                 <ul className="space-y-2 flex-1">
                   {course.topics.map((t) => (
-                    <li key={t} className="flex items-start gap-2 text-xs text-[#8ba7c7]">
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-xs text-[#8ba7c7]"
+                    >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
                       {t}
                     </li>
@@ -820,11 +861,13 @@ export default function Academics() {
           </div>
           <div className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
-              <p className="font-bold text-[#0B1F3A] text-sm">NCC Education Certification</p>
+              <p className="font-bold text-[#0B1F3A] text-sm">
+                NCC Education Certification
+              </p>
               <p className="text-slate-600 text-xs leading-relaxed mt-1">
-                Courses are certified by NCC Education UK, founded in 1976 and regulated by Ofqual.
-                Internationally recognized in 40+ centers worldwide — giving KMC students a globally
-                competitive edge.
+                Courses are certified by NCC Education UK, founded in 1976 and
+                regulated by Ofqual. Internationally recognized in 40+ centers
+                worldwide — giving KMC students a globally competitive edge.
               </p>
             </div>
             <div className="shrink-0 px-5 py-3 bg-[#0B1F3A] text-amber-400 rounded-xl text-xs font-bold text-center">
@@ -846,8 +889,8 @@ export default function Academics() {
             Ready to Choose Your Stream?
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
-            Apply now for the 2083 academic year. View the full admission
-            guide or contact our admissions team for personalised guidance.
+            Apply now for the 2083 academic year. View the full admission guide
+            or contact our admissions team for personalised guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
