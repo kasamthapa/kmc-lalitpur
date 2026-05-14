@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 interface PopupButton {
@@ -74,10 +75,12 @@ function BtnEl({ btn, onClose }: { btn: PopupButton; onClose: () => void }) {
 }
 
 export function SitePopup() {
+  const pathname = usePathname();
   const [popup, setPopup] = useState<ActivePopup | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (pathname.startsWith("/admin")) return;
     let timer: ReturnType<typeof setTimeout>;
 
     fetch("/api/popups")
