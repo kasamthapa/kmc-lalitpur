@@ -1,37 +1,221 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KMC Lalitpur — Official Website
+
+The official website for **Kathmandu Model Secondary School (KMC Lalitpur)**, a NEB-affiliated +2 institution in Balkumari, Lalitpur, Nepal. Built with Next.js, Prisma, and Neon PostgreSQL, deployed on Vercel.
+
+🌐 **Live site:** [kmclalitpur.edu.np](https://kmclalitpur.edu.np)
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router, React 19) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Database | Neon PostgreSQL (serverless) |
+| ORM | Prisma 7 (pg adapter + PgBouncer) |
+| Auth | NextAuth v5 (JWT, credentials) |
+| Image Storage | Cloudinary |
+| AI Chatbot | Google Gemini API |
+| Email | Nodemailer |
+| Analytics | Vercel Analytics |
+| Deployment | Vercel |
+
+---
+
+## Features
+
+### Public Site
+- **Homepage** — hero, stats, academic streams, facilities, news, alumni
+- **Academics** — Science, Management, and BA.LLB (Law) stream pages
+- **Admissions** — eligibility, process, scholarships, enquiry form
+- **About** — history, mission, principal's message, faculty
+- **News & Notices** — dynamic, DB-driven news feed and notice board
+- **Blog** — SEO-optimised articles with dynamic OG images
+- **Gallery** — categorised photo gallery with Cloudinary CDN
+- **Alumni** — success stories + KMC Alumni Association section
+- **Facilities** — labs, library, hostel, transport, sports, cafeteria
+- **FAQ** — structured Q&A with FAQPage schema for rich results
+- **Contact** — contact form with email delivery
+- **AI Chatbot** — Gemini-powered assistant for admissions queries
+
+### Admin Panel (`/admin`)
+- **News** — create, edit, publish/unpublish news articles
+- **Blog** — full blog post editor with image upload
+- **Gallery** — upload images with crop tool, custom categories
+- **Notices** — pin and manage official notices
+- **Faculty** — add/edit faculty members with photos
+- **Alumni** — manage alumni profiles and success stories
+- **Enquiries** — view and manage admission enquiries
+- **Popups** — create site-wide popups with image, text, buttons, and frequency control
+- **Settings** — site configuration
+
+### SEO / AEO / GEO
+- Full Schema.org structured data (EducationalOrganization, FAQPage, Course, Person, BreadcrumbList, Article)
+- Dynamic `sitemap.xml` with blog post URLs pulled from DB
+- `robots.txt` allowing Google, Bing, and AI crawlers (GPTBot, ClaudeBot, PerplexityBot)
+- Open Graph and Twitter card metadata on every page
+- Canonical URLs, hreflang, JSON-LD on all key pages
+
+---
+
+## Project Structure
+
+```
+app/
+├── (public pages)
+│   ├── page.tsx              # Homepage
+│   ├── about/
+│   ├── academics/
+│   ├── admissions/
+│   ├── alumni/
+│   ├── blog/
+│   ├── campus/
+│   ├── contact/
+│   ├── facilities/
+│   ├── faq/
+│   ├── gallery/
+│   └── news/
+├── admin/
+│   ├── login/
+│   └── (protected)/
+│       ├── alumni/
+│       ├── blog/
+│       ├── enquiries/
+│       ├── faculty/
+│       ├── gallery/
+│       ├── news/
+│       ├── notices/
+│       ├── popups/
+│       └── settings/
+├── api/
+│   ├── admin/                # Protected CRUD endpoints
+│   ├── chatbot/              # Gemini AI chatbot
+│   ├── contact/              # Contact form email
+│   └── popups/               # Public popup fetch
+├── components/               # Shared UI components
+├── config/
+│   └── site.ts               # Single source of truth for site constants
+└── lib/
+    └── prisma.ts             # Prisma client (singleton with PgBouncer)
+
+prisma/
+├── schema.prisma             # DB schema
+├── migrations/               # Migration history
+└── seed.ts                   # Admin user seed
+
+middleware.ts                 # Auth guard for /admin routes
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js ≥ 20
+- A [Neon](https://neon.tech) PostgreSQL database
+- A [Cloudinary](https://cloudinary.com) account (free tier works)
+- A [Google AI Studio](https://aistudio.google.com) API key (for chatbot)
+
+### 1. Clone and install
+
+```bash
+git clone https://github.com/kasamthapa/kmc-lalitpur.git
+cd kmc-lalitpur
+npm install
+```
+
+### 2. Set up environment variables
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```bash
+cp .env.example .env
+```
+
+```env
+# Neon PostgreSQL — pooled (runtime)
+DATABASE_URL="postgresql://user:password@host/dbname?sslmode=require&pgbouncer=true"
+
+# Neon PostgreSQL — direct (migrations only)
+DIRECT_URL="postgresql://user:password@host/dbname?sslmode=require"
+
+# Admin account (change after first login)
+ADMIN_EMAIL="admin@kmclalitpur.edu.np"
+ADMIN_PASSWORD="ChangeMe@123"
+
+# NextAuth
+NEXTAUTH_SECRET="generate with: openssl rand -base64 32"
+NEXTAUTH_URL="http://localhost:3000"
+
+# Cloudinary
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your-cloud-name"
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET="your-upload-preset"
+
+# Google Gemini (chatbot)
+GEMINI_API_KEY="your-gemini-api-key"
+```
+
+### 3. Set up the database
+
+```bash
+npm run db:push      # Push schema to Neon
+npm run db:seed      # Create the admin user
+```
+
+### 4. Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The admin panel is at [http://localhost:3000/admin](http://localhost:3000/admin).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment (Vercel)
 
-## Learn More
+1. Push to GitHub (already connected to Vercel)
+2. In your Vercel project → **Settings → Environment Variables**, add all variables from `.env`
+3. Set `NEXTAUTH_URL` to your production domain (e.g. `https://kmclalitpur.edu.np`)
+4. Deploy — Vercel picks up the `main` branch automatically
 
-To learn more about Next.js, take a look at the following resources:
+> **Note:** The Neon free tier supports a max of 3 concurrent connections. The Prisma client is configured with `max: 3` to stay within this limit.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Database Scripts
 
-## Deploy on Vercel
+```bash
+npm run db:generate   # Regenerate Prisma client after schema changes
+npm run db:push       # Push schema changes to DB (no migration file)
+npm run db:migrate    # Create a migration file + push
+npm run db:studio     # Open Prisma Studio (visual DB browser)
+npm run db:seed       # Seed the admin user
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# kmc-lalitpur
+## Environment Variable Reference
+
+| Variable | Required | Description |
+|---|---|---|
+| `DATABASE_URL` | ✅ | Neon pooled connection string (PgBouncer) |
+| `DIRECT_URL` | ✅ | Neon direct connection (for migrations) |
+| `NEXTAUTH_SECRET` | ✅ | Random secret for JWT signing |
+| `NEXTAUTH_URL` | ✅ | Full URL of the site |
+| `ADMIN_EMAIL` | ✅ | Initial admin account email |
+| `ADMIN_PASSWORD` | ✅ | Initial admin account password |
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | ✅ | Cloudinary cloud name |
+| `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET` | ✅ | Cloudinary unsigned upload preset |
+| `GEMINI_API_KEY` | ⚠️ | Google Gemini key (chatbot won't work without it) |
+
+---
+
+## After Going Live
+
+1. **Google Search Console** → verify site ownership → submit `https://kmclalitpur.edu.np/sitemap.xml`
+2. **Bing Webmaster Tools** → verify site ownership → submit sitemap
+3. Add verification codes to `app/layout.tsx` under `metadata.verification`
+4. Change the admin password immediately after first login
