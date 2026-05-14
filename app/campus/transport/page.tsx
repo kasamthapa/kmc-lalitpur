@@ -2,110 +2,47 @@ import Link from "next/link";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { BreadcrumbSchema, WebPageSchema } from "../../components/schema";
-import { IconChevronRight, IconMapPin, IconPhone, IconClock, IconCheck } from "../../components/icons";
+import { IconChevronRight, IconMapPin, IconPhone, IconCheck } from "../../components/icons";
 import { SITE_CONFIG } from "../../config/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Transport Service",
   description:
-    "KMC Lalitpur provides safe and reliable school transport service across Lalitpur, Kathmandu, and Bhaktapur. View routes, stops, and timings.",
+    "KMC Lalitpur provides safe and reliable school transport service across Kathmandu and Lalitpur. Students are dropped at the nearest location to their home.",
 };
 
-const routes = [
-  {
-    id: "R1",
-    name: "Kathmandu Central Route",
-    color: "#1a4a7a",
-    pickup: "6:45 AM",
-    drop: "5:30 PM",
-    stops: [
-      "Ratnapark (Start)",
-      "Sundhara",
-      "Tripureswor",
-      "Thapathali",
-      "Maitighar",
-      "Tikathali",
-      "Balkumari (KMC)",
-    ],
-  },
-  {
-    id: "R2",
-    name: "Patan / Lalitpur Route",
-    color: "#2d6a4f",
-    pickup: "6:55 AM",
-    drop: "5:20 PM",
-    stops: [
-      "Lagankhel (Start)",
-      "Mangalbazar",
-      "Ekantakuna",
-      "Jawalakhel",
-      "Sanepa",
-      "Pulchok",
-      "Balkumari (KMC)",
-    ],
-  },
-  {
-    id: "R3",
-    name: "Bhaktapur Route",
-    color: "#7b2d8b",
-    pickup: "6:30 AM",
-    drop: "5:45 PM",
-    stops: [
-      "Bhaktapur Buspark (Start)",
-      "Thimi",
-      "Jadibuti",
-      "Koteshwor",
-      "Tinkune",
-      "Sinamangal",
-      "Balkumari (KMC)",
-    ],
-  },
-  {
-    id: "R4",
-    name: "Baneshwor / Dillibazar Route",
-    color: "#c75000",
-    pickup: "6:50 AM",
-    drop: "5:25 PM",
-    stops: [
-      "Dillibazar (Start)",
-      "Putalisadak",
-      "Bijulibazar",
-      "Baneshwor",
-      "Old Baneshwor",
-      "Naxal",
-      "Balkumari (KMC)",
-    ],
-  },
-  {
-    id: "R5",
-    name: "Gwarko / Imadol Route",
-    color: "#374151",
-    pickup: "7:00 AM",
-    drop: "5:15 PM",
-    stops: [
-      "Gwarko (Start)",
-      "Imadol",
-      "Satdobato",
-      "Khumaltar",
-      "Nakhu",
-      "Balkumari (KMC)",
-    ],
-  },
+const areas = [
+  { name: "Satdobato",   zone: "Lalitpur" },
+  { name: "Bhaisepati",  zone: "Lalitpur" },
+  { name: "Kupondole",   zone: "Lalitpur" },
+  { name: "Babarmahal",  zone: "Kathmandu" },
+  { name: "Baneshwor",   zone: "Kathmandu" },
+  { name: "Buddhanagar", zone: "Kathmandu" },
+  { name: "Kuleshwor",   zone: "Kathmandu" },
+  { name: "Kalanki",     zone: "Kathmandu" },
+  { name: "Kirtipur",    zone: "Kathmandu" },
+  { name: "Sitapaila",   zone: "Kathmandu" },
+  { name: "Thankot",     zone: "Kathmandu" },
+  { name: "Sukedhara",   zone: "Kathmandu" },
+  { name: "Chabahil",    zone: "Kathmandu" },
 ];
 
 const policies = [
-  "Students must be at the pickup point 5 minutes before scheduled time",
+  "Students must be at their pickup point 5 minutes before scheduled time",
   "ID cards must be carried at all times on school transport",
   "No standing in the aisle while the vehicle is in motion",
   "Students are responsible for their own belongings",
-  "Route changes require 7 days advance notice to the transport office",
+  "Route or stop changes require 7 days advance notice to the transport office",
   "Monthly pass must be renewed by the 5th of each month",
   "Transport pass is non-transferable",
-  "Emergency contact updates must be communicated immediately",
+  "Emergency contact updates must be communicated to the office immediately",
 ];
 
 export default function TransportPage() {
+  const lalitpurAreas = areas.filter((a) => a.zone === "Lalitpur");
+  const kathmanduAreas = areas.filter((a) => a.zone === "Kathmandu");
+
   return (
     <main className="bg-white">
       <BreadcrumbSchema
@@ -116,7 +53,7 @@ export default function TransportPage() {
       />
       <WebPageSchema
         title="Transport Service — KMC Lalitpur"
-        description="School transport routes, stops, and timings for KMC Lalitpur students."
+        description="School transport coverage areas and timings for KMC Lalitpur students."
         path="/campus/transport"
       />
       <Header />
@@ -139,15 +76,14 @@ export default function TransportPage() {
               Transport Service
             </h1>
             <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Safe, reliable, and punctual school transport covering 5 major routes across Lalitpur, Kathmandu, and Bhaktapur.
+              Safe, reliable, and punctual school transport covering major areas across Kathmandu and Lalitpur — with drop-off at the nearest point to your home.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             {[
-              { label: "Routes", value: "5" },
-              { label: "Stops", value: "30+" },
-              { label: "Students/Day", value: "400+" },
-              { label: "Fleet Size", value: "8 Buses" },
+              { label: "Areas Covered", value: "13+" },
+              { label: "Students Served", value: "400+" },
+              { label: "Fleet Size",     value: "8 Buses" },
             ].map((s) => (
               <div key={s.label} className="text-center bg-white/10 rounded-2xl p-5">
                 <div className="text-3xl font-bold text-amber-400">{s.value}</div>
@@ -158,69 +94,89 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Routes */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Coverage</p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">All Routes & Stops</h2>
-            <p className="text-[#6b7280] mt-4">Select the route closest to your location to find your pickup point.</p>
+      {/* Nearest drop-off banner */}
+      <section className="bg-amber-400 py-5">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#0B1F3A]/10 flex items-center justify-center shrink-0">
+            <IconMapPin size={20} className="text-[#0B1F3A]" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {routes.map((route) => (
-              <div
-                key={route.id}
-                className="rounded-2xl overflow-hidden border border-[#eae6de] hover:shadow-xl transition"
-              >
-                {/* Header */}
-                <div
-                  className="px-6 py-5 text-white"
-                  style={{ background: `linear-gradient(135deg, ${route.color}, ${route.color}cc)` }}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold bg-white/20 px-2 py-1 rounded-full">
-                      {route.id}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold">{route.name}</h3>
-                  <div className="flex gap-4 mt-3 text-sm opacity-90">
-                    <span className="flex items-center gap-1.5">
-                      <IconClock size={12} />
-                      Pickup: {route.pickup}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <IconClock size={12} />
-                      Drop: {route.drop}
-                    </span>
-                  </div>
-                </div>
+          <p className="text-[#0B1F3A] font-semibold text-base leading-snug">
+            Door-to-door convenience — our transport drops every student at the{" "}
+            <span className="underline underline-offset-2">nearest location to their home</span>{" "}
+            within the covered areas.
+          </p>
+        </div>
+      </section>
 
-                {/* Stops */}
-                <div className="p-5 bg-[#f7f5f0]">
-                  <p className="text-xs font-semibold text-[#6b7280] uppercase tracking-wider mb-3">Stops</p>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-0 bottom-0 w-0.5 bg-[#eae6de]" />
-                    <ul className="space-y-2">
-                      {route.stops.map((stop, i) => (
-                        <li key={stop} className="flex items-center gap-3 relative">
-                          <div
-                            className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shrink-0 z-10"
-                            style={{ background: i === 0 || i === route.stops.length - 1 ? route.color : "#d1d5db" }}
-                          >
-                            {(i === 0 || i === route.stops.length - 1) && (
-                              <IconMapPin size={10} className="text-white" />
-                            )}
-                          </div>
-                          <span className={`text-sm ${i === route.stops.length - 1 ? "font-bold text-[#0B1F3A]" : "text-[#374151]"}`}>
-                            {stop}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+      {/* Coverage Areas */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
+              Coverage
+            </p>
+            <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Coverage Areas</h2>
+            <p className="text-[#6b7280] mt-4 max-w-xl mx-auto">
+              If you live in or near any of these areas, our transport service is available for you.
+              Contact us to confirm your nearest pickup point.
+            </p>
+          </div>
+
+          {/* Kathmandu */}
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-3 h-3 rounded-full bg-[#1a4a7a]" />
+              <h3 className="text-lg font-bold text-[#0B1F3A]">Kathmandu</h3>
+              <div className="flex-1 h-px bg-[#eae6de]" />
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {kathmanduAreas.map((area) => (
+                <div
+                  key={area.name}
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f0f4f9] border border-[#d0dce8] hover:bg-[#1a4a7a] hover:text-white hover:border-[#1a4a7a] transition-all duration-200 group cursor-default"
+                >
+                  <IconMapPin size={14} className="text-[#1a4a7a] group-hover:text-white transition-colors" />
+                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
+                    {area.name}
+                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Lalitpur */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-3 h-3 rounded-full bg-[#2d6a4f]" />
+              <h3 className="text-lg font-bold text-[#0B1F3A]">Lalitpur</h3>
+              <div className="flex-1 h-px bg-[#eae6de]" />
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {lalitpurAreas.map((area) => (
+                <div
+                  key={area.name}
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f0faf5] border border-[#b7dfc9] hover:bg-[#2d6a4f] hover:text-white hover:border-[#2d6a4f] transition-all duration-200 group cursor-default"
+                >
+                  <IconMapPin size={14} className="text-[#2d6a4f] group-hover:text-white transition-colors" />
+                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
+                    {area.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Note */}
+          <div className="mt-12 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
+            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+              <IconMapPin size={16} className="text-amber-600" />
+            </div>
+            <div>
+              <p className="font-bold text-[#0B1F3A] mb-1">Don&apos;t see your area?</p>
+              <p className="text-sm text-[#6b7280] leading-relaxed">
+                Our coverage is continuously expanding. Contact the transport office — if you live near any of the listed areas, we&apos;ll do our best to include a nearby pickup or drop-off point for you.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -250,7 +206,7 @@ export default function TransportPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Register for Transport</h2>
           <p className="text-[#8ba7c7] text-lg mb-10">
-            Contact our transport office to register for a monthly pass or inquire about routes.
+            Contact our transport office to register, confirm your pickup point, or inquire about coverage in your area.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
