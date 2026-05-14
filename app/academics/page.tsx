@@ -475,20 +475,36 @@ export default function Academics() {
                   {stream.id === "law" ? (
                     /* Law: split into Grade XI and Grade XII columns */
                     (() => {
-                      const common  = stream.subjects.filter(s => !s.name.includes("Gr. XI") && !s.name.includes("Gr. XII"));
-                      const gradeXI  = stream.subjects.filter(s => s.name.includes("Gr. XI"));
-                      const gradeXII = stream.subjects.filter(s => s.name.includes("Gr. XII"));
-                      const SubjectCard = ({ s }: { s: { name: string; note: string } }) => (
+                      const common = stream.subjects.filter(
+                        (s) =>
+                          !s.name.includes("Gr. XI") &&
+                          !s.name.includes("Gr. XII"),
+                      );
+                      const gradeXI = stream.subjects.filter((s) =>
+                        s.name.includes("Gr. XI"),
+                      );
+                      const gradeXII = stream.subjects.filter((s) =>
+                        s.name.includes("Gr. XII"),
+                      );
+                      const SubjectCard = ({
+                        s,
+                      }: {
+                        s: { name: string; note: string };
+                      }) => (
                         <div className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]">
                           <div className="flex items-center gap-2">
                             <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
                               <IconCheck />
                             </span>
                             <span className="text-slate-700 text-sm font-medium">
-                              {s.name.replace(" (Gr. XI)", "").replace(" (Gr. XII)", "")}
+                              {s.name
+                                .replace(" (Gr. XI)", "")
+                                .replace(" (Gr. XII)", "")}
                             </span>
                           </div>
-                          <span className="text-xs text-slate-400 font-medium">{s.note}</span>
+                          <span className="text-xs text-slate-400 font-medium">
+                            {s.note}
+                          </span>
                         </div>
                       );
                       return (
@@ -496,21 +512,31 @@ export default function Academics() {
                           {/* Common subjects */}
                           {common.length > 0 && (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {common.map(s => <SubjectCard key={s.name} s={s} />)}
+                              {common.map((s) => (
+                                <SubjectCard key={s.name} s={s} />
+                              ))}
                             </div>
                           )}
                           {/* Grade XI & XII side by side */}
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">Grade XI</p>
+                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">
+                                Grade XI
+                              </p>
                               <div className="space-y-2">
-                                {gradeXI.map(s => <SubjectCard key={s.name} s={s} />)}
+                                {gradeXI.map((s) => (
+                                  <SubjectCard key={s.name} s={s} />
+                                ))}
                               </div>
                             </div>
                             <div>
-                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">Grade XII</p>
+                              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 px-1">
+                                Grade XII
+                              </p>
                               <div className="space-y-2">
-                                {gradeXII.map(s => <SubjectCard key={s.name} s={s} />)}
+                                {gradeXII.map((s) => (
+                                  <SubjectCard key={s.name} s={s} />
+                                ))}
                               </div>
                             </div>
                           </div>
@@ -550,7 +576,7 @@ export default function Academics() {
                   >
                     Eligibility Criteria
                   </h3>
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3">
                     <span className="text-2xl font-bold text-[#0B1F3A]">
                       GPA {stream.eligibility.cgpa}
                     </span>
@@ -558,24 +584,6 @@ export default function Academics() {
                       minimum required
                     </span>
                   </div>
-                  <ul className="space-y-1.5 mb-3">
-                    {stream.eligibility.subjects.map((s) => (
-                      <li
-                        key={s}
-                        className="flex items-center gap-2 text-sm text-slate-700"
-                      >
-                        <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                          <IconCheck />
-                        </span>
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                  {stream.eligibility.note && (
-                    <p className="text-xs text-slate-500 italic">
-                      {stream.eligibility.note}
-                    </p>
-                  )}
                 </div>
 
                 {/* Special Features */}
