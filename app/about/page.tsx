@@ -115,7 +115,7 @@ const accreditations = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function About() {
   return (
-    <main className="bg-white pt-28">
+    <main className="bg-white">
       <Header />
       <BreadcrumbSchema items={[{ name: "About Us", href: "/about" }]} />
       <WebPageSchema
@@ -125,30 +125,60 @@ export default function About() {
       />
       <PrincipalSchema />
       {/* Hero */}
-      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
-        <div className="absolute top-0 right-0 w-130 h-130 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#1a3a5c]/60 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-          <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
+      <section className="relative h-[92vh] min-h-[580px] flex items-end overflow-hidden">
+        {/* Background image */}
+        <Image
+          src="/images/aboutPage/about.jpeg"
+          alt="KMC Lalitpur Campus"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+
+        {/* Content */}
+        <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-20">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 mb-8 text-sm text-white/60">
             <Link href="/" className="hover:text-amber-400 transition-colors">
               Home
             </Link>
-            <span className="text-[#8ba7c7]/50">/</span>
+            <span className="text-white/30">/</span>
             <span className="text-amber-400 font-medium">About Us</span>
           </nav>
-          <div className="max-w-3xl">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
-              Est. 2000 · Balkumari, Lalitpur
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              About
-              <br />
-              <span className="text-amber-400">KMC Lalitpur</span>
-            </h1>
-            <p className="text-lg text-[#8ba7c7] leading-relaxed max-w-xl">
-              Over 25 years of academic excellence, character-building, and
-              transformative +2 education in the Kathmandu Valley.
-            </p>
+
+          <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded backdrop-blur-sm bg-white/5">
+            Est. 2000 · Balkumari, Lalitpur
+          </span>
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            About
+            <br />
+            <span className="text-amber-400">KMC Lalitpur</span>
+          </h1>
+
+          <p className="text-lg text-white/75 leading-relaxed max-w-xl mb-10">
+            Over 25 years of academic excellence, character-building, and
+            transformative +2 education in the Kathmandu Valley.
+          </p>
+
+          {/* Quick stats */}
+          <div className="flex flex-wrap gap-6">
+            {[
+              { n: "2,500+", label: "Students" },
+              { n: "97%", label: "NEB Pass Rate" },
+              { n: "150+", label: "Faculty" },
+              { n: "25+", label: "Years" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="text-2xl font-bold text-amber-400 leading-none">{s.n}</span>
+                <span className="text-white/60 text-xs mt-1 font-medium tracking-wide uppercase">{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
