@@ -60,12 +60,15 @@ export function SchemaOrg() {
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
         alternateName: [
+          "KMC",
+          "KMC Lalitpur",
+          "KMC Balkumari",
+          "KMC Nepal",
           "Kathmandu Model College",
           "Kathmandu Model Secondary School",
-          "KMC Lalitpur",
-          "KMSS Lalitpur",
           "Kathmandu Model Secondary School Lalitpur",
-          "KMC Balkumari",
+          "KMSS",
+          "KMSS Lalitpur",
         ],
         description:
           "Kathmandu Model Secondary School (KMC Lalitpur) is a NEB-affiliated +2 institution located in Balkumari, Lalitpur, Nepal. Established in 2000, KMC offers Science, Management, and Law streams with a consistent 97% NEB pass rate.",

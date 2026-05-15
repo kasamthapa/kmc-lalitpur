@@ -24,22 +24,51 @@ export const metadata: Metadata = {
     template: "%s | KMC Lalitpur",
   },
   description:
-    "Kathmandu Model Secondary School (KMC Lalitpur) in Balkumari, Lalitpur — NEB affiliated +2 programs in Science, Management & Law. 97% NEB pass rate, 150+ faculty, world-class facilities.",
+    "KMC Lalitpur — Kathmandu Model Secondary School, Balkumari, Lalitpur. Nepal's top NEB-affiliated +2 school offering Science, Management & BA.LLB Law streams. 97% NEB pass rate, 2,500+ students, ISO 9001:2015 certified. Admissions open 2082.",
   keywords: [
+    // Primary brand terms
     "KMC Lalitpur",
+    "KMC",
     "Kathmandu Model Secondary School",
+    "Kathmandu Model College Lalitpur",
     "KMSS Lalitpur",
-    "NEB +2 Lalitpur",
-    "best +2 college Lalitpur",
-    "science stream Nepal",
-    "management stream Nepal",
-    "law stream Nepal",
-
-    "Balkumari school Lalitpur",
-    "NEB affiliated school Nepal",
     "KMC school Nepal",
+    "KMC Balkumari",
+
+    // Location-specific
+    "best +2 college Lalitpur",
+    "best school Lalitpur",
+    "Balkumari school Lalitpur",
+    "NEB +2 Lalitpur",
+    "NEB affiliated school Nepal",
+    "+2 college Balkumari",
+
+    // Stream-specific
+    "science stream Nepal",
+    "science stream Lalitpur",
+    "management stream Nepal",
+    "management stream Lalitpur",
+    "law stream Nepal",
+    "BA LLB Nepal",
+    "BA.LLB +2 Nepal",
+
+    // Intent-based
     "+2 admission Nepal 2082",
-    "SEE result college admission",
+    "+2 admission 2082",
+    "SEE result college admission Nepal",
+    "best +2 college Nepal",
+    "top +2 school Nepal",
+    "NEB 97 percent pass rate",
+    "ISO certified school Nepal",
+
+    // Long-tail
+    "Kathmandu Model Secondary School Lalitpur admission",
+    "KMC Lalitpur admission 2082",
+    "KMC Lalitpur science stream",
+    "KMC Lalitpur management stream",
+    "KMC Lalitpur law stream",
+    "KMC Lalitpur fees",
+    "KMC Lalitpur scholarship",
   ],
   authors: [{ name: "KMC Lalitpur", url: "https://kmclalitpur.edu.np" }],
   creator: "KMC Lalitpur",
@@ -73,7 +102,7 @@ export const metadata: Metadata = {
     siteName: "KMC Lalitpur",
     title: "KMC Lalitpur | Kathmandu Model Secondary School",
     description:
-      "NEB affiliated +2 programs in Science, Management & Law. 97% pass rate, 150+ expert faculty, world-class facilities in Balkumari, Lalitpur.",
+      "KMC Lalitpur — Nepal's top NEB-affiliated +2 school. Science, Management & BA.LLB Law streams. 97% pass rate, ISO certified, Balkumari Lalitpur. Admissions open 2082.",
     images: [
       {
         url: "/og-image.png",
@@ -90,7 +119,7 @@ export const metadata: Metadata = {
     creator: "@kmclalitpur",
     title: "KMC Lalitpur | Kathmandu Model Secondary School",
     description:
-      "NEB affiliated +2 programs in Science, Management & Law. 97% pass rate, world-class facilities in Lalitpur, Nepal.",
+      "KMC Lalitpur — Nepal's top NEB-affiliated +2 school. Science, Management & BA.LLB Law. 97% pass rate, ISO certified, Balkumari Lalitpur.",
     images: ["/og-image.png"],
   },
   alternates: {
