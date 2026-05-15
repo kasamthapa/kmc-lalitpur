@@ -224,7 +224,7 @@ export default async function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center md:hidden"
+          className="object-cover object-center scale-105 md:hidden"
         />
 
         {/* Desktop YouTube background — hidden on mobile */}
@@ -232,9 +232,19 @@ export default async function Home() {
           <HeroVideo />
         </div>
 
-        {/* Overlay — also blocks YouTube UI controls bleeding through */}
+        {/* Mobile overlay — strong dark gradient so text is clean and readable */}
         <div
-          className="absolute inset-0 bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent pointer-events-none"
+          className="absolute inset-0 md:hidden pointer-events-none"
+          style={{
+            zIndex: 1,
+            background:
+              "linear-gradient(to bottom, rgba(11,31,58,0.72) 0%, rgba(11,31,58,0.55) 40%, rgba(11,31,58,0.80) 100%)",
+          }}
+        />
+
+        {/* Desktop overlay — left-to-right fade for video */}
+        <div
+          className="absolute inset-0 hidden md:block bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent pointer-events-none"
           style={{ zIndex: 1 }}
         />
         {/* Transparent click-blocker so YouTube controls can't be interacted with */}
@@ -252,14 +262,14 @@ export default async function Home() {
               NEB Affiliated · Est. 2000 · Balkumari, Lalitpur
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.05] tracking-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.05] tracking-tight drop-shadow-lg">
               Shape Your
               <br />
-              <span className="text-amber-400">Future</span> at
+              <span className="text-amber-300 md:text-amber-400">Future</span> at
               <br />
               KMC Lalitpur
             </h1>
-            <p className="text-base md:text-lg text-white/80 mb-6 md:mb-10 leading-relaxed max-w-xl">
+            <p className="text-sm md:text-lg text-white/75 mb-6 md:mb-10 leading-relaxed max-w-xl drop-shadow">
               Kathmandu Model Secondary School delivers world-class education
               across Science, Management, and Law — with 97% NEB pass rate and a
               legacy of excellence.
