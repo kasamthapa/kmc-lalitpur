@@ -217,8 +217,21 @@ export default async function Home() {
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden">
-        {/* YouTube background */}
-        <HeroVideo />
+        {/* Mobile background image — shown only on small screens */}
+        <Image
+          src="/images/aboutPage/about.jpeg"
+          alt="KMC Lalitpur Campus"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center md:hidden"
+        />
+
+        {/* Desktop YouTube background — hidden on mobile */}
+        <div className="hidden md:block">
+          <HeroVideo />
+        </div>
+
         {/* Overlay — also blocks YouTube UI controls bleeding through */}
         <div
           className="absolute inset-0 bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent pointer-events-none"
