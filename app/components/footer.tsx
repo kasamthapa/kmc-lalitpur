@@ -29,7 +29,7 @@ export function Footer() {
               href="/"
               className="inline-block mb-5 hover:opacity-80 transition-opacity"
             >
-              <div className="relative h-14 w-48">
+              <div className="relative h-12 w-52">
                 <Image
                   src="/logo.png"
                   alt="KMC Lalitpur"

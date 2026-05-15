@@ -214,13 +214,13 @@ export function Header() {
           href="/"
           className="flex items-center hover:opacity-85 transition-opacity shrink-0"
         >
-          <div className="relative h-12 w-auto">
+          <div className="relative h-11 w-48">
             <Image
               src="/logo.png"
               alt="Kathmandu Model Secondary School - KMC Lalitpur"
-              height={48}
-              width={200}
-              className="object-contain h-12 w-auto"
+              fill
+              sizes="192px"
+              className="object-contain object-left"
               priority
             />
           </div>
