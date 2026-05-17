@@ -1,25 +1,12 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { BreadcrumbSchema, WebPageSchema } from "../../components/schema";
 import { IconChevronRight, IconMapPin, IconPhone, IconCheck } from "../../components/icons";
 import { SITE_CONFIG } from "../../config/site";
 import { routeData } from "./_components/TransportMap";
+import TransportMapClient from "./_components/TransportMapClient";
 import type { Metadata } from "next";
-
-// Leaflet must be loaded client-side only (no SSR)
-const TransportMap = dynamic(() => import("./_components/TransportMap"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full rounded-2xl overflow-hidden border border-[#e2e8f0] shadow-lg bg-[#f0f4f8] flex items-center justify-center" style={{ height: 520 }}>
-      <div className="text-center text-[#6b7280]">
-        <div className="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-        <p className="text-sm font-medium">Loading map…</p>
-      </div>
-    </div>
-  ),
-});
 
 export const metadata: Metadata = {
   title: "Transport Service",
@@ -139,7 +126,7 @@ export default function TransportPage() {
           </div>
 
           {/* Map */}
-          <TransportMap />
+          <TransportMapClient />
 
           {/* Stop grid */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
