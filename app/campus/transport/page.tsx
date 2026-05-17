@@ -27,7 +27,28 @@ const policies = [
   "Emergency contact updates must be communicated to the office immediately",
 ];
 
-// ─── Page ────────────────────────────────────────────────────────────────────
+// District accent colours mapped from routeData
+const districtMeta: Record<string, { bg: string; border: string; badge: string; text: string }> = {
+  Kathmandu: {
+    bg:     "bg-blue-50",
+    border: "border-blue-200",
+    badge:  "bg-blue-600",
+    text:   "text-blue-700",
+  },
+  Bhaktapur: {
+    bg:     "bg-violet-50",
+    border: "border-violet-200",
+    badge:  "bg-violet-600",
+    text:   "text-violet-700",
+  },
+  Lalitpur: {
+    bg:     "bg-emerald-50",
+    border: "border-emerald-200",
+    badge:  "bg-emerald-600",
+    text:   "text-emerald-700",
+  },
+};
+
 export default function TransportPage() {
   return (
     <main className="bg-white">
@@ -44,13 +65,13 @@ export default function TransportPage() {
       />
       <Header />
 
-      {/* Hero */}
+      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
             <IconChevronRight size={14} />
-            <span className="hover:text-amber-400 transition">Campus</span>
+            <span>Campus</span>
             <IconChevronRight size={14} />
             <span className="text-amber-400 font-semibold">Transport</span>
           </div>
@@ -58,7 +79,7 @@ export default function TransportPage() {
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">School Transport</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">Transport Service</h1>
             <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Safe, reliable school transport covering major areas across Kathmandu, Lalitpur and Bhaktapur — with drop-off at the nearest point to your home.
+              Safe, reliable school transport covering major areas across Kathmandu, Lalitpur and Bhaktapur — drop-off at the nearest point to your home.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
@@ -76,7 +97,7 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Drop-off banner */}
+      {/* ── Drop-off banner ───────────────────────────────────────────────────── */}
       <section className="bg-amber-400 py-5">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-[#0B1F3A]/10 flex items-center justify-center shrink-0">
@@ -90,37 +111,106 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Interactive Route Map */}
-      <section className="py-20 bg-white">
+      {/* ── Coverage Areas — stop listing ─────────────────────────────────────── */}
+      <section className="py-20 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Route Map</p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Routes</h2>
-            <p className="text-[#6b7280] mt-4 max-w-xl mx-auto">
-              Explore our routes on the interactive map. Hover over any stop to see its name. All three routes connect to KMC Balkumari.
+
+          {/* Heading */}
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Coverage Areas</p>
+            <h2 className="text-4xl font-bold text-[#0B1F3A]">Areas We Serve</h2>
+            <p className="text-[#6b7280] mt-3 max-w-lg mx-auto text-base">
+              Bus stops across three districts — find your area below.
             </p>
           </div>
 
-          {/* Route legend */}
-          <div className="flex flex-wrap gap-3 justify-center mb-6">
-            {Object.entries(routeData).map(([zone, r]) => (
+          {/* District cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Object.entries(routeData).map(([zone, route]) => {
+              const m = districtMeta[zone];
+              return (
+                <div
+                  key={zone}
+                  className={`rounded-2xl border ${m.bg} ${m.border} overflow-hidden flex flex-col`}
+                >
+                  {/* Card header */}
+                  <div className="px-5 py-4 flex items-center gap-3">
+                    <span
+                      className="w-3 h-3 rounded-full flex-shrink-0"
+                      style={{ background: route.color }}
+                    />
+                    <h3 className="font-bold text-[#0B1F3A] text-lg">{zone}</h3>
+                    <span
+                      className={`ml-auto text-white text-xs font-bold px-2.5 py-1 rounded-full ${m.badge}`}
+                    >
+                      {route.stops.length} stops
+                    </span>
+                  </div>
+
+                  {/* Divider */}
+                  <div className={`h-px mx-5 ${m.border} border-t`} />
+
+                  {/* Stop list */}
+                  <div className="px-5 py-4 flex-1">
+                    <ol className="space-y-1.5">
+                      {route.stops.map((stop, i) => (
+                        <li key={stop.name} className="flex items-center gap-2.5">
+                          <span
+                            className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-white"
+                            style={{ background: route.color }}
+                          >
+                            {i + 1}
+                          </span>
+                          <span className="text-sm font-medium text-[#374151]">{stop.name}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+
+                  {/* Footer */}
+                  <div className={`px-5 py-3 border-t ${m.border} flex items-center gap-2`}>
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{ background: route.color }}
+                    />
+                    <span className={`text-xs font-semibold ${m.text}`}>
+                      All stops connect to KMC Balkumari
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Interactive Map ───────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+
+          {/* Heading */}
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Route Map</p>
+            <h2 className="text-4xl font-bold text-[#0B1F3A]">Live Route Map</h2>
+            <p className="text-[#6b7280] mt-3 max-w-lg mx-auto text-base">
+              Each coloured line shows the bus path to KMC Balkumari. Hover any dot to see the stop name.
+            </p>
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {Object.entries(routeData).map(([zone, route]) => (
               <div
                 key={zone}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border bg-white shadow-sm text-sm font-semibold"
-                style={{ borderColor: r.color + "55", color: r.color }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#e5e7eb] shadow-sm text-sm font-semibold text-[#374151]"
               >
-                <span
-                  className="w-3 h-3 rounded-full inline-block"
-                  style={{ background: r.color }}
-                />
-                {r.label}
-                <span className="text-[#9ca3af] font-normal text-xs ml-1">
-                  {r.stops.length} stops
-                </span>
+                <span className="w-4 h-1.5 rounded-full inline-block" style={{ background: route.color }} />
+                {zone} Route
+                <span className="text-[#9ca3af] font-normal text-xs">({route.stops.length})</span>
               </div>
             ))}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full border bg-white shadow-sm text-sm font-semibold border-amber-300 text-amber-700">
-              <span className="text-base leading-none">🏫</span>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200 shadow-sm text-sm font-semibold text-amber-700">
+              <span className="text-base">🏫</span>
               KMC Balkumari
             </div>
           </div>
@@ -128,53 +218,13 @@ export default function TransportPage() {
           {/* Map */}
           <TransportMapClient />
 
-          {/* Stop grid */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {Object.entries(routeData).map(([zone, r]) => (
-              <div
-                key={zone}
-                className="rounded-2xl border bg-white overflow-hidden"
-                style={{ borderColor: r.color + "44" }}
-              >
-                {/* Zone header */}
-                <div
-                  className="px-5 py-3 flex items-center gap-2"
-                  style={{ background: r.color + "12" }}
-                >
-                  <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ background: r.color }}
-                  />
-                  <span className="font-bold text-[#0B1F3A]">{zone}</span>
-                  <span
-                    className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full text-white"
-                    style={{ background: r.color }}
-                  >
-                    {r.stops.length} stops
-                  </span>
-                </div>
+          <p className="text-center text-xs text-[#9ca3af] mt-3">
+            Scroll or pinch to zoom · Hover stops to see names
+          </p>
 
-                {/* Stops */}
-                <div className="p-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {r.stops.map((stop) => (
-                      <span
-                        key={stop.name}
-                        className="text-xs px-2.5 py-1 rounded-full border font-medium text-[#374151]"
-                        style={{ borderColor: r.color + "55", background: r.color + "08" }}
-                      >
-                        {stop.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Note */}
-          <div className="mt-8 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
-            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+          {/* Don't see your area */}
+          <div className="mt-10 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
+            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
               <IconMapPin size={16} className="text-amber-600" />
             </div>
             <div>
@@ -187,7 +237,7 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Policies */}
+      {/* ── Policies ─────────────────────────────────────────────────────────── */}
       <section className="py-20 bg-[#f7f5f0]">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -207,7 +257,7 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="py-20 bg-[#0B1F3A] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Register for Transport</h2>
