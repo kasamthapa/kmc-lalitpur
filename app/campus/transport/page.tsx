@@ -164,7 +164,9 @@ export default function TransportPage() {
 
                   {/* Footer */}
                   <div className={`px-5 py-3 border-t ${m.border} flex items-center gap-2 ${m.headerBg}`}>
-                    <IconMapPin size={13} style={{ color: route.color }} />
+                    <span style={{ color: route.color, display: "flex" }}>
+                      <IconMapPin size={13} />
+                    </span>
                     <span className={`text-xs font-semibold ${m.text}`}>
                       All stops → KMC Balkumari
                     </span>
