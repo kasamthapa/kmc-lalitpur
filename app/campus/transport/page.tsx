@@ -1,10 +1,25 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { BreadcrumbSchema, WebPageSchema } from "../../components/schema";
 import { IconChevronRight, IconMapPin, IconPhone, IconCheck } from "../../components/icons";
 import { SITE_CONFIG } from "../../config/site";
+import { routeData } from "./_components/TransportMap";
 import type { Metadata } from "next";
+
+// Leaflet must be loaded client-side only (no SSR)
+const TransportMap = dynamic(() => import("./_components/TransportMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full rounded-2xl overflow-hidden border border-[#e2e8f0] shadow-lg bg-[#f0f4f8] flex items-center justify-center" style={{ height: 520 }}>
+      <div className="text-center text-[#6b7280]">
+        <div className="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+        <p className="text-sm font-medium">Loading map…</p>
+      </div>
+    </div>
+  ),
+});
 
 export const metadata: Metadata = {
   title: "Transport Service",
@@ -12,38 +27,7 @@ export const metadata: Metadata = {
     "KMC Lalitpur provides safe and reliable school transport service across Kathmandu, Lalitpur and Bhaktapur. Students are dropped at the nearest location to their home.",
 };
 
-// Routes in logical geographic sequence
-const routes = {
-  Kathmandu: {
-    color: { dot: "bg-[#1a4a7a]", line: "#1a4a7a", tag: "bg-[#f0f4f9] border-[#d0dce8] text-[#1a4a7a]", zone: "bg-[#1a4a7a]" },
-    stops: [
-      "Thankot", "Sitapaila", "Kalanki", "Kuleshwor", "Kirtipur",
-      "Babarmahal", "Baneshwor", "Buddhanagar", "Chabahil",
-      "Boudha", "Mulpani", "Jorpati", "Sukedhara", "Pepsicola",
-    ],
-  },
-  Bhaktapur: {
-    color: { dot: "bg-[#7b2d8b]", line: "#7b2d8b", tag: "bg-[#f9f0fa] border-[#ddb8e4] text-[#7b2d8b]", zone: "bg-[#7b2d8b]" },
-    stops: [
-      "Lokanthali", "Gatthaghar", "Thimi", "Madhyapur", "Bhaktapur",
-      "Kamalbinayak", "Suryabinayak", "Tathali", "Jagati", "Balkot",
-      "Sipadol", "Katunje", "Sallaghari", "Bode", "Radhe Radhe",
-      "Changunarayan", "Nagarkot",
-    ],
-  },
-  Lalitpur: {
-    color: { dot: "bg-[#2d6a4f]", line: "#2d6a4f", tag: "bg-[#f0faf5] border-[#b7dfc9] text-[#2d6a4f]", zone: "bg-[#2d6a4f]" },
-    stops: [
-      "Pulchowk", "Jawalakhel", "Sanepa", "Jhamsikhel", "Kupondole",
-      "Ekantakuna", "Bagdol", "Lagankhel", "Satdobato", "Gwarko",
-      "Nakhu", "Chobar", "Mahalaxmisthan", "Imadol", "Tikathali",
-      "Thaiba", "Lubhu", "Harisiddhi", "Sunakothi", "Bungamati",
-      "Khokana", "Bhaisepati", "Tyanglaphat", "Lamatar", "Chapagaon", "Godavari",
-    ],
-  },
-};
-
-const totalAreas = Object.values(routes).reduce((sum, r) => sum + r.stops.length, 0);
+const totalAreas = Object.values(routeData).reduce((s, r) => s + r.stops.length, 0);
 
 const policies = [
   "Students must be at their pickup point 5 minutes before scheduled time",
@@ -56,58 +40,7 @@ const policies = [
   "Emergency contact updates must be communicated to the office immediately",
 ];
 
-function RouteStrip({ stops, dotColor, lineColor }: { stops: string[]; dotColor: string; lineColor: string }) {
-  return (
-    <div className="overflow-x-auto pb-4 -mx-4 px-4">
-      <div className="flex items-center min-w-max py-2">
-        {stops.map((stop, i) => (
-          <div key={stop} className="flex items-center">
-            {/* Stop */}
-            <div className="flex flex-col items-center" style={{ minWidth: 64 }}>
-              {/* Label above for even */}
-              <div className={`h-7 flex items-end pb-1.5 ${i % 2 === 0 ? "visible" : "invisible"}`}>
-                <span className="text-[10px] font-bold text-[#0B1F3A] whitespace-nowrap leading-tight text-center">
-                  {stop}
-                </span>
-              </div>
-
-              {/* Dot + number */}
-              <div className="relative flex items-center justify-center">
-                <div
-                  className={`w-4 h-4 rounded-full border-2 border-white shadow-md z-10 flex items-center justify-center ${dotColor}`}
-                />
-              </div>
-
-              {/* Label below for odd */}
-              <div className={`h-7 flex items-start pt-1.5 ${i % 2 !== 0 ? "visible" : "invisible"}`}>
-                <span className="text-[10px] font-bold text-[#0B1F3A] whitespace-nowrap leading-tight text-center">
-                  {stop}
-                </span>
-              </div>
-            </div>
-
-            {/* Road connector */}
-            {i < stops.length - 1 && (
-              <div
-                className="flex-shrink-0 h-0.5 w-6"
-                style={{
-                  background: `repeating-linear-gradient(to right, ${lineColor} 0px, ${lineColor} 6px, transparent 6px, transparent 10px)`,
-                }}
-              />
-            )}
-          </div>
-        ))}
-
-        {/* School destination badge */}
-        <div className="ml-3 flex items-center gap-1.5 bg-amber-400 text-[#0B1F3A] px-3 py-1.5 rounded-full shadow-sm shrink-0">
-          <IconMapPin size={12} />
-          <span className="text-[10px] font-bold whitespace-nowrap">KMC Balkumari</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+// ─── Page ────────────────────────────────────────────────────────────────────
 export default function TransportPage() {
   return (
     <main className="bg-white">
@@ -119,7 +52,7 @@ export default function TransportPage() {
       />
       <WebPageSchema
         title="Transport Service — KMC Lalitpur"
-        description="School transport coverage areas and route map for KMC Lalitpur students across Kathmandu, Lalitpur and Bhaktapur."
+        description="School transport route map for KMC Lalitpur students across Kathmandu, Lalitpur and Bhaktapur."
         path="/campus/transport"
       />
       <Header />
@@ -135,21 +68,17 @@ export default function TransportPage() {
             <span className="text-amber-400 font-semibold">Transport</span>
           </div>
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
-              School Transport
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Transport Service
-            </h1>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">School Transport</p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">Transport Service</h1>
             <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Safe, reliable, and punctual school transport covering major areas across Kathmandu, Lalitpur and Bhaktapur — with drop-off at the nearest point to your home.
+              Safe, reliable school transport covering major areas across Kathmandu, Lalitpur and Bhaktapur — with drop-off at the nearest point to your home.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             {[
-              { label: "Areas Covered", value: `${totalAreas}+` },
+              { label: "Areas Covered",   value: `${totalAreas}+` },
               { label: "Students Served", value: "400+" },
-              { label: "Fleet Size",     value: "8 Buses" },
+              { label: "Fleet Size",      value: "8 Buses" },
             ].map((s) => (
               <div key={s.label} className="text-center bg-white/10 rounded-2xl p-5">
                 <div className="text-3xl font-bold text-amber-400">{s.value}</div>
@@ -160,7 +89,7 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Nearest drop-off banner */}
+      {/* Drop-off banner */}
       <section className="bg-amber-400 py-5">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-[#0B1F3A]/10 flex items-center justify-center shrink-0">
@@ -174,60 +103,97 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Route Maps */}
+      {/* Interactive Route Map */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-              Route Map
-            </p>
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Route Map</p>
             <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Routes</h2>
             <p className="text-[#6b7280] mt-4 max-w-xl mx-auto">
-              Each route follows a real road path — stops are shown in the order the bus travels.
-              Scroll horizontally to see all stops on each route.
+              Explore our routes on the interactive map. Hover over any stop to see its name. All three routes connect to KMC Balkumari.
             </p>
           </div>
 
-          <div className="flex flex-col gap-10">
-            {Object.entries(routes).map(([zone, { color, stops }]) => (
-              <div key={zone} className="bg-[#f7f5f0] rounded-2xl p-6 border border-[#eae6de]">
+          {/* Route legend */}
+          <div className="flex flex-wrap gap-3 justify-center mb-6">
+            {Object.entries(routeData).map(([zone, r]) => (
+              <div
+                key={zone}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border bg-white shadow-sm text-sm font-semibold"
+                style={{ borderColor: r.color + "55", color: r.color }}
+              >
+                <span
+                  className="w-3 h-3 rounded-full inline-block"
+                  style={{ background: r.color }}
+                />
+                {r.label}
+                <span className="text-[#9ca3af] font-normal text-xs ml-1">
+                  {r.stops.length} stops
+                </span>
+              </div>
+            ))}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full border bg-white shadow-sm text-sm font-semibold border-amber-300 text-amber-700">
+              <span className="text-base leading-none">🏫</span>
+              KMC Balkumari
+            </div>
+          </div>
+
+          {/* Map */}
+          <TransportMap />
+
+          {/* Stop grid */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Object.entries(routeData).map(([zone, r]) => (
+              <div
+                key={zone}
+                className="rounded-2xl border bg-white overflow-hidden"
+                style={{ borderColor: r.color + "44" }}
+              >
                 {/* Zone header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-3 h-3 rounded-full ${color.dot}`} />
-                  <h3 className="text-lg font-bold text-[#0B1F3A]">{zone}</h3>
-                  <span className="text-xs font-semibold text-[#6b7280] bg-white border border-[#eae6de] px-2 py-0.5 rounded-full">
-                    {stops.length} stops
+                <div
+                  className="px-5 py-3 flex items-center gap-2"
+                  style={{ background: r.color + "12" }}
+                >
+                  <span
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ background: r.color }}
+                  />
+                  <span className="font-bold text-[#0B1F3A]">{zone}</span>
+                  <span
+                    className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full text-white"
+                    style={{ background: r.color }}
+                  >
+                    {r.stops.length} stops
                   </span>
-                  <div className="flex-1 h-px bg-[#eae6de]" />
                 </div>
 
-                {/* Road strip */}
-                <RouteStrip stops={stops} dotColor={color.dot} lineColor={color.line} />
-
-                {/* Stop tags */}
-                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-[#eae6de]">
-                  {stops.map((stop, i) => (
-                    <span
-                      key={stop}
-                      className={`text-xs font-semibold px-3 py-1 rounded-full border ${color.tag}`}
-                    >
-                      {i + 1}. {stop}
-                    </span>
-                  ))}
+                {/* Stops */}
+                <div className="p-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {r.stops.map((stop) => (
+                      <span
+                        key={stop.name}
+                        className="text-xs px-2.5 py-1 rounded-full border font-medium text-[#374151]"
+                        style={{ borderColor: r.color + "55", background: r.color + "08" }}
+                      >
+                        {stop.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Note */}
-          <div className="mt-10 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
+          <div className="mt-8 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
               <IconMapPin size={16} className="text-amber-600" />
             </div>
             <div>
               <p className="font-bold text-[#0B1F3A] mb-1">Don&apos;t see your area?</p>
               <p className="text-sm text-[#6b7280] leading-relaxed">
-                Our coverage is continuously expanding. Contact the transport office — if you live near any of the listed areas, we&apos;ll do our best to include a nearby pickup or drop-off point for you.
+                Our coverage is continuously expanding. Contact the transport office — if you live near any listed area, we&apos;ll do our best to include a nearby pickup point for you.
               </p>
             </div>
           </div>
