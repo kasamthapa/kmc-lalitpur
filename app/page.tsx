@@ -216,23 +216,35 @@ export default async function Home() {
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden">
-        {/* Background image — full bleed on all screen sizes */}
+        {/* Mobile background — static image (videos don't autoplay on mobile) */}
         <Image
           src="/images/aboutPage/about.jpeg"
           alt="KMC Lalitpur Campus"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-105"
+          className="object-cover object-center scale-105 md:hidden"
         />
 
-        {/* Dark gradient overlay */}
+        {/* Desktop background — self-hosted Cloudinary video, no third-party popups */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105 hidden md:block"
+          style={{ zIndex: 0 }}
+        >
+          <source src="https://res.cloudinary.com/dzxun4tvo/video/upload/v1779025362/KMC-hero-final_pjewco.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay — blocks interaction, darkens for readability */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             zIndex: 1,
             background:
-              "linear-gradient(to right, rgba(11,31,58,0.88) 0%, rgba(11,31,58,0.70) 50%, rgba(11,31,58,0.45) 100%)",
+              "linear-gradient(to right, rgba(11,31,58,0.85) 0%, rgba(11,31,58,0.65) 50%, rgba(11,31,58,0.40) 100%)",
           }}
         />
 
