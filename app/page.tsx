@@ -216,23 +216,13 @@ export default async function Home() {
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden">
-        {/* Mobile background — static image (videos don't autoplay on mobile) */}
-        <Image
-          src="/images/aboutPage/about.jpeg"
-          alt="KMC Lalitpur Campus"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center scale-105 md:hidden"
-        />
-
-        {/* Desktop background — self-hosted Cloudinary video, no third-party popups */}
+        {/* Background video — all screen sizes */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover scale-105 hidden md:block"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
           style={{ zIndex: 0 }}
         >
           <source src="https://res.cloudinary.com/dzxun4tvo/video/upload/v1779025362/KMC-hero-final_pjewco.mp4" type="video/mp4" />
