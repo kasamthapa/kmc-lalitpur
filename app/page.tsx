@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { AwardsCarousel } from "./components/awards-carousel";
-import { HeroVideo } from "./components/hero-video";
 import { CourseSchema, WebPageSchema } from "./components/schema";
 import {
   IconArrow,
@@ -217,38 +216,25 @@ export default async function Home() {
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden">
-        {/* Mobile background image — shown only on small screens */}
+        {/* Background image — full bleed on all screen sizes */}
         <Image
           src="/images/aboutPage/about.jpeg"
           alt="KMC Lalitpur Campus"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-105 md:hidden"
+          className="object-cover object-center scale-105"
         />
 
-        {/* Desktop YouTube background — hidden on mobile */}
-        <div className="hidden md:block">
-          <HeroVideo />
-        </div>
-
-        {/* Mobile overlay — strong dark gradient so text is clean and readable */}
+        {/* Dark gradient overlay */}
         <div
-          className="absolute inset-0 md:hidden pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             zIndex: 1,
             background:
-              "linear-gradient(to bottom, rgba(11,31,58,0.72) 0%, rgba(11,31,58,0.55) 40%, rgba(11,31,58,0.80) 100%)",
+              "linear-gradient(to right, rgba(11,31,58,0.88) 0%, rgba(11,31,58,0.70) 50%, rgba(11,31,58,0.45) 100%)",
           }}
         />
-
-        {/* Desktop overlay — left-to-right fade for video */}
-        <div
-          className="absolute inset-0 hidden md:block bg-linear-to-r from-[#0B1F3A]/80 via-[#0B1F3A]/60 to-transparent pointer-events-none"
-          style={{ zIndex: 1 }}
-        />
-        {/* Transparent click-blocker so YouTube controls can't be interacted with */}
-        <div className="absolute inset-0" style={{ zIndex: 1 }} />
 
         {/* Content */}
         <div
