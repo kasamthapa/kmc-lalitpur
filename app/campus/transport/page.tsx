@@ -4,7 +4,7 @@ import { Footer } from "../../components/footer";
 import { BreadcrumbSchema, WebPageSchema } from "../../components/schema";
 import { IconChevronRight, IconMapPin, IconPhone, IconCheck } from "../../components/icons";
 import { SITE_CONFIG } from "../../config/site";
-import { routeData } from "./_components/TransportMap";
+import { routeData } from "./_components/transportData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
