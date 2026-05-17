@@ -1,17 +1,19 @@
 "use client";
 
-import { MapContainer, TileLayer, Polyline, CircleMarker, Tooltip, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, CircleMarker, Tooltip, Marker, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// ─── School Location ─────────────────────────────────────────────────────────
+// ─── School Location ──────────────────────────────────────────────────────────
 const SCHOOL: [number, number] = [27.6583, 85.3222];
 
-// ─── Route Data with Real Coordinates ────────────────────────────────────────
+// ─── Route Data ───────────────────────────────────────────────────────────────
 export const routeData = {
   Kathmandu: {
-    color: "#1d6fbf",
+    color: "#2563eb",
     label: "Kathmandu Route",
+    // Approximate zone center + radius for the coverage circle
+    zone: { center: [27.710, 85.317] as [number, number], radius: 9500 },
     stops: [
       { name: "Thankot",     pos: [27.6875, 85.2297] as [number, number] },
       { name: "Sitapaila",   pos: [27.7070, 85.2700] as [number, number] },
@@ -30,8 +32,9 @@ export const routeData = {
     ],
   },
   Bhaktapur: {
-    color: "#8b2fc9",
+    color: "#7c3aed",
     label: "Bhaktapur Route",
+    zone: { center: [27.679, 85.400] as [number, number], radius: 6500 },
     stops: [
       { name: "Lokanthali",    pos: [27.6780, 85.3617] as [number, number] },
       { name: "Gatthaghar",    pos: [27.6680, 85.3756] as [number, number] },
@@ -52,8 +55,9 @@ export const routeData = {
     ],
   },
   Lalitpur: {
-    color: "#1e7d4f",
+    color: "#059669",
     label: "Lalitpur Route",
+    zone: { center: [27.645, 85.318] as [number, number], radius: 9000 },
     stops: [
       { name: "Pulchowk",       pos: [27.6844, 85.3106] as [number, number] },
       { name: "Jawalakhel",     pos: [27.6773, 85.3158] as [number, number] },
@@ -85,67 +89,89 @@ export const routeData = {
   },
 };
 
-// School pin icon
+// ─── School Icon ──────────────────────────────────────────────────────────────
 const schoolIcon = L.divIcon({
   className: "",
   html: `
     <div style="
-      width:36px;height:36px;border-radius:50% 50% 50% 0;
-      background:#C9A84C;border:3px solid white;
-      box-shadow:0 2px 8px rgba(0,0,0,0.35);
-      transform:rotate(-45deg);
-      display:flex;align-items:center;justify-content:center;
+      position: relative;
+      width: 48px; height: 48px;
     ">
-      <div style="transform:rotate(45deg);font-size:16px;line-height:1;">🏫</div>
-    </div>`,
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -40],
+      <!-- Pulse ring -->
+      <div style="
+        position: absolute; inset: -8px;
+        border-radius: 50%;
+        background: rgba(201,168,76,0.25);
+        animation: pulse-ring 2s ease-out infinite;
+      "></div>
+      <!-- Pin body -->
+      <div style="
+        width: 48px; height: 48px;
+        background: #C9A84C;
+        border: 3px solid white;
+        border-radius: 50%;
+        box-shadow: 0 3px 14px rgba(0,0,0,0.35);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 22px;
+        position: relative; z-index: 1;
+      ">🏫</div>
+    </div>
+    <style>
+      @keyframes pulse-ring {
+        0%   { transform: scale(0.85); opacity: 0.7; }
+        70%  { transform: scale(1.4);  opacity: 0; }
+        100% { transform: scale(0.85); opacity: 0; }
+      }
+    </style>`,
+  iconSize: [48, 48],
+  iconAnchor: [24, 24],
+  tooltipAnchor: [0, -30],
 });
 
+// ─── Map ──────────────────────────────────────────────────────────────────────
 export default function TransportMap() {
   return (
-    <div className="w-full rounded-2xl overflow-hidden border border-[#e2e8f0] shadow-lg" style={{ height: 520 }}>
+    <div
+      className="w-full rounded-2xl overflow-hidden border border-[#e2e8f0] shadow-lg"
+      style={{ height: 560 }}
+    >
       <MapContainer
-        center={[27.68, 85.35]}
-        zoom={12}
+        center={[27.665, 85.340]}
+        zoom={11}
         style={{ height: "100%", width: "100%" }}
         zoomControl={true}
         scrollWheelZoom={false}
       >
-        {/* CartoDB Positron — clean, minimal, elegant tiles */}
+        {/* CartoDB Positron — clean minimal tiles */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
 
-        {/* Draw each route */}
-        {Object.entries(routeData).map(([zone, route]) => {
-          const positions = route.stops.map((s) => s.pos);
-          // Add school as final destination
-          const fullPath = [...positions, SCHOOL];
+        {/* ── Soft coverage zone circles ─────────────────────────────── */}
+        {Object.entries(routeData).map(([zone, route]) => (
+          <Circle
+            key={`${zone}-zone`}
+            center={route.zone.center}
+            radius={route.zone.radius}
+            pathOptions={{
+              color: route.color,
+              weight: 1.5,
+              opacity: 0.25,
+              fillColor: route.color,
+              fillOpacity: 0.07,
+              dashArray: "6 4",
+            }}
+          />
+        ))}
 
-          return (
-            <Polyline
-              key={zone}
-              positions={fullPath}
-              pathOptions={{
-                color: route.color,
-                weight: 4,
-                opacity: 0.85,
-                dashArray: undefined,
-              }}
-            />
-          );
-        })}
-
-        {/* Draw stop markers */}
+        {/* ── Stop markers ──────────────────────────────────────────────── */}
         {Object.entries(routeData).map(([zone, route]) =>
-          route.stops.map((stop, i) => (
+          route.stops.map((stop) => (
             <CircleMarker
               key={`${zone}-${stop.name}`}
               center={stop.pos}
-              radius={i === 0 ? 8 : 6}
+              radius={7}
               pathOptions={{
                 color: "white",
                 weight: 2,
@@ -153,21 +179,32 @@ export default function TransportMap() {
                 fillOpacity: 1,
               }}
             >
-              <Tooltip
-                direction="top"
-                offset={[0, -8]}
-                opacity={1}
-              >
-                <div className="text-xs font-semibold px-1">{stop.name}</div>
+              <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+                <div style={{ minWidth: 90 }}>
+                  <div className="text-xs font-bold text-[#0B1F3A]">{stop.name}</div>
+                  <div
+                    className="text-[10px] font-semibold mt-0.5"
+                    style={{ color: route.color }}
+                  >
+                    {route.label}
+                  </div>
+                </div>
               </Tooltip>
             </CircleMarker>
           ))
         )}
 
-        {/* School marker */}
+        {/* ── School marker ─────────────────────────────────────────────── */}
         <Marker position={SCHOOL} icon={schoolIcon}>
-          <Tooltip direction="top" offset={[0, -40]} opacity={1} permanent>
-            <div className="text-xs font-bold px-1">KMC Balkumari</div>
+          <Tooltip
+            direction="top"
+            offset={[0, -32]}
+            opacity={1}
+            permanent
+          >
+            <div className="text-xs font-bold text-[#0B1F3A] px-0.5">
+              KMC Balkumari
+            </div>
           </Tooltip>
         </Marker>
       </MapContainer>
