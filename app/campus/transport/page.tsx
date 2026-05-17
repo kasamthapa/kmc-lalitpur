@@ -9,72 +9,41 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Transport Service",
   description:
-    "KMC Lalitpur provides safe and reliable school transport service across Kathmandu and Lalitpur. Students are dropped at the nearest location to their home.",
+    "KMC Lalitpur provides safe and reliable school transport service across Kathmandu, Lalitpur and Bhaktapur. Students are dropped at the nearest location to their home.",
 };
 
-const areas = [
-  // ── Kathmandu ──
-  { name: "Babarmahal",   zone: "Kathmandu" },
-  { name: "Baneshwor",    zone: "Kathmandu" },
-  { name: "Boudha",       zone: "Kathmandu" },
-  { name: "Buddhanagar",  zone: "Kathmandu" },
-  { name: "Chabahil",     zone: "Kathmandu" },
-  { name: "Jorpati",      zone: "Kathmandu" },
-  { name: "Kalanki",      zone: "Kathmandu" },
-  { name: "Kirtipur",     zone: "Kathmandu" },
-  { name: "Kuleshwor",    zone: "Kathmandu" },
-  { name: "Pepsicola",    zone: "Kathmandu" },
-  { name: "Sitapaila",    zone: "Kathmandu" },
-  { name: "Sukedhara",    zone: "Kathmandu" },
-  { name: "Thankot",      zone: "Kathmandu" },
+// Routes in logical geographic sequence
+const routes = {
+  Kathmandu: {
+    color: { dot: "bg-[#1a4a7a]", line: "#1a4a7a", tag: "bg-[#f0f4f9] border-[#d0dce8] text-[#1a4a7a]", zone: "bg-[#1a4a7a]" },
+    stops: [
+      "Thankot", "Sitapaila", "Kalanki", "Kuleshwor", "Kirtipur",
+      "Babarmahal", "Baneshwor", "Buddhanagar", "Chabahil",
+      "Boudha", "Mulpani", "Jorpati", "Sukedhara", "Pepsicola",
+    ],
+  },
+  Bhaktapur: {
+    color: { dot: "bg-[#7b2d8b]", line: "#7b2d8b", tag: "bg-[#f9f0fa] border-[#ddb8e4] text-[#7b2d8b]", zone: "bg-[#7b2d8b]" },
+    stops: [
+      "Lokanthali", "Gatthaghar", "Thimi", "Madhyapur", "Bhaktapur",
+      "Kamalbinayak", "Suryabinayak", "Tathali", "Jagati", "Balkot",
+      "Sipadol", "Katunje", "Sallaghari", "Bode", "Radhe Radhe",
+      "Changunarayan", "Nagarkot",
+    ],
+  },
+  Lalitpur: {
+    color: { dot: "bg-[#2d6a4f]", line: "#2d6a4f", tag: "bg-[#f0faf5] border-[#b7dfc9] text-[#2d6a4f]", zone: "bg-[#2d6a4f]" },
+    stops: [
+      "Pulchowk", "Jawalakhel", "Sanepa", "Jhamsikhel", "Kupondole",
+      "Ekantakuna", "Bagdol", "Lagankhel", "Satdobato", "Gwarko",
+      "Nakhu", "Chobar", "Mahalaxmisthan", "Imadol", "Tikathali",
+      "Thaiba", "Lubhu", "Harisiddhi", "Sunakothi", "Bungamati",
+      "Khokana", "Bhaisepati", "Tyanglaphat", "Lamatar", "Chapagaon", "Godavari",
+    ],
+  },
+};
 
-  // ── Bhaktapur ──
-  { name: "Balkot",          zone: "Bhaktapur" },
-  { name: "Bhaktapur",       zone: "Bhaktapur" },
-  { name: "Bode",            zone: "Bhaktapur" },
-  { name: "Changunarayan",   zone: "Bhaktapur" },
-  { name: "Gatthaghar",      zone: "Bhaktapur" },
-  { name: "Jagati",          zone: "Bhaktapur" },
-  { name: "Kamalbinayak",    zone: "Bhaktapur" },
-  { name: "Katunje",         zone: "Bhaktapur" },
-  { name: "Lokanthali",      zone: "Bhaktapur" },
-  { name: "Madhyapur",       zone: "Bhaktapur" },
-  { name: "Nagarkot",        zone: "Bhaktapur" },
-  { name: "Radhe Radhe",     zone: "Bhaktapur" },
-  { name: "Sallaghari",      zone: "Bhaktapur" },
-  { name: "Sipadol",         zone: "Bhaktapur" },
-  { name: "Suryabinayak",    zone: "Bhaktapur" },
-  { name: "Tathali",         zone: "Bhaktapur" },
-  { name: "Thimi",           zone: "Bhaktapur" },
-
-  // ── Lalitpur ──
-  { name: "Bagdol",          zone: "Lalitpur" },
-  { name: "Bhaisepati",      zone: "Lalitpur" },
-  { name: "Bungamati",       zone: "Lalitpur" },
-  { name: "Chapagaon",       zone: "Lalitpur" },
-  { name: "Chobar",          zone: "Lalitpur" },
-  { name: "Ekantakuna",      zone: "Lalitpur" },
-  { name: "Godavari",        zone: "Lalitpur" },
-  { name: "Gwarko",          zone: "Lalitpur" },
-  { name: "Harisiddhi",      zone: "Lalitpur" },
-  { name: "Imadol",          zone: "Lalitpur" },
-  { name: "Jawalakhel",      zone: "Lalitpur" },
-  { name: "Jhamsikhel",      zone: "Lalitpur" },
-  { name: "Khokana",         zone: "Lalitpur" },
-  { name: "Kupondole",       zone: "Lalitpur" },
-  { name: "Lagankhel",       zone: "Lalitpur" },
-  { name: "Lamatar",         zone: "Lalitpur" },
-  { name: "Lubhu",           zone: "Lalitpur" },
-  { name: "Mahalaxmisthan",  zone: "Lalitpur" },
-  { name: "Nakhu",           zone: "Lalitpur" },
-  { name: "Pulchowk",        zone: "Lalitpur" },
-  { name: "Sanepa",          zone: "Lalitpur" },
-  { name: "Satdobato",       zone: "Lalitpur" },
-  { name: "Sunakothi",       zone: "Lalitpur" },
-  { name: "Thaiba",          zone: "Lalitpur" },
-  { name: "Tikathali",       zone: "Lalitpur" },
-  { name: "Tyanglaphat",     zone: "Lalitpur" },
-];
+const totalAreas = Object.values(routes).reduce((sum, r) => sum + r.stops.length, 0);
 
 const policies = [
   "Students must be at their pickup point 5 minutes before scheduled time",
@@ -87,11 +56,59 @@ const policies = [
   "Emergency contact updates must be communicated to the office immediately",
 ];
 
-export default function TransportPage() {
-  const lalitpurAreas = areas.filter((a) => a.zone === "Lalitpur");
-  const kathmanduAreas = areas.filter((a) => a.zone === "Kathmandu");
-  const bhaktapurAreas = areas.filter((a) => a.zone === "Bhaktapur");
+function RouteStrip({ stops, dotColor, lineColor }: { stops: string[]; dotColor: string; lineColor: string }) {
+  return (
+    <div className="overflow-x-auto pb-4 -mx-4 px-4">
+      <div className="flex items-center min-w-max py-2">
+        {stops.map((stop, i) => (
+          <div key={stop} className="flex items-center">
+            {/* Stop */}
+            <div className="flex flex-col items-center" style={{ minWidth: 64 }}>
+              {/* Label above for even */}
+              <div className={`h-7 flex items-end pb-1.5 ${i % 2 === 0 ? "visible" : "invisible"}`}>
+                <span className="text-[10px] font-bold text-[#0B1F3A] whitespace-nowrap leading-tight text-center">
+                  {stop}
+                </span>
+              </div>
 
+              {/* Dot + number */}
+              <div className="relative flex items-center justify-center">
+                <div
+                  className={`w-4 h-4 rounded-full border-2 border-white shadow-md z-10 flex items-center justify-center ${dotColor}`}
+                />
+              </div>
+
+              {/* Label below for odd */}
+              <div className={`h-7 flex items-start pt-1.5 ${i % 2 !== 0 ? "visible" : "invisible"}`}>
+                <span className="text-[10px] font-bold text-[#0B1F3A] whitespace-nowrap leading-tight text-center">
+                  {stop}
+                </span>
+              </div>
+            </div>
+
+            {/* Road connector */}
+            {i < stops.length - 1 && (
+              <div
+                className="flex-shrink-0 h-0.5 w-6"
+                style={{
+                  background: `repeating-linear-gradient(to right, ${lineColor} 0px, ${lineColor} 6px, transparent 6px, transparent 10px)`,
+                }}
+              />
+            )}
+          </div>
+        ))}
+
+        {/* School destination badge */}
+        <div className="ml-3 flex items-center gap-1.5 bg-amber-400 text-[#0B1F3A] px-3 py-1.5 rounded-full shadow-sm shrink-0">
+          <IconMapPin size={12} />
+          <span className="text-[10px] font-bold whitespace-nowrap">KMC Balkumari</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function TransportPage() {
   return (
     <main className="bg-white">
       <BreadcrumbSchema
@@ -102,7 +119,7 @@ export default function TransportPage() {
       />
       <WebPageSchema
         title="Transport Service — KMC Lalitpur"
-        description="School transport coverage areas and timings for KMC Lalitpur students."
+        description="School transport coverage areas and route map for KMC Lalitpur students across Kathmandu, Lalitpur and Bhaktapur."
         path="/campus/transport"
       />
       <Header />
@@ -125,12 +142,12 @@ export default function TransportPage() {
               Transport Service
             </h1>
             <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Safe, reliable, and punctual school transport covering major areas across Kathmandu and Lalitpur — with drop-off at the nearest point to your home.
+              Safe, reliable, and punctual school transport covering major areas across Kathmandu, Lalitpur and Bhaktapur — with drop-off at the nearest point to your home.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             {[
-              { label: "Areas Covered", value: "50+" },
+              { label: "Areas Covered", value: `${totalAreas}+` },
               { label: "Students Served", value: "400+" },
               { label: "Fleet Size",     value: "8 Buses" },
             ].map((s) => (
@@ -157,89 +174,53 @@ export default function TransportPage() {
         </div>
       </section>
 
-      {/* Coverage Areas */}
+      {/* Route Maps */}
       <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-              Coverage
+              Route Map
             </p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Coverage Areas</h2>
+            <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Routes</h2>
             <p className="text-[#6b7280] mt-4 max-w-xl mx-auto">
-              If you live in or near any of these areas, our transport service is available for you.
-              Contact us to confirm your nearest pickup point.
+              Each route follows a real road path — stops are shown in the order the bus travels.
+              Scroll horizontally to see all stops on each route.
             </p>
           </div>
 
-          {/* Kathmandu */}
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-3 h-3 rounded-full bg-[#1a4a7a]" />
-              <h3 className="text-lg font-bold text-[#0B1F3A]">Kathmandu</h3>
-              <div className="flex-1 h-px bg-[#eae6de]" />
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {kathmanduAreas.map((area) => (
-                <div
-                  key={area.name}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f0f4f9] border border-[#d0dce8] hover:bg-[#1a4a7a] hover:text-white hover:border-[#1a4a7a] transition-all duration-200 group cursor-default"
-                >
-                  <IconMapPin size={14} className="text-[#1a4a7a] group-hover:text-white transition-colors" />
-                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
-                    {area.name}
+          <div className="flex flex-col gap-10">
+            {Object.entries(routes).map(([zone, { color, stops }]) => (
+              <div key={zone} className="bg-[#f7f5f0] rounded-2xl p-6 border border-[#eae6de]">
+                {/* Zone header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`w-3 h-3 rounded-full ${color.dot}`} />
+                  <h3 className="text-lg font-bold text-[#0B1F3A]">{zone}</h3>
+                  <span className="text-xs font-semibold text-[#6b7280] bg-white border border-[#eae6de] px-2 py-0.5 rounded-full">
+                    {stops.length} stops
                   </span>
+                  <div className="flex-1 h-px bg-[#eae6de]" />
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Bhaktapur */}
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-3 h-3 rounded-full bg-[#7b2d8b]" />
-              <h3 className="text-lg font-bold text-[#0B1F3A]">Bhaktapur</h3>
-              <span className="text-xs font-semibold text-[#7b2d8b] bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full">All Areas</span>
-              <div className="flex-1 h-px bg-[#eae6de]" />
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {bhaktapurAreas.map((area) => (
-                <div
-                  key={area.name}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f9f0fa] border border-[#ddb8e4] hover:bg-[#7b2d8b] hover:text-white hover:border-[#7b2d8b] transition-all duration-200 group cursor-default"
-                >
-                  <IconMapPin size={14} className="text-[#7b2d8b] group-hover:text-white transition-colors" />
-                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
-                    {area.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+                {/* Road strip */}
+                <RouteStrip stops={stops} dotColor={color.dot} lineColor={color.line} />
 
-          {/* Lalitpur */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-3 h-3 rounded-full bg-[#2d6a4f]" />
-              <h3 className="text-lg font-bold text-[#0B1F3A]">Lalitpur</h3>
-              <div className="flex-1 h-px bg-[#eae6de]" />
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {lalitpurAreas.map((area) => (
-                <div
-                  key={area.name}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f0faf5] border border-[#b7dfc9] hover:bg-[#2d6a4f] hover:text-white hover:border-[#2d6a4f] transition-all duration-200 group cursor-default"
-                >
-                  <IconMapPin size={14} className="text-[#2d6a4f] group-hover:text-white transition-colors" />
-                  <span className="font-semibold text-[#0B1F3A] group-hover:text-white transition-colors">
-                    {area.name}
-                  </span>
+                {/* Stop tags */}
+                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-[#eae6de]">
+                  {stops.map((stop, i) => (
+                    <span
+                      key={stop}
+                      className={`text-xs font-semibold px-3 py-1 rounded-full border ${color.tag}`}
+                    >
+                      {i + 1}. {stop}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           {/* Note */}
-          <div className="mt-12 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
+          <div className="mt-10 bg-[#f7f5f0] border border-[#eae6de] rounded-2xl p-6 flex items-start gap-4">
             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
               <IconMapPin size={16} className="text-amber-600" />
             </div>
