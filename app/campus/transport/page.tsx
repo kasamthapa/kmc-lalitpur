@@ -13,29 +13,43 @@ export const metadata: Metadata = {
 };
 
 const areas = [
-  { name: "Satdobato",   zone: "Lalitpur" },
-  { name: "Bhaisepati",  zone: "Lalitpur" },
-  { name: "Kupondole",   zone: "Lalitpur" },
-  { name: "Babarmahal",  zone: "Kathmandu" },
-  { name: "Baneshwor",   zone: "Kathmandu" },
-  { name: "Buddhanagar", zone: "Kathmandu" },
-  { name: "Kuleshwor",   zone: "Kathmandu" },
-  { name: "Kalanki",     zone: "Kathmandu" },
-  { name: "Kirtipur",    zone: "Kathmandu" },
-  { name: "Sitapaila",   zone: "Kathmandu" },
-  { name: "Thankot",     zone: "Kathmandu" },
-  { name: "Sukedhara",   zone: "Kathmandu" },
-  { name: "Chabahil",    zone: "Kathmandu" },
-  { name: "Bhaktapur",   zone: "Bhaktapur" },
-  { name: "Thimi",       zone: "Bhaktapur" },
-  { name: "Suryabinayak",zone: "Bhaktapur" },
-  { name: "Lokanthali",  zone: "Bhaktapur" },
-  { name: "Gatthaghar",  zone: "Bhaktapur" },
-  { name: "Madhyapur",   zone: "Bhaktapur" },
-  { name: "Balkot",      zone: "Bhaktapur" },
-  { name: "Jagati",      zone: "Bhaktapur" },
-  { name: "Katunje",     zone: "Bhaktapur" },
-  { name: "Sipadol",     zone: "Bhaktapur" },
+  // ── Kathmandu ──
+  { name: "Babarmahal",   zone: "Kathmandu" },
+  { name: "Baneshwor",    zone: "Kathmandu" },
+  { name: "Boudha",       zone: "Kathmandu" },
+  { name: "Buddhanagar",  zone: "Kathmandu" },
+  { name: "Chabahil",     zone: "Kathmandu" },
+  { name: "Jorpati",      zone: "Kathmandu" },
+  { name: "Kalanki",      zone: "Kathmandu" },
+  { name: "Kirtipur",     zone: "Kathmandu" },
+  { name: "Kuleshwor",    zone: "Kathmandu" },
+  { name: "Pepsicola",    zone: "Kathmandu" },
+  { name: "Sitapaila",    zone: "Kathmandu" },
+  { name: "Sukedhara",    zone: "Kathmandu" },
+  { name: "Thankot",      zone: "Kathmandu" },
+
+  // ── Bhaktapur ──
+  { name: "Balkot",       zone: "Bhaktapur" },
+  { name: "Bhaktapur",    zone: "Bhaktapur" },
+  { name: "Gatthaghar",   zone: "Bhaktapur" },
+  { name: "Jagati",       zone: "Bhaktapur" },
+  { name: "Katunje",      zone: "Bhaktapur" },
+  { name: "Lokanthali",   zone: "Bhaktapur" },
+  { name: "Madhyapur",    zone: "Bhaktapur" },
+  { name: "Sipadol",      zone: "Bhaktapur" },
+  { name: "Suryabinayak", zone: "Bhaktapur" },
+  { name: "Thimi",        zone: "Bhaktapur" },
+
+  // ── Lalitpur ──
+  { name: "Bhaisepati",   zone: "Lalitpur" },
+  { name: "Imadol",       zone: "Lalitpur" },
+  { name: "Kupondole",    zone: "Lalitpur" },
+  { name: "Lamatar",      zone: "Lalitpur" },
+  { name: "Lubhu",        zone: "Lalitpur" },
+  { name: "Sanepa",       zone: "Lalitpur" },
+  { name: "Satdobato",    zone: "Lalitpur" },
+  { name: "Thaiba",       zone: "Lalitpur" },
+  { name: "Tikathali",    zone: "Lalitpur" },
 ];
 
 const policies = [
@@ -92,7 +106,7 @@ export default function TransportPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             {[
-              { label: "Areas Covered", value: "22+" },
+              { label: "Areas Covered", value: "30+" },
               { label: "Students Served", value: "400+" },
               { label: "Fleet Size",     value: "8 Buses" },
             ].map((s) => (
