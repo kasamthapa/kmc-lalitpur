@@ -151,9 +151,9 @@ export default function About() {
             <span className="text-amber-400 font-medium">About Us</span>
           </nav>
 
-          <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded backdrop-blur-sm bg-white/5">
+          <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5">
             Est. 2000 · Balkumari, Lalitpur
-          </span>
+          </p>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
             About
@@ -209,7 +209,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative pb-10 pr-10">
-              <div className="relative h-110 rounded-2xl overflow-hidden">
+              <div className="relative h-110 rounded-xl overflow-hidden">
                 <Image
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
@@ -219,7 +219,7 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/20 to-transparent pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-xl">
+              <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-lg px-8 py-6 shadow-xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
                   25+
                 </p>
@@ -229,9 +229,7 @@ export default function About() {
               </div>
             </div>
             <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Our Story
-              </span>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
               <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
                 Building Excellence
                 <br />
@@ -276,13 +274,16 @@ export default function About() {
       {/* Timeline */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Our Journey
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              Key Milestones
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Key Milestones
+              </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-3" />
+            </div>
+            <p className="text-slate-500 text-sm md:text-right max-w-xs leading-relaxed">
+              A quarter-century of growth, recognition, and student success
+            </p>
           </div>
           <div className="relative">
             <div className="absolute left-5.5 md:left-1/2 top-0 bottom-0 w-px bg-amber-200 md:-translate-x-px" />
@@ -298,7 +299,7 @@ export default function About() {
                   <div
                     className={`ml-16 md:ml-0 md:w-5/12 ${i % 2 === 0 ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
                   >
-                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e8e8] hover:shadow-md hover:border-amber-200 transition-all">
+                    <div className="bg-white rounded-xl p-6 shadow-sm border border-[#e8e8e8] hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                       <span className="text-xs font-bold text-amber-600 tracking-wider">
                         {m.year}
                       </span>
@@ -320,17 +321,15 @@ export default function About() {
       {/* Mission Vision Values */}
       <section id="mission" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-16">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Our Foundation
-            </span>
+          <div className="mb-16">
+            <div className="w-6 h-px bg-amber-500 mb-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
               Mission, Vision &amp; Values
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0B1F3A] rounded-2xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6">
+            <div className="bg-[#0B1F3A] rounded-3xl p-8 flex flex-col">
+              <div className="w-12 h-12 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6">
                 <IconLightbulb />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Our Mission</h3>
@@ -342,8 +341,8 @@ export default function About() {
                 contribute meaningfully to society.
               </p>
             </div>
-            <div className="bg-amber-400 rounded-2xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-[#0B1F3A]/20 flex items-center justify-center text-[#0B1F3A] mb-6">
+            <div className="bg-amber-400 rounded-3xl p-8 flex flex-col">
+              <div className="w-12 h-12 rounded-lg bg-[#0B1F3A]/20 flex items-center justify-center text-[#0B1F3A] mb-6">
                 <IconGlobe />
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-4">
@@ -356,8 +355,8 @@ export default function About() {
                 goodness with integrity, innovation, and purpose.
               </p>
             </div>
-            <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-[#f7f5f0] border border-[#e8e8e8] flex items-center justify-center text-[#0B1F3A] mb-6">
+            <div className="bg-white border border-[#e8e8e8] rounded-3xl p-8 flex flex-col">
+              <div className="w-12 h-12 rounded-lg bg-[#f7f5f0] border border-[#e8e8e8] flex items-center justify-center text-[#0B1F3A] mb-6">
                 <IconHeart />
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-5">
@@ -392,39 +391,42 @@ export default function About() {
       {/* Institutional Objectives */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Our Purpose
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              Institutional
-              <br />
-              Objectives
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Achieve academic excellence with innovative teaching and practical learning.",
-              "Prepare capable students for higher studies and professional success.",
-              "Provide globally recognized quality education with practical and technical skills.",
-              "Encourage holistic growth through ECA and CCA programs.",
-              "Develop socially responsible and result-oriented professionals.",
-              "Build interpersonal skills like leadership, self-management, and communication.",
-              "Offer personalized attention through small classes and individual focus.",
-              "Produce professionals for business, law, development, and public sectors.",
-              "Create international collaborations for academic and global exposure.",
-              "Foster critical thinking, logical reasoning, and lifelong learning.",
-            ].map((obj, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-[#e8e8e8]"
-              >
-                <span className="w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 font-bold text-xs shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-slate-600 text-sm leading-relaxed">{obj}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
+            <div className="lg:sticky lg:top-24">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Institutional
+                <br />
+                Objectives
+              </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-4 mb-6" />
+              <p className="text-slate-500 text-sm leading-relaxed">
+                Ten core commitments guiding every program, faculty decision, and student experience at KMC.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                "Achieve academic excellence with innovative teaching and practical learning.",
+                "Prepare capable students for higher studies and professional success.",
+                "Provide globally recognized quality education with practical and technical skills.",
+                "Encourage holistic growth through ECA and CCA programs.",
+                "Develop socially responsible and result-oriented professionals.",
+                "Build interpersonal skills like leadership, self-management, and communication.",
+                "Offer personalized attention through small classes and individual focus.",
+                "Produce professionals for business, law, development, and public sectors.",
+                "Create international collaborations for academic and global exposure.",
+                "Foster critical thinking, logical reasoning, and lifelong learning.",
+              ].map((obj, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 bg-white rounded-lg p-5 border-l-4 border-amber-400 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                >
+                  <span className="text-amber-500 font-bold text-xs shrink-0 mt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-slate-600 text-sm leading-relaxed">{obj}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -432,19 +434,19 @@ export default function About() {
       {/* International Partnerships */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Global Reach
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              International
-              <br />
-              Partnerships
-            </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mt-4">
-              KMC has formalized Memorandums of Understanding (MoUs) with
-              leading universities worldwide, enabling student and faculty
-              exchange, collaborative research, and study-abroad opportunities.
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+                Global Reach
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                International
+                <br />
+                Partnerships
+              </h2>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed max-w-xs md:text-right">
+              Memorandums of Understanding with leading universities worldwide — enabling exchange, research, and study-abroad opportunities.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -461,10 +463,10 @@ export default function About() {
             ].map((p, i) => (
               <div
                 key={i}
-                className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-6 border border-[#e8e8e8] hover:border-[#0B1F3A] transition-colors duration-300 flex flex-col"
+                className="group bg-white hover:bg-[#f7f5f0] rounded-xl p-6 border border-[#e8e8e8] hover:border-amber-300 hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col"
               >
                 <div className="h-16 flex items-center mb-4">
-                  <div className="bg-white rounded-xl p-2 flex items-center justify-center">
+                  <div className="bg-white rounded-lg p-2 flex items-center justify-center">
                     <Image
                       src={p.logo}
                       alt={`${p.name} logo`}
@@ -474,12 +476,10 @@ export default function About() {
                     />
                   </div>
                 </div>
-                <h3 className="text-sm font-bold text-[#0B1F3A] group-hover:text-white mb-1 transition-colors duration-300">
+                <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">
                   {p.name}
                 </h3>
-                <p className="text-slate-500 group-hover:text-[#8ba7c7] text-xs transition-colors duration-300">
-                  {p.country}
-                </p>
+                <p className="text-slate-500 text-xs">{p.country}</p>
               </div>
             ))}
           </div>
@@ -491,14 +491,12 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Our Pillars
-              </span>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
                 What We
                 <br />
                 Stand For
               </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-3" />
             </div>
             <p className="text-slate-500 max-w-xs leading-relaxed md:text-right text-sm">
               Four essential pillars defining KMC Lalitpur&apos;s commitment to
@@ -509,19 +507,19 @@ export default function About() {
             {pillars.map(({ Icon, title, desc }, i) => (
               <div
                 key={i}
-                className="group relative bg-white hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 overflow-hidden border border-[#e8e8e8] hover:border-[#0B1F3A]"
+                className="group relative bg-white hover:border-amber-400 rounded-xl p-7 transition-all duration-200 overflow-hidden border border-[#e8e8e8] hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="absolute top-4 right-5 text-6xl font-bold text-black/5 group-hover:text-white/5 leading-none select-none transition-colors duration-300">
+                <span className="absolute top-4 right-5 text-6xl font-bold text-black/5 leading-none select-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="relative">
-                  <div className="w-11 h-11 rounded-xl bg-amber-400/15 group-hover:bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-6 transition-colors duration-300">
+                  <div className="w-11 h-11 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-6">
                     <Icon />
                   </div>
-                  <h3 className="text-base font-bold text-[#0B1F3A] group-hover:text-white mb-3 transition-colors duration-300">
+                  <h3 className="text-base font-bold text-[#0B1F3A] mb-3">
                     {title}
                   </h3>
-                  <p className="text-slate-500 group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
+                  <p className="text-slate-500 text-sm leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -537,7 +535,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="relative w-full max-w-sm">
-                <div className="relative h-120 rounded-2xl overflow-hidden">
+                <div className="relative h-120 rounded-xl overflow-hidden">
                   <Image
                     src="/images/principal.png"
                     alt="Mukunda Kumar Giri – Principal, KMC Lalitpur"
@@ -558,9 +556,7 @@ export default function About() {
               </div>
             </div>
             <div className="pt-4">
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Leadership
-              </span>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
               <h2 className="text-4xl font-bold text-[#0B1F3A] mb-8 leading-tight">
                 Principal&apos;s
                 <br />
@@ -614,36 +610,55 @@ export default function About() {
       {/* Why Choose KMC */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Why KMC
-            </span>
+          <div className="mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
               Why Choose
               <br />
               KMC Lalitpur?
             </h2>
+            <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-0" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whyKMC.map((item, i) => (
-              <div
-                key={i}
-                className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 border border-[#e8e8e8] hover:border-[#0B1F3A]"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-xs font-bold text-amber-500 tracking-widest">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="flex-1 h-px bg-amber-400/30" />
-                </div>
-                <h3 className="text-base font-bold text-[#0B1F3A] group-hover:text-white mb-3 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-slate-500 group-hover:text-[#8ba7c7] text-sm leading-relaxed transition-colors duration-300">
-                  {item.desc}
-                </p>
+          {/* Asymmetric layout: first item large, rest in grid */}
+          <div className="space-y-4">
+            <div className="bg-[#0B1F3A] rounded-xl p-8 flex flex-col sm:flex-row sm:items-start gap-6">
+              <span className="text-6xl font-bold text-white/10 leading-none shrink-0 select-none">
+                01
+              </span>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">{whyKMC[0].title}</h3>
+                <p className="text-[#8ba7c7] text-sm leading-relaxed">{whyKMC[0].desc}</p>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {whyKMC.slice(1, 5).map((item, i) => (
+                <div
+                  key={i}
+                  className="group bg-white rounded-lg p-6 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-bold text-amber-500 tracking-widest">
+                      {String(i + 2).padStart(2, "0")}
+                    </span>
+                    <span className="flex-1 h-px bg-amber-400/30" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#0B1F3A] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-amber-400 rounded-xl p-8 flex flex-col sm:flex-row sm:items-start gap-6">
+              <span className="text-6xl font-bold text-[#0B1F3A]/15 leading-none shrink-0 select-none">
+                06
+              </span>
+              <div>
+                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">{whyKMC[5].title}</h3>
+                <p className="text-[#3d2e0a] text-sm leading-relaxed">{whyKMC[5].desc}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -653,9 +668,9 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/30 px-3 py-1.5 rounded">
+              <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5">
                 Global Success
-              </span>
+              </p>
               <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
                 Our Students Reach
                 <br />
@@ -677,7 +692,7 @@ export default function About() {
                 ].map((s, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                    className="bg-white/5 border border-white/10 rounded-lg p-4 text-center"
                   >
                     <p className="text-2xl font-bold text-amber-400">{s.n}</p>
                     <p className="text-slate-400 text-xs mt-1">{s.label}</p>
@@ -686,12 +701,12 @@ export default function About() {
               </div>
               <Link
                 href="/alumni"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors text-sm"
               >
                 Meet Our Alumni <IconArrow />
               </Link>
             </div>
-            <div className="relative h-80 rounded-2xl overflow-hidden">
+            <div className="relative h-80 rounded-xl overflow-hidden">
               <Image
                 src="/images/campus.png"
                 alt="KMC Lalitpur Students"
@@ -714,16 +729,13 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-28 bg-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full border border-amber-400/10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-6 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-            Join Us
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#0B1F3A] mb-6 leading-tight">
             Join Our Growing
             <br />
             Community
@@ -735,13 +747,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admissions"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
               Apply Now <IconArrow />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold rounded-xl hover:bg-[#0B1F3A] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold rounded-lg hover:bg-[#0B1F3A] hover:text-white transition-colors"
             >
               Get in Touch
             </Link>

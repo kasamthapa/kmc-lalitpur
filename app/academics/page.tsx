@@ -295,9 +295,9 @@ export default function Academics() {
             <span className="text-amber-400 font-medium">Academics</span>
           </nav>
           <div className="max-w-3xl">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
+            <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5">
               NEB Affiliated · +2 Programs
-            </span>
+            </p>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Academic
               <br />
@@ -331,8 +331,8 @@ export default function Academics() {
       {/* Teaching Philosophy */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-80 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_4fr] gap-16 items-center">
+            <div className="relative h-80 rounded-xl overflow-hidden">
               <Image
                 src="/images/teach.png"
                 alt="KMC Classroom"
@@ -343,9 +343,7 @@ export default function Academics() {
               <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent pointer-events-none" />
             </div>
             <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Our Philosophy
-              </span>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
               <h2 className="text-3xl font-bold text-[#0B1F3A] mb-5 leading-tight">
                 Education Beyond
                 <br />
@@ -380,14 +378,14 @@ export default function Academics() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
               <div
-                className={`w-14 h-14 rounded-2xl ${stream.color} flex items-center justify-center text-amber-400 shrink-0`}
+                className={`w-14 h-14 rounded-xl ${stream.color} flex items-center justify-center text-amber-400 shrink-0`}
               >
                 {stream.icon}
               </div>
               <div>
-                <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-1 border border-amber-400/40 px-3 py-1 rounded bg-amber-50">
+                <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-1">
                   {stream.tagline}
-                </span>
+                </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3A]">
                   {stream.title}
                 </h2>
@@ -397,7 +395,7 @@ export default function Academics() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
               {/* Left: image + pass rate */}
               <div className="lg:col-span-2 flex flex-col gap-5">
-                <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src={stream.image}
                     alt={stream.title}
@@ -417,7 +415,7 @@ export default function Academics() {
                 </div>
 
                 {/* Entrance exam box */}
-                <div className="bg-[#0B1F3A] rounded-2xl p-6 text-white">
+                <div className="bg-[#0B1F3A] rounded-xl p-6 text-white">
                   <p className="text-amber-400 text-xs font-bold tracking-wider uppercase mb-3">
                     Entrance Exam
                   </p>
@@ -454,7 +452,7 @@ export default function Academics() {
 
                 {/* Class Timing */}
                 {"timing" in stream && (
-                  <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-5">
+                  <div className="bg-amber-400/10 border border-amber-400/30 rounded-lg p-5">
                     <p className="text-amber-700 text-xs font-bold tracking-wider uppercase mb-2">
                       Class Timings
                     </p>
@@ -495,7 +493,7 @@ export default function Academics() {
                       }: {
                         s: { name: string; note: string };
                       }) => (
-                        <div className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]">
+                        <div className="flex items-center justify-between gap-2 p-3 bg-white rounded-lg border border-[#e8e8e8]">
                           <div className="flex items-center gap-2">
                             <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
                               <IconCheck />
@@ -552,7 +550,7 @@ export default function Academics() {
                       {stream.subjects.map((s) => (
                         <div
                           key={s.name}
-                          className="flex items-center justify-between gap-2 p-3 bg-white rounded-xl border border-[#e8e8e8]"
+                          className="flex items-center justify-between gap-2 p-3 bg-white rounded-lg border border-[#e8e8e8]"
                         >
                           <div className="flex items-center gap-2">
                             <span className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
@@ -573,7 +571,7 @@ export default function Academics() {
 
                 {/* Eligibility */}
                 <div
-                  className={`${stream.lightColor} border ${stream.borderColor} rounded-2xl p-6`}
+                  className={`${stream.lightColor} border ${stream.borderColor} rounded-lg p-6`}
                 >
                   <h3
                     className={`font-bold ${stream.accentColor} mb-3 text-sm uppercase tracking-wider`}
@@ -629,7 +627,7 @@ export default function Academics() {
 
                 <Link
                   href="/admissions"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors text-sm"
                 >
                   Apply for {stream.shortTitle}
                   <IconArrow />
@@ -643,35 +641,51 @@ export default function Academics() {
       {/* Teaching Approach */}
       <section className="py-24 bg-[#0B1F3A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/30 px-3 py-1.5 rounded">
-              How We Teach
-            </span>
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Our Teaching Approach
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <h2 className="text-4xl font-bold text-white leading-tight">
+                Our Teaching Approach
+              </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-3" />
+            </div>
+            <p className="text-slate-400 max-w-xs text-sm leading-relaxed md:text-right">
               KMC Lalitpur uses a blend of traditional rigour and modern
               pedagogy to ensure every student thrives
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {teachingApproach.map((item, i) => (
-              <div
-                key={i}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-amber-400/30 hover:bg-white/8 transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm mb-5 shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="font-bold text-white mb-3 text-sm">
-                  {item.title}
+          {/* Asymmetric: first item full-width, rest in grid */}
+          <div className="space-y-4">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-8 flex flex-col sm:flex-row gap-6 hover:border-amber-400/30 transition-colors duration-200">
+              <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm shrink-0">
+                01
+              </div>
+              <div>
+                <h3 className="font-bold text-white mb-2 text-base">
+                  {teachingApproach[0].title}
                 </h3>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  {item.desc}
+                <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
+                  {teachingApproach[0].desc}
                 </p>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {teachingApproach.slice(1).map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/30 hover:bg-white/8 transition-all duration-200"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm mb-5 shrink-0">
+                    {String(i + 2).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-bold text-white mb-3 text-sm">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -679,19 +693,19 @@ export default function Academics() {
       {/* Faculty snapshot */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Our Team
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
-              Dedicated Faculty
-            </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start mb-12">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
+              <h2 className="text-4xl font-bold text-[#0B1F3A] leading-tight">
+                Dedicated Faculty
+              </h2>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed lg:pt-8">
               150+ qualified educators bringing expertise, passion, and
               dedication to every classroom
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8] rounded-xl overflow-hidden">
             {[
               {
                 icon: <IconBook size={22} />,
@@ -711,9 +725,9 @@ export default function Academics() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-[#f7f5f0] rounded-2xl p-8 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all"
+                className="bg-[#f7f5f0] hover:bg-white p-8 transition-colors duration-200 group"
               >
-                <div className="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mb-6">
+                <div className="w-12 h-12 bg-amber-400 rounded-lg flex items-center justify-center text-[#0B1F3A] mb-6">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">
@@ -725,7 +739,7 @@ export default function Academics() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="mt-10">
             <Link
               href="/campus/faculty"
               className="inline-flex items-center gap-2 text-[#0B1F3A] font-bold hover:text-amber-600 transition-colors group text-sm"
@@ -742,13 +756,11 @@ export default function Academics() {
       {/* Learning Outcomes */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Outcomes
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
+          <div className="mb-14">
+            <h2 className="text-4xl font-bold text-[#0B1F3A] leading-tight">
               Student Learning Outcomes
             </h2>
+            <div className="w-10 h-0.5 bg-amber-400 mt-3" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -771,9 +783,9 @@ export default function Academics() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex gap-5 bg-white rounded-2xl p-7 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all group"
+                className="flex gap-5 bg-white rounded-xl p-7 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] flex items-center justify-center text-amber-400 shrink-0 group-hover:bg-amber-400 group-hover:text-[#0B1F3A] transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-[#0B1F3A] flex items-center justify-center text-amber-400 shrink-0 group-hover:bg-amber-400 group-hover:text-[#0B1F3A] transition-colors">
                   <span className="font-bold text-sm">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -795,20 +807,22 @@ export default function Academics() {
       {/* Professional IT Courses */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Beyond the NEB Curriculum
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              Professional
-              <br />
-              IT Courses
-            </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mt-4">
-              KMC Lalitpur offers three globally certified IT courses alongside
-              the NEB curriculum, in collaboration with{" "}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+                Beyond the NEB Curriculum
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Professional
+                <br />
+                IT Courses
+              </h2>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed max-w-xs md:text-right">
+              Three globally certified courses alongside the NEB curriculum, in
+              collaboration with{" "}
               <strong className="text-[#0B1F3A]">NCC Education (UK)</strong> —
-              regulated by Ofqual and recognized in 40+ countries worldwide.
+              regulated by Ofqual and recognized in 40+ countries.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -896,9 +910,9 @@ export default function Academics() {
             ].map((course, i) => (
               <div
                 key={i}
-                className="bg-[#0B1F3A] rounded-2xl p-7 flex flex-col"
+                className="bg-[#0B1F3A] rounded-xl p-7 flex flex-col hover:shadow-2xl transition-shadow duration-200"
               >
-                <div className="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-5 shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-5 shrink-0">
                   {course.icon}
                 </div>
                 <h3 className="text-white font-bold text-base mb-4">
@@ -918,7 +932,7 @@ export default function Academics() {
               </div>
             ))}
           </div>
-          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="font-bold text-[#0B1F3A] text-sm">
                 NCC Education Certification
@@ -929,7 +943,7 @@ export default function Academics() {
                 worldwide — giving KMC students a globally competitive edge.
               </p>
             </div>
-            <div className="shrink-0 px-5 py-3 bg-[#0B1F3A] text-amber-400 rounded-xl text-xs font-bold text-center">
+            <div className="shrink-0 px-5 py-3 bg-[#0B1F3A] text-amber-400 rounded-lg text-xs font-bold text-center">
               NCC Education
               <br />
               <span className="text-white font-normal">UK Certified</span>
@@ -954,13 +968,13 @@ export default function Academics() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admissions"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors"
             >
               View Admission Guide <IconArrow />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold rounded-lg hover:bg-white/10 transition-colors"
             >
               Contact Admissions
             </Link>
