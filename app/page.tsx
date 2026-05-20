@@ -214,6 +214,7 @@ export default async function Home() {
           },
         ]}
       />
+
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex items-center overflow-hidden">
         {/* Background video — all screen sizes */}
@@ -281,25 +282,21 @@ export default async function Home() {
             </div>
           </div>
         </div>
-
-
       </section>
 
       {/* ── Notice / Announcement strip ──────────────────────────────────── */}
       <NoticeMarquee />
 
       {/* ── Stats ────────────────────────────────────────────────────────── */}
-      <section className="py-14 bg-[#0B1F3A] text-white">
+      <section className="py-14 md:py-20 bg-[#0B1F3A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, i) => (
-              <div key={i} className="group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <div key={i} className="px-6 first:pl-0 last:pr-0 py-4 md:py-0">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
                   {stat.value}
                 </div>
-                <p className="text-slate-300 font-medium text-sm">
-                  {stat.label}
-                </p>
+                <div className="text-[#8ba7c7] text-sm mt-3 leading-snug">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -310,12 +307,12 @@ export default async function Home() {
       <AwardsCarousel />
 
       {/* ── About snapshot ───────────────────────────────────────────────── */}
-      <section id="about" className="py-16 md:py-24 bg-white">
+      <section id="about" className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Image */}
             <div className="relative pb-8 md:pb-0">
-              <div className="relative h-64 sm:h-80 lg:h-120 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-64 sm:h-80 lg:h-120 rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/campus.png"
                   alt="KMC Lalitpur Campus"
@@ -327,7 +324,7 @@ export default async function Home() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/30 to-transparent pointer-events-none" />
               </div>
               {/* Floating stat */}
-              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-40 md:max-w-none bg-[#0B1F3A] text-white rounded-2xl px-8 py-6 shadow-2xl">
+              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-40 md:max-w-none bg-[#0B1F3A] text-white rounded-xl px-8 py-6 shadow-2xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
                   22+
                 </p>
@@ -339,9 +336,10 @@ export default async function Home() {
 
             {/* Text */}
             <div className="lg:pl-4">
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                About Us
-              </span>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-6 h-px bg-amber-500" />
+                <span className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase">About KMC</span>
+              </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-6 leading-tight">
                 Leading Institution of
                 <br />
@@ -397,105 +395,59 @@ export default async function Home() {
       </section>
 
       {/* ── Programs ─────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#f7f5f0]">
+      <section className="py-20 md:py-28 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Academic Streams
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-4">
-              Our Programs
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Four comprehensive NEB-aligned +2 programs designed to nurture
-              excellence and prepare you for your future
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16">
+            <div>
+              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-amber-600 mb-3 block">Academic Streams</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">Our Programs</h2>
+            </div>
+            <p className="text-slate-500 max-w-sm mt-4 md:mt-0 text-sm leading-relaxed">
+              NEB-aligned +2 programs in Science, Management and Law — preparing students for Nepal&apos;s most competitive entrances.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programs.map((p) => (
-              <div
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {programs.map((p, idx) => (
+              <Link
                 key={p.id}
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:border-amber-300 flex flex-col"
+                href={p.href}
+                className={`group relative bg-white rounded-xl overflow-hidden border border-[#e8e8e8] hover:border-transparent hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col ${idx === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
-                {/* Image */}
-                <div
-                  className={`relative h-44 bg-linear-to-br ${p.color} overflow-hidden shrink-0`}
-                >
+                <div className={`relative h-52 bg-gradient-to-br ${p.color} overflow-hidden`}>
                   <Image
                     src={p.image}
-                    alt={`${p.title} Stream`}
+                    alt={p.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-70"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] mb-2">
-                      {p.icon}
-                    </div>
-                    <h3 className="text-lg font-bold">{p.title}</h3>
-                    <p className="text-xs text-white/70">{p.tagline}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-5 left-5">
+                    <h3 className="text-2xl font-bold text-white mb-1">{p.title}</h3>
+                    <p className="text-white/60 text-xs">{p.tagline}</p>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                      Core Subjects
-                    </p>
-                    <ul className="space-y-1">
-                      {p.subjects.map((s) => (
-                        <li
-                          key={s}
-                          className="flex items-center gap-2 text-sm text-slate-700"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {p.subjects.map(s => (
+                      <span key={s} className="text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">{s}</span>
+                    ))}
                   </div>
-
-                  <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-100">
-                    <p className="text-xs font-semibold text-amber-700 mb-1">
-                      Eligibility
-                    </p>
-                    <p className="text-xs text-slate-600">{p.eligibility}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {p.careers.map(c => (
+                      <span key={c} className="text-xs font-semibold text-[#0B1F3A] bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-full">{c}</span>
+                    ))}
                   </div>
-
-                  <div className="mb-5">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                      Career Paths
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {p.careers.map((c) => (
-                        <span
-                          key={c}
-                          className="text-xs bg-[#0B1F3A]/8 text-[#0B1F3A] px-2 py-0.5 rounded font-medium"
-                        >
-                          {c}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] group-hover:text-amber-600 transition-colors">
+                    Explore Program <IconChevronRight size={15} />
                   </div>
-
-                  <Link
-                    href={p.href}
-                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group"
-                  >
-                    Learn More
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      <IconChevronRight />
-                    </span>
-                  </Link>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="mt-10">
             <Link
               href="/academics"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#0B1F3A] text-white font-bold rounded-xl hover:bg-[#162d4a] transition-colors"
@@ -508,25 +460,21 @@ export default async function Home() {
       </section>
 
       {/* ── Admissions quick-look ─────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                How to Apply
-              </span>
-              <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
-                Simple 3-Step
-                <br />
-                Admission Process
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-2 leading-tight">
+                Simple 3-Step<br/>Admission Process
               </h2>
-              <p className="text-slate-600 mb-8 leading-relaxed">
+              <div className="w-12 h-1 bg-amber-400 mt-4 mb-6" />
+              <p className="text-slate-600 mb-10 leading-relaxed">
                 Joining KMC Lalitpur is straightforward. Fill out your form
                 online after SEE results, appear for our entrance exam, and
                 secure your spot in Nepal&lsquo;s top +2 institution.
               </p>
 
-              <div className="space-y-5 mb-8">
+              <div className="space-y-0 mb-10">
                 {[
                   {
                     step: "01",
@@ -544,17 +492,11 @@ export default async function Home() {
                     desc: "Merit list published same or next day. Get admitted before seats fill up.",
                   },
                 ].map((s) => (
-                  <div key={s.step} className="flex gap-5 group">
-                    <div className="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-sm shrink-0 group-hover:scale-110 transition-transform">
-                      {s.step}
-                    </div>
+                  <div key={s.step} className="flex gap-6 group border-t border-[#f0ede6] pt-5 pb-5">
+                    <span className="text-3xl font-bold text-[#0B1F3A]/15 leading-none shrink-0">{s.step}</span>
                     <div>
-                      <h4 className="font-bold text-[#0B1F3A] mb-1">
-                        {s.title}
-                      </h4>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        {s.desc}
-                      </p>
+                      <h4 className="font-bold text-[#0B1F3A] mb-1">{s.title}</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -571,10 +513,11 @@ export default async function Home() {
 
             {/* Scholarship highlight */}
             <div className="bg-[#0B1F3A] rounded-2xl p-6 md:p-8 text-white">
-              <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/30 px-3 py-1.5 rounded">
-                Scholarships
-              </span>
-              <h3 className="text-2xl font-bold mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-6 h-px bg-amber-400" />
+                <span className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase">Scholarships</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-white">
                 Scholarships & Financial Aid
               </h3>
               <p className="text-slate-300 mb-6 leading-relaxed">
@@ -604,7 +547,7 @@ export default async function Home() {
                 ].map((s, i) => (
                   <div
                     key={i}
-                    className="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10"
+                    className="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-amber-400/30 transition-colors"
                   >
                     <span className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs shrink-0">
                       {i + 1}
@@ -630,62 +573,49 @@ export default async function Home() {
       </section>
 
       {/* ── Why KMC ──────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#f7f5f0]">
+      <section className="py-20 md:py-32 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Why Choose KMC
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-4">
-              Why Students Thrive Here
-            </h2>
-            <p className="text-slate-600 max-w-xl mx-auto">
-              Six reasons KMC Lalitpur is the preferred choice for quality +2
-              education
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyKMC.map((item, i) => (
-              <div
-                key={i}
-                className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-7 transition-colors duration-300 border border-[#e8e8e8] hover:border-[#0B1F3A]"
-              >
-                <div className="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 group-hover:bg-amber-400/20 mb-5 transition-colors">
-                  {item.icon}
+          <div className="flex flex-col lg:flex-row lg:gap-24 lg:items-start">
+            <div className="lg:w-80 shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-28">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Why Students<br/>Thrive Here
+              </h2>
+              <p className="text-slate-500 mt-4 text-sm leading-relaxed">
+                Six reasons KMC is the preferred choice for quality +2 education in the Kathmandu Valley.
+              </p>
+              <Link href="/about" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group">
+                About KMC <span className="group-hover:translate-x-1 transition-transform"><IconArrow /></span>
+              </Link>
+            </div>
+            <div className="flex-1 divide-y divide-[#e0dcd4]">
+              {whyKMC.map((item, i) => (
+                <div key={i} className="py-7 flex gap-6 group cursor-default">
+                  <span className="text-4xl font-bold text-[#0B1F3A]/10 leading-none shrink-0 w-12 text-right group-hover:text-amber-400/50 transition-colors duration-300">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-[#0B1F3A] mb-1.5 group-hover:text-amber-700 transition-colors">{item.title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-[#0B1F3A] group-hover:text-white mb-3 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-slate-600 group-hover:text-slate-300 leading-relaxed transition-colors">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── News & Updates ───────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-12">
-            <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Latest News
-              </span>
-              <h2 className="text-4xl font-bold text-[#0B1F3A]">
-                News & Updates
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              News &<br className="md:hidden"/> Updates
+            </h2>
             <Link
               href="/news"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group border-b border-[#0B1F3A]/20 pb-0.5 hover:border-amber-600"
             >
-              View All News
-              <span className="group-hover:translate-x-1 transition-transform">
-                <IconArrow />
-              </span>
+              All news <span className="group-hover:translate-x-1 transition-transform"><IconArrow /></span>
             </Link>
           </div>
 
@@ -693,7 +623,7 @@ export default async function Home() {
             {/* Featured */}
             <Link
               href={latestNews[0]?.slug ? `/news/${latestNews[0].slug}` : "/news"}
-              className="lg:col-span-2 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:border-amber-300"
+              className="lg:col-span-2 group cursor-pointer bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:-translate-y-0.5"
             >
               <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden">
                 <Image
@@ -760,59 +690,59 @@ export default async function Home() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#0B1F3A] text-white">
+      <section className="py-20 md:py-32 bg-[#0B1F3A] text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/30 px-3 py-1.5 rounded">
-              Testimonials
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Success Stories
+          <div className="flex items-end justify-between mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              What Our<br/>Community Says
             </h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
-              Hear from our students and parents about their transformative
-              experience at KMC
-            </p>
+            <div className="hidden md:block text-right">
+              <p className="text-[#8ba7c7] text-sm">Students · Parents · Alumni</p>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-amber-400/40 hover:bg-white/8 transition-all duration-300"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-5 text-amber-400">
-                  {[...Array(t.stars)].map((_, j) => (
-                    <span key={j}>
-                      <IconStar />
-                    </span>
-                  ))}
-                </div>
-                <p className="text-slate-300 mb-6 leading-relaxed text-sm">
-                  &quot;{t.quote}&quot;
-                </p>
-                <div className="border-t border-white/10 pt-5">
-                  <p className="font-bold text-white">{t.name}</p>
-                  <p className="text-xs text-slate-400 mt-1">{t.role}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+            {/* Featured large quote */}
+            <div className="lg:col-span-2 relative">
+              <div className="text-[8rem] leading-none font-serif text-amber-400/15 absolute -top-10 -left-4 select-none">&ldquo;</div>
+              <blockquote className="relative text-xl md:text-2xl text-white/90 leading-relaxed font-light pt-8">
+                {testimonials[0].quote}
+              </blockquote>
+              <div className="mt-8 flex items-center gap-4">
+                <div className="w-10 h-px bg-amber-400" />
+                <div>
+                  <p className="font-bold text-white text-sm">{testimonials[0].name}</p>
+                  <p className="text-xs text-[#8ba7c7] mt-0.5">{testimonials[0].role}</p>
                 </div>
               </div>
-            ))}
+            </div>
+            {/* Two smaller quotes */}
+            <div className="flex flex-col divide-y divide-white/10">
+              {testimonials.slice(1).map((t, i) => (
+                <div key={i} className="py-8 first:pt-0 last:pb-0">
+                  <p className="text-[#8ba7c7] text-sm leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-px bg-amber-400/50" />
+                    <div>
+                      <p className="text-white font-semibold text-xs">{t.name}</p>
+                      <p className="text-[#8ba7c7]/70 text-[10px] mt-0.5">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Student Achievers ────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#f7f5f0]">
+      <section className="py-20 md:py-28 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Student Achievements
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-4">
-              Our Students, Their Dreams
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4 leading-tight">
+              Our Students,<br/>Their Dreams
             </h2>
-            <p className="text-[#6b7280] max-w-2xl mx-auto">
+            <div className="w-10 h-0.5 bg-amber-400 mb-5" />
+            <p className="text-[#6b7280] max-w-2xl text-sm leading-relaxed">
               KMC graduates go on to become doctors, legal professionals,
               engineers, and business leaders — many on full scholarships.
             </p>
@@ -842,18 +772,14 @@ export default async function Home() {
       </section>
 
       {/* ── Co-curricular / Student Life ─────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Student Life
-              </span>
-              <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
-                Beyond the
-                <br />
-                Classroom
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4 leading-tight">
+                Beyond the<br/>Classroom
               </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mb-6" />
               <p className="text-slate-600 mb-8 leading-relaxed">
                 At KMC, education extends far beyond textbooks. We nurture every
                 student&apos;s unique talents through a rich ecosystem of
