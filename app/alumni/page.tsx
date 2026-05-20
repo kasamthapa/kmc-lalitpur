@@ -67,61 +67,57 @@ export default async function AlumniPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
-            <Link href="/" className="hover:text-amber-400 transition">Home</Link>
-            <IconChevronRight size={14} />
-            <span className="text-amber-400 font-semibold">Alumni</span>
-          </div>
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
-              Our Community
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Alumni Network
-            </h1>
-            <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Thousands of KMC graduates are making their mark across Nepal and the world. Meet the KMC Alumni Association of Lalitpur — the official body connecting our community of graduates.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="pt-28 pb-20 bg-[#0B1F3A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <nav className="flex items-center gap-2 mb-12 text-[#8ba7c7] text-sm">
+            <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
+            <span className="text-[#8ba7c7]/40 mx-1">/</span>
+            <span className="text-white/60">Alumni</span>
+          </nav>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+            <div>
+              <div className="w-8 h-px bg-amber-400 mb-5" />
+              <h1 className="text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] mb-6">
+                Alumni<br />
+                <span className="text-amber-400">Network</span>
+              </h1>
+              <p className="text-lg text-[#8ba7c7] leading-relaxed">
+                Thousands of KMC graduates are making their mark across Nepal and the world.
+              </p>
+            </div>
 
-      {/* Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map(({ label, value, icon: Icon }) => (
-              <div key={label} className="text-center p-8 rounded-2xl border border-[#eae6de] hover:border-amber-400 transition group">
-                <div className="w-14 h-14 rounded-full bg-amber-400/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-400/20 transition">
-                  <Icon size={26} className="text-amber-500" />
+            {/* Editorial stats — big numbers, not boxed */}
+            <div className="grid grid-cols-3 gap-8 lg:justify-end">
+              {stats.map(({ label, value }) => (
+                <div key={label} className="text-center lg:text-right">
+                  <div className="text-4xl md:text-5xl font-bold text-amber-400 leading-none mb-1">{value}</div>
+                  <div className="text-xs text-[#8ba7c7] uppercase tracking-wider mt-2">{label}</div>
                 </div>
-                <div className="text-4xl font-bold text-[#0B1F3A] mb-2">{value}</div>
-                <div className="text-[#6b7280] font-medium">{label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── KMC Alumni Association of Lalitpur ─────────────────────────────── */}
-      <section className="py-20 bg-[#f7f5f0]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-              Official Body
-            </p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">
-              KMC Alumni Association of Lalitpur
-            </h2>
-            <p className="text-[#6b7280] mt-4 max-w-2xl mx-auto">
-              The official alumni association of Kathmandu Model Secondary School, Lalitpur — connecting graduates, supporting current students, and upholding the KMC legacy.
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+          {/* Editorial header — title left, description right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
+              <h2 className="text-4xl font-bold text-[#0B1F3A] leading-tight">
+                KMC Alumni Association<br />of Lalitpur
+              </h2>
+            </div>
+            <p className="text-[#6b7280] text-sm leading-relaxed lg:pb-1">
+              The official alumni body of Kathmandu Model Secondary School, Lalitpur — connecting graduates, supporting current students, and upholding the KMC legacy.
             </p>
           </div>
 
-          {/* Group Photo */}
-          <div className="rounded-3xl overflow-hidden border border-[#eae6de] shadow-lg mb-14">
+          {/* Group Photo — full-width, minimal chrome */}
+          <div className="overflow-hidden border border-[#eae6de] mb-16">
             <Image
               src="/images/alumni-association/group.png"
               alt="KMC Alumni Association of Lalitpur — Group Photo"
@@ -132,177 +128,270 @@ export default async function AlumniPage() {
             />
           </div>
 
-          {/* Members grid */}
+          {/* Members — editorial list, not uniform grid boxes */}
           {ASSOCIATION_MEMBERS.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {ASSOCIATION_MEMBERS.map((m, i) => {
-                const initials = m.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
-                return (
-                  <div key={i} className="text-center group">
-                    <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden border-2 border-[#eae6de] group-hover:border-amber-400 transition mb-3">
-                      {m.image ? (
-                        <Image
-                          src={m.image}
-                          alt={m.name}
-                          width={96}
-                          height={96}
-                          className="w-full h-full object-cover object-top"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-[#0B1F3A] flex items-center justify-center">
-                          <span className="text-white text-2xl font-bold">{initials}</span>
-                        </div>
-                      )}
+            <>
+              {/* President & Vice Presidents — larger */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+                {ASSOCIATION_MEMBERS.filter(m => ["President", "Vice President"].includes(m.role)).map((m, i) => {
+                  const initials = m.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+                  return (
+                    <div key={i} className="flex flex-col items-center text-center group">
+                      <div className="w-28 h-28 mb-4 overflow-hidden border border-[#eae6de] group-hover:border-amber-400 transition-colors">
+                        {m.image ? (
+                          <Image
+                            src={m.image}
+                            alt={m.name}
+                            width={112}
+                            height={112}
+                            className="w-full h-full object-cover object-top"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-[#0B1F3A] flex items-center justify-center">
+                            <span className="text-white text-2xl font-bold">{initials}</span>
+                          </div>
+                        )}
+                      </div>
+                      <p className="font-bold text-[#0B1F3A] text-base">{m.name}</p>
+                      <p className="text-xs font-semibold text-amber-600 uppercase tracking-wider mt-1">{m.role}</p>
+                      <p className="text-xs text-[#9ca3af] mt-1.5 leading-tight max-w-[160px]">{m.college}</p>
                     </div>
-                    <p className="font-bold text-[#0B1F3A] text-sm leading-snug">{m.name}</p>
-                    <p className="text-xs text-amber-600 font-semibold mt-0.5">{m.role}</p>
-                    <p className="text-xs text-[#6b7280] mt-1 leading-tight">{m.college}</p>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+
+              {/* Other members — compact horizontal list */}
+              <div className="border-t border-[#f0ede7] pt-10">
+                <h3 className="text-xs font-bold text-[#0B1F3A] uppercase tracking-[0.15em] mb-7">Board Members &amp; Officers</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-7">
+                  {ASSOCIATION_MEMBERS.filter(m => !["President", "Vice President"].includes(m.role)).map((m, i) => {
+                    const initials = m.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+                    return (
+                      <div key={i} className="flex items-center gap-3 group">
+                        <div className="w-10 h-10 shrink-0 overflow-hidden border border-[#eae6de] group-hover:border-amber-400 transition-colors">
+                          {m.image ? (
+                            <Image
+                              src={m.image}
+                              alt={m.name}
+                              width={40}
+                              height={40}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-[#0B1F3A] flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">{initials}</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-semibold text-[#0B1F3A] text-sm leading-snug truncate">{m.name}</p>
+                          <p className="text-xs text-amber-600 font-medium">{m.role}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
           ) : (
-            <div className="text-center py-12 text-[#6b7280]">
-              <p className="text-sm">Member profiles coming soon.</p>
-            </div>
+            <div className="py-12 text-[#9ca3af] text-sm">Member profiles coming soon.</div>
           )}
         </div>
       </section>
 
       {/* Success Stories — dynamic from DB, only shown when alumni exist */}
       {successAlumni.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-                Inspiring Stories
-              </p>
-              <h2 className="text-4xl font-bold text-[#0B1F3A]">Alumni Success Stories</h2>
-              <p className="text-[#6b7280] mt-4 max-w-2xl mx-auto">
-                Our graduates are making their mark across Nepal and beyond — in technology, medicine, law, business, and more.
+        <section className="py-20 bg-[#f7f5f0]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
+              <div>
+                <div className="w-6 h-px bg-amber-500 mb-4" />
+                <h2 className="text-4xl font-bold text-[#0B1F3A]">Alumni Stories</h2>
+              </div>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                KMC graduates making their mark in technology, medicine, law, business, and beyond.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {successAlumni.map((alumni) => {
-                const color = programColors[alumni.program] ?? "#374151";
-                const initials = alumni.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
-                return (
-                  <div key={alumni.id} className="bg-white rounded-2xl border border-[#eae6de] overflow-hidden hover:border-amber-400 hover:shadow-lg transition-all group">
-                    {/* Photo or color bar */}
-                    {alumni.imageUrl ? (
-                      <div className="relative h-52 overflow-hidden">
-                        <Image
-                          src={alumni.imageUrl}
-                          alt={alumni.name}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                        <span
-                          className="absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full text-white"
-                          style={{ background: color }}
-                        >
-                          {alumni.program}
-                        </span>
-                        {alumni.featured && (
-                          <span className="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-amber-400 text-[#0B1F3A]">
-                            Featured
-                          </span>
-                        )}
-                      </div>
-                    ) : (
-                      <div className="h-2 w-full" style={{ background: color }} />
-                    )}
+            {/* Featured alumni — first card larger if featured */}
+            {(() => {
+              const featured = successAlumni.filter((a) => a.featured);
+              const rest = successAlumni.filter((a) => !a.featured);
 
-                    <div className="p-5">
-                      {!alumni.imageUrl && (
-                        <div className="flex items-center gap-3 mb-4">
-                          <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0"
-                            style={{ background: color }}
-                          >
-                            {initials}
-                          </div>
-                          <span
-                            className="text-xs font-bold px-2.5 py-1 rounded-full text-white"
-                            style={{ background: color }}
-                          >
-                            {alumni.program}
-                          </span>
-                          {alumni.featured && (
-                            <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-400 text-[#0B1F3A]">
-                              Featured
-                            </span>
+              return (
+                <div className="space-y-5">
+                  {/* Featured — horizontal strip */}
+                  {featured.map((alumni) => {
+                    const color = programColors[alumni.program] ?? "#374151";
+                    const initials = alumni.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+                    return (
+                      <div key={alumni.id} className="bg-white border border-[#e8e8e8] overflow-hidden">
+                        <div className="grid grid-cols-1 md:grid-cols-5">
+                          {alumni.imageUrl ? (
+                            <div className="md:col-span-2 relative min-h-[260px] overflow-hidden">
+                              <Image
+                                src={alumni.imageUrl}
+                                alt={alumni.name}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 40vw"
+                                className="object-cover object-top"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                            </div>
+                          ) : (
+                            <div className="md:col-span-2 min-h-[100px] flex items-center justify-center" style={{ background: color }}>
+                              <span className="text-white text-5xl font-bold opacity-30">{initials}</span>
+                            </div>
                           )}
+                          <div className="md:col-span-3 p-8 flex flex-col justify-center">
+                            <div className="flex items-center gap-3 mb-4">
+                              <span
+                                className="text-xs font-bold px-2.5 py-1 text-white uppercase tracking-wider"
+                                style={{ background: color }}
+                              >
+                                {alumni.program}
+                              </span>
+                              <span className="text-xs text-[#9ca3af]">Batch {alumni.gradYear}</span>
+                            </div>
+                            <h3 className="font-bold text-[#0B1F3A] text-xl mb-1">{alumni.name}</h3>
+                            {(alumni.currentRole || alumni.company) && (
+                              <p className="text-sm text-amber-600 font-semibold mb-1">
+                                {[alumni.currentRole, alumni.company].filter(Boolean).join(" · ")}
+                              </p>
+                            )}
+                            {alumni.location && (
+                              <p className="text-xs text-[#9ca3af]">{alumni.location}</p>
+                            )}
+                            {alumni.bio && (
+                              <p className="text-sm text-[#4b5563] mt-4 leading-relaxed line-clamp-4 italic">
+                                &ldquo;{alumni.bio}&rdquo;
+                              </p>
+                            )}
+                            {alumni.linkedIn && (
+                              <a
+                                href={alumni.linkedIn}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 mt-5 text-xs font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                              >
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                                View LinkedIn
+                              </a>
+                            )}
+                          </div>
                         </div>
-                      )}
+                      </div>
+                    );
+                  })}
 
-                      <h3 className="font-bold text-[#0B1F3A] text-lg leading-snug">{alumni.name}</h3>
+                  {/* Rest — 3-col magazine grid */}
+                  {rest.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {rest.map((alumni) => {
+                        const color = programColors[alumni.program] ?? "#374151";
+                        const initials = alumni.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+                        return (
+                          <div key={alumni.id} className="bg-white border border-[#e8e8e8] overflow-hidden group hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+                            {alumni.imageUrl ? (
+                              <div className="relative h-48 overflow-hidden">
+                                <Image
+                                  src={alumni.imageUrl}
+                                  alt={alumni.name}
+                                  fill
+                                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                  className="object-cover object-top group-hover:scale-[1.04] transition duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                                <span
+                                  className="absolute bottom-3 left-3 text-xs font-bold px-2 py-0.5 text-white uppercase tracking-wider"
+                                  style={{ background: color }}
+                                >
+                                  {alumni.program}
+                                </span>
+                              </div>
+                            ) : (
+                              <div className="h-2 w-full" style={{ background: color }} />
+                            )}
 
-                      {(alumni.currentRole || alumni.company) && (
-                        <p className="text-sm text-amber-600 font-semibold mt-1">
-                          {[alumni.currentRole, alumni.company].filter(Boolean).join(" · ")}
-                        </p>
-                      )}
-
-                      {alumni.location && (
-                        <p className="text-xs text-[#6b7280] mt-0.5">{alumni.location}</p>
-                      )}
-
-                      <p className="text-xs text-[#9ca3af] mt-1">Batch: {alumni.gradYear}</p>
-
-                      {alumni.bio && (
-                        <p className="text-sm text-[#374151] mt-3 leading-relaxed line-clamp-3">
-                          {alumni.bio}
-                        </p>
-                      )}
-
-                      {alumni.linkedIn && (
-                        <a
-                          href={alumni.linkedIn}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-[#0B1F3A] hover:text-amber-600 transition"
-                        >
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                          </svg>
-                          LinkedIn Profile
-                        </a>
-                      )}
+                            <div className="p-5">
+                              {!alumni.imageUrl && (
+                                <span
+                                  className="inline-block text-xs font-bold px-2 py-0.5 text-white uppercase tracking-wider mb-3"
+                                  style={{ background: color }}
+                                >
+                                  {alumni.program}
+                                </span>
+                              )}
+                              <h3 className="font-bold text-[#0B1F3A] text-base leading-snug">{alumni.name}</h3>
+                              {(alumni.currentRole || alumni.company) && (
+                                <p className="text-xs text-amber-600 font-semibold mt-1">
+                                  {[alumni.currentRole, alumni.company].filter(Boolean).join(" · ")}
+                                </p>
+                              )}
+                              <p className="text-xs text-[#9ca3af] mt-0.5">Batch {alumni.gradYear}{alumni.location ? ` · ${alumni.location}` : ""}</p>
+                              {alumni.bio && (
+                                <p className="text-xs text-[#4b5563] mt-3 leading-relaxed line-clamp-3 italic">
+                                  &ldquo;{alumni.bio}&rdquo;
+                                </p>
+                              )}
+                              {alumni.linkedIn && (
+                                <a
+                                  href={alumni.linkedIn}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                                >
+                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                  </svg>
+                                  LinkedIn
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  )}
+                </div>
+              );
+            })()}
           </div>
         </section>
       )}
 
-      {/* Stay Connected CTA */}
-      <section className="py-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Connected</h2>
-          <p className="text-[#8ba7c7] mb-8">Follow us on social media and be part of every milestone.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={SITE_CONFIG.socials.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition flex items-center gap-2"
-            >
-              <IconMail size={18} />
-              Facebook Community
-            </a>
-            <Link
-              href="/contact"
-              className="px-6 py-3 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition flex items-center gap-2"
-            >
-              Contact School
-              <IconChevronRight size={18} />
-            </Link>
+      {/* Stay Connected — editorial split layout */}
+      <section className="py-20 bg-[#0B1F3A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="w-8 h-px bg-amber-400 mb-5" />
+              <h2 className="text-3xl font-bold mb-3">Stay Connected</h2>
+              <p className="text-[#8ba7c7] text-sm leading-relaxed">
+                Follow us on social media and be part of every milestone in the KMC community.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={SITE_CONFIG.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold text-sm hover:bg-amber-300 transition-colors flex items-center justify-center gap-2"
+              >
+                <IconMail size={16} />
+                Facebook Community
+              </a>
+              <Link
+                href="/contact"
+                className="px-6 py-3 border border-white/20 text-white font-bold text-sm hover:bg-white/8 transition-colors flex items-center justify-center gap-2"
+              >
+                Contact School
+                <IconChevronRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
