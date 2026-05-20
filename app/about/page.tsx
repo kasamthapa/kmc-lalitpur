@@ -464,13 +464,15 @@ export default function About() {
                 className="group bg-white hover:bg-[#0B1F3A] rounded-2xl p-6 border border-[#e8e8e8] hover:border-[#0B1F3A] transition-colors duration-300 flex flex-col"
               >
                 <div className="h-16 flex items-center mb-4">
-                  <Image
-                    src={p.logo}
-                    alt={`${p.name} logo`}
-                    width={160}
-                    height={64}
-                    className="object-contain max-h-14 w-auto group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                  />
+                  <div className="bg-white rounded-xl p-2 flex items-center justify-center">
+                    <Image
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      width={120}
+                      height={52}
+                      className="object-contain max-h-12 w-auto"
+                    />
+                  </div>
                 </div>
                 <h3 className="text-sm font-bold text-[#0B1F3A] group-hover:text-white mb-1 transition-colors duration-300">
                   {p.name}
