@@ -147,184 +147,72 @@ export default function Contact() {
             <span className="text-[#8ba7c7]/50">/</span>
             <span className="text-amber-400 font-medium">Contact</span>
           </nav>
-          <div className="max-w-2xl">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
-              Get in Touch
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              We&apos;re Here
-              <br />
-              <span className="text-amber-400">to Help</span>
-            </h1>
-            <p className="text-lg text-[#8ba7c7] leading-relaxed">
-              Have a question about admissions, fees, scholarships, or campus
-              life? Our team is ready to guide you every step of the way.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact info cards */}
-      <section className="py-16 bg-[#f7f5f0]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                icon: <IconPhone size={22} />,
-                title: "Phone",
-                lines: [
-                  <a
-                    key="p1"
-                    href={SITE_CONFIG.phoneHref}
-                    className="hover:text-amber-600 transition-colors"
-                  >
-                    {SITE_CONFIG.phone}
-                  </a>,
-                ],
-              },
-              {
-                icon: <IconMail size={22} />,
-                title: "Email",
-                lines: [
-                  <a
-                    key="e1"
-                    href={`mailto:${SITE_CONFIG.email}`}
-                    className="hover:text-amber-600 transition-colors text-xs"
-                  >
-                    {SITE_CONFIG.email}
-                  </a>,
-                  <a
-                    key="e2"
-                    href={`mailto:admissions@${SITE_CONFIG.email.split("@")[1]}`}
-                    className="hover:text-amber-600 transition-colors text-xs"
-                  >
-                    {`admissions@${SITE_CONFIG.email.split("@")[1]}`}
-                  </a>,
-                ],
-              },
-              {
-                icon: <IconMapPin size={22} />,
-                title: "Location",
-                lines: [
-                  <a
-                    key="m1"
-                    href={SITE_CONFIG.address.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-amber-600 transition-colors"
-                  >
-                    {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.addressLocality}
-                  </a>,
-                  <span key="m2" className="text-slate-400 text-xs">
-                    Kathmandu Valley, Nepal
-                  </span>,
-                ],
-              },
-              {
-                icon: <IconClock size={22} />,
-                title: "Office Hours",
-                lines: [
-                  <span key="h1">Sun – Fri: 8 AM – 5 PM</span>,
-                  <span key="h2">Saturday: 10 AM – 3 PM</span>,
-                ],
-              },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-7 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-md transition-all"
-              >
-                <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mb-5">
-                  {card.icon}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+                We&apos;re Here
+                <br />
+                <span className="text-amber-400">to Help</span>
+              </h1>
+              <p className="text-lg text-[#8ba7c7] leading-relaxed">
+                Have a question about admissions, fees, scholarships, or campus
+                life? Our team is ready to guide you every step of the way.
+              </p>
+            </div>
+            {/* Quick contact strip on desktop */}
+            <div className="space-y-4">
+              <a href={SITE_CONFIG.phoneHref} className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-amber-400 shrink-0 group-hover:border-amber-400 transition-colors">
+                  <IconPhone size={16} />
                 </div>
-                <h3 className="font-bold text-[#0B1F3A] mb-3">{card.title}</h3>
-                <div className="space-y-1 text-slate-600 text-sm">
-                  {card.lines.map((line, j) => (
-                    <div key={j}>{line}</div>
-                  ))}
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">Phone</p>
+                  <p className="text-white font-semibold text-sm group-hover:text-amber-400 transition-colors">{SITE_CONFIG.phone}</p>
+                </div>
+              </a>
+              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-amber-400 shrink-0 group-hover:border-amber-400 transition-colors">
+                  <IconMail size={16} />
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">Email</p>
+                  <p className="text-white font-semibold text-sm group-hover:text-amber-400 transition-colors">{SITE_CONFIG.email}</p>
+                </div>
+              </a>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                  <IconClock size={16} />
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">Office Hours</p>
+                  <p className="text-white font-semibold text-sm">Sun – Fri: 8 AM – 5 PM</p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Department contacts */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="mb-10">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Departments
-            </span>
-            <h2 className="text-3xl font-bold text-[#0B1F3A]">
-              Contact by Department
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {departments.map((dept, i) => (
-              <div
-                key={i}
-                className="bg-[#f7f5f0] rounded-2xl p-6 border border-[#e8e8e8] hover:border-amber-300 transition-all"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 rounded-full bg-amber-400" />
-                  <h3 className="font-bold text-[#0B1F3A] text-sm">
-                    {dept.name}
-                  </h3>
-                </div>
-                <div className="space-y-2 text-sm">
-                  <a
-                    href={`tel:${dept.phone.replace(/[^+\d]/g, "")}`}
-                    className="flex items-center gap-2 text-slate-600 hover:text-amber-600 transition-colors"
-                  >
-                    <span className="text-amber-500">
-                      <IconPhone size={22} />
-                    </span>
-                    {dept.phone}
-                  </a>
-                  <a
-                    href={`mailto:${dept.email}`}
-                    className="flex items-center gap-2 text-slate-600 hover:text-amber-600 transition-colors"
-                  >
-                    <span className="text-amber-500">
-                      <IconMail size={22} />
-                    </span>
-                    <span className="text-xs">{dept.email}</span>
-                  </a>
-                  <div className="flex items-center gap-2 text-slate-500 text-xs">
-                    <span className="text-amber-500">
-                      <IconClock size={22} />
-                    </span>
-                    {dept.hours}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact form + map */}
+      {/* Contact form + map — split layout */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Form */}
-            <div>
-              <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                Send a Message
-              </span>
-              <h2 className="text-3xl font-bold text-[#0B1F3A] mb-8 leading-tight">
-                How Can We
-                <br />
-                Help You?
-              </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            {/* Form — wider column */}
+            <div className="lg:col-span-3">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-[#0B1F3A] leading-tight mb-2">
+                  Send Us a Message
+                </h2>
+                <div className="w-10 h-0.5 bg-amber-400 mt-3" />
+              </div>
 
               {submitted ? (
-                <div className="bg-white rounded-2xl p-10 border border-[#e8e8e8] text-center">
-                  <div className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-5 text-[#0B1F3A]">
+                <div className="bg-white p-10 border border-[#e8e8e8] text-center">
+                  <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-5 text-[#0B1F3A]">
                     <IconCheck />
                   </div>
                   <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">
-                    Message Sent!
+                    Message Sent
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
                     Thank you for reaching out. Our team will get back to you
@@ -350,11 +238,11 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-[#e8e8e8] space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Name + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                         Full Name <span className="text-red-400">*</span>
                       </label>
                       <input
@@ -363,12 +251,12 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.name ? "border-red-400" : "border-[#e8e8e8]"}`}
+                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.name ? "border-red-400" : "border-[#e0dcd4]"}`}
                       />
                       {fieldErrors.name && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                         Phone Number
                       </label>
                       <input
@@ -377,14 +265,14 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+977"
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                    <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                       Email Address <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -393,7 +281,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.email@example.com"
-                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.email ? "border-red-400" : "border-[#e8e8e8]"}`}
+                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.email ? "border-red-400" : "border-[#e0dcd4]"}`}
                     />
                     {fieldErrors.email && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.email}</p>}
                   </div>
@@ -401,7 +289,7 @@ export default function Contact() {
                   {/* Subject + Stream */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                         Subject
                       </label>
                       <input
@@ -410,19 +298,19 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can we help?"
-                        className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0] ${fieldErrors.subject ? "border-red-400" : "border-[#e8e8e8]"}`}
+                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.subject ? "border-red-400" : "border-[#e0dcd4]"}`}
                       />
                       {fieldErrors.subject && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.subject}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                         Interested Stream
                       </label>
                       <select
                         name="stream"
                         value={formData.stream}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-[#e8e8e8] rounded-xl text-sm text-[#0B1F3A] focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all bg-[#f7f5f0]"
+                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#0B1F3A] focus:outline-none focus:border-amber-400 transition-colors"
                       >
                         <option value="">Select a stream</option>
                         <option value="science">Science</option>
@@ -435,7 +323,7 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                    <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                       Message <span className="text-red-400">*</span>
                     </label>
                     <textarea
@@ -444,13 +332,13 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us how we can help you..."
                       rows={5}
-                      className={`w-full px-4 py-3 border rounded-xl text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none bg-[#f7f5f0] ${fieldErrors.message ? "border-red-400" : "border-[#e8e8e8]"}`}
+                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors resize-none ${fieldErrors.message ? "border-red-400" : "border-[#e0dcd4]"}`}
                     />
                     {fieldErrors.message && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.message}</p>}
                   </div>
 
                   {serverError && (
-                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 px-4 py-3">
                       {serverError}
                     </p>
                   )}
@@ -458,7 +346,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
                   >
                     {loading ? (
                       <>
@@ -490,7 +378,7 @@ export default function Contact() {
                     )}
                   </button>
 
-                  <p className="text-xs text-slate-400 text-center">
+                  <p className="text-xs text-slate-400">
                     We respond within 24 hours on working days. For urgent
                     enquiries call{" "}
                     <a
@@ -504,80 +392,90 @@ export default function Contact() {
               )}
             </div>
 
-            {/* Map + quick info */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-                  Find Us
-                </span>
-                <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6 leading-tight">
-                  Visit Our
-                  <br />
-                  Campus
-                </h2>
-              </div>
-
+            {/* Info column — narrower */}
+            <div className="lg:col-span-2 flex flex-col gap-10">
               {/* Map */}
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-[#e8e8e8] h-72 shrink-0">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=Kathmandu+Model+Secondary+School,+Balkumari,+Lalitpur,+Nepal&output=embed&z=17"
-                  title="KMC Lalitpur Location - Kathmandu Model Secondary School"
-                />
+              <div>
+                <h3 className="font-bold text-[#0B1F3A] mb-4 text-lg">Visit Our Campus</h3>
+                <div className="overflow-hidden border border-[#e8e8e8] h-56">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com/maps?q=Kathmandu+Model+Secondary+School,+Balkumari,+Lalitpur,+Nepal&output=embed&z=17"
+                    title="KMC Lalitpur Location - Kathmandu Model Secondary School"
+                  />
+                </div>
+                <a
+                  href="https://maps.google.com/?q=Balkumari,Lalitpur,Nepal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex items-center gap-2 text-sm font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                >
+                  <IconMapPin size={16} />
+                  Get Directions on Google Maps
+                </a>
               </div>
 
-              {/* Quick response info */}
-              <div className="bg-white rounded-2xl p-6 border border-[#e8e8e8]">
-                <h3 className="font-bold text-[#0B1F3A] mb-4">
-                  Quick Response Promise
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Email replies within 24 hours on working days",
-                    "Phone support during office hours — Sun to Fri, 8AM–5PM",
-                    "WhatsApp responses typically within 1 hour",
-                    "Walk-in visits welcome during office hours",
-                    "Campus tours available by prior appointment",
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-slate-600"
-                    >
-                      <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
-                        <svg
-                          width="10"
-                          height="10"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      </span>
-                      {item}
-                    </li>
+              {/* Contact info — clean list, no card borders */}
+              <div>
+                <h3 className="font-bold text-[#0B1F3A] mb-5 text-lg">Contact Information</h3>
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4">
+                    <span className="text-amber-500 mt-0.5 shrink-0"><IconPhone size={18} /></span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Phone</p>
+                      <a href={SITE_CONFIG.phoneHref} className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors">{SITE_CONFIG.phone}</a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-amber-500 mt-0.5 shrink-0"><IconMail size={18} /></span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Email</p>
+                      <a href={`mailto:${SITE_CONFIG.email}`} className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors block">{SITE_CONFIG.email}</a>
+                      <a href={`mailto:admissions@${SITE_CONFIG.email.split("@")[1]}`} className="text-sm text-slate-500 hover:text-amber-600 transition-colors block mt-0.5">{`admissions@${SITE_CONFIG.email.split("@")[1]}`}</a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-amber-500 mt-0.5 shrink-0"><IconMapPin size={18} /></span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Address</p>
+                      <a href={SITE_CONFIG.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors">
+                        {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.addressLocality}
+                      </a>
+                      <p className="text-xs text-slate-400 mt-0.5">Kathmandu Valley, Nepal</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-amber-500 mt-0.5 shrink-0"><IconClock size={18} /></span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Office Hours</p>
+                      <p className="text-sm text-[#0B1F3A] font-semibold">Sun – Fri: 8 AM – 5 PM</p>
+                      <p className="text-sm text-slate-500 mt-0.5">Saturday: 10 AM – 3 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Department contacts — minimal */}
+              <div>
+                <h3 className="font-bold text-[#0B1F3A] mb-4 text-lg">By Department</h3>
+                <div className="space-y-3">
+                  {departments.map((dept, i) => (
+                    <div key={i} className="pb-3 border-b border-[#eae6de] last:border-0">
+                      <p className="font-semibold text-[#0B1F3A] text-sm mb-1">{dept.name}</p>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1">
+                        <a href={`tel:${dept.phone.replace(/[^+\d]/g, "")}`} className="text-xs text-slate-500 hover:text-amber-600 transition-colors">{dept.phone}</a>
+                        <a href={`mailto:${dept.email}`} className="text-xs text-slate-500 hover:text-amber-600 transition-colors">{dept.email}</a>
+                        <span className="text-xs text-slate-400">{dept.hours}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-
-              {/* Directions */}
-              <a
-                href="https://maps.google.com/?q=Balkumari,Lalitpur,Nepal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3.5 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold text-sm rounded-xl hover:bg-[#0B1F3A] hover:text-white hover:border-[#0B1F3A] transition-all"
-              >
-                <IconMapPin size={22} />
-                Get Directions on Google Maps
-              </a>
             </div>
           </div>
         </div>
@@ -586,12 +484,9 @@ export default function Contact() {
       {/* WhatsApp section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="bg-[#0B1F3A] rounded-3xl p-10 md:p-14">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-10">
+          <div className="bg-[#0B1F3A] p-10 md:p-14">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
               <div>
-                <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/30 px-3 py-1.5 rounded">
-                  Instant Support
-                </span>
                 <h2 className="text-3xl font-bold text-white mb-3">
                   Chat With Us on WhatsApp
                 </h2>
@@ -600,19 +495,19 @@ export default function Contact() {
                   typically replies within an hour during working hours.
                 </p>
               </div>
-              <div className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shrink-0 text-white">
+              <div className="w-14 h-14 bg-[#25D366] flex items-center justify-center shrink-0 text-white">
                 <IconWhatsAppSVG size={20} />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {waActions.map((action) => (
                 <a
                   key={action.label}
                   href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(action.message)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200 group"
+                  className="flex items-center gap-3 border border-white/10 p-4 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200 group"
                 >
                   <span className="text-xl shrink-0">{action.emoji}</span>
                   <div>
@@ -646,23 +541,23 @@ export default function Contact() {
       </section>
 
       {/* Social media */}
-      <section className="py-16 bg-[#f7f5f0]">
+      <section className="py-14 bg-[#f7f5f0] border-t border-[#eae6de]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <h2 className="text-2xl font-bold text-[#0B1F3A] mb-2">
+              <h2 className="text-xl font-bold text-[#0B1F3A] mb-1">
                 Follow Us
               </h2>
               <p className="text-slate-500 text-sm">
                 Stay updated with the latest news, events and achievements
               </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href={SITE_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all"
               >
                 <IconFacebook size={20} /> Facebook
               </a>
@@ -670,7 +565,7 @@ export default function Contact() {
                 href={SITE_CONFIG.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all"
               >
                 <IconInstagram size={20} /> Instagram
               </a>
@@ -678,7 +573,7 @@ export default function Contact() {
                 href={SITE_CONFIG.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] rounded-xl text-[#0B1F3A] font-bold text-sm hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
               >
                 <IconYoutube size={20} /> YouTube
               </a>

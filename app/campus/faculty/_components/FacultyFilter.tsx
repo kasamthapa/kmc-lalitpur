@@ -34,23 +34,24 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
   return (
     <>
       {/* Filter bar */}
-      <section className="py-6 bg-white border-b border-[#eae6de] sticky top-[64px] z-10">
+      <section className="py-5 bg-white border-b border-[#eae6de] sticky top-[64px] z-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="text-xs uppercase tracking-widest text-[#9ca3af] font-semibold mr-2 hidden sm:block">Filter</span>
             {departments.map((dept) => (
               <button
                 key={dept}
                 onClick={() => setActiveDept(dept)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
+                className={`px-4 py-1.5 text-sm font-semibold transition-all duration-150 border ${
                   activeDept === dept
-                    ? "bg-[#0B1F3A] text-white shadow"
-                    : "bg-[#f7f5f0] text-[#374151] hover:bg-[#eae6de]"
-                }`}
+                    ? "bg-[#0B1F3A] text-white border-[#0B1F3A]"
+                    : "bg-transparent text-[#374151] border-[#d1cdc5] hover:border-[#0B1F3A] hover:text-[#0B1F3A]"
+                } rounded-lg`}
               >
                 {dept}
                 {dept !== "All" && (
-                  <span className="ml-2 opacity-60">
-                    ({faculty.filter((f) => f.dept === dept).length})
+                  <span className="ml-1.5 opacity-50 font-normal text-xs">
+                    {faculty.filter((f) => f.dept === dept).length}
                   </span>
                 )}
               </button>
@@ -64,12 +65,11 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
         <div className="max-w-7xl mx-auto px-4">
           {filtered.length === 0 && (
             <div className="text-center py-24">
-              <p className="text-4xl mb-4">👨‍🏫</p>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">Faculty profiles coming soon</h3>
               <p className="text-[#6b7280]">We&apos;re updating our faculty directory. Check back soon.</p>
             </div>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((member) => {
               const color = deptColors[member.dept] ?? "#374151";
               const initials = member.name
@@ -83,7 +83,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                 <>
                   {/* Avatar */}
                   {member.imageUrl ? (
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-52 overflow-hidden bg-[#e8e4dc]">
                       <Image
                         src={member.imageUrl}
                         alt={member.name}
@@ -94,40 +94,42 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                     </div>
                   ) : (
                     <div
-                      className="h-48 flex items-center justify-center"
-                      style={{ background: `linear-gradient(135deg, ${color}, ${color}aa)` }}
+                      className="h-52 flex items-center justify-center"
+                      style={{ background: `linear-gradient(150deg, ${color}dd, ${color}88)` }}
                     >
-                      <span className="text-white text-5xl font-bold">{initials}</span>
+                      <span className="text-white text-5xl font-bold tracking-tight">{initials}</span>
                     </div>
                   )}
 
                   <div className="p-5">
-                    <span
-                      className="inline-block text-xs font-bold px-2 py-1 rounded-full text-white mb-3"
-                      style={{ background: color }}
+                    {/* Department label */}
+                    <p
+                      className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2"
+                      style={{ color }}
                     >
                       {member.dept}
-                    </span>
-                    <h3 className="font-bold text-[#0B1F3A] text-base leading-snug mb-1 group-hover:text-amber-600 transition">
+                    </p>
+                    <h3 className="font-bold text-[#0B1F3A] text-base leading-snug mb-0.5 group-hover:text-amber-600 transition">
                       {member.name}
                     </h3>
-                    <p className="text-sm text-[#6b7280] mb-2">{member.title}</p>
-                    <div className="space-y-1 text-xs text-[#374151]">
+                    <p className="text-sm text-[#6b7280] mb-4">{member.title}</p>
+
+                    <div className="space-y-1.5 text-xs text-[#374151]">
                       <div className="flex items-start gap-2">
-                        <IconBook size={12} className="mt-0.5 shrink-0 text-amber-500" />
-                        <span>{member.qualification}</span>
+                        <IconBook size={11} className="mt-0.5 shrink-0 text-amber-500" />
+                        <span className="leading-relaxed">{member.qualification}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <IconUsers size={12} className="shrink-0 text-amber-500" />
+                        <IconUsers size={11} className="shrink-0 text-amber-500" />
                         <span>{member.experience} experience</span>
                       </div>
                     </div>
+
                     <div className="mt-4 pt-4 border-t border-[#eae6de] flex items-center justify-between">
                       {member.email ? (
-                        /* Avoid nesting <a> inside <a> — show email as plain text when card is a link */
                         hasSlug && member.slug ? (
-                          <span className="flex items-center gap-1.5 text-xs text-[#6b7280] truncate">
-                            <IconMail size={12} />
+                          <span className="flex items-center gap-1.5 text-xs text-[#9ca3af] truncate">
+                            <IconMail size={11} />
                             {member.email}
                           </span>
                         ) : (
@@ -135,7 +137,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                             href={`mailto:${member.email}`}
                             className="flex items-center gap-1.5 text-xs text-[#6b7280] hover:text-amber-600 transition truncate"
                           >
-                            <IconMail size={12} />
+                            <IconMail size={11} />
                             {member.email}
                           </a>
                         )
@@ -143,7 +145,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                         <span />
                       )}
                       {hasSlug && member.slug && (
-                        <span className="text-amber-500 group-hover:text-amber-600 transition shrink-0 ml-2">
+                        <span className="text-[#9ca3af] group-hover:text-amber-500 transition shrink-0 ml-2">
                           <IconChevronRight size={14} />
                         </span>
                       )}
@@ -157,7 +159,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                   <Link
                     key={member.id}
                     href={`/campus/faculty/${member.slug}`}
-                    className="bg-white rounded-2xl overflow-hidden border border-[#eae6de] hover:shadow-lg hover:border-amber-300 transition group block"
+                    className="bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:-translate-y-1 hover:shadow-xl transition-all duration-200 group block"
                   >
                     {cardContent}
                   </Link>
@@ -167,7 +169,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
               return (
                 <div
                   key={member.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-[#eae6de] hover:shadow-lg hover:border-amber-300 transition group"
+                  className="bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:-translate-y-1 hover:shadow-xl transition-all duration-200 group"
                 >
                   {cardContent}
                 </div>

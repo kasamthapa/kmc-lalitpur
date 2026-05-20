@@ -150,38 +150,39 @@ export default function FAQPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="pt-36 pb-16 bg-[#0B1F3A] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
             <IconChevronRight size={14} />
             <span className="text-amber-400 font-semibold">FAQ</span>
           </div>
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
-              Help Center
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Find quick answers to common questions about admissions, academic programs, campus life, and more.
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                Frequently Asked
+                <br />
+                <span className="text-amber-400">Questions</span>
+              </h1>
+            </div>
+            <p className="text-[#8ba7c7] leading-relaxed max-w-xs text-sm md:text-right">
+              Answers to common questions about admissions, academic programs, campus life, and more.
             </p>
           </div>
         </div>
       </section>
 
       {/* Quick Category Nav */}
-      <section className="py-8 bg-white border-b border-[#eae6de] sticky top-[100px] z-10">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap gap-3">
+      <section className="py-5 bg-white border-b border-[#eae6de] sticky top-[100px] z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap gap-1">
             {faqCategories.map((cat) => (
               <a
                 key={cat.category}
                 href={`#${cat.category.toLowerCase().replace(/\s+/g, "-")}`}
-                className="px-4 py-2 rounded-full text-sm font-semibold bg-[#f7f5f0] text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition"
+                className="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-[#0B1F3A] transition-colors"
               >
-                {cat.icon} {cat.category}
+                {cat.category}
               </a>
             ))}
           </div>
@@ -190,71 +191,80 @@ export default function FAQPage() {
 
       {/* FAQ Sections */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 space-y-16">
-          {faqCategories.map((cat) => (
-            <div
-              key={cat.category}
-              id={cat.category.toLowerCase().replace(/\s+/g, "-")}
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-3xl">{cat.icon}</span>
-                <h2 className="text-2xl font-bold text-[#0B1F3A]">{cat.category}</h2>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="space-y-20">
+            {faqCategories.map((cat) => (
+              <div
+                key={cat.category}
+                id={cat.category.toLowerCase().replace(/\s+/g, "-")}
+              >
+                {/* Category header */}
+                <div className="flex items-end justify-between mb-8 pb-4 border-b-2 border-[#0B1F3A]">
+                  <h2 className="text-2xl font-bold text-[#0B1F3A]">{cat.category}</h2>
+                  <span className="text-slate-400 text-sm">{cat.items.length} questions</span>
+                </div>
+
+                {/* Accordion — thin dividers, no card borders */}
+                <div className="divide-y divide-[#eae6de]">
+                  {cat.items.map((item, i) => (
+                    <details
+                      key={i}
+                      className="group py-1"
+                    >
+                      <summary className="flex items-start justify-between gap-6 py-5 cursor-pointer list-none select-none">
+                        <span className="font-semibold text-[#0B1F3A] text-base leading-snug group-open:text-amber-600 transition-colors">
+                          {item.q}
+                        </span>
+                        <span className="shrink-0 text-slate-400 group-open:text-amber-500 transition-colors mt-0.5 text-xl font-light leading-none">
+                          <span className="group-open:hidden">+</span>
+                          <span className="hidden group-open:block">−</span>
+                        </span>
+                      </summary>
+                      <div className="pb-5 pr-10 text-slate-600 leading-relaxed text-sm">
+                        {item.a}
+                      </div>
+                    </details>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-3">
-                {cat.items.map((item, i) => (
-                  <details
-                    key={i}
-                    className="group border border-[#eae6de] rounded-xl overflow-hidden"
-                  >
-                    <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none bg-white hover:bg-[#f7f5f0] transition select-none">
-                      <span className="font-semibold text-[#0B1F3A] text-base leading-snug">
-                        {item.q}
-                      </span>
-                      <span className="shrink-0 w-7 h-7 rounded-full bg-[#f7f5f0] group-open:bg-amber-400 flex items-center justify-center transition text-[#0B1F3A] font-bold text-lg leading-none">
-                        <span className="group-open:hidden">+</span>
-                        <span className="hidden group-open:block">−</span>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 pt-2 text-[#374151] leading-relaxed text-sm border-t border-[#eae6de] bg-[#f7f5f0]">
-                      {item.a}
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Still have questions CTA */}
       <section className="py-20 bg-[#0B1F3A] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
-          <p className="text-[#8ba7c7] text-lg mb-10">
-            Our admissions team is happy to help. Reach out to us directly.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={SITE_CONFIG.phoneHref}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition"
-            >
-              <IconPhone size={18} />
-              {SITE_CONFIG.phone}
-            </a>
-            <a
-              href={`mailto:${SITE_CONFIG.email}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition"
-            >
-              <IconMail size={18} />
-              {SITE_CONFIG.email}
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition"
-            >
-              Contact Us
-              <IconChevronRight size={18} />
-            </Link>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+            <div>
+              <h2 className="text-3xl font-bold mb-3">Still have questions?</h2>
+              <p className="text-[#8ba7c7] text-sm leading-relaxed max-w-md">
+                Our admissions team is happy to help. Reach out to us directly and we&apos;ll get back to you within 24 hours.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href={SITE_CONFIG.phoneHref}
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition"
+              >
+                <IconPhone size={18} />
+                {SITE_CONFIG.phone}
+              </a>
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition"
+              >
+                <IconMail size={18} />
+                Email Us
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition"
+              >
+                Contact Page
+                <IconChevronRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

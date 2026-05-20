@@ -44,9 +44,9 @@ export default function CatalystPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-20 bg-[#0B1F3A] text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
+          <div className="flex items-center gap-2 mb-10 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">
               Home
             </Link>
@@ -57,9 +57,11 @@ export default function CatalystPage() {
               Student Committee
             </span>
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
+
+          <div className="flex flex-col lg:flex-row items-start gap-10">
+            {/* Logo — editorial treatment */}
             <div className="shrink-0">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white/10 border border-white/20 flex items-center justify-center p-3">
+              <div className="w-24 h-24 rounded-2xl overflow-hidden bg-white/5 border border-white/15 flex items-center justify-center p-2.5">
                 <Image
                   src="/images/catalyst/logo.png"
                   alt="KMC Student Catalyst Committee Logo"
@@ -69,16 +71,14 @@ export default function CatalystPage() {
                 />
               </div>
             </div>
-            <div>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
-                Student Leadership
-              </p>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-                KMC Students
-                <br />
+
+            <div className="max-w-2xl">
+              <div className="w-8 h-px bg-amber-400 mb-5" />
+              <h1 className="text-5xl md:text-6xl font-bold mb-5 tracking-tight leading-none">
+                KMC Students<br />
                 Catalyst Committee
               </h1>
-              <p className="text-xl text-[#8ba7c7] leading-relaxed max-w-2xl">
+              <p className="text-lg text-[#8ba7c7] leading-relaxed">
                 The student-led body that powers campus life at KMC — organizing
                 events, leading clubs, and building community across all three
                 streams.
@@ -88,22 +88,23 @@ export default function CatalystPage() {
         </div>
       </section>
 
-      {/* Members */}
-      <section className="py-20 bg-white">
+      {/* Members — full-width editorial */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-              Leadership
-            </p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">
-              Executives & Club Heads
-            </h2>
-            <p className="text-[#6b7280] mt-3 max-w-xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
+              <h2 className="text-3xl font-bold text-[#0B1F3A]">
+                Executives &amp; Club Heads
+              </h2>
+            </div>
+            <p className="text-[#6b7280] text-sm max-w-sm leading-relaxed md:text-right">
               Meet the committee executives and club heads driving student life
               at KMC Lalitpur.
             </p>
           </div>
-          <div className="bg-[#f7f5f0] rounded-3xl border border-[#eae6de] overflow-hidden">
+
+          <div className="rounded-2xl overflow-hidden border border-[#eae6de]">
             <Image
               src="/images/catalyst/members/Executives&Heads.png"
               alt="KMC Student Catalyst Committee — executives and club heads"
@@ -117,48 +118,54 @@ export default function CatalystPage() {
       </section>
 
       {/* Clubs */}
-      <section className="py-20 bg-[#f7f5f0]">
+      <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
-              Our Clubs
-            </p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">
-              12 Active Clubs
-            </h2>
-            <p className="text-[#6b7280] mt-3 max-w-xl mx-auto">
+          {/* Section header — editorial split */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-4" />
+              <h2 className="text-3xl font-bold text-[#0B1F3A]">
+                12 Active Clubs
+              </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-3" />
+            </div>
+            <p className="text-[#6b7280] text-sm max-w-sm leading-relaxed md:text-right">
               Every student finds their passion — from science and law to music,
               dance, and community service.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {clubs.map((club) => (
+
+          {/* Club grid — varied layout: first two clubs span taller */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {clubs.map((club, idx) => (
               <div
                 key={club.name}
-                className="bg-white rounded-2xl border border-[#eae6de] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+                className="group bg-white rounded-xl border border-[#eae6de] overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
               >
                 {/* Members photo */}
-                <div className="relative w-full aspect-video bg-[#0B1F3A]">
+                <div className={`relative w-full bg-[#0B1F3A] overflow-hidden ${idx < 2 ? "aspect-[4/3]" : "aspect-video"}`}>
                   <Image
                     src={`/images/catalyst/clubs/${club.folder}/members.png`}
                     alt={`${club.name} members`}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
                 </div>
+
                 {/* Logo + name */}
-                <div className="flex items-center gap-4 px-5 py-4">
-                  <div className="w-12 h-12 shrink-0 bg-[#f7f5f0] rounded-xl p-2 border border-[#eae6de] flex items-center justify-center">
+                <div className="flex items-center gap-4 px-5 py-4 border-t border-[#eae6de]">
+                  <div className="w-10 h-10 shrink-0 bg-[#f7f5f0] rounded-lg p-1.5 border border-[#eae6de] flex items-center justify-center">
                     <Image
                       src={`/images/catalyst/clubs/${club.folder}/logo.png`}
                       alt={`${club.name} logo`}
-                      width={40}
-                      height={40}
+                      width={36}
+                      height={36}
                       className="object-contain w-full h-full"
                     />
                   </div>
-                  <span className="font-bold text-[#0B1F3A] leading-snug">
+                  <span className="font-bold text-[#0B1F3A] text-sm leading-snug group-hover:text-amber-600 transition">
                     {club.name}
                   </span>
                 </div>

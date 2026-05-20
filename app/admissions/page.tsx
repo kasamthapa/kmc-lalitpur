@@ -279,6 +279,7 @@ export default function Admissions() {
         description="How to apply to KMC Lalitpur — entrance exam details, eligibility criteria, scholarship information, required documents and admission timeline for 2083."
         path="/admissions"
       />
+
       {/* Hero */}
       <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -292,9 +293,9 @@ export default function Admissions() {
           </nav>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5 border border-amber-400/40 px-3 py-1.5 rounded">
+              <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5">
                 2083 Academic Year
-              </span>
+              </p>
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
                 Join Our
                 <br />
@@ -352,7 +353,7 @@ export default function Admissions() {
               ].map((s, i) => (
                 <div
                   key={i}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-5"
+                  className="bg-white/5 border border-white/10 rounded-lg p-5"
                 >
                   <p className="text-2xl font-bold text-amber-400 leading-none">
                     {s.n}
@@ -399,23 +400,19 @@ export default function Admissions() {
       {/* Quick Process Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              How to Apply
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
-              Admission in 3 Simple Steps
-            </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm">
-              A straightforward process designed to help you secure your place
-              at KMC Lalitpur
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-3" />
+              <h2 className="text-4xl font-bold text-[#0B1F3A]">
+                Admission in 3 Steps
+              </h2>
+            </div>
+            <p className="text-slate-500 max-w-xs text-sm leading-relaxed md:text-right">
+              A straightforward process designed to help you secure your place at KMC Lalitpur
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            {/* Connector line */}
-            <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-px bg-amber-200 z-0" />
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative">
             {[
               {
                 step: "01",
@@ -435,49 +432,48 @@ export default function Admissions() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="relative z-10 bg-white border border-[#e8e8e8] rounded-2xl p-8 text-center hover:shadow-lg hover:border-amber-300 transition-all"
+                className={`relative p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200 ${i < 2 ? "md:border-r border-[#eae6de]" : ""}`}
               >
-                <div className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-amber-400/30">
-                  <span className="text-[#0B1F3A] font-bold text-lg">
-                    {item.step}
-                  </span>
-                </div>
-                <h3 className="font-bold text-[#0B1F3A] mb-3">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-[7rem] font-bold text-[#0B1F3A]/[0.05] leading-none select-none absolute top-4 right-6">
+                  {item.step}
+                </p>
+                <p className="text-amber-500 font-bold text-xs tracking-widest uppercase mb-3">
+                  Step {item.step}
+                </p>
+                <h3 className="font-bold text-[#0B1F3A] text-xl mb-3 relative">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed relative">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
+          <div className="border-t border-[#eae6de] mt-0" />
         </div>
       </section>
 
       {/* Detailed Admission Guide */}
       <section id="guide" className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Step by Step
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-2">
               Detailed Admission Guide
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm">
-              Select your stream to view the specific admission requirements and
-              process
+            <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
+            <p className="text-slate-500 max-w-xl text-sm">
+              Select your stream to view the specific admission requirements and process
             </p>
           </div>
 
           {/* Stream tabs */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
+          <div className="flex flex-wrap gap-2 mb-12 border-b border-[#e0dcd4]">
             {streamKeys.map((key) => (
               <button
                 key={key}
                 onClick={() => setActiveStream(key)}
-                className={`px-6 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 ${
+                className={`px-5 py-2.5 font-bold text-sm transition-all duration-200 border-b-2 -mb-px ${
                   activeStream === key
-                    ? "bg-amber-400 text-[#0B1F3A] shadow-lg shadow-amber-400/30"
-                    : "bg-white text-[#374151] border border-[#e8e8e8] hover:border-amber-300 hover:text-[#0B1F3A]"
+                    ? "border-amber-400 text-[#0B1F3A]"
+                    : "border-transparent text-slate-400 hover:text-[#0B1F3A]"
                 }`}
               >
                 {streams[key].label}
@@ -486,15 +482,17 @@ export default function Admissions() {
           </div>
 
           {/* Steps */}
-          <div className="space-y-6">
+          <div className="space-y-px">
             {currentGuide.steps.map((step, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl border border-[#e8e8e8] overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-white border border-[#e8e8e8] overflow-hidden hover:shadow-sm transition-shadow"
               >
-                <div className="flex items-start gap-6 p-8">
-                  <div className="w-14 h-14 bg-amber-400 rounded-2xl flex items-center justify-center text-[#0B1F3A] font-bold text-xl shrink-0 shadow-md">
-                    {step.num}
+                <div className="flex items-start gap-8 p-8">
+                  <div className="shrink-0 pt-1">
+                    <p className="text-5xl font-bold text-[#0B1F3A]/10 leading-none select-none">
+                      {step.num}
+                    </p>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">
@@ -505,29 +503,22 @@ export default function Admissions() {
                     </p>
 
                     <div className="mb-5">
-                      <h4 className="font-bold text-[#0B1F3A] mb-3 text-sm uppercase tracking-wider">
+                      <p className="font-bold text-[#0B1F3A] mb-3 text-xs uppercase tracking-wider">
                         Requirements & Details
-                      </h4>
+                      </p>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {step.requirements.map((req, j) => (
                           <li key={j} className="flex items-start gap-2.5">
-                            <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
-                              <IconCheck />
-                            </span>
-                            <span className="text-slate-600 text-sm">
-                              {req}
-                            </span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2" />
+                            <span className="text-slate-600 text-sm">{req}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     {step.info && (
-                      <div className="flex items-start gap-3 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl">
-                        <span className="text-amber-600 shrink-0 mt-0.5">
-                          <IconInfo />
-                        </span>
-                        <p className="text-sm text-slate-700 leading-relaxed">
+                      <div className="flex items-start gap-3 border-l-4 border-amber-400 pl-4 py-1">
+                        <p className="text-sm text-slate-600 leading-relaxed">
                           {step.info}
                         </p>
                       </div>
@@ -538,7 +529,7 @@ export default function Admissions() {
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="mt-10">
             <a
               href="https://app.kmclalitpur.edu.np/applicant/login"
               target="_blank"
@@ -555,25 +546,24 @@ export default function Admissions() {
       {/* Scholarships */}
       <section id="scholarships" className="py-24 bg-[#0B1F3A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/30 px-3 py-1.5 rounded">
-              Financial Aid
-            </span>
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Scholarships & Financial Aid
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-              KMC Lalitpur offers merit, need-based, and special scholarships.
-              All Grade XI scholarships are based on Cumulative Marks = SEE (25%) + KMC Entrance (75%).
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+            <div>
+              <h2 className="text-4xl font-bold text-white mb-2">
+                Scholarships & Financial Aid
+              </h2>
+              <div className="w-10 h-0.5 bg-amber-400 mt-3" />
+            </div>
+            <p className="text-slate-400 max-w-sm text-sm leading-relaxed md:text-right">
+              All Grade XI scholarships are based on Cumulative Marks = SEE (25%) + KMC Entrance (75%)
             </p>
           </div>
 
           {/* Grade XI Merit Scholarship Table */}
           <div className="mb-8">
-            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+            <p className="text-white/60 font-semibold text-xs mb-4 uppercase tracking-wider">
               Grade XI — Admission Scholarship (Science, Management & Law)
-            </h3>
-            <div className="overflow-x-auto rounded-2xl border border-white/10">
+            </p>
+            <div className="overflow-x-auto border border-white/10">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
@@ -613,10 +603,10 @@ export default function Admissions() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Grade XII based on Grade XI GPA */}
             <div>
-              <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+              <p className="text-white/60 font-semibold text-xs mb-4 uppercase tracking-wider">
                 Grade XII — Based on Grade XI GPA
-              </h3>
-              <div className="overflow-x-auto rounded-2xl border border-white/10">
+              </p>
+              <div className="overflow-x-auto border border-white/10">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
@@ -646,10 +636,10 @@ export default function Admissions() {
 
             {/* Terminal Exam Performance */}
             <div>
-              <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+              <p className="text-white/60 font-semibold text-xs mb-4 uppercase tracking-wider">
                 Terminal Exam Performance
-              </h3>
-              <div className="overflow-x-auto rounded-2xl border border-white/10">
+              </p>
+              <div className="overflow-x-auto border border-white/10">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-white/10 text-amber-400 text-xs uppercase tracking-wider">
@@ -678,8 +668,8 @@ export default function Admissions() {
             </div>
           </div>
 
-          {/* Special Scholarships */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          {/* Special Scholarships — left-border treatment */}
+          <div className="space-y-4 mb-8">
             {[
               {
                 title: "Sushil Memorial Scholarship",
@@ -702,46 +692,36 @@ export default function Admissions() {
             ].map((s, i) => (
               <div
                 key={i}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-amber-400/30 transition-all"
+                className="border-l-4 border-amber-400 pl-6 py-4 hover:border-amber-300 transition-colors"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center text-[#0B1F3A] shrink-0">
-                    <IconAward size={18} />
-                  </div>
-                  <span className="text-xs font-bold px-2 py-1 rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/20">
+                <div className="flex items-start justify-between gap-4 mb-2">
+                  <h3 className="font-bold text-white text-sm">{s.title}</h3>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded bg-amber-400/15 text-amber-400 border border-amber-400/20 shrink-0">
                     {s.badge}
                   </span>
                 </div>
-                <h3 className="font-bold text-white text-sm mb-2">{s.title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-4">{s.desc}</p>
-                <ul className="space-y-1.5">
+                <p className="text-slate-400 text-xs leading-relaxed mb-3">{s.desc}</p>
+                <div className="flex flex-wrap gap-4">
                   {s.details.map((d) => (
-                    <li key={d} className="flex items-center gap-2 text-xs text-slate-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />{d}
-                    </li>
+                    <span key={d} className="text-xs text-slate-300 flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-amber-400 shrink-0" />{d}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Scholarship note */}
-          <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-6 flex items-start gap-4">
-            <span className="text-amber-400 shrink-0 mt-0.5">
-              <IconInfo />
-            </span>
-            <div>
-              <p className="font-bold text-amber-400 mb-2">
-                Important Scholarship Note
-              </p>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Scholarship quota is limited and awarded on a first-come,
-                first-served basis. Scholarships at admission are valid for the
-                first 3 months (until First Term Exam). Renewal or revision of
-                scholarships will be based on your terminal exam performance
-                thereafter. Get admitted early to secure your scholarship.
-              </p>
-            </div>
+          <div className="border-l-4 border-amber-400 pl-6 py-4">
+            <p className="font-bold text-amber-400 mb-2 text-sm">Important Scholarship Note</p>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Scholarship quota is limited and awarded on a first-come,
+              first-served basis. Scholarships at admission are valid for the
+              first 3 months (until First Term Exam). Renewal or revision of
+              scholarships will be based on your terminal exam performance
+              thereafter. Get admitted early to secure your scholarship.
+            </p>
           </div>
         </div>
       </section>
@@ -749,36 +729,34 @@ export default function Admissions() {
       {/* Timeline */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Key Dates
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
-              Admission Timeline
-            </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm">
-              Approximate schedule for the 2083 academic year admission
-              process
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+            <div>
+              <div className="w-6 h-px bg-amber-500 mb-3" />
+              <h2 className="text-4xl font-bold text-[#0B1F3A]">
+                Admission Timeline
+              </h2>
+            </div>
+            <p className="text-slate-500 max-w-xs text-sm leading-relaxed md:text-right">
+              Approximate schedule for the 2083 academic year
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl">
             <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-amber-200" />
-              <div className="space-y-6">
+              <div className="absolute left-0 top-3 bottom-3 w-px bg-[#eae6de]" />
+              <div className="space-y-0">
                 {timeline.map((item, i) => (
-                  <div key={i} className="flex gap-8 group">
-                    <div className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A] shadow-md z-10 group-hover:scale-110 transition-transform">
-                      <IconCalendar size={22} />
-                    </div>
-                    <div className="flex-1 bg-[#f7f5f0] rounded-2xl p-5 border border-[#e8e8e8] hover:border-amber-300 hover:shadow-sm transition-all">
-                      <span className="text-amber-600 font-bold text-xs tracking-wider uppercase">
+                  <div key={i} className="flex gap-8 group pl-8 relative">
+                    <div className="absolute left-0 top-4 w-px h-full bg-[#eae6de]" />
+                    <div className="absolute left-[-4px] top-4 w-2.5 h-2.5 rounded-full bg-amber-400 border-2 border-white group-hover:scale-125 transition-transform z-10" />
+                    <div className="flex-1 pb-8">
+                      <p className="text-amber-600 font-bold text-xs tracking-wider uppercase mb-0.5">
                         {item.step}
-                      </span>
-                      <h3 className="font-bold text-[#0B1F3A] mt-1 mb-1">
+                      </p>
+                      <h3 className="font-bold text-[#0B1F3A] mb-1">
                         {item.event}
                       </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">
+                      <p className="text-slate-500 text-sm leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -793,32 +771,28 @@ export default function Admissions() {
       {/* Eligibility & Documents */}
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-amber-400/40 px-3 py-1.5 rounded bg-amber-50">
-              Requirements
-            </span>
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-4">
+          <div className="mb-14">
+            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-2">
               Eligibility & Documents
             </h2>
+            <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Documents */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#e8e8e8]">
+            <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A]">
+                <div className="text-[#0B1F3A]">
                   <IconDoc size={22} />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3A]">
+                <h3 className="text-lg font-bold text-[#0B1F3A]">
                   Required Documents
                 </h3>
               </div>
               <ul className="space-y-3">
                 {documents.map((doc, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0 mt-0.5 text-[#0B1F3A]">
-                      <IconCheck />
-                    </span>
+                  <li key={i} className="flex items-start gap-3 pb-3 border-b border-[#eae6de] last:border-0">
+                    <span className="text-amber-500 font-bold text-xs shrink-0 mt-0.5 w-5 text-right">{String(i + 1).padStart(2, "0")}</span>
                     <span className="text-slate-600 text-sm">{doc}</span>
                   </li>
                 ))}
@@ -826,16 +800,16 @@ export default function Admissions() {
             </div>
 
             {/* General Eligibility */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#e8e8e8]">
+            <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A]">
+                <div className="text-[#0B1F3A]">
                   <IconAward size={22} />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3A]">
+                <h3 className="text-lg font-bold text-[#0B1F3A]">
                   Stream Eligibility
                 </h3>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-0">
                 {[
                   {
                     stream: "Science",
@@ -856,7 +830,7 @@ export default function Admissions() {
                     color: "bg-amber-50 border-amber-200",
                   },
                 ].map((s, i) => (
-                  <div key={i} className={`${s.color} border rounded-xl p-4`}>
+                  <div key={i} className="border-l-4 border-amber-400 pl-4 py-4 mb-4">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-bold text-[#0B1F3A] text-sm">
                         {s.stream} Stream
@@ -865,7 +839,7 @@ export default function Admissions() {
                         {s.cgpa}
                       </span>
                     </div>
-                    <p className="text-slate-600 text-xs">{s.req}</p>
+                    <p className="text-slate-500 text-xs">{s.req}</p>
                   </div>
                 ))}
               </div>
@@ -877,9 +851,9 @@ export default function Admissions() {
       {/* Contact / CTA cards */}
       <section className="py-24 bg-[#0B1F3A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-amber-400/30 hover:bg-white/8 transition-all">
-              <div className="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mx-auto mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 mb-14">
+            <div className="p-8 hover:bg-white/[0.03] transition-colors">
+              <div className="mb-5 text-amber-400">
                 <IconCalendar size={22} />
               </div>
               <h3 className="font-bold text-white mb-3">Campus Tour</h3>
@@ -897,8 +871,8 @@ export default function Admissions() {
               </a>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-amber-400/30 hover:bg-white/8 transition-all">
-              <div className="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mx-auto mb-5">
+            <div className="p-8 hover:bg-white/[0.03] transition-colors">
+              <div className="mb-5 text-amber-400">
                 <IconDoc size={22} />
               </div>
               <h3 className="font-bold text-white mb-3">Application Support</h3>
@@ -914,8 +888,8 @@ export default function Admissions() {
               </Link>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-amber-400/30 hover:bg-white/8 transition-all">
-              <div className="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-[#0B1F3A] mx-auto mb-5">
+            <div className="p-8 hover:bg-white/[0.03] transition-colors">
+              <div className="mb-5 text-amber-400">
                 <IconPhone size={20} />
               </div>
               <h3 className="font-bold text-white mb-3">Call Admissions</h3>
@@ -933,7 +907,7 @@ export default function Admissions() {
           </div>
 
           {/* FAQ link */}
-          <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-white/10 pt-10 mb-14">
             <div>
               <p className="font-bold text-white mb-1">Have more questions?</p>
               <p className="text-slate-400 text-sm">
@@ -949,7 +923,7 @@ export default function Admissions() {
             </Link>
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
               Ready to Apply?
             </h2>
