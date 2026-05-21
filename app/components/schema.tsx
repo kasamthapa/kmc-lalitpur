@@ -434,3 +434,58 @@ export function WebPageSchema({
     />
   );
 }
+
+// ─── 9. HowTo Schema ──────────────────────────────────────────────────────────
+// Use on pages with step-by-step instructions (admissions, entrance prep, etc.)
+// Unlocks Google's HowTo rich result and improves AEO / featured-snippet ranking.
+export interface HowToStep {
+  name: string;
+  text: string;
+  position: number;
+}
+
+export function HowToSchema({
+  name,
+  description,
+  steps,
+  totalTime,
+}: {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+  totalTime?: string; // ISO 8601 duration, e.g. "P7D" for 7 days
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    ...(totalTime ? { totalTime } : {}),
+    supply: [
+      { "@type": "HowToSupply", name: "SEE / SLC marksheet" },
+      { "@type": "HowToSupply", name: "Passport-size photograph" },
+      { "@type": "HowToSupply", name: "Citizenship or birth certificate" },
+    ],
+    step: steps.map((s) => ({
+      "@type": "HowToStep",
+      position: s.position,
+      name: s.name,
+      text: s.text,
+      url: `${SITE_URL}/admissions`,
+    })),
+    tool: { "@type": "HowToTool", name: "KMC Online Application Form" },
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "NPR",
+      value: "0",
+      description: "Free to apply",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
