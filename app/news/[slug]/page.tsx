@@ -77,7 +77,7 @@ export default async function NewsArticlePage({
           </div>
 
           {article.category && (
-            <span className="inline-block bg-amber-400 text-[#0B1F3A] text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+            <span className="text-xs font-bold tracking-[0.15em] uppercase text-amber-400 mb-4 inline-block">
               {article.category}
             </span>
           )}
@@ -86,7 +86,7 @@ export default async function NewsArticlePage({
             {article.title}
           </h1>
 
-          <div className="flex items-center gap-2 text-[#8ba7c7] text-sm">
+          <div className="flex items-center gap-2 text-[#8ba7c7] text-sm pb-6 border-b border-white/10">
             <IconCalendar size={14} />
             <span>{date}</span>
           </div>
@@ -142,13 +142,19 @@ export default async function NewsArticlePage({
           )}
 
           {/* Back link */}
-          <div className="mt-12 pt-8 border-t border-[#eae6de]">
+          <div className="mt-12 pt-8 border-t-2 border-[#0B1F3A] flex items-center justify-between">
             <Link
               href="/news"
               className="inline-flex items-center gap-2 text-[#0B1F3A] font-bold hover:text-amber-600 transition-colors"
             >
               <span className="rotate-180 inline-flex"><IconChevronRight size={16} /></span>
               Back to News & Updates
+            </Link>
+            <Link
+              href="/news"
+              className="text-sm font-bold text-amber-600 hover:text-amber-500 transition-colors"
+            >
+              More news →
             </Link>
           </div>
         </div>
