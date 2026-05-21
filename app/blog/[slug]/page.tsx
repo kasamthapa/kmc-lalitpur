@@ -604,40 +604,38 @@ export default async function BlogPostPage({
     <main className="bg-white">
       <Header />
 
-      {/* Hero */}
+      {/* Hero — dark band, no pill badge */}
       <section className="pt-28 pb-0 bg-[#0B1F3A] text-white">
         <div className="max-w-4xl mx-auto px-4">
+          {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
             <IconChevronRight size={14} />
             <Link href="/blog" className="hover:text-amber-400 transition">Blog</Link>
             <IconChevronRight size={14} />
-            <span className="text-amber-400 font-semibold truncate max-w-[200px]">
-              {post.category}
-            </span>
+            <span className="text-[#8ba7c7] truncate max-w-[200px]">{post.category}</span>
           </div>
 
-          <span className="inline-block px-3 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold rounded-full mb-5">
+          {/* Category — bare text label, no pill */}
+          <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400 block mb-4">
             {post.category}
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-[#8ba7c7] text-sm pb-10 flex-wrap">
-            <span className="flex items-center gap-1.5">
-              <IconCalendar size={14} />
-              {post.date}
-            </span>
-            <span>·</span>
+          <div className="flex items-center gap-4 text-[#8ba7c7] text-sm pb-12 flex-wrap border-b border-white/10">
+            <span>{post.date}</span>
+            <span className="text-white/20">·</span>
             <span>{post.readTime}</span>
-            <span>·</span>
+            <span className="text-white/20">·</span>
             <span>By {post.author}</span>
           </div>
         </div>
 
-        {/* Cover image */}
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="relative w-full h-72 md:h-[440px] rounded-t-2xl overflow-hidden">
+        {/* Cover image — full bleed from dark hero */}
+        <div className="max-w-5xl mx-auto px-4 pt-0">
+          <div className="relative w-full h-72 md:h-[480px] overflow-hidden">
             <Image
               src={post.image}
               alt={post.title}
@@ -653,38 +651,50 @@ export default async function BlogPostPage({
       {/* Article body */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">
-          {/* Excerpt / lead */}
-          <p className="text-xl text-[#374151] leading-relaxed mb-10 font-medium border-l-4 border-amber-400 pl-6">
-            {post.excerpt}
+
+          {/* Lead excerpt */}
+          <p className="text-xl text-[#374151] leading-relaxed mb-10 font-medium border-l-[3px] border-amber-400 pl-6">
+            {post.excerpt.replace(/\*\*([^*]+)\*\*/g, "$1")}
           </p>
 
-          {/* Content rendered as paragraphs / headings */}
-          <div className="prose prose-lg max-w-none text-[#374151]">
+          {/* Article content */}
+          <div className="text-[#374151]">
             {post.content.split("\n\n").map((block, i) => {
               if (block.startsWith("## ")) {
                 return (
-                  <h2
-                    key={i}
-                    className="text-2xl font-bold text-[#0B1F3A] mt-10 mb-4"
-                  >
+                  <h2 key={i} className="text-2xl font-bold text-[#0B1F3A] mt-12 mb-5 pb-3 border-b border-[#eae6de]">
                     {block.replace("## ", "")}
                   </h2>
                 );
               }
+              if (block.startsWith("- ") || block.includes("\n- ")) {
+                const items = block.split("\n").filter((l) => l.startsWith("- "));
+                return (
+                  <ul key={i} className="mb-6 space-y-2 pl-0">
+                    {items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-3">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                        <span className="leading-relaxed">{item.replace("- ", "").replace(/\*\*([^*]+)\*\*/g, "$1")}</span>
+                      </li>
+                    ))}
+                  </ul>
+                );
+              }
               if (block.startsWith("**") && block.endsWith("**")) {
                 return (
-                  <p key={i} className="font-bold text-[#0B1F3A] mb-4">
+                  <p key={i} className="font-bold text-[#0B1F3A] mb-4 text-lg">
                     {block.replace(/\*\*/g, "")}
                   </p>
                 );
               }
-              // Handle bold inline text in paragraphs
               const parts = block.split(/(\*\*[^*]+\*\*)/g);
               return (
-                <p key={i} className="mb-5 leading-relaxed">
+                <p key={i} className="mb-6 leading-[1.85] text-[17px]">
                   {parts.map((part, j) =>
                     part.startsWith("**") && part.endsWith("**") ? (
-                      <strong key={j}>{part.replace(/\*\*/g, "")}</strong>
+                      <strong key={j} className="font-bold text-[#0B1F3A]">
+                        {part.replace(/\*\*/g, "")}
+                      </strong>
                     ) : (
                       part
                     )
@@ -694,22 +704,20 @@ export default async function BlogPostPage({
             })}
           </div>
 
-          {/* Author card */}
-          <div className="mt-14 flex items-center gap-4 p-6 bg-[#f7f5f0] rounded-2xl border border-[#eae6de]">
-            <div className="w-12 h-12 rounded-full bg-[#0B1F3A] flex items-center justify-center text-amber-400 font-bold text-xl shrink-0">
-              {post.author.charAt(0)}
+          {/* Author — divider style, no card box */}
+          <div className="mt-14 pt-8 border-t-2 border-[#0B1F3A] flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-[#0B1F3A] flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">
+                {post.author.charAt(0)}
+              </div>
+              <div>
+                <p className="font-bold text-[#0B1F3A] text-sm">{post.author}</p>
+                <p className="text-xs text-[#9ca3af]">KMC Lalitpur</p>
+              </div>
             </div>
-            <div>
-              <p className="font-bold text-[#0B1F3A]">{post.author}</p>
-              <p className="text-sm text-[#6b7280]">KMC Lalitpur</p>
-            </div>
-          </div>
-
-          {/* Back button */}
-          <div className="mt-10">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:gap-3 transition-all"
+              className="text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors"
             >
               ← Back to Blog
             </Link>
@@ -717,38 +725,41 @@ export default async function BlogPostPage({
         </div>
       </section>
 
-      {/* Related posts */}
+      {/* Related posts — clean grid, no card boxes */}
       {related.length > 0 && (
-        <section className="py-16 bg-[#f7f5f0] border-t border-[#eae6de]">
+        <section className="py-16 border-t border-[#eae6de]">
           <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-[#0B1F3A] mb-8">
-              Related Articles
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-center gap-4 mb-10">
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#374151]">
+                Related Articles
+              </span>
+              <div className="flex-1 h-px bg-[#eae6de]" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="group bg-white rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-lg transition"
+                  className="group flex flex-col"
                 >
-                  <div className="relative h-40 bg-[#0B1F3A] overflow-hidden">
+                  <div className="relative w-full aspect-[16/9] bg-[#0B1F3A] overflow-hidden mb-4">
                     <Image
                       src={r.image}
                       alt={r.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition duration-500"
+                      className="object-cover group-hover:scale-[1.04] transition duration-500"
                     />
                   </div>
-                  <div className="p-4">
-                    <p className="text-xs text-amber-600 font-semibold mb-2">
+                  {r.category && (
+                    <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-amber-600 mb-2">
                       {r.category}
-                    </p>
-                    <h3 className="font-bold text-[#0B1F3A] text-sm line-clamp-2 group-hover:text-amber-600 transition leading-snug">
-                      {r.title}
-                    </h3>
-                    <p className="text-xs text-[#6b7280] mt-2">{r.readTime}</p>
-                  </div>
+                    </span>
+                  )}
+                  <h3 className="font-bold text-[#0B1F3A] leading-snug group-hover:text-[#1a3a6a] transition line-clamp-2 mb-1">
+                    {r.title}
+                  </h3>
+                  <p className="text-xs text-[#9ca3af] mt-auto pt-2">{r.readTime}</p>
                 </Link>
               ))}
             </div>
@@ -756,23 +767,27 @@ export default async function BlogPostPage({
         </section>
       )}
 
-      {/* CTA */}
-      <section className="py-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Interested in Joining KMC?</h2>
-          <p className="text-[#8ba7c7] mb-8">
-            Admissions are open for 2083. Visit our campus or get in touch with our team.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+      {/* CTA — asymmetric split, no centered box */}
+      <section className="py-20 bg-[#0B1F3A] text-white">
+        <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400 mb-3">
+              Admissions Open 2083
+            </p>
+            <h2 className="text-3xl font-bold leading-tight">
+              Interested in<br />joining KMC?
+            </h2>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <Link
               href="/admissions"
-              className="px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition"
+              className="px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold hover:bg-amber-300 transition text-sm"
             >
               Apply Now
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition"
+              className="px-8 py-4 border border-white/20 text-white font-bold hover:bg-white/10 transition text-sm"
             >
               Contact Us
             </Link>
