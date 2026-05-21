@@ -103,26 +103,28 @@ export default async function BlogPage() {
 
       {/* Hero */}
       <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 mb-10">
+          <div className="flex items-center gap-2 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">
               Home
             </Link>
             <IconChevronRight size={14} />
             <span className="text-amber-400 font-semibold">Blog</span>
           </div>
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-400 mb-4">
-              Stories & Insights
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              KMC Blog
-            </h1>
-            <p className="text-xl text-[#8ba7c7] leading-relaxed">
-              Stories from campus life, academic insights, alumni journeys, and
-              tips for every KMC student and parent.
-            </p>
+        </div>
+        {/* Editorial split */}
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-amber-400" />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#8ba7c7]">Stories & Insights</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-0 tracking-tight">KMC Blog</h1>
           </div>
+          <p className="text-lg text-[#8ba7c7] leading-relaxed md:max-w-xs md:text-right">
+            Stories from campus life, academic insights, alumni journeys, and tips for every KMC student and parent.
+          </p>
         </div>
       </section>
 

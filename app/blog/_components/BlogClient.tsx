@@ -48,18 +48,18 @@ export function BlogClient({ posts }: BlogClientProps) {
 
   return (
     <>
-      {/* Category Filter */}
-      <section className="py-6 bg-white border-b border-[#eae6de] sticky top-[100px] z-10">
+      {/* Category Filter — tab strip with amber underline */}
+      <section className="bg-white border-b border-[#eae6de] sticky top-[100px] z-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap">
             {allCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
+                className={`px-5 py-3 text-sm font-semibold transition border-b-2 -mb-px ${
                   activeCategory === cat
-                    ? "bg-[#0B1F3A] text-white shadow"
-                    : "bg-[#f7f5f0] text-[#374151] hover:bg-[#eae6de]"
+                    ? "border-amber-500 text-[#0B1F3A]"
+                    : "border-transparent text-[#6b7280] hover:text-[#0B1F3A]"
                 }`}
               >
                 {cat}
@@ -73,32 +73,32 @@ export function BlogClient({ posts }: BlogClientProps) {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Content */}
           <div className="flex-1 min-w-0">
-            {/* Featured Post */}
+            {/* Featured Post — editorial horizontal split at md+ */}
             {featured && (
               <div className="mb-14">
-                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-5">
+                <p className="text-xs font-bold tracking-[0.15em] uppercase text-[#374151] pb-3 border-b-2 border-[#0B1F3A] mb-5 inline-block">
                   Featured
                 </p>
                 <Link
                   href={`/blog/${featured.slug}`}
-                  className="block rounded-2xl overflow-hidden border border-[#eae6de] shadow-sm hover:shadow-xl transition group"
+                  className="block overflow-hidden border-b-4 border-[#0B1F3A] hover:shadow-xl transition group md:flex md:h-72"
                 >
-                  <div className="relative h-64 md:h-80 bg-[#0B1F3A] overflow-hidden">
+                  <div className="relative h-64 md:h-full md:w-2/5 bg-[#0B1F3A] overflow-hidden shrink-0">
                     <Image
                       src={featured.imageUrl ?? fallbackImage}
                       alt={featured.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 40vw"
                       className="object-cover group-hover:scale-105 transition duration-500"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/60 to-transparent pointer-events-none" />
                     {featured.category && (
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold rounded-full">
+                      <span className="absolute top-4 left-4 px-3 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold">
                         {featured.category}
                       </span>
                     )}
                   </div>
-                  <div className="p-8">
+                  <div className="p-8 md:w-3/5 flex flex-col justify-center">
                     <div className="flex items-center gap-4 text-sm text-[#6b7280] mb-4 flex-wrap">
                       <span className="flex items-center gap-1.5">
                         <IconCalendar size={14} />
@@ -121,20 +121,26 @@ export function BlogClient({ posts }: BlogClientProps) {
               </div>
             )}
 
-            {/* Post Grid */}
+            {/* Post Grid — first post 2-col featured, rest 3-col compact */}
             {rest.length > 0 && (
               <div>
                 <h2 className="text-xl font-bold text-[#0B1F3A] mb-8 border-b border-[#eae6de] pb-4">
                   Latest Articles
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {rest.map((post) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {rest.map((post, index) => (
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
-                      className="group rounded-xl overflow-hidden border border-[#eae6de] hover:border-amber-300 hover:shadow-lg transition"
+                      className={`group overflow-hidden border border-[#eae6de] hover:-translate-y-1 hover:shadow-xl transition ${
+                        index === 0 ? "md:col-span-2" : ""
+                      }`}
                     >
-                      <div className="relative h-48 bg-[#0B1F3A] overflow-hidden">
+                      <div
+                        className={`relative bg-[#0B1F3A] overflow-hidden ${
+                          index === 0 ? "h-56" : "h-44"
+                        }`}
+                      >
                         <Image
                           src={post.imageUrl ?? fallbackImage}
                           alt={post.title}
@@ -143,7 +149,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                           className="object-cover group-hover:scale-105 transition duration-500"
                         />
                         {post.category && (
-                          <span className="absolute top-3 left-3 px-2 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold rounded-full">
+                          <span className="absolute top-3 left-3 px-2 py-1 bg-amber-400 text-[#0B1F3A] text-xs font-bold">
                             {post.category}
                           </span>
                         )}
@@ -180,25 +186,30 @@ export function BlogClient({ posts }: BlogClientProps) {
 
           {/* Sidebar */}
           <aside className="w-full lg:w-72 shrink-0 space-y-8">
-            {/* Categories */}
-            <div className="bg-[#f7f5f0] rounded-2xl p-6 border border-[#eae6de]">
-              <h3 className="font-bold text-[#0B1F3A] text-lg mb-5">Categories</h3>
-              <ul className="space-y-3">
+            {/* Categories — divider-based list, no card box */}
+            <div>
+              <h3 className="text-xs font-bold tracking-[0.15em] uppercase text-[#374151] pb-3 border-b-2 border-[#0B1F3A] mb-4">
+                Categories
+              </h3>
+              <ul>
                 {allCategories.slice(1).map((cat) => {
                   const count = posts.filter((p) => p.category === cat).length;
                   return (
                     <li key={cat}>
                       <button
                         onClick={() => setActiveCategory(cat)}
-                        className="w-full flex items-center justify-between text-sm text-[#374151] hover:text-amber-600 transition group"
+                        className="w-full py-3 border-b border-[#eae6de] flex items-center justify-between text-sm"
                       >
-                        <span className="flex items-center gap-2">
-                          <IconChevronRight size={12} className="text-amber-400" />
+                        <span
+                          className={
+                            activeCategory === cat
+                              ? "font-bold text-[#0B1F3A]"
+                              : "text-[#374151] hover:text-[#0B1F3A] transition"
+                          }
+                        >
                           {cat}
                         </span>
-                        <span className="px-2 py-0.5 bg-white rounded-full text-xs font-semibold border border-[#eae6de] group-hover:border-amber-300 transition">
-                          {count}
-                        </span>
+                        <span className="text-xs text-[#6b7280]">{count}</span>
                       </button>
                     </li>
                   );
@@ -206,13 +217,19 @@ export function BlogClient({ posts }: BlogClientProps) {
               </ul>
             </div>
 
-            {/* Recent Posts */}
-            <div className="bg-white rounded-2xl p-6 border border-[#eae6de]">
-              <h3 className="font-bold text-[#0B1F3A] text-lg mb-5">Recent Posts</h3>
-              <div className="space-y-5">
+            {/* Recent Posts — divider-based list, no card box */}
+            <div>
+              <h3 className="text-xs font-bold tracking-[0.15em] uppercase text-[#374151] pb-3 border-b-2 border-[#0B1F3A] mb-4">
+                Recent Posts
+              </h3>
+              <div>
                 {recentPosts.map((post) => (
-                  <Link key={post.id} href={`/blog/${post.slug}`} className="flex gap-3 group">
-                    <div className="relative w-16 h-14 rounded-lg overflow-hidden shrink-0 bg-[#0B1F3A]">
+                  <Link
+                    key={post.id}
+                    href={`/blog/${post.slug}`}
+                    className="py-4 border-b border-[#eae6de] flex gap-3 group"
+                  >
+                    <div className="relative w-16 h-14 overflow-hidden shrink-0 bg-[#0B1F3A]">
                       <Image
                         src={post.imageUrl ?? fallbackImage}
                         alt={post.title}
@@ -233,8 +250,8 @@ export function BlogClient({ posts }: BlogClientProps) {
               </div>
             </div>
 
-            {/* Newsletter */}
-            <div className="bg-[#0B1F3A] rounded-2xl p-6 text-white">
+            {/* Newsletter — flat underline input */}
+            <div className="bg-[#0B1F3A] p-6 text-white">
               <h3 className="font-bold text-lg mb-2">Stay Updated</h3>
               <p className="text-[#8ba7c7] text-sm mb-5">
                 Get the latest news and articles in your inbox.
@@ -242,9 +259,9 @@ export function BlogClient({ posts }: BlogClientProps) {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-[#8ba7c7] text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 mb-3"
+                className="w-full py-3 bg-transparent border-b-2 border-white/30 text-white placeholder:text-[#8ba7c7] text-sm focus:outline-none focus:border-amber-400 mb-4"
               />
-              <button className="w-full py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition text-sm">
+              <button className="w-full py-3 bg-amber-400 text-[#0B1F3A] font-bold hover:bg-amber-300 transition text-sm">
                 Subscribe
               </button>
             </div>
