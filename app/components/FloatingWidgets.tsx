@@ -11,7 +11,7 @@ export function FloatingWidgets() {
   return (
     <>
       {/* Study materials button — sits directly above WhatsApp */}
-      <div className="fixed bottom-[88px] right-6 z-50">
+      <div className="fixed z-50" style={{ bottom: "92px", right: "24px" }}>
         <StudyMaterialsFloat />
       </div>
       <WhatsAppFloat />
