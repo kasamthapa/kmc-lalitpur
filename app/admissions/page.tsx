@@ -397,6 +397,63 @@ export default function Admissions() {
         </div>
       </section>
 
+      {/* ── Model Question Papers ─────────────────────────────────────────── */}
+      <section className="py-12 bg-white border-b border-[#eae6de]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <div>
+              <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-1">Entrance Preparation</p>
+              <h2 className="text-xl font-bold text-[#0B1F3A]">Model Question Papers 2083</h2>
+            </div>
+            <p className="text-sm text-[#6b7280] max-w-sm">
+              Download the official KMC model question papers to prepare for your stream's entrance examination.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+            {/* Management */}
+            <a
+              href="/downloads/model-questions-management-2083.pdf"
+              download
+              className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
+            >
+              <div className="w-12 h-12 bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A] group-hover:bg-amber-300 transition-colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">Management Stream</p>
+                <p className="text-xs text-[#6b7280] mt-0.5">Model Questions 2083 · PDF · 474 KB</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:stroke-amber-600 transition-colors" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </a>
+
+            {/* Law */}
+            <a
+              href="/downloads/model-questions-law-2083.pdf"
+              download
+              className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
+            >
+              <div className="w-12 h-12 bg-[#0B1F3A] flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-[#162e57] transition-colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">Law Stream</p>
+                <p className="text-xs text-[#6b7280] mt-0.5">Model Questions 2083 · PDF · 432 KB</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:stroke-amber-600 transition-colors" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Process Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
