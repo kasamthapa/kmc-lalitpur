@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { ResumeUpload } from "./_components/ResumeUpload";
 
 // ─── Vacancy data ─────────────────────────────────────────────────────────────
 
@@ -42,6 +43,7 @@ interface FormData {
   qualification: string;
   experience: string;
   coverLetter: string;
+  resumeUrl: string;
 }
 
 const EMPTY_FORM: FormData = {
@@ -52,6 +54,7 @@ const EMPTY_FORM: FormData = {
   qualification: "",
   experience: "",
   coverLetter: "",
+  resumeUrl: "",
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -521,6 +524,18 @@ export default function CareersPage() {
                         {fieldErrors.coverLetter}
                       </p>
                     )}
+                  </div>
+
+                  {/* CV / Resume Upload */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#0B1F3A" }}>
+                      CV / Resume{" "}
+                      <span className="text-gray-400 normal-case font-normal">(optional — PDF, DOC, DOCX · max 5 MB)</span>
+                    </label>
+                    <ResumeUpload
+                      value={form.resumeUrl}
+                      onChange={(url) => setForm((prev) => ({ ...prev, resumeUrl: url }))}
+                    />
                   </div>
 
                   {/* Submit */}

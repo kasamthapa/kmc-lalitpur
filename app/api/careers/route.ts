@@ -32,6 +32,7 @@ export async function POST(req: NextRequest) {
     qualification,
     experience,
     coverLetter,
+    resumeUrl,
   } = body as Record<string, string>;
 
   const errors: ValidationErrors = {};
@@ -67,6 +68,7 @@ export async function POST(req: NextRequest) {
         qualification: qualification.trim(),
         experience: experience.trim(),
         coverLetter: coverLetter?.trim() || null,
+        resumeUrl: resumeUrl?.trim() || null,
       },
     });
   } catch (error) {

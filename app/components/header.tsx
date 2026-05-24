@@ -23,7 +23,6 @@ const navItems = [
       { label: "Mission & Vision", href: "/about#mission" },
       { label: "Principal's Message", href: "/about#principal" },
       { label: "Alumni", href: "/alumni" },
-      { label: "Careers", href: "/careers" },
     ],
   },
   {
@@ -46,6 +45,7 @@ const navItems = [
     ],
   },
   { label: "Admissions", href: "/admissions" },
+  { label: "Careers", href: "/careers" },
   {
     label: "Media",
     dropdown: [

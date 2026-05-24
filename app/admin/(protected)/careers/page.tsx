@@ -12,6 +12,7 @@ interface JobApplication {
   qualification: string;
   experience: string;
   coverLetter: string | null;
+  resumeUrl: string | null;
   status: string;
   createdAt: string;
 }
@@ -319,6 +320,17 @@ export default function AdminCareersPage() {
                               >
                                 Email applicant →
                               </a>
+                              {app.resumeUrl && (
+                                <a
+                                  href={app.resumeUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  Download CV / Resume →
+                                </a>
+                              )}
                             </div>
                           </div>
                         </td>
