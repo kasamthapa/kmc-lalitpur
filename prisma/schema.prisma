@@ -240,3 +240,25 @@ model Popup {
   @@index([active])
   @@map("popups")
 }
+
+// ─── Job Applications ─────────────────────────────────────────────────────────
+
+model JobApplication {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fullName      String   @map("full_name")
+  email         String
+  phone         String
+  position      String                        // exact vacancy title e.g. "Physics Teacher"
+  category      String                        // Teaching | Non-Teaching
+  qualification String
+  experience    String                        // e.g. "3 years" or "Fresher"
+  coverLetter   String?  @map("cover_letter")
+  status        String   @default("new")      // new | reviewed | shortlisted | rejected
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([category])
+  @@index([createdAt])
+  @@map("job_applications")
+}
