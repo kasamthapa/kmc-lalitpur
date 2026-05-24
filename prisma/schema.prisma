@@ -263,3 +263,22 @@ model JobApplication {
   @@index([createdAt])
   @@map("job_applications")
 }
+
+// ─── Vacancies ────────────────────────────────────────────────────────────────
+
+model Vacancy {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title        String                    // e.g. "Physics Teacher"
+  category     String                    // Teaching | Non-Teaching
+  posts        Int      @default(1)
+  description  String?
+  active       Boolean  @default(true)
+  displayOrder Int      @default(0)      @map("display_order")
+  createdAt    DateTime @default(now())  @map("created_at")
+  updatedAt    DateTime @updatedAt       @map("updated_at")
+
+  @@index([active])
+  @@index([category])
+  @@index([displayOrder])
+  @@map("vacancies")
+}

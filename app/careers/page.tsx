@@ -1,29 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { ResumeUpload } from "./_components/ResumeUpload";
 
-// ─── Vacancy data ─────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-const teachingVacancies = [
-  { position: "English Teacher", posts: 2 },
-  { position: "Mathematics Teacher", posts: 3 },
-  { position: "Physics Teacher", posts: 2 },
-  { position: "Chemistry Teacher", posts: 1 },
-  { position: "Biology Teacher", posts: 2 },
-  { position: "Accountancy Teacher", posts: 1 },
-  { position: "Social Studies Teacher", posts: 1 },
-  { position: "Law Teacher", posts: 1 },
-];
-
-const nonTeachingVacancies = [
-  { position: "Nurse", posts: 1 },
-  { position: "Lab Assistant (Biology/Chemistry)", posts: 1 },
-  { position: "Hostel Warden (Female)", posts: 2 },
-  { position: "Counselor (Female)", posts: 1 },
-];
+interface Vacancy {
+  id: string;
+  title: string;
+  category: string;
+  posts: number;
+  description: string | null;
+}
 
 const experienceOptions = [
   "Fresher",
@@ -60,15 +50,30 @@ const EMPTY_FORM: FormData = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function CareersPage() {
+  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
+  const [vacanciesLoading, setVacanciesLoading] = useState(true);
+
   const [form, setForm] = useState<FormData>(EMPTY_FORM);
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
+  useEffect(() => {
+    fetch("/api/vacancies")
+      .then((r) => r.json())
+      .then((json) => setVacancies(json.data ?? []))
+      .catch(() => setVacancies([]))
+      .finally(() => setVacanciesLoading(false));
+  }, []);
+
+  // Derive category from selected position
+  function getCategoryFromPosition(pos: string): string {
+    const match = vacancies.find((v) => v.title === pos);
+    return match?.category ?? "Teaching";
+  }
+
   function handleChange(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -79,12 +84,6 @@ export default function CareersPage() {
         return next;
       });
     }
-  }
-
-  // Derive category from selected position
-  function getCategoryFromPosition(pos: string): string {
-    const isTeaching = teachingVacancies.some((v) => v.position === pos);
-    return isTeaching ? "Teaching" : "Non-Teaching";
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -116,16 +115,29 @@ export default function CareersPage() {
     }
   }
 
+  // Group vacancies by category
+  const grouped: Record<string, Vacancy[]> = {};
+  for (const v of vacancies) {
+    if (!grouped[v.category]) grouped[v.category] = [];
+    grouped[v.category].push(v);
+  }
+
+  const inputCls =
+    "w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400";
+
+  const labelCls =
+    "block text-xs font-bold uppercase tracking-wider mb-2";
+
   return (
     <>
       <Header />
       <main className="pt-[73px]">
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section
-          className="relative py-20 md:py-28 overflow-hidden"
+          className="relative py-24 md:py-32 overflow-hidden"
           style={{ backgroundColor: "#0B1F3A" }}
         >
-          {/* Subtle pattern overlay */}
+          {/* Grid overlay */}
           <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
@@ -133,37 +145,43 @@ export default function CareersPage() {
                 "repeating-linear-gradient(0deg,transparent,transparent 39px,#ffffff 39px,#ffffff 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#ffffff 39px,#ffffff 40px)",
             }}
           />
+          {/* Amber accent line */}
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-400" />
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
             <div className="max-w-3xl">
-              <p className="text-amber-400 text-xs font-bold uppercase tracking-[0.2em] mb-5">
-                Join Our Team
+              <p className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.25em] mb-6">
+                Careers at KMC Lalitpur
               </p>
-              <h1 className="text-white text-4xl md:text-5xl font-extrabold leading-tight mb-5">
+              <h1 className="text-white text-5xl md:text-6xl font-extrabold leading-[1.08] mb-6 tracking-tight">
                 Shape minds.
                 <br />
-                Build futures.
+                <span className="text-amber-400">Build futures.</span>
               </h1>
-              <p className="text-[#8ba7c7] text-lg leading-relaxed mb-10 max-w-xl">
-                We&apos;re looking for passionate educators and staff to join
-                the KMC Lalitpur family.
+
+              <div className="w-16 h-0.5 bg-amber-400/40 mb-6" aria-hidden="true" />
+
+              <p className="text-[#8ba7c7] text-lg leading-relaxed mb-12 max-w-xl">
+                We&apos;re looking for passionate educators and dedicated staff
+                to join the KMC Lalitpur family. Every role here shapes the
+                next generation of Nepal&apos;s leaders.
               </p>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-10">
                 <div>
-                  <p className="text-white text-3xl font-extrabold">150+</p>
-                  <p className="text-[#8ba7c7] text-sm mt-1">Faculty</p>
+                  <p className="text-white text-4xl font-extrabold tracking-tight">150+</p>
+                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Faculty Members</p>
                 </div>
-                <div
-                  className="w-px bg-white/10 self-stretch"
-                  aria-hidden="true"
-                />
+                <div className="w-px bg-white/10 self-stretch" aria-hidden="true" />
                 <div>
-                  <p className="text-white text-3xl font-extrabold">22+</p>
-                  <p className="text-[#8ba7c7] text-sm mt-1">
-                    Years of Excellence
-                  </p>
+                  <p className="text-white text-4xl font-extrabold tracking-tight">22+</p>
+                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Years of Excellence</p>
+                </div>
+                <div className="w-px bg-white/10 self-stretch" aria-hidden="true" />
+                <div>
+                  <p className="text-white text-4xl font-extrabold tracking-tight">5000+</p>
+                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Students Enrolled</p>
                 </div>
               </div>
             </div>
@@ -171,216 +189,208 @@ export default function CareersPage() {
         </section>
 
         {/* ── Current Openings ─────────────────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-20">
+        <section className="bg-white py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {/* Section header */}
-            <div className="mb-12">
-              <p className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-3">
-                Vacancies
+            <div className="mb-14">
+              <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
+                Open Positions
               </p>
-              <h2
-                className="text-3xl font-extrabold mb-3"
-                style={{ color: "#0B1F3A" }}
-              >
+              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#0B1F3A" }}>
                 Current Openings
               </h2>
-              <div
-                className="w-12 h-0.5 bg-amber-400"
-                aria-hidden="true"
-              />
+              <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
             </div>
 
-            {/* Two-column vacancy list */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-              {/* Teaching Faculty */}
-              <div>
-                <h3
-                  className="text-xs font-bold uppercase tracking-[0.15em] mb-6 pb-3 border-b-2"
-                  style={{ color: "#0B1F3A", borderColor: "#0B1F3A" }}
-                >
-                  Teaching Faculty
-                </h3>
-                <ul className="space-y-0">
-                  {teachingVacancies.map((v) => (
-                    <li
-                      key={v.position}
-                      className="flex items-center justify-between py-3.5 border-b border-gray-100"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="w-1.5 h-1.5 shrink-0"
-                          style={{ backgroundColor: "#f59e0b" }}
-                          aria-hidden="true"
-                        />
-                        <span
-                          className="font-semibold text-sm"
-                          style={{ color: "#0B1F3A" }}
-                        >
-                          {v.position}
-                        </span>
+            {vacanciesLoading ? (
+              /* Skeleton */
+              <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+                {[0, 1].map((col) => (
+                  <div key={col} className="space-y-3">
+                    <div className="h-5 bg-gray-100 w-40 animate-pulse" />
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="flex justify-between py-4 border-b border-gray-100 animate-pulse">
+                        <div className="h-4 bg-gray-100 rounded w-48" />
+                        <div className="h-3 bg-gray-100 rounded w-16" />
                       </div>
-                      <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
-                        {v.posts} {v.posts === 1 ? "post" : "posts"}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                    ))}
+                  </div>
+                ))}
               </div>
+            ) : vacancies.length === 0 ? (
+              <div className="border-l-4 border-amber-400 pl-5 py-4 bg-amber-50">
+                <p className="text-gray-700 text-sm font-medium">
+                  No vacancies are currently listed. Please check back soon or email us at{" "}
+                  <a
+                    href="mailto:careers@kmclalitpur.edu.np"
+                    className="font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                  >
+                    careers@kmclalitpur.edu.np
+                  </a>
+                </p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+                {Object.entries(grouped).map(([category, items]) => (
+                  <div key={category}>
+                    {/* Category header */}
+                    <div className="mb-6">
+                      <h3
+                        className="text-[11px] font-bold uppercase tracking-[0.18em] pb-3"
+                        style={{ color: "#0B1F3A" }}
+                      >
+                        {category === "Teaching" ? "Teaching Faculty" : "Non-Teaching Staff"}
+                      </h3>
+                      <div className="w-10 h-0.5 bg-amber-400" aria-hidden="true" />
+                    </div>
 
-              {/* Non-Teaching Staff */}
-              <div>
-                <h3
-                  className="text-xs font-bold uppercase tracking-[0.15em] mb-6 pb-3 border-b-2"
-                  style={{ color: "#0B1F3A", borderColor: "#0B1F3A" }}
-                >
-                  Non-Teaching Staff
-                </h3>
-                <ul className="space-y-0">
-                  {nonTeachingVacancies.map((v) => (
-                    <li
-                      key={v.position}
-                      className="flex items-center justify-between py-3.5 border-b border-gray-100"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="w-1.5 h-1.5 shrink-0"
-                          style={{ backgroundColor: "#f59e0b" }}
-                          aria-hidden="true"
-                        />
-                        <span
-                          className="font-semibold text-sm"
-                          style={{ color: "#0B1F3A" }}
+                    {/* Vacancy rows */}
+                    <ul className="space-y-0">
+                      {items.map((v) => (
+                        <li
+                          key={v.id}
+                          className="border-l-2 border-amber-400 pl-4 py-3.5 border-b border-b-gray-100 last:border-b-0"
                         >
-                          {v.position}
-                        </span>
-                      </div>
-                      <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
-                        {v.posts} {v.posts === 1 ? "post" : "posts"}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <p
+                                className="font-bold text-sm leading-snug"
+                                style={{ color: "#0B1F3A" }}
+                              >
+                                {v.title}
+                              </p>
+                              {v.description && (
+                                <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">
+                                  {v.description}
+                                </p>
+                              )}
+                            </div>
+                            <span
+                              className="text-[11px] font-semibold whitespace-nowrap mt-0.5"
+                              style={{ color: "#f59e0b" }}
+                            >
+                              {v.posts} {v.posts === 1 ? "opening" : "openings"}
+                            </span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
 
             {/* Contact note */}
-            <div className="mt-10 border-l-4 border-amber-400 pl-4 py-1">
-              <p className="text-sm text-gray-600">
-                To apply, fill the form below or email your CV to{" "}
-                <a
-                  href="mailto:careers@kmclalitpur.edu.np"
-                  className="font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
-                >
-                  careers@kmclalitpur.edu.np
-                </a>
-              </p>
-            </div>
+            {!vacanciesLoading && vacancies.length > 0 && (
+              <div className="mt-12 border-l-4 border-amber-400 pl-5 py-3 bg-amber-50">
+                <p className="text-sm text-gray-700">
+                  To apply, fill the form below or email your CV to{" "}
+                  <a
+                    href="mailto:careers@kmclalitpur.edu.np"
+                    className="font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                  >
+                    careers@kmclalitpur.edu.np
+                  </a>
+                </p>
+              </div>
+            )}
           </div>
         </section>
 
         {/* ── Application Form ─────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: "#f7f5f0" }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: "#f7f5f0" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {/* Section header */}
-            <div className="mb-12">
-              <p className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-3">
-                Application
+            <div className="mb-14">
+              <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
+                Apply
               </p>
-              <h2
-                className="text-3xl font-extrabold mb-3"
-                style={{ color: "#0B1F3A" }}
-              >
-                Apply Now
+              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#0B1F3A" }}>
+                Submit Your Application
               </h2>
-              <div className="w-12 h-0.5 bg-amber-400" aria-hidden="true" />
+              <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
             </div>
 
-            <div className="max-w-2xl">
-              {/* Success state */}
+            <div className="max-w-3xl">
               {state === "success" ? (
                 <div className="border-l-4 border-green-500 pl-5 py-4 bg-green-50">
                   <p className="font-bold text-green-800 text-sm mb-1">
-                    Application submitted!
+                    Application submitted successfully!
                   </p>
                   <p className="text-green-700 text-sm">
-                    We&apos;ll be in touch within 5 working days.
+                    Thank you for your interest. We&apos;ll be in touch within 5 working days.
                   </p>
                   <button
                     onClick={() => setState("idle")}
-                    className="mt-4 text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-900 transition-colors"
+                    className="mt-4 text-xs font-bold text-green-700 underline underline-offset-2 hover:text-green-900 transition-colors uppercase tracking-wider"
                   >
                     Submit another application
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                <form onSubmit={handleSubmit} noValidate className="space-y-0">
                   {/* Error banner */}
                   {state === "error" && errorMsg && (
-                    <div className="border-l-4 border-red-500 pl-4 py-3 bg-red-50">
-                      <p className="text-red-700 text-sm font-medium">
-                        {errorMsg}
-                      </p>
+                    <div className="border-l-4 border-red-500 pl-5 py-3 bg-red-50 mb-8">
+                      <p className="text-red-700 text-sm font-medium">{errorMsg}</p>
                     </div>
                   )}
 
-                  {/* Full Name */}
-                  <div>
-                    <label
-                      htmlFor="fullName"
-                      className="block text-xs font-bold uppercase tracking-wider mb-2"
-                      style={{ color: "#0B1F3A" }}
-                    >
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="fullName"
-                      name="fullName"
-                      type="text"
-                      value={form.fullName}
-                      onChange={handleChange}
-                      required
-                      className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400"
-                      placeholder="Your full name"
-                    />
-                    {fieldErrors.fullName && (
-                      <p className="mt-1.5 text-xs text-red-600">
-                        {fieldErrors.fullName}
+                  {/* Section: Personal Information */}
+                  <div className="mb-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <p
+                        className="text-[11px] font-bold uppercase tracking-[0.2em]"
+                        style={{ color: "#0B1F3A" }}
+                      >
+                        Personal Information
                       </p>
-                    )}
-                  </div>
-
-                  {/* Email + Phone row */}
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-xs font-bold uppercase tracking-wider mb-2"
-                        style={{ color: "#0B1F3A" }}
-                      >
-                        Email <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400"
-                        placeholder="your@email.com"
-                      />
-                      {fieldErrors.email && (
-                        <p className="mt-1.5 text-xs text-red-600">
-                          {fieldErrors.email}
-                        </p>
-                      )}
+                      <div className="flex-1 h-px bg-gray-200" />
                     </div>
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-xs font-bold uppercase tracking-wider mb-2"
-                        style={{ color: "#0B1F3A" }}
-                      >
+
+                    {/* Name + Email */}
+                    <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label htmlFor="fullName" className={labelCls} style={{ color: "#0B1F3A" }}>
+                          Full Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="fullName"
+                          name="fullName"
+                          type="text"
+                          value={form.fullName}
+                          onChange={handleChange}
+                          required
+                          className={inputCls}
+                          placeholder="Your full name"
+                        />
+                        {fieldErrors.fullName && (
+                          <p className="mt-1.5 text-xs text-red-600">{fieldErrors.fullName}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label htmlFor="email" className={labelCls} style={{ color: "#0B1F3A" }}>
+                          Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={form.email}
+                          onChange={handleChange}
+                          required
+                          className={inputCls}
+                          placeholder="your@email.com"
+                        />
+                        {fieldErrors.email && (
+                          <p className="mt-1.5 text-xs text-red-600">{fieldErrors.email}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="max-w-xs">
+                      <label htmlFor="phone" className={labelCls} style={{ color: "#0B1F3A" }}>
                         Phone <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -390,165 +400,149 @@ export default function CareersPage() {
                         value={form.phone}
                         onChange={handleChange}
                         required
-                        className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400"
+                        className={inputCls}
                         placeholder="98XXXXXXXX"
                       />
                       {fieldErrors.phone && (
-                        <p className="mt-1.5 text-xs text-red-600">
-                          {fieldErrors.phone}
-                        </p>
+                        <p className="mt-1.5 text-xs text-red-600">{fieldErrors.phone}</p>
                       )}
                     </div>
                   </div>
 
-                  {/* Position */}
+                  {/* Section: Application Details */}
                   <div>
-                    <label
-                      htmlFor="position"
-                      className="block text-xs font-bold uppercase tracking-wider mb-2"
-                      style={{ color: "#0B1F3A" }}
-                    >
-                      Position Applied For <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      id="position"
-                      name="position"
-                      value={form.position}
-                      onChange={handleChange}
-                      required
-                      className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 appearance-none"
-                    >
-                      <option value="">— Select a position —</option>
-                      <optgroup label="Teaching Faculty">
-                        {teachingVacancies.map((v) => (
-                          <option key={v.position} value={v.position}>
-                            {v.position} ({v.posts} {v.posts === 1 ? "post" : "posts"})
-                          </option>
-                        ))}
-                      </optgroup>
-                      <optgroup label="Non-Teaching Staff">
-                        {nonTeachingVacancies.map((v) => (
-                          <option key={v.position} value={v.position}>
-                            {v.position} ({v.posts} {v.posts === 1 ? "post" : "posts"})
-                          </option>
-                        ))}
-                      </optgroup>
-                    </select>
-                    {fieldErrors.position && (
-                      <p className="mt-1.5 text-xs text-red-600">
-                        {fieldErrors.position}
+                    <div className="flex items-center gap-3 mb-6">
+                      <p
+                        className="text-[11px] font-bold uppercase tracking-[0.2em]"
+                        style={{ color: "#0B1F3A" }}
+                      >
+                        Application Details
                       </p>
-                    )}
-                  </div>
-
-                  {/* Qualification + Experience row */}
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="qualification"
-                        className="block text-xs font-bold uppercase tracking-wider mb-2"
-                        style={{ color: "#0B1F3A" }}
-                      >
-                        Highest Qualification <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="qualification"
-                        name="qualification"
-                        type="text"
-                        value={form.qualification}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400"
-                        placeholder="e.g. M.Sc. Physics, B.Ed."
-                      />
-                      {fieldErrors.qualification && (
-                        <p className="mt-1.5 text-xs text-red-600">
-                          {fieldErrors.qualification}
-                        </p>
-                      )}
+                      <div className="flex-1 h-px bg-gray-200" />
                     </div>
-                    <div>
-                      <label
-                        htmlFor="experience"
-                        className="block text-xs font-bold uppercase tracking-wider mb-2"
-                        style={{ color: "#0B1F3A" }}
-                      >
-                        Years of Experience <span className="text-red-500">*</span>
+
+                    {/* Position */}
+                    <div className="mb-6">
+                      <label htmlFor="position" className={labelCls} style={{ color: "#0B1F3A" }}>
+                        Position Applied For <span className="text-red-500">*</span>
                       </label>
                       <select
-                        id="experience"
-                        name="experience"
-                        value={form.experience}
+                        id="position"
+                        name="position"
+                        value={form.position}
                         onChange={handleChange}
                         required
-                        className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 appearance-none"
+                        className={inputCls}
+                        disabled={vacanciesLoading}
                       >
-                        <option value="">— Select —</option>
-                        {experienceOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
+                        <option value="">
+                          {vacanciesLoading ? "Loading positions…" : "— Select a position —"}
+                        </option>
+                        {Object.entries(grouped).map(([category, items]) => (
+                          <optgroup
+                            key={category}
+                            label={category === "Teaching" ? "Teaching Faculty" : "Non-Teaching Staff"}
+                          >
+                            {items.map((v) => (
+                              <option key={v.id} value={v.title}>
+                                {v.title} ({v.posts} {v.posts === 1 ? "post" : "posts"})
+                              </option>
+                            ))}
+                          </optgroup>
                         ))}
                       </select>
-                      {fieldErrors.experience && (
-                        <p className="mt-1.5 text-xs text-red-600">
-                          {fieldErrors.experience}
-                        </p>
+                      {fieldErrors.position && (
+                        <p className="mt-1.5 text-xs text-red-600">{fieldErrors.position}</p>
                       )}
                     </div>
-                  </div>
 
-                  {/* Cover Letter */}
-                  <div>
-                    <label
-                      htmlFor="coverLetter"
-                      className="block text-xs font-bold uppercase tracking-wider mb-2"
-                      style={{ color: "#0B1F3A" }}
-                    >
-                      Cover Letter / Message{" "}
-                      <span className="text-gray-400 normal-case font-normal">
-                        (optional)
-                      </span>
-                    </label>
-                    <textarea
-                      id="coverLetter"
-                      name="coverLetter"
-                      rows={5}
-                      value={form.coverLetter}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#0B1F3A] bg-white text-gray-900 placeholder-gray-400 resize-none"
-                      placeholder="Tell us briefly why you'd like to join KMC Lalitpur and what makes you a strong candidate."
-                    />
-                    {fieldErrors.coverLetter && (
-                      <p className="mt-1.5 text-xs text-red-600">
-                        {fieldErrors.coverLetter}
-                      </p>
-                    )}
-                  </div>
+                    {/* Qualification + Experience */}
+                    <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label htmlFor="qualification" className={labelCls} style={{ color: "#0B1F3A" }}>
+                          Highest Qualification <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="qualification"
+                          name="qualification"
+                          type="text"
+                          value={form.qualification}
+                          onChange={handleChange}
+                          required
+                          className={inputCls}
+                          placeholder="e.g. M.Sc. Physics, B.Ed."
+                        />
+                        {fieldErrors.qualification && (
+                          <p className="mt-1.5 text-xs text-red-600">{fieldErrors.qualification}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label htmlFor="experience" className={labelCls} style={{ color: "#0B1F3A" }}>
+                          Years of Experience <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          id="experience"
+                          name="experience"
+                          value={form.experience}
+                          onChange={handleChange}
+                          required
+                          className={inputCls}
+                        >
+                          <option value="">— Select —</option>
+                          {experienceOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                        {fieldErrors.experience && (
+                          <p className="mt-1.5 text-xs text-red-600">{fieldErrors.experience}</p>
+                        )}
+                      </div>
+                    </div>
 
-                  {/* CV / Resume Upload */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#0B1F3A" }}>
-                      CV / Resume{" "}
-                      <span className="text-gray-400 normal-case font-normal">(optional — PDF, DOC, DOCX · max 5 MB)</span>
-                    </label>
-                    <ResumeUpload
-                      value={form.resumeUrl}
-                      onChange={(url) => setForm((prev) => ({ ...prev, resumeUrl: url }))}
-                    />
-                  </div>
+                    {/* Cover Letter */}
+                    <div className="mb-6">
+                      <label htmlFor="coverLetter" className={labelCls} style={{ color: "#0B1F3A" }}>
+                        Cover Letter / Message{" "}
+                        <span className="text-gray-400 normal-case font-normal">(optional)</span>
+                      </label>
+                      <textarea
+                        id="coverLetter"
+                        name="coverLetter"
+                        rows={5}
+                        value={form.coverLetter}
+                        onChange={handleChange}
+                        className={`${inputCls} resize-none`}
+                        placeholder="Tell us briefly why you'd like to join KMC Lalitpur and what makes you a strong candidate."
+                      />
+                      {fieldErrors.coverLetter && (
+                        <p className="mt-1.5 text-xs text-red-600">{fieldErrors.coverLetter}</p>
+                      )}
+                    </div>
 
-                  {/* Submit */}
-                  <div>
+                    {/* CV / Resume Upload */}
+                    <div className="mb-8">
+                      <label className={labelCls} style={{ color: "#0B1F3A" }}>
+                        CV / Resume{" "}
+                        <span className="text-gray-400 normal-case font-normal">
+                          (optional — PDF, DOC, DOCX · max 5 MB)
+                        </span>
+                      </label>
+                      <ResumeUpload
+                        value={form.resumeUrl}
+                        onChange={(url) => setForm((prev) => ({ ...prev, resumeUrl: url }))}
+                      />
+                    </div>
+
+                    {/* Submit */}
                     <button
                       type="submit"
                       disabled={state === "submitting"}
-                      className="px-8 py-3 text-sm font-bold uppercase tracking-wider transition-opacity disabled:opacity-60"
+                      className="px-10 py-3.5 text-sm font-bold uppercase tracking-wider transition-opacity disabled:opacity-60"
                       style={{ backgroundColor: "#f59e0b", color: "#0B1F3A" }}
                     >
-                      {state === "submitting"
-                        ? "Submitting…"
-                        : "Submit Application"}
+                      {state === "submitting" ? "Submitting…" : "Submit Application"}
                     </button>
                   </div>
                 </form>
