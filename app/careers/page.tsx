@@ -132,64 +132,8 @@ export default function CareersPage() {
     <>
       <Header />
       <main className="pt-[73px]">
-        {/* ── Hero ─────────────────────────────────────────────────────────── */}
-        <section
-          className="relative py-24 md:py-32 overflow-hidden"
-          style={{ backgroundColor: "#0B1F3A" }}
-        >
-          {/* Grid overlay */}
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(0deg,transparent,transparent 39px,#ffffff 39px,#ffffff 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#ffffff 39px,#ffffff 40px)",
-            }}
-          />
-          {/* Amber accent line */}
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-400" />
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl">
-              <p className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.25em] mb-6">
-                Careers at KMC Lalitpur
-              </p>
-              <h1 className="text-white text-5xl md:text-6xl font-extrabold leading-[1.08] mb-6 tracking-tight">
-                Shape minds.
-                <br />
-                <span className="text-amber-400">Build futures.</span>
-              </h1>
-
-              <div className="w-16 h-0.5 bg-amber-400/40 mb-6" aria-hidden="true" />
-
-              <p className="text-[#8ba7c7] text-lg leading-relaxed mb-12 max-w-xl">
-                We&apos;re looking for passionate educators and dedicated staff
-                to join the KMC Lalitpur family. Every role here shapes the
-                next generation of Nepal&apos;s leaders.
-              </p>
-
-              {/* Stats */}
-              <div className="flex flex-wrap gap-10">
-                <div>
-                  <p className="text-white text-4xl font-extrabold tracking-tight">150+</p>
-                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Faculty Members</p>
-                </div>
-                <div className="w-px bg-white/10 self-stretch" aria-hidden="true" />
-                <div>
-                  <p className="text-white text-4xl font-extrabold tracking-tight">22+</p>
-                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Years of Excellence</p>
-                </div>
-                <div className="w-px bg-white/10 self-stretch" aria-hidden="true" />
-                <div>
-                  <p className="text-white text-4xl font-extrabold tracking-tight">5000+</p>
-                  <p className="text-[#8ba7c7] text-sm mt-1 font-medium">Students Enrolled</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ── Current Openings ─────────────────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {/* Section header */}
             <div className="mb-14">
@@ -222,10 +166,10 @@ export default function CareersPage() {
                 <p className="text-gray-700 text-sm font-medium">
                   No vacancies are currently listed. Please check back soon or email us at{" "}
                   <a
-                    href="mailto:careers@kmclalitpur.edu.np"
+                    href="mailto:info@kmclalitpur.edu.np"
                     className="font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
                   >
-                    careers@kmclalitpur.edu.np
+                    info@kmclalitpur.edu.np
                   </a>
                 </p>
               </div>
@@ -286,10 +230,10 @@ export default function CareersPage() {
                 <p className="text-sm text-gray-700">
                   To apply, fill the form below or email your CV to{" "}
                   <a
-                    href="mailto:careers@kmclalitpur.edu.np"
+                    href="mailto:info@kmclalitpur.edu.np"
                     className="font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
                   >
-                    careers@kmclalitpur.edu.np
+                    info@kmclalitpur.edu.np
                   </a>
                 </p>
               </div>
