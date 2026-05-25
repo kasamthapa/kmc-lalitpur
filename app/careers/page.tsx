@@ -92,6 +92,12 @@ export default function CareersPage() {
     setErrorMsg("");
     setFieldErrors({});
 
+    if (!form.resumeUrl) {
+      setState("error");
+      setErrorMsg("Please upload your CV or resume before submitting.");
+      return;
+    }
+
     try {
       const category = getCategoryFromPosition(form.position);
       const res = await fetch("/api/careers", {
@@ -469,8 +475,9 @@ export default function CareersPage() {
                     <div className="mb-8">
                       <label className={labelCls} style={{ color: "#0B1F3A" }}>
                         CV / Resume{" "}
+                        <span className="text-red-500">*</span>{" "}
                         <span className="text-gray-400 normal-case font-normal">
-                          (optional — PDF, DOC, DOCX · max 5 MB)
+                          (PDF, DOC, DOCX · max 5 MB)
                         </span>
                       </label>
                       <ResumeUpload
