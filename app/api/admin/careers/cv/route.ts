@@ -26,10 +26,13 @@ export async function GET(req: NextRequest) {
 
     const publicId = match[1];
 
-    // Generate a signed URL valid for 1 hour
-    const signedUrl = cloudinary.utils.private_download_url(publicId, "pdf", {
+    // Generate a signed delivery URL valid for 1 hour (type: upload)
+    const signedUrl = cloudinary.url(publicId, {
       resource_type: "raw",
+      type: "upload",
+      sign_url: true,
       expires_at: Math.floor(Date.now() / 1000) + 3600,
+      secure: true,
     });
 
     return NextResponse.redirect(signedUrl);
