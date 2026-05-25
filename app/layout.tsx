@@ -129,14 +129,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // ── HOW TO GET THESE (do this after deploying) ──────────────────────────
-    // Google Search Console: https://search.google.com/search-console
-    //   → Add property → URL prefix → https://kmclalitpur.edu.np
-    //   → Verify via HTML tag → copy the content= value below
-    // google: "paste-google-verification-code-here",
-    //
-    // Bing Webmaster Tools: https://www.bing.com/webmasters
-    //   → Add site → verify via meta tag → copy the content= value below
+    google: "67429ce20a55fb35",
+    // Bing Webmaster Tools: add msvalidate.01 here once available
     // other: { "msvalidate.01": "paste-bing-verification-code-here" },
   },
 };
