@@ -129,7 +129,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "67429ce20a55fb35",
+    google: "oZaoFJk2cL59FtY9i4gM5VoUMj_GOBoWOC89H4PXIPc",
     // Bing Webmaster Tools: add msvalidate.01 here once available
     // other: { "msvalidate.01": "paste-bing-verification-code-here" },
   },
