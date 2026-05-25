@@ -405,7 +405,7 @@ export default function AdminCareersPage() {
                               </a>
                               {app.resumeUrl && (
                                 <a
-                                  href={app.resumeUrl}
+                                  href={`/api/admin/careers/cv?url=${encodeURIComponent(app.resumeUrl)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors"
