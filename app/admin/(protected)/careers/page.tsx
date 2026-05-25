@@ -24,6 +24,12 @@ interface Pagination {
   totalPages: number;
 }
 
+interface Vacancy {
+  id: string;
+  title: string;
+  category: string;
+}
+
 const STATUS_TABS = ["", "new", "reviewed", "shortlisted", "rejected"];
 const CATEGORY_TABS = ["", "Teaching", "Non-Teaching"];
 
@@ -58,16 +64,26 @@ export default function AdminCareersPage() {
   const [page, setPage] = useState(1);
   const [statusFilter, setStatusFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [positionFilter, setPositionFilter] = useState("");
+  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [updating, setUpdating] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/admin/vacancies")
+      .then((r) => r.json())
+      .then((json) => setVacancies(Array.isArray(json.data) ? json.data : []))
+      .catch(() => {});
+  }, []);
 
   async function handleExport() {
     setExporting(true);
     const params = new URLSearchParams();
     if (statusFilter) params.set("status", statusFilter);
     if (categoryFilter) params.set("category", categoryFilter);
+    if (positionFilter) params.set("position", positionFilter);
     const res = await fetch(`/api/admin/careers/export?${params}`);
     if (res.ok) {
       const blob = await res.blob();
@@ -89,6 +105,7 @@ export default function AdminCareersPage() {
     const params = new URLSearchParams({ page: String(page) });
     if (statusFilter) params.set("status", statusFilter);
     if (categoryFilter) params.set("category", categoryFilter);
+    if (positionFilter) params.set("position", positionFilter);
     const res = await fetch(`/api/admin/careers?${params}`);
     if (res.ok) {
       const json = await res.json();
@@ -96,7 +113,7 @@ export default function AdminCareersPage() {
       setPagination(json.data.pagination ?? null);
     }
     setLoading(false);
-  }, [page, statusFilter, categoryFilter]);
+  }, [page, statusFilter, categoryFilter, positionFilter]);
 
   useEffect(() => {
     load();
@@ -187,6 +204,40 @@ export default function AdminCareersPage() {
             ))}
           </div>
         </div>
+
+        {/* Vacancy / Position filter */}
+        {vacancies.length > 0 && (
+          <div className="flex items-center gap-2 flex-wrap w-full">
+            <span className="text-gray-600 text-xs font-semibold uppercase tracking-wider">
+              Vacancy:
+            </span>
+            <div className="flex gap-1.5 flex-wrap">
+              <button
+                onClick={() => { setPositionFilter(""); setPage(1); }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                  positionFilter === ""
+                    ? "bg-amber-400 text-gray-900"
+                    : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                }`}
+              >
+                All
+              </button>
+              {vacancies.map((v) => (
+                <button
+                  key={v.id}
+                  onClick={() => { setPositionFilter(v.title); setPage(1); }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                    positionFilter === v.title
+                      ? "bg-amber-400 text-gray-900"
+                      : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                  }`}
+                >
+                  {v.title}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Table */}

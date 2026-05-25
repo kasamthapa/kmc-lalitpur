@@ -11,11 +11,13 @@ export async function GET(req: NextRequest) {
   const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10));
   const status = searchParams.get("status") ?? "";
   const category = searchParams.get("category") ?? "";
+  const position = searchParams.get("position") ?? "";
   const pageSize = 20;
 
   const where: Record<string, string> = {};
   if (status) where.status = status;
   if (category) where.category = category;
+  if (position) where.position = position;
 
   try {
     const [applications, total] = await Promise.all([
