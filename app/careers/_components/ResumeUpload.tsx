@@ -48,7 +48,6 @@ export function ResumeUpload({ value, onChange }: ResumeUploadProps) {
       fd.append("file", file);
       fd.append("upload_preset", uploadPreset);
       fd.append("folder", "kmc/resumes");
-      fd.append("access_mode", "public");
       setProgress(50);
 
       // Use /raw/upload for non-image files (PDF, DOC, DOCX)
