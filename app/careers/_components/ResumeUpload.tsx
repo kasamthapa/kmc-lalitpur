@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 interface ResumeUploadProps {
-  value: string; // Cloudinary secure URL once uploaded, empty string if not yet
+  value: string;
   onChange: (url: string) => void;
 }
 
@@ -21,14 +21,7 @@ export function ResumeUpload({ value, onChange }: ResumeUploadProps) {
   const [error, setError] = useState("");
   const [fileName, setFileName] = useState("");
 
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-
   async function handleFile(file: File) {
-    if (!cloudName || !uploadPreset) {
-      setError("File upload not configured. Please email your CV instead.");
-      return;
-    }
     if (file.size > MAX_SIZE_MB * 1024 * 1024) {
       setError(`File too large. Maximum size is ${MAX_SIZE_MB} MB.`);
       return;
@@ -40,34 +33,29 @@ export function ResumeUpload({ value, onChange }: ResumeUploadProps) {
 
     setError("");
     setUploading(true);
-    setProgress(20);
+    setProgress(30);
     setFileName(file.name);
 
     try {
       const fd = new FormData();
       fd.append("file", file);
-      fd.append("upload_preset", uploadPreset);
-      fd.append("folder", "kmc/resumes");
-      setProgress(50);
+      setProgress(60);
 
-      // Use /raw/upload for non-image files (PDF, DOC, DOCX)
-      const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`,
-        { method: "POST", body: fd }
-      );
-      setProgress(85);
+      const res = await fetch("/api/upload-resume", {
+        method: "POST",
+        body: fd,
+      });
+
+      setProgress(90);
+
+      const data = await res.json();
 
       if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(
-          (json as { error?: { message?: string } })?.error?.message ??
-            "Upload failed. Please try again."
-        );
+        throw new Error(data.error ?? "Upload failed. Please try again.");
       }
 
-      const data = (await res.json()) as { secure_url: string };
       setProgress(100);
-      onChange(data.secure_url);
+      onChange(data.url);
     } catch (err: unknown) {
       setError(
         err instanceof Error ? err.message : "Upload failed. Please try again."

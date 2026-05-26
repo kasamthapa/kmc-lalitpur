@@ -19,14 +19,17 @@ export async function GET(req: NextRequest) {
   if (!url) return NextResponse.json({ error: "Missing url" }, { status: 400 });
 
   try {
-    // Extract public_id from the Cloudinary URL
-    // e.g. https://res.cloudinary.com/{cloud}/raw/upload/v123/kmc/resumes/abc.pdf
+    // Vercel Blob URLs are public — redirect directly
+    if (url.includes("blob.vercel-storage.com")) {
+      return NextResponse.redirect(url);
+    }
+
+    // Cloudinary URLs — generate a signed delivery URL valid for 1 hour
     const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
-    if (!match) return NextResponse.redirect(url); // fallback: redirect directly
+    if (!match) return NextResponse.redirect(url);
 
     const publicId = match[1];
 
-    // Generate a signed delivery URL valid for 1 hour (type: upload)
     const signedUrl = cloudinary.url(publicId, {
       resource_type: "raw",
       type: "upload",
@@ -37,7 +40,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.redirect(signedUrl);
   } catch {
-    // Fallback: try direct redirect
     return NextResponse.redirect(url);
   }
 }
