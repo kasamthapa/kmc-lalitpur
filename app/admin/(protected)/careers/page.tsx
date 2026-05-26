@@ -70,6 +70,8 @@ export default function AdminCareersPage() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [updating, setUpdating] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/vacancies")
@@ -118,6 +120,15 @@ export default function AdminCareersPage() {
   useEffect(() => {
     load();
   }, [load]);
+
+  async function deleteApplication(id: string) {
+    setDeleting(id);
+    await fetch(`/api/admin/careers/${id}`, { method: "DELETE" });
+    setDeleting(null);
+    setConfirmDelete(null);
+    setExpanded(null);
+    load();
+  }
 
   async function updateStatus(id: string, status: string) {
     setUpdating(id);
@@ -395,7 +406,7 @@ export default function AdminCareersPage() {
                                 </p>
                               </div>
                             )}
-                            <div className="pt-2 border-t border-white/[0.06] flex flex-wrap gap-4">
+                            <div className="pt-2 border-t border-white/[0.06] flex flex-wrap items-center gap-4">
                               <a
                                 href={`mailto:${app.email}`}
                                 className="text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors"
@@ -414,6 +425,12 @@ export default function AdminCareersPage() {
                                   Download CV / Resume →
                                 </a>
                               )}
+                              <button
+                                onClick={(e) => { e.stopPropagation(); setConfirmDelete(app.id); }}
+                                className="ml-auto text-xs font-semibold text-red-500 hover:text-red-400 transition-colors"
+                              >
+                                Delete Application
+                              </button>
                             </div>
                           </div>
                         </td>
@@ -451,6 +468,34 @@ export default function AdminCareersPage() {
           >
             Next →
           </button>
+        </div>
+      )}
+
+      {/* Delete confirmation modal */}
+      {confirmDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="bg-gray-900 border border-white/[0.08] rounded-xl p-6 max-w-sm w-full shadow-2xl">
+            <h3 className="text-white font-bold text-base mb-2">Delete Application?</h3>
+            <p className="text-gray-400 text-sm mb-6">
+              This will permanently delete the application and their uploaded CV from storage. This cannot be undone.
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setConfirmDelete(null)}
+                disabled={deleting === confirmDelete}
+                className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white bg-white/[0.06] border border-white/[0.06] rounded-lg transition-colors disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => deleteApplication(confirmDelete)}
+                disabled={deleting === confirmDelete}
+                className="px-4 py-2 text-sm font-semibold text-white bg-red-600 hover:bg-red-500 rounded-lg transition-colors disabled:opacity-50"
+              >
+                {deleting === confirmDelete ? "Deleting…" : "Delete"}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
