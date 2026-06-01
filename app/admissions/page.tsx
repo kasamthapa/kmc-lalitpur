@@ -167,57 +167,6 @@ const streams = {
   },
 };
 
-const scholarships = [
-  {
-    title: "Merit Scholarship",
-    badge: "All Streams",
-    badgeColor: "bg-amber-100 text-amber-700",
-    desc: "Awarded based on cumulative marks: SEE results (25%) + KMC Entrance Exam (75%). Higher the combined score, higher the scholarship percentage.",
-    details: [
-      "Valid for first 3 months (until First Term Exam)",
-      "Renewed or revised based on terminal exam performance",
-      "First-come-first-served — limited quota",
-      "Admission required before quota is filled",
-    ],
-  },
-  {
-    title: "Sushil Memorial Scholarship",
-    badge: "Special",
-    badgeColor: "bg-blue-100 text-blue-700",
-    desc: "Established in memory of Late Sushil Sahani. Awarded to the top performers from the first entrance examination.",
-    details: [
-      "Top 2 students from first entrance exam",
-      "1 top student from Madhesi community",
-      "Awarded at time of admission",
-      "Based purely on entrance merit",
-    ],
-  },
-  {
-    title: "Government School Scholarship",
-    badge: "Special Entrance",
-    badgeColor: "bg-green-100 text-green-700",
-    desc: "Separate entrance examination conducted for students from government/public schools who apply for special scholarship consideration.",
-    details: [
-      "Separate entrance test for govt. school students",
-      "Limited scholarship seats available",
-      "Merit-based selection",
-      "Encourages students from public schools",
-    ],
-  },
-  {
-    title: "Need-Based Financial Aid",
-    badge: "Need Based",
-    badgeColor: "bg-purple-100 text-purple-700",
-    desc: "Financial assistance available for students from economically disadvantaged backgrounds who demonstrate academic potential.",
-    details: [
-      "Income certificate required",
-      "Academic performance considered",
-      "Counselled by administration",
-      "Subject to availability",
-    ],
-  },
-];
-
 const documents = [
   "Completed online admission form",
   "SEE mark sheet / Grade sheet (original + photocopy)",
@@ -381,7 +330,8 @@ export default function Admissions() {
                 2083 Entrance Examinations — Now Open
               </p>
               <p className="text-[#0B1F3A]/70 text-sm mt-0.5">
-                Apply online for Science, Management, or Law stream. Limited seats available.
+                Apply online for Science, Management, or Law stream. Limited
+                seats available.
               </p>
             </div>
           </div>
@@ -402,11 +352,16 @@ export default function Admissions() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
-              <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-1">Entrance Preparation</p>
-              <h2 className="text-xl font-bold text-[#0B1F3A]">Model Question Papers 2083</h2>
+              <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-1">
+                Entrance Preparation
+              </p>
+              <h2 className="text-xl font-bold text-[#0B1F3A]">
+                Model Question Papers 2083
+              </h2>
             </div>
             <p className="text-sm text-[#6b7280] max-w-sm">
-              Download the official KMC model question papers to prepare for your stream's entrance examination.
+              Download the official KMC model question papers to prepare for
+              your stream&apos;s entrance examination.
             </p>
           </div>
 
@@ -418,16 +373,46 @@ export default function Admissions() {
               className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
             >
               <div className="w-12 h-12 bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A] group-hover:bg-amber-300 transition-colors">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="12" y1="18" x2="12" y2="12" />
+                  <line x1="9" y1="15" x2="15" y2="15" />
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">Management Stream</p>
-                <p className="text-xs text-[#6b7280] mt-0.5">Model Questions 2083 · PDF · 474 KB</p>
+                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                  Management Stream
+                </p>
+                <p className="text-xs text-[#6b7280] mt-0.5">
+                  Model Questions 2083 · PDF · 474 KB
+                </p>
               </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:stroke-amber-600 transition-colors" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6b7280"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="shrink-0 group-hover:stroke-amber-600 transition-colors"
+                aria-hidden="true"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
             </a>
 
@@ -438,16 +423,46 @@ export default function Admissions() {
               className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
             >
               <div className="w-12 h-12 bg-[#0B1F3A] flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-[#162e57] transition-colors">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="12" y1="18" x2="12" y2="12" />
+                  <line x1="9" y1="15" x2="15" y2="15" />
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">Law Stream</p>
-                <p className="text-xs text-[#6b7280] mt-0.5">Model Questions 2083 · PDF · 432 KB</p>
+                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                  Law Stream
+                </p>
+                <p className="text-xs text-[#6b7280] mt-0.5">
+                  Model Questions 2083 · PDF · 432 KB
+                </p>
               </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:stroke-amber-600 transition-colors" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6b7280"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="shrink-0 group-hover:stroke-amber-600 transition-colors"
+                aria-hidden="true"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
             </a>
           </div>
@@ -465,7 +480,8 @@ export default function Admissions() {
               </h2>
             </div>
             <p className="text-slate-500 max-w-xs text-sm leading-relaxed md:text-right">
-              A straightforward process designed to help you secure your place at KMC Lalitpur
+              A straightforward process designed to help you secure your place
+              at KMC Lalitpur
             </p>
           </div>
 
@@ -497,7 +513,9 @@ export default function Admissions() {
                 <p className="text-amber-500 font-bold text-xs tracking-widest uppercase mb-3">
                   Step {item.step}
                 </p>
-                <h3 className="font-bold text-[#0B1F3A] text-xl mb-3 relative">{item.title}</h3>
+                <h3 className="font-bold text-[#0B1F3A] text-xl mb-3 relative">
+                  {item.title}
+                </h3>
                 <p className="text-slate-500 text-sm leading-relaxed relative">
                   {item.desc}
                 </p>
@@ -517,7 +535,8 @@ export default function Admissions() {
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
             <p className="text-slate-500 max-w-xl text-sm">
-              Select your stream to view the specific admission requirements and process
+              Select your stream to view the specific admission requirements and
+              process
             </p>
           </div>
 
@@ -567,7 +586,9 @@ export default function Admissions() {
                         {step.requirements.map((req, j) => (
                           <li key={j} className="flex items-start gap-2.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2" />
-                            <span className="text-slate-600 text-sm">{req}</span>
+                            <span className="text-slate-600 text-sm">
+                              {req}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -611,7 +632,8 @@ export default function Admissions() {
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
             </div>
             <p className="text-slate-400 max-w-sm text-sm leading-relaxed md:text-right">
-              All Grade XI scholarships are based on Cumulative Marks = SEE (25%) + KMC Entrance (75%)
+              All Grade XI scholarships are based on Cumulative Marks = SEE
+              (25%) + KMC Entrance (75%)
             </p>
           </div>
 
@@ -633,26 +655,76 @@ export default function Admissions() {
                 </thead>
                 <tbody className="divide-y divide-white/5">
                   {[
-                    { sn: 1, marks: "85 & Above", annual: "100%", tuition: "100%", quota: 25 },
-                    { sn: 2, marks: "80 – 84", annual: "75%", tuition: "75%", quota: 25 },
-                    { sn: 3, marks: "75 – 79", annual: "50%", tuition: "50%", quota: 25 },
-                    { sn: 4, marks: "70 – 74", annual: "50%", tuition: "25%", quota: 25 },
-                    { sn: 5, marks: "65 – 69", annual: "25%", tuition: "25%", quota: 25 },
-                    { sn: 6, marks: "60 – 64", annual: "25%", tuition: "—", quota: 25 },
+                    {
+                      sn: 1,
+                      marks: "85 & Above",
+                      annual: "100%",
+                      tuition: "100%",
+                      quota: 25,
+                    },
+                    {
+                      sn: 2,
+                      marks: "80 – 84",
+                      annual: "75%",
+                      tuition: "75%",
+                      quota: 25,
+                    },
+                    {
+                      sn: 3,
+                      marks: "75 – 79",
+                      annual: "50%",
+                      tuition: "50%",
+                      quota: 25,
+                    },
+                    {
+                      sn: 4,
+                      marks: "70 – 74",
+                      annual: "50%",
+                      tuition: "25%",
+                      quota: 25,
+                    },
+                    {
+                      sn: 5,
+                      marks: "65 – 69",
+                      annual: "25%",
+                      tuition: "25%",
+                      quota: 25,
+                    },
+                    {
+                      sn: 6,
+                      marks: "60 – 64",
+                      annual: "25%",
+                      tuition: "—",
+                      quota: 25,
+                    },
                   ].map((r) => (
-                    <tr key={r.sn} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
-                      <td className="px-4 py-3 text-slate-400 text-xs">{r.sn}</td>
-                      <td className="px-4 py-3 text-white font-medium">{r.marks}</td>
-                      <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.annual}</td>
-                      <td className="px-4 py-3 text-center text-amber-300 font-semibold">{r.tuition}</td>
-                      <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.quota}</td>
+                    <tr
+                      key={r.sn}
+                      className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                    >
+                      <td className="px-4 py-3 text-slate-400 text-xs">
+                        {r.sn}
+                      </td>
+                      <td className="px-4 py-3 text-white font-medium">
+                        {r.marks}
+                      </td>
+                      <td className="px-4 py-3 text-center text-amber-400 font-bold">
+                        {r.annual}
+                      </td>
+                      <td className="px-4 py-3 text-center text-amber-300 font-semibold">
+                        {r.tuition}
+                      </td>
+                      <td className="px-4 py-3 text-center text-slate-400 text-xs">
+                        {r.quota}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="text-slate-500 text-xs mt-2 italic">
-              Valid for first 3 months (until First Term Exam). First-come, first-served. Limited quota.
+              Valid for first 3 months (until First Term Exam). First-come,
+              first-served. Limited quota.
             </p>
           </div>
 
@@ -680,10 +752,19 @@ export default function Admissions() {
                       { gpa: "3.71 – 3.80", schol: "25%", dur: "3 months" },
                       { gpa: "3.61 – 3.70", schol: "10%", dur: "3 months" },
                     ].map((r) => (
-                      <tr key={r.gpa} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
-                        <td className="px-4 py-3 text-white font-medium text-xs">{r.gpa}</td>
-                        <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.schol} on Tuition</td>
-                        <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.dur}</td>
+                      <tr
+                        key={r.gpa}
+                        className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                      >
+                        <td className="px-4 py-3 text-white font-medium text-xs">
+                          {r.gpa}
+                        </td>
+                        <td className="px-4 py-3 text-center text-amber-400 font-bold">
+                          {r.schol} on Tuition
+                        </td>
+                        <td className="px-4 py-3 text-center text-slate-400 text-xs">
+                          {r.dur}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -707,16 +788,29 @@ export default function Admissions() {
                   </thead>
                   <tbody className="divide-y divide-white/5">
                     {[
-                      { marks: "Topper / 85%+", schol: "100%", dur: "3 months" },
+                      {
+                        marks: "Topper / 85%+",
+                        schol: "100%",
+                        dur: "3 months",
+                      },
                       { marks: "80% and above", schol: "75%", dur: "3 months" },
                       { marks: "75% and above", schol: "50%", dur: "3 months" },
                       { marks: "70% and above", schol: "25%", dur: "3 months" },
                       { marks: "65% and above", schol: "10%", dur: "3 months" },
                     ].map((r) => (
-                      <tr key={r.marks} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
-                        <td className="px-4 py-3 text-white font-medium text-xs">{r.marks}</td>
-                        <td className="px-4 py-3 text-center text-amber-400 font-bold">{r.schol} on Tuition</td>
-                        <td className="px-4 py-3 text-center text-slate-400 text-xs">{r.dur}</td>
+                      <tr
+                        key={r.marks}
+                        className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                      >
+                        <td className="px-4 py-3 text-white font-medium text-xs">
+                          {r.marks}
+                        </td>
+                        <td className="px-4 py-3 text-center text-amber-400 font-bold">
+                          {r.schol} on Tuition
+                        </td>
+                        <td className="px-4 py-3 text-center text-slate-400 text-xs">
+                          {r.dur}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -729,22 +823,14 @@ export default function Admissions() {
           <div className="space-y-4 mb-8">
             {[
               {
-                title: "Sushil Memorial Scholarship",
-                badge: "Special",
-                desc: "Awarded to the top 2 students from the first entrance examination + 1 top student from the Madhesi community.",
-                details: ["Top 2 from first entrance exam", "1 Madhesi community student", "Based on entrance merit"],
-              },
-              {
-                title: "Government School Scholarship",
+                title: "Mahalaxmi Municipality Scholarship",
                 badge: "Special Entrance",
-                desc: "Separate entrance examination for students from government/public schools, conducted in collaboration with local government.",
-                details: ["Separate entrance test", "Limited scholarship seats", "Merit-based selection"],
-              },
-              {
-                title: "Need-Based Financial Aid",
-                badge: "Need Based",
-                desc: "Financial assistance for students from economically disadvantaged backgrounds who demonstrate academic potential.",
-                details: ["Income certificate required", "Academic performance considered", "Contact administration"],
+                desc: "Separate entrance examination(SEE Marks-50% , Entrance Exam-50%) for students from government/public schools, conducted in collaboration with Mahalaxmi Municipality.",
+                details: [
+                  "Separate entrance test",
+                  "Limited scholarship seats",
+                  "Merit-based selection",
+                ],
               },
             ].map((s, i) => (
               <div
@@ -757,11 +843,17 @@ export default function Admissions() {
                     {s.badge}
                   </span>
                 </div>
-                <p className="text-slate-400 text-xs leading-relaxed mb-3">{s.desc}</p>
+                <p className="text-slate-400 text-xs leading-relaxed mb-3">
+                  {s.desc}
+                </p>
                 <div className="flex flex-wrap gap-4">
                   {s.details.map((d) => (
-                    <span key={d} className="text-xs text-slate-300 flex items-center gap-1.5">
-                      <span className="w-1 h-1 rounded-full bg-amber-400 shrink-0" />{d}
+                    <span
+                      key={d}
+                      className="text-xs text-slate-300 flex items-center gap-1.5"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-amber-400 shrink-0" />
+                      {d}
                     </span>
                   ))}
                 </div>
@@ -771,7 +863,9 @@ export default function Admissions() {
 
           {/* Scholarship note */}
           <div className="border-l-4 border-amber-400 pl-6 py-4">
-            <p className="font-bold text-amber-400 mb-2 text-sm">Important Scholarship Note</p>
+            <p className="font-bold text-amber-400 mb-2 text-sm">
+              Important Scholarship Note
+            </p>
             <p className="text-slate-300 text-sm leading-relaxed">
               Scholarship quota is limited and awarded on a first-come,
               first-served basis. Scholarships at admission are valid for the
@@ -848,8 +942,13 @@ export default function Admissions() {
               </div>
               <ul className="space-y-3">
                 {documents.map((doc, i) => (
-                  <li key={i} className="flex items-start gap-3 pb-3 border-b border-[#eae6de] last:border-0">
-                    <span className="text-amber-500 font-bold text-xs shrink-0 mt-0.5 w-5 text-right">{String(i + 1).padStart(2, "0")}</span>
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 pb-3 border-b border-[#eae6de] last:border-0"
+                  >
+                    <span className="text-amber-500 font-bold text-xs shrink-0 mt-0.5 w-5 text-right">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <span className="text-slate-600 text-sm">{doc}</span>
                   </li>
                 ))}
@@ -887,7 +986,10 @@ export default function Admissions() {
                     color: "bg-amber-50 border-amber-200",
                   },
                 ].map((s, i) => (
-                  <div key={i} className="border-l-4 border-amber-400 pl-4 py-4 mb-4">
+                  <div
+                    key={i}
+                    className="border-l-4 border-amber-400 pl-4 py-4 mb-4"
+                  >
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-bold text-[#0B1F3A] text-sm">
                         {s.stream} Stream
@@ -986,8 +1088,8 @@ export default function Admissions() {
             </h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
               Don&apos;t wait — seats are limited and scholarships are
-              first-come-first-served. Apply online today for the 2083
-              academic year.
+              first-come-first-served. Apply online today for the 2083 academic
+              year.
             </p>
             <a
               href="https://app.kmclalitpur.edu.np/applicant/login"

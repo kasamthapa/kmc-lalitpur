@@ -6,17 +6,6 @@ import { IconChevronRight } from "./icons";
 
 const awards = [
   {
-    id: 1,
-    title: "Ministry of Education Excellence Award",
-    subtitle: "Among 4000+ Schools",
-    image: "/images/awards/award1.png",
-    fallbackGradient: "from-amber-700 to-amber-900",
-    description:
-      "Recognized for outstanding educational standards and institutional management by the Ministry of Education.",
-    // highlight: "National Recognition",
-  },
-
-  {
     id: 2,
     title: "NEB Outstanding Results",
     year: "2079",
