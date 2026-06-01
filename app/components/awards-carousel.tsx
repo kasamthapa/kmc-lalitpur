@@ -22,7 +22,7 @@ const awards = [
     title: "Academic Excellence Award",
     year: "2075",
     subtitle: "Top Performer",
-    image: "/images/awards/award4.png?v=2",
+    image: "/images/awards/award4.png",
     fallbackGradient: "from-purple-800 to-purple-950",
     description:
       "Excellence in academic performance with consistent high achievement in national examinations.",
