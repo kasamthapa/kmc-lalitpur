@@ -551,7 +551,7 @@ export default async function Home() {
                   {
                     step: "02",
                     title: "Appear for Entrance Exam",
-                    desc: "MCQ-based exam. Science: 100 marks. Management/Law: 75 marks.",
+                    desc: "MCQ-based exam. Science: 100 marks. Management/Law: 50 marks.",
                   },
                   {
                     step: "03",
