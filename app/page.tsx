@@ -145,10 +145,34 @@ const testimonials = [
 ];
 
 const FALLBACK_NEWS = [
-  { title: "KMC Talent and Innovation Expo 2082", date: "Recent", category: "Events", image: "/images/news4.png", slug: "" },
-  { title: "Voices of Experience – MBBS Achievers Panel Discussion", date: "Recent", category: "Academic", image: "/images/news1.png", slug: "" },
-  { title: "Theme Drama Competition 2082 at KMC Seminar Hall", date: "Recent", category: "Cultural", image: "/images/news3.png", slug: "" },
-  { title: "World NGO Day — Building Partnerships for Change", date: "Recent", category: "Community", image: "/images/news5.png", slug: "" },
+  {
+    title: "KMC Talent and Innovation Expo 2082",
+    date: "Recent",
+    category: "Events",
+    image: "/images/news4.png",
+    slug: "",
+  },
+  {
+    title: "Voices of Experience – MBBS Achievers Panel Discussion",
+    date: "Recent",
+    category: "Academic",
+    image: "/images/news1.png",
+    slug: "",
+  },
+  {
+    title: "Theme Drama Competition 2082 at KMC Seminar Hall",
+    date: "Recent",
+    category: "Cultural",
+    image: "/images/news3.png",
+    slug: "",
+  },
+  {
+    title: "World NGO Day — Building Partnerships for Change",
+    date: "Recent",
+    category: "Community",
+    image: "/images/news5.png",
+    slug: "",
+  },
 ];
 
 async function getLatestNews() {
@@ -157,13 +181,25 @@ async function getLatestNews() {
       where: { published: true },
       orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
       take: 4,
-      select: { id: true, title: true, slug: true, category: true, imageUrl: true, createdAt: true, featured: true },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        category: true,
+        imageUrl: true,
+        createdAt: true,
+        featured: true,
+      },
     });
     if (rows.length === 0) return FALLBACK_NEWS;
     const dbNews = rows.map((r) => ({
       title: r.title,
       slug: r.slug,
-      date: r.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+      date: r.createdAt.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
       category: r.category ?? "News",
       image: r.imageUrl ?? "/images/news4.png",
     }));
@@ -226,7 +262,10 @@ export default async function Home() {
           className="absolute inset-0 w-full h-full object-cover scale-105"
           style={{ zIndex: 0 }}
         >
-          <source src="https://res.cloudinary.com/dzxun4tvo/video/upload/v1779025362/KMC-hero-final_pjewco.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dzxun4tvo/video/upload/v1779025362/KMC-hero-final_pjewco.mp4"
+            type="video/mp4"
+          />
         </video>
 
         {/* Overlay — blocks interaction, darkens for readability */}
@@ -254,7 +293,10 @@ export default async function Home() {
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.05] tracking-tight drop-shadow-lg">
               Shape Your
               <br />
-              <span className="text-amber-300 md:text-amber-400">Future</span> at
+              <span className="text-amber-300 md:text-amber-400">
+                Future
+              </span>{" "}
+              at
               <br />
               KMC Lalitpur
             </h1>
@@ -296,7 +338,9 @@ export default async function Home() {
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
                   {stat.value}
                 </div>
-                <div className="text-[#8ba7c7] text-sm mt-3 leading-snug">{stat.label}</div>
+                <div className="text-[#8ba7c7] text-sm mt-3 leading-snug">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -338,7 +382,9 @@ export default async function Home() {
             <div className="lg:pl-4">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-6 h-px bg-amber-500" />
-                <span className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase">About KMC</span>
+                <span className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase">
+                  About KMC
+                </span>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-6 leading-tight">
                 Leading Institution of
@@ -399,11 +445,16 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16">
             <div>
-              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-amber-600 mb-3 block">Academic Streams</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">Our Programs</h2>
+              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-amber-600 mb-3 block">
+                Academic Streams
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Our Programs
+              </h2>
             </div>
             <p className="text-slate-500 max-w-sm mt-4 md:mt-0 text-sm leading-relaxed">
-              NEB-aligned +2 programs in Science, Management and Law — preparing students for Nepal&apos;s most competitive entrances.
+              NEB-aligned +2 programs in Science, Management and Law — preparing
+              students for Nepal&apos;s most competitive entrances.
             </p>
           </div>
 
@@ -412,9 +463,11 @@ export default async function Home() {
               <Link
                 key={p.id}
                 href={p.href}
-                className={`group relative bg-white rounded-xl overflow-hidden border border-[#e8e8e8] hover:border-transparent hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col ${idx === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                className={`group relative bg-white rounded-xl overflow-hidden border border-[#e8e8e8] hover:border-transparent hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col ${idx === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}
               >
-                <div className={`relative h-52 bg-gradient-to-br ${p.color} overflow-hidden`}>
+                <div
+                  className={`relative h-52 bg-gradient-to-br ${p.color} overflow-hidden`}
+                >
                   <Image
                     src={p.image}
                     alt={p.title}
@@ -424,19 +477,31 @@ export default async function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5">
-                    <h3 className="text-2xl font-bold text-white mb-1">{p.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {p.title}
+                    </h3>
                     <p className="text-white/60 text-xs">{p.tagline}</p>
                   </div>
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex flex-wrap gap-1 mb-4">
-                    {p.subjects.map(s => (
-                      <span key={s} className="text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">{s}</span>
+                    {p.subjects.map((s) => (
+                      <span
+                        key={s}
+                        className="text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full"
+                      >
+                        {s}
+                      </span>
                     ))}
                   </div>
                   <div className="flex flex-wrap gap-1.5 mb-5">
-                    {p.careers.map(c => (
-                      <span key={c} className="text-xs font-semibold text-[#0B1F3A] bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-full">{c}</span>
+                    {p.careers.map((c) => (
+                      <span
+                        key={c}
+                        className="text-xs font-semibold text-[#0B1F3A] bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-full"
+                      >
+                        {c}
+                      </span>
                     ))}
                   </div>
                   <div className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] group-hover:text-amber-600 transition-colors">
@@ -465,7 +530,9 @@ export default async function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-2 leading-tight">
-                Simple 3-Step<br/>Admission Process
+                Simple 3-Step
+                <br />
+                Admission Process
               </h2>
               <div className="w-12 h-1 bg-amber-400 mt-4 mb-6" />
               <p className="text-slate-600 mb-10 leading-relaxed">
@@ -492,11 +559,20 @@ export default async function Home() {
                     desc: "Merit list published same or next day. Get admitted before seats fill up.",
                   },
                 ].map((s) => (
-                  <div key={s.step} className="flex gap-6 group border-t border-[#f0ede6] pt-5 pb-5">
-                    <span className="text-3xl font-bold text-[#0B1F3A]/15 leading-none shrink-0">{s.step}</span>
+                  <div
+                    key={s.step}
+                    className="flex gap-6 group border-t border-[#f0ede6] pt-5 pb-5"
+                  >
+                    <span className="text-3xl font-bold text-[#0B1F3A]/15 leading-none shrink-0">
+                      {s.step}
+                    </span>
                     <div>
-                      <h4 className="font-bold text-[#0B1F3A] mb-1">{s.title}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+                      <h4 className="font-bold text-[#0B1F3A] mb-1">
+                        {s.title}
+                      </h4>
+                      <p className="text-sm text-slate-500 leading-relaxed">
+                        {s.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -515,7 +591,9 @@ export default async function Home() {
             <div className="bg-[#0B1F3A] rounded-2xl p-6 md:p-8 text-white">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-6 h-px bg-amber-400" />
-                <span className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase">Scholarships</span>
+                <span className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase">
+                  Scholarships
+                </span>
               </div>
               <h3 className="text-2xl font-bold mb-4 text-white">
                 Scholarships & Financial Aid
@@ -529,20 +607,8 @@ export default async function Home() {
               <div className="space-y-4 mb-8">
                 {[
                   {
-                    title: "Merit Scholarship",
-                    desc: "Based on SEE (25%) + KMC Entrance (75%) cumulative marks",
-                  },
-                  {
-                    title: "Sushil Memorial Scholarship",
-                    desc: "Top 2 students from first entrance exam + 1 Madhesi community student",
-                  },
-                  {
-                    title: "Government School Scholarship",
-                    desc: "Separate entrance test for students from government schools",
-                  },
-                  {
-                    title: "Need-based Aid",
-                    desc: "Available for students from economically disadvantaged backgrounds",
+                    title: "Mahalaxmi Municipality  Scholarship",
+                    desc: "Separate entrance examination(SEE Marks-50% , Entrance Exam-50%) for students from government/public schools, conducted in collaboration with Mahalaxmi Municipality.",
                   },
                 ].map((s, i) => (
                   <div
@@ -578,24 +644,37 @@ export default async function Home() {
           <div className="flex flex-col lg:flex-row lg:gap-24 lg:items-start">
             <div className="lg:w-80 shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-28">
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-                Why Students<br/>Thrive Here
+                Why Students
+                <br />
+                Thrive Here
               </h2>
               <p className="text-slate-500 mt-4 text-sm leading-relaxed">
-                Six reasons KMC is the preferred choice for quality +2 education in the Kathmandu Valley.
+                Six reasons KMC is the preferred choice for quality +2 education
+                in the Kathmandu Valley.
               </p>
-              <Link href="/about" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group">
-                About KMC <span className="group-hover:translate-x-1 transition-transform"><IconArrow /></span>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group"
+              >
+                About KMC{" "}
+                <span className="group-hover:translate-x-1 transition-transform">
+                  <IconArrow />
+                </span>
               </Link>
             </div>
             <div className="flex-1 divide-y divide-[#e0dcd4]">
               {whyKMC.map((item, i) => (
                 <div key={i} className="py-7 flex gap-6 group cursor-default">
                   <span className="text-4xl font-bold text-[#0B1F3A]/10 leading-none shrink-0 w-12 text-right group-hover:text-amber-400/50 transition-colors duration-300">
-                    {String(i + 1).padStart(2, '0')}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-bold text-[#0B1F3A] mb-1.5 group-hover:text-amber-700 transition-colors">{item.title}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-bold text-[#0B1F3A] mb-1.5 group-hover:text-amber-700 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -609,20 +688,25 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
-              News &<br className="md:hidden"/> Updates
+              News &<br className="md:hidden" /> Updates
             </h2>
             <Link
               href="/news"
               className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors group border-b border-[#0B1F3A]/20 pb-0.5 hover:border-amber-600"
             >
-              All news <span className="group-hover:translate-x-1 transition-transform"><IconArrow /></span>
+              All news{" "}
+              <span className="group-hover:translate-x-1 transition-transform">
+                <IconArrow />
+              </span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Featured */}
             <Link
-              href={latestNews[0]?.slug ? `/news/${latestNews[0].slug}` : "/news"}
+              href={
+                latestNews[0]?.slug ? `/news/${latestNews[0].slug}` : "/news"
+              }
               className="lg:col-span-2 group cursor-pointer bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#e8e8e8] hover:-translate-y-0.5"
             >
               <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden">
@@ -694,24 +778,34 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-16">
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              What Our<br/>Community Says
+              What Our
+              <br />
+              Community Says
             </h2>
             <div className="hidden md:block text-right">
-              <p className="text-[#8ba7c7] text-sm">Students · Parents · Alumni</p>
+              <p className="text-[#8ba7c7] text-sm">
+                Students · Parents · Alumni
+              </p>
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             {/* Featured large quote */}
             <div className="lg:col-span-2 relative">
-              <div className="text-[8rem] leading-none font-serif text-amber-400/15 absolute -top-10 -left-4 select-none">&ldquo;</div>
+              <div className="text-[8rem] leading-none font-serif text-amber-400/15 absolute -top-10 -left-4 select-none">
+                &ldquo;
+              </div>
               <blockquote className="relative text-xl md:text-2xl text-white/90 leading-relaxed font-light pt-8">
                 {testimonials[0].quote}
               </blockquote>
               <div className="mt-8 flex items-center gap-4">
                 <div className="w-10 h-px bg-amber-400" />
                 <div>
-                  <p className="font-bold text-white text-sm">{testimonials[0].name}</p>
-                  <p className="text-xs text-[#8ba7c7] mt-0.5">{testimonials[0].role}</p>
+                  <p className="font-bold text-white text-sm">
+                    {testimonials[0].name}
+                  </p>
+                  <p className="text-xs text-[#8ba7c7] mt-0.5">
+                    {testimonials[0].role}
+                  </p>
                 </div>
               </div>
             </div>
@@ -719,12 +813,18 @@ export default async function Home() {
             <div className="flex flex-col divide-y divide-white/10">
               {testimonials.slice(1).map((t, i) => (
                 <div key={i} className="py-8 first:pt-0 last:pb-0">
-                  <p className="text-[#8ba7c7] text-sm leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="text-[#8ba7c7] text-sm leading-relaxed mb-5">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-px bg-amber-400/50" />
                     <div>
-                      <p className="text-white font-semibold text-xs">{t.name}</p>
-                      <p className="text-[#8ba7c7]/70 text-[10px] mt-0.5">{t.role}</p>
+                      <p className="text-white font-semibold text-xs">
+                        {t.name}
+                      </p>
+                      <p className="text-[#8ba7c7]/70 text-[10px] mt-0.5">
+                        {t.role}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -739,7 +839,9 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4 leading-tight">
-              Our Students,<br/>Their Dreams
+              Our Students,
+              <br />
+              Their Dreams
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mb-5" />
             <p className="text-[#6b7280] max-w-2xl text-sm leading-relaxed">
@@ -777,7 +879,9 @@ export default async function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4 leading-tight">
-                Beyond the<br/>Classroom
+                Beyond the
+                <br />
+                Classroom
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mb-6" />
               <p className="text-slate-600 mb-8 leading-relaxed">
