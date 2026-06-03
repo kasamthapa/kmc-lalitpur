@@ -598,12 +598,6 @@ export default async function Home() {
               <h3 className="text-2xl font-bold mb-4 text-white">
                 Scholarships & Financial Aid
               </h3>
-              <p className="text-slate-300 mb-6 leading-relaxed">
-                KMC Lalitpur offers merit-based and need-based scholarships to
-                deserving students. Scholarships are awarded on a first-come,
-                first-served basis.
-              </p>
-
               <div className="space-y-4 mb-8">
                 {[
                   {
