@@ -20,14 +20,7 @@ export function ImageUpload({
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState("");
 
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-
   async function handleFile(file: File) {
-    if (!cloudName || !uploadPreset) {
-      setError("Cloudinary not configured. Check .env for NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME and NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET.");
-      return;
-    }
     if (file.size > 10 * 1024 * 1024) {
       setError("File too large. Max 10 MB.");
       return;
@@ -45,26 +38,22 @@ export function ImageUpload({
     try {
       const fd = new FormData();
       fd.append("file", file);
-      fd.append("upload_preset", uploadPreset);
-      fd.append("folder", folder);
+      fd.append("folder", `/${folder}`);
       setProgress(50);
 
-      const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        { method: "POST", body: fd }
-      );
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
       setProgress(85);
 
       if (!res.ok) {
         const json = await res.json().catch(() => ({}));
         throw new Error(
-          (json as { error?: { message?: string } })?.error?.message ?? "Upload failed."
+          (json as { error?: string })?.error ?? "Upload failed."
         );
       }
 
-      const data = (await res.json()) as { secure_url: string };
+      const data = (await res.json()) as { url: string };
       setProgress(100);
-      onChange(data.secure_url);
+      onChange(data.url);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Upload failed. Try again.");
     } finally {

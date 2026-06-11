@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "img.youtube.com",
         pathname: "/**",
       },
@@ -61,9 +66,9 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://va.vercel-scripts.com https://vercel.live https://maps.googleapis.com https://maps.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: blob: https://res.cloudinary.com https://img.youtube.com https://i.ytimg.com https://maps.gstatic.com https://maps.googleapis.com https://*.ggpht.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://*.public.blob.vercel-storage.com",
+              "img-src 'self' data: blob: https://res.cloudinary.com https://ik.imagekit.io https://img.youtube.com https://i.ytimg.com https://maps.gstatic.com https://maps.googleapis.com https://*.ggpht.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://*.public.blob.vercel-storage.com",
               "frame-src https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://maps.googleapis.com",
-              "connect-src 'self' https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://maps.googleapis.com https://api.cloudinary.com https://res.cloudinary.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://*.public.blob.vercel-storage.com https://blob.vercel-storage.com",
+              "connect-src 'self' https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://maps.googleapis.com https://upload.imagekit.io https://ik.imagekit.io https://api.cloudinary.com https://res.cloudinary.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://*.public.blob.vercel-storage.com https://blob.vercel-storage.com",
               "font-src 'self' data: https://fonts.gstatic.com",
               "media-src 'self' https://res.cloudinary.com",
               "worker-src 'self' blob:",

@@ -4,27 +4,16 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { CropModal } from "@/app/admin/_components/CropModal";
 
-async function uploadToCloudinary(file: File): Promise<string> {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-  if (!cloudName || !preset) throw new Error("Cloudinary env vars missing.");
-
+async function uploadToImageKit(file: File): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
-  fd.append("upload_preset", preset);
-  fd.append("folder", "kmc-faculty");
-
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-    { method: "POST", body: fd },
-  );
+  fd.append("folder", "/kmc-faculty");
+  const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
   if (!res.ok) {
     const j = await res.json().catch(() => ({}));
-    throw new Error(
-      (j as { error?: { message?: string } })?.error?.message ?? "Upload failed",
-    );
+    throw new Error((j as { error?: string })?.error ?? "Upload failed");
   }
-  return ((await res.json()) as { secure_url: string }).secure_url;
+  return ((await res.json()) as { url: string }).url;
 }
 
 interface FacultyMember {
@@ -129,7 +118,7 @@ export default function FacultyAdminPage() {
     setUploading(true);
     try {
       const file = new File([blob], "photo.jpg", { type: "image/jpeg" });
-      const url = await uploadToCloudinary(file);
+      const url = await uploadToImageKit(file);
       setForm((f) => ({ ...f, imageUrl: url }));
       setImagePreview(url);
     } catch (err) {

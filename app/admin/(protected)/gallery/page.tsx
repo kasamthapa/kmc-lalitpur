@@ -35,33 +35,17 @@ const BLANK = {
   displayOrder: "0",
 };
 
-/* ─── cloudinary upload helper ───────────────────────────────────────────── */
-async function uploadToCloudinary(file: File, folder: string): Promise<string> {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-  if (!cloudName || !preset) throw new Error("Cloudinary env vars missing.");
-
+/* ─── imagekit upload helper ─────────────────────────────────────────────── */
+async function uploadToImageKit(file: File, folder: string): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
-  fd.append("upload_preset", preset);
-  fd.append("folder", folder);
-
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-    {
-      method: "POST",
-      body: fd,
-    },
-  );
+  fd.append("folder", `/${folder}`);
+  const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
   if (!res.ok) {
     const j = await res.json().catch(() => ({}));
-    throw new Error(
-      (j as { error?: { message?: string } })?.error?.message ??
-        "Upload failed",
-    );
+    throw new Error((j as { error?: string })?.error ?? "Upload failed");
   }
-  const data = (await res.json()) as { secure_url: string };
-  return data.secure_url;
+  return ((await res.json()) as { url: string }).url;
 }
 
 /* ─── modal form ─────────────────────────────────────────────────────────── */
@@ -95,7 +79,7 @@ function PhotoModal({
     setError("");
     setUploading(true);
     try {
-      const url = await uploadToCloudinary(file, "kmc/gallery");
+      const url = await uploadToImageKit(file, "kmc/gallery");
       setSrc(url);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Upload failed");
