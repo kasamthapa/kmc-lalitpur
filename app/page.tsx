@@ -404,6 +404,48 @@ export default async function Home() {
                 academically, socially, and personally.
               </p>
 
+              <div className="mb-8 border border-[#e8e8e8] rounded-xl overflow-hidden bg-[#f8fafc]">
+                <div className="px-5 py-4 border-b border-[#e8e8e8] bg-white">
+                  <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+                    Two Premium Campuses
+                  </p>
+                  <h3 className="text-xl font-bold text-[#0B1F3A] leading-tight">
+                    KMC Lalitpur and KMC Bagbazar, united by the same proven
+                    academic excellence.
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mt-2">
+                    One trusted KMSS identity, two strategic Kathmandu Valley
+                    locations, and a shared commitment to strong NEB outcomes,
+                    disciplined mentoring, and future-ready +2 education.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2">
+                  {SITE_CONFIG.campuses.map((campus) => (
+                    <a
+                      key={campus.name}
+                      href={campus.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group p-5 border-t sm:border-t-0 sm:border-l first:border-l-0 border-[#e8e8e8] hover:bg-white transition-colors"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="font-bold text-[#0B1F3A] group-hover:text-amber-600 transition-colors">
+                            {campus.name}
+                          </p>
+                          <p className="text-xs text-slate-500 mt-1">
+                            {campus.location}
+                          </p>
+                        </div>
+                        <span className="w-8 h-8 rounded-full bg-amber-400/15 text-amber-600 flex items-center justify-center shrink-0 group-hover:bg-amber-400 group-hover:text-[#0B1F3A] transition-colors">
+                          <IconArrow size={14} />
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               {/* Mini feature grid */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
