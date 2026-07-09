@@ -26,6 +26,31 @@ export const SITE_CONFIG = {
     mapsUrl: "https://maps.google.com/?q=Balkumari,Lalitpur,Nepal",
   },
 
+  campuses: [
+    {
+      name: "KMC Lalitpur",
+      footerHeading: "Contact Us (Lalitpur)",
+      label: "Kathmandu Model Secondary School - Lalitpur",
+      location: "Imadol, Balkumari, Lalitpur, Nepal",
+      phone: "+977-01-5201331, 5201334",
+      phoneHref: "tel:+97715201331",
+      email: "info@kmclalitpur.edu.np",
+      website: "https://kmclalitpur.edu.np",
+      mapsUrl: "https://maps.google.com/?q=Balkumari,Lalitpur,Nepal",
+    },
+    {
+      name: "KMC Bagbazar",
+      footerHeading: "Contact Us (Kathmandu)",
+      label: "Kathmandu Model Secondary School - Kathmandu",
+      location: "Bagbazar, Kathmandu, Nepal",
+      phone: "+977-01-5342121, 015342015",
+      phoneHref: "tel:+97715342121",
+      email: "info@ktmmodelcollege.edu.np",
+      website: "https://ktmmodelcollege.edu.np",
+      mapsUrl: "https://maps.google.com/?q=Bagbazar,Kathmandu,Nepal",
+    },
+  ],
+
   geo: {
     latitude: "27.6583",
     longitude: "85.3222",

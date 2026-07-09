@@ -8,6 +8,7 @@ import {
   WebPageSchema,
   PrincipalSchema,
 } from "../components/schema";
+import { SITE_CONFIG } from "../config/site";
 import {
   IconLightbulb,
   IconGlobe,
@@ -18,6 +19,9 @@ import {
   IconCheck,
   IconArrow,
   IconAward,
+  IconMapPin,
+  IconPhone,
+  IconMail,
 } from "../components/icons";
 export const metadata: Metadata = {
   title: "About Us",
@@ -254,12 +258,12 @@ export default function About() {
                 most respected secondary institutions in the country.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Our Lalitpur campus at Balkumari has shaped thousands of
-                successful individuals who now lead in medicine, engineering,
-                law, business, and public service — nationally and
-                internationally. Every year, more than 10,000 students appear
-                for our entrance examination — a testament to the trust parents
-                and students place in KMC.
+                KMC now serves +2 students through two connected locations:
+                Bagbazar, Kathmandu and Balkumari, Lalitpur. Both campuses
+                carry the same Kathmandu Model Secondary School identity,
+                academic standards, and commitment to Science, Management, and
+                Law education — with different locations for easier access
+                across the valley.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#e8e8e8]">
                 {[
@@ -277,6 +281,86 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shared KMC Locations */}
+      <section className="py-20 bg-[#f7f5f0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-12 items-start">
+            <div>
+              <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+                One KMC Family
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+                Same Institution,
+                <br />
+                Two Locations
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed mt-5">
+                Kathmandu Model Secondary School is represented in both
+                Kathmandu and Lalitpur. The Lalitpur campus is the current site
+                for this website, while the Bagbazar campus is the Kathmandu
+                location shown on the official KMSS website.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SITE_CONFIG.campuses.map((campus) => (
+                <div
+                  key={campus.name}
+                  className="bg-white border border-[#e8e8e8] rounded-lg p-6"
+                >
+                  <p className="text-amber-600 text-xs font-bold uppercase tracking-wider mb-2">
+                    {campus.name}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#0B1F3A] mb-4">
+                    {campus.label}
+                  </h3>
+                  <div className="space-y-3 text-sm">
+                    <a
+                      href={campus.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 text-slate-600 hover:text-amber-600 transition-colors"
+                    >
+                      <span className="text-amber-500 mt-0.5 shrink-0">
+                        <IconMapPin size={16} />
+                      </span>
+                      {campus.location}
+                    </a>
+                    <a
+                      href={campus.phoneHref}
+                      className="flex items-start gap-3 text-slate-600 hover:text-amber-600 transition-colors"
+                    >
+                      <span className="text-amber-500 mt-0.5 shrink-0">
+                        <IconPhone size={16} />
+                      </span>
+                      {campus.phone}
+                    </a>
+                    <a
+                      href={`mailto:${campus.email}`}
+                      className="flex items-start gap-3 text-slate-600 hover:text-amber-600 transition-colors"
+                    >
+                      <span className="text-amber-500 mt-0.5 shrink-0">
+                        <IconMail size={16} />
+                      </span>
+                      {campus.email}
+                    </a>
+                  </div>
+                  <a
+                    href={campus.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors mt-5"
+                  >
+                    Visit Website
+                    <IconArrow size={14} />
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -41,49 +41,70 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-6 max-w-xs">
-              Kathmandu Model Secondary School, Balkumari, Lalitpur — delivering
-              academic excellence through Science, Management, and
-              Law programs since {SITE_CONFIG.foundingYear}.
+              Kathmandu Model Secondary School serves +2 students through the
+              same KMC academic family in Lalitpur and Kathmandu, delivering
+              Science, Management, and Law programs since{" "}
+              {SITE_CONFIG.foundingYear}.
             </p>
 
-            {/* Contact info */}
-            <ul className="space-y-3 text-sm mb-6">
-              <li>
-                <a
-                  href={SITE_CONFIG.phoneHref}
-                  className="flex items-center gap-3 hover:text-amber-400 transition-colors group"
-                >
-                  <span className="text-amber-400 shrink-0">
-                    <IconPhone size={16} />
-                  </span>
-                  {SITE_CONFIG.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-3 hover:text-amber-400 transition-colors"
-                >
-                  <span className="text-amber-400 shrink-0">
-                    <IconMail size={16} />
-                  </span>
-                  {SITE_CONFIG.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SITE_CONFIG.address.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 hover:text-amber-400 transition-colors"
-                >
-                  <span className="text-amber-400 shrink-0 mt-0.5">
-                    <IconMapPin size={16} />
-                  </span>
-                  {SITE_CONFIG.address.display}
-                </a>
-              </li>
-            </ul>
+            {/* Campus contacts */}
+            <div className="space-y-5 text-sm mb-6">
+              {SITE_CONFIG.campuses.map((campus) => (
+                <div key={campus.name}>
+                  <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-2">
+                    {campus.footerHeading}
+                  </h5>
+                  <ul className="space-y-2.5">
+                    <li>
+                      <a
+                        href={campus.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 hover:text-amber-400 transition-colors"
+                      >
+                        <span className="text-amber-400 shrink-0 mt-0.5">
+                          <IconMapPin size={16} />
+                        </span>
+                        {campus.location}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={campus.phoneHref}
+                        className="flex items-center gap-3 hover:text-amber-400 transition-colors"
+                      >
+                        <span className="text-amber-400 shrink-0">
+                          <IconPhone size={16} />
+                        </span>
+                        {campus.phone}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={`mailto:${campus.email}`}
+                        className="flex items-center gap-3 hover:text-amber-400 transition-colors"
+                      >
+                        <span className="text-amber-400 shrink-0">
+                          <IconMail size={16} />
+                        </span>
+                        {campus.email}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={campus.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                      >
+                        {campus.website.replace("https://", "")}
+                        <IconArrow size={12} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              ))}
+            </div>
 
             {/* Social links */}
             <div className="flex gap-3">
@@ -249,8 +270,8 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
             <p>
-              © {currentYear} Kathmandu Model Secondary School, Balkumari,
-              Lalitpur. All rights reserved.
+              © {currentYear} Kathmandu Model Secondary School. KMC Lalitpur
+              and KMC Bagbazar. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <Link
