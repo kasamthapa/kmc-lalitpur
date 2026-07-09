@@ -3,7 +3,11 @@ import Link from "next/link";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import type { Metadata } from "next";
-import { BreadcrumbSchema, WebPageSchema, PrincipalSchema } from "../components/schema";
+import {
+  BreadcrumbSchema,
+  WebPageSchema,
+  PrincipalSchema,
+} from "../components/schema";
 import {
   IconLightbulb,
   IconGlobe,
@@ -108,7 +112,10 @@ const milestones = [
 const accreditations = [
   { label: "NEB Affiliated", sub: "National Examinations Board" },
   { label: "ISO 9001:2015", sub: "Quality Certified Institution" },
-  { label: "Excellence Award 2074 & 2075", sub: "Ministry of Education, Nepal" },
+  {
+    label: "Excellence Award 2074 & 2075",
+    sub: "Ministry of Education, Nepal",
+  },
   { label: "Top Among 4,000+ Schools", sub: "Nationwide Recognition" },
 ];
 
@@ -175,8 +182,12 @@ export default function About() {
               { n: "25+", label: "Years" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col">
-                <span className="text-2xl font-bold text-amber-400 leading-none">{s.n}</span>
-                <span className="text-white/60 text-xs mt-1 font-medium tracking-wide uppercase">{s.label}</span>
+                <span className="text-2xl font-bold text-amber-400 leading-none">
+                  {s.n}
+                </span>
+                <span className="text-white/60 text-xs mt-1 font-medium tracking-wide uppercase">
+                  {s.label}
+                </span>
               </div>
             ))}
           </div>
@@ -400,7 +411,8 @@ export default function About() {
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-4 mb-6" />
               <p className="text-slate-500 text-sm leading-relaxed">
-                Ten core commitments guiding every program, faculty decision, and student experience at KMC.
+                Ten core commitments guiding every program, faculty decision,
+                and student experience at KMC.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -423,7 +435,9 @@ export default function About() {
                   <span className="text-amber-500 font-bold text-xs shrink-0 mt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-slate-600 text-sm leading-relaxed">{obj}</p>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {obj}
+                  </p>
                 </div>
               ))}
             </div>
@@ -446,20 +460,57 @@ export default function About() {
               </h2>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs md:text-right">
-              Memorandums of Understanding with leading universities worldwide — enabling exchange, research, and study-abroad opportunities.
+              Memorandums of Understanding with leading universities worldwide —
+              enabling exchange, research, and study-abroad opportunities.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { name: "Stony Brook University", country: "New York, USA", logo: "/images/partnerships/Stony Brook University.png" },
-              { name: "Georgia Southwestern State University", country: "USA", logo: "/images/partnerships/Georgia Southwestern State University.png" },
-              { name: "University of Missouri", country: "USA", logo: "/images/partnerships/University of Missouri.png" },
-              { name: "Mokpo KMC University", country: "South Korea", logo: "/images/partnerships/Mokpo KMC University.png" },
-              { name: "Yeoju Institute of Technology (YIT)", country: "South Korea", logo: "/images/partnerships/Yeoju Institute of Technology (YIT).png" },
-              { name: "Shandong University", country: "China", logo: "/images/partnerships/Shandong University.png" },
-              { name: "Tongren Polytechnic College", country: "China", logo: "/images/partnerships/Tongren Polytechnic College.png" },
-              { name: "Qtec Learning Solutions", country: "United Kingdom", logo: "/images/partnerships/Qtec Learning Solutions.png" },
-              { name: "National Computer Council (NCC)", country: "United Kingdom", logo: "/images/partnerships/National Computer Council (NCC).png" },
+              {
+                name: "Stony Brook University",
+                country: "New York, USA",
+                logo: "/images/partnerships/Stony Brook University.png",
+              },
+              {
+                name: "Georgia Southwestern State University",
+                country: "USA",
+                logo: "/images/partnerships/Georgia Southwestern State University.png",
+              },
+              {
+                name: "University of Missouri",
+                country: "USA",
+                logo: "/images/partnerships/University of Missouri.png",
+              },
+              {
+                name: "Mokpo KMC University",
+                country: "South Korea",
+                logo: "/images/partnerships/Mokpo KMC University.png",
+              },
+              {
+                name: "Yeoju Institute of Technology (YIT)",
+                country: "South Korea",
+                logo: "/images/partnerships/Yeoju Institute of Technology (YIT).png",
+              },
+              {
+                name: "Shandong University",
+                country: "China",
+                logo: "/images/partnerships/Shandong University.png",
+              },
+              {
+                name: "Tongren Polytechnic College",
+                country: "China",
+                logo: "/images/partnerships/Tongren Polytechnic College.png",
+              },
+              {
+                name: "Qtec Learning Solutions",
+                country: "United Kingdom",
+                logo: "/images/partnerships/Qtec Learning Solutions.png",
+              },
+              {
+                name: "National Computer Council (NCC)",
+                country: "United Kingdom",
+                logo: "/images/partnerships/National Computer Council (NCC).png",
+              },
             ].map((p, i) => (
               <div
                 key={i}
@@ -537,8 +588,8 @@ export default function About() {
               <div className="relative w-full max-w-sm">
                 <div className="relative h-120 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/principal.png"
-                    alt="Mukunda Kumar Giri – Principal, KMC Lalitpur"
+                    src="/images/principalProfile.png"
+                    alt="Dr. Nagendra Aryal – Principal"
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
@@ -547,10 +598,10 @@ export default function About() {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white font-bold text-lg leading-tight">
-                    Mukunda Kumar Giri
+                    Dr. Nagendra Aryal
                   </p>
                   <p className="text-amber-400 text-sm font-medium mt-1">
-                    Principal, KMC Lalitpur
+                    Principal
                   </p>
                 </div>
               </div>
@@ -571,36 +622,51 @@ export default function About() {
               </blockquote>
               <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
                 <p>
-                  Welcome to Kathmandu Model Secondary School, Lalitpur — where
-                  we believe education is the most powerful tool for building a
-                  better future. Since our establishment in 2000, KMC has been
-                  unwavering in its commitment to providing not just academic
-                  excellence, but a transformative learning experience that
-                  shapes character and develops critical thinkers.
+                  I’d like, before all else, to extend my deepest gratitude to
+                  our valued parents and guardians for the faith and trust
+                  bestowed upon KMSS!
                 </p>
                 <p>
-                  Our approach is rooted in the belief that every student is
-                  unique, with distinct talents and potential. We create an
-                  inclusive, nurturing environment where diversity is celebrated
-                  and individual strengths are recognised and developed.
+                  It is deemed righteous to serve the seekers of knowledge, and
+                  it is in the ethos of KMSS to empower every learner who finds
+                  their way to our portal. Inspired by our motto—”Academic
+                  Excellence through Quality Education”—we galvanize our
+                  students to develop a lasting passion for learning and enable
+                  them to look beyond their abilities and achieve what they once
+                  thought impossible. We mold our students to be flexible,
+                  collaborative, creative, critical thinkers, and proactive
+                  lifelong learners to adapt in an increasingly fluid and
+                  rapidly evolving global society. KMSS is a quintessence of
+                  academic excellence and also espouses a wide range of
+                  co-curricular and extra-curricular activities to help them
+                  perceive the world from diverse angles.
                 </p>
                 <p>
-                  In today&apos;s rapidly evolving world, we equip our students
-                  with 21st-century skills — critical thinking, creativity,
-                  collaboration, and communication — alongside rigorous academic
-                  preparation aligned with NEB standards.
+                  Moreover, we focus on the preparation for various competitive
+                  entrance examinations. As a result, a significant number of
+                  students excel in CA and BBA courses in reputed national and
+                  international universities.
                 </p>
                 <p>
-                  I warmly invite you to join our growing community. Together,
-                  let&apos;s build a brighter future where learning knows no
-                  bounds and every student realises their fullest potential.
+                  Being a part of KMSS means being part of a warm and welcoming
+                  family, the KMC Educational Network. It’s my privilege to
+                  invite all fresh SEE graduates to join this family. We assure
+                  you that you will embark on a global career, leaving a blazing
+                  trail of success. KMSS will provide you with a plethora of
+                  unparalleled opportunities to experience the joy of learning,
+                  the wonders of new knowledge, and help you unearth your
+                  limitless potential.
+                </p>
+                <p>
+                  Visit KMSS and feel good about receiving a quality education.
+                  Be the yardstick of quality, soak in the spirit of learning
+                  that KMSS embodies, and take your career dreams to the next
+                  level.
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-[#e2ddd4]">
-                <p className="font-bold text-[#0B1F3A]">Mukunda Kumar Giri</p>
-                <p className="text-slate-500 text-sm">
-                  Principal, KMC Lalitpur
-                </p>
+                <p className="font-bold text-[#0B1F3A]">Dr. Nagendra Aryal</p>
+                <p className="text-slate-500 text-sm">Principal</p>
               </div>
             </div>
           </div>
@@ -625,8 +691,12 @@ export default function About() {
                 01
               </span>
               <div>
-                <h3 className="text-lg font-bold text-white mb-2">{whyKMC[0].title}</h3>
-                <p className="text-[#8ba7c7] text-sm leading-relaxed">{whyKMC[0].desc}</p>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {whyKMC[0].title}
+                </h3>
+                <p className="text-[#8ba7c7] text-sm leading-relaxed">
+                  {whyKMC[0].desc}
+                </p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -655,8 +725,12 @@ export default function About() {
                 06
               </span>
               <div>
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">{whyKMC[5].title}</h3>
-                <p className="text-[#3d2e0a] text-sm leading-relaxed">{whyKMC[5].desc}</p>
+                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">
+                  {whyKMC[5].title}
+                </h3>
+                <p className="text-[#3d2e0a] text-sm leading-relaxed">
+                  {whyKMC[5].desc}
+                </p>
               </div>
             </div>
           </div>
