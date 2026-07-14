@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-// The entrance application is handled by the external KMC portal.
-// Redirect anyone who lands on this URL straight there.
+// Current intake applications are closed. Keep visitors on the admissions guide
+// instead of sending them to the external application portal.
 export default function EntranceFormPage() {
-  redirect("https://app.kmclalitpur.edu.np/applicant/login");
+  redirect("/admissions");
 }

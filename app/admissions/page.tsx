@@ -252,19 +252,18 @@ export default function Admissions() {
               </h1>
               <p className="text-lg text-[#8ba7c7] leading-relaxed mb-8">
                 Begin your journey of academic excellence at Kathmandu Model
-                Secondary School, Lalitpur. Admissions are open — limited seats
-                available across all three streams.
+                Secondary School, Lalitpur. Current intake applications are
+                closed, but you can review the process and contact our team for
+                the next session.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://app.kmclalitpur.edu.np/applicant/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
                 >
-                  Apply Online Now
+                  Contact Admissions
                   <IconArrow />
-                </a>
+                </Link>
                 <a
                   href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+want+to+know+about+admissions+at+KMC+Lalitpur`}
                   target="_blank"
@@ -327,23 +326,21 @@ export default function Admissions() {
             <span className="text-3xl hidden sm:block">🎓</span>
             <div>
               <p className="text-[#0B1F3A] font-bold text-lg leading-tight">
-                2083 Entrance Examinations — Now Open
+                Entrance Examination Information
               </p>
               <p className="text-[#0B1F3A]/70 text-sm mt-0.5">
-                Apply online for Science, Management, or Law stream. Limited
-                seats available.
+                Review the Science, Management, and Law admission process for
+                the next intake.
               </p>
             </div>
           </div>
-          <a
-            href="https://app.kmclalitpur.edu.np/applicant/login"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="shrink-0 inline-flex items-center gap-2 px-7 py-3 bg-[#0B1F3A] text-white font-bold rounded-xl hover:bg-[#162e57] transition-colors whitespace-nowrap"
           >
-            Apply for Entrance
+            Contact Admissions
             <IconArrow size={16} />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -608,15 +605,13 @@ export default function Admissions() {
           </div>
 
           <div className="mt-10">
-            <a
-              href="https://app.kmclalitpur.edu.np/applicant/login"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
-              Apply Online for {currentGuide.label}
+              Ask About {currentGuide.label}
               <IconArrow />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -1084,22 +1079,20 @@ export default function Admissions() {
 
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Apply?
+              Planning for the Next Intake?
             </h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
-              Don&apos;t wait — seats are limited and scholarships are
-              first-come-first-served. Apply online today for the 2083 academic
-              year.
+              Current intake applications are closed. Reach out to our
+              admissions team for stream guidance, required documents, and
+              upcoming admission updates.
             </p>
-            <a
-              href="https://app.kmclalitpur.edu.np/applicant/login"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-10 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
-              Apply Online Now
+              Contact Admissions
               <IconArrow />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -496,7 +496,7 @@ export default function Facilities() {
                 href="/admissions"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-white/20 text-white font-bold text-sm hover:bg-white/8 transition-colors"
               >
-                Apply Now
+                Admission Info
               </Link>
             </div>
           </div>

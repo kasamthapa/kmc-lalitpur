@@ -140,13 +140,16 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activeDropdownRef = useRef<string | null>(null);
-  activeDropdownRef.current = activeDropdown;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    activeDropdownRef.current = activeDropdown;
+  }, [activeDropdown]);
 
   useEffect(() => {
     const handler = () => {
@@ -269,7 +272,7 @@ export function Header() {
             href="/admissions"
             className="px-4 py-2 text-sm font-bold text-[#0B1F3A] border border-[#0B1F3A]/20 rounded-lg hover:bg-[#f7f5f0] transition-colors"
           >
-            Apply Now
+            Admission Info
           </Link>
           <Link
             href="/contact"
@@ -331,7 +334,7 @@ export function Header() {
               onClick={closeMobile}
               className="w-full py-3 border border-[#C9A84C] text-[#C9A84C] font-bold text-sm rounded-xl text-center hover:bg-[#C9A84C]/10 transition-colors"
             >
-              Apply Now
+              Admission Info
             </Link>
             <Link
               href="/contact"

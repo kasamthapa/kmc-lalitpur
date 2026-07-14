@@ -4,11 +4,11 @@ import { HowToSchema } from "../components/schema";
 export const metadata: Metadata = {
   title: "Admissions",
   description:
-    "Apply to KMC Lalitpur's +2 Science, Management, or Law program. Check eligibility, entrance exam dates, scholarship criteria, and start your application today.",
+    "Learn about KMC Lalitpur's +2 Science, Management, and Law admission process, eligibility, entrance exam details, scholarship criteria, and required documents.",
   openGraph: {
     title: "Admissions — KMC Lalitpur",
     description:
-      "Apply for Science, Management, or Law stream at Kathmandu Model Secondary School, Lalitpur. Limited seats — apply now.",
+      "Admission guide for Science, Management, and Law streams at Kathmandu Model Secondary School, Lalitpur.",
     url: "https://kmclalitpur.edu.np/admissions",
   },
 };

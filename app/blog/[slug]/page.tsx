@@ -45,7 +45,7 @@ Our dedicated entrance prep program runs parallel to the NEB curriculum. With re
 
 ## Conclusion
 
-If you're looking for the best +2 Science college in Nepal, KMC Lalitpur offers a proven track record, world-class facilities, and a supportive learning environment. Admissions are open for 2083 — contact us at +977-1-5918595.
+If you're looking for the best +2 Science college in Nepal, KMC Lalitpur offers a proven track record, world-class facilities, and a supportive learning environment. Contact our admissions team for next-intake guidance.
     `.trim(),
     metaTitle: "Best College in Nepal for Science Stream 2082 — KMC Lalitpur",
     metaDescription:
@@ -772,7 +772,7 @@ export default async function BlogPostPage({
         <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400 mb-3">
-              Admissions Open 2083
+              Admission Guidance
             </p>
             <h2 className="text-3xl font-bold leading-tight">
               Interested in<br />joining KMC?
@@ -783,7 +783,7 @@ export default async function BlogPostPage({
               href="/admissions"
               className="px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold hover:bg-amber-300 transition text-sm"
             >
-              Apply Now
+              Admission Info
             </Link>
             <Link
               href="/contact"

@@ -235,20 +235,20 @@ export function Footer() {
               ))}
             </ul>
 
-            {/* Admission CTA */}
+            {/* Admission info */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-5">
               <p className="text-white font-bold text-sm mb-2">
-                Admissions Open
+                Admission Information
               </p>
               <p className="text-slate-400 text-xs leading-relaxed mb-4">
-                Apply now for the 2083 academic year. Limited seats
-                available.
+                Current intake applications are closed. View admission details
+                or contact our team for the next session.
               </p>
               <Link
                 href="/admissions"
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-400 text-[#0B1F3A] font-bold text-xs rounded-lg hover:bg-amber-300 transition-colors w-full justify-center"
               >
-                Apply Now
+                View Admission Guide
                 <IconArrow size={14} />
               </Link>
             </div>

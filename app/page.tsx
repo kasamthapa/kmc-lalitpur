@@ -310,7 +310,7 @@ export default async function Home() {
                 href="/admissions"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-all duration-200 hover:scale-105 shadow-lg shadow-amber-400/30"
               >
-                Apply for Admission
+                View Admission Guide
                 <IconArrow />
               </Link>
               <a
@@ -980,15 +980,15 @@ export default async function Home() {
             Your Future?
           </h2>
           <p className="text-slate-400 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-            Join KMC Lalitpur and be part of a legacy of excellence. Admissions
-            are open — seats are limited.
+            Join KMC Lalitpur and be part of a legacy of excellence. Review
+            our admission process and prepare early for the next intake.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admissions"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
-              Start Your Journey
+              View Admission Guide
               <IconArrow />
             </Link>
             <a
