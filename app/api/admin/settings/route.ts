@@ -5,7 +5,7 @@ import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
 import { requireAdminAuth } from "@/app/lib/admin-auth";
 
 export async function PATCH(req: NextRequest) {
-  const { session, response } = await requireAdminAuth();
+  const { session, response } = await requireAdminAuth("admin");
   if (response || !session) return response!;
 
   let body: unknown;

@@ -39,6 +39,8 @@ function Lightbox({
   onNext: () => void;
 }) {
   const image = index !== null ? images[index] : null;
+  const [broken, setBroken] = useState(false);
+  useEffect(() => setBroken(false), [image?.id]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -80,15 +82,23 @@ function Lightbox({
         </button>
 
         {/* Image */}
-        <div className="relative w-full h-72 sm:h-[60vh] md:h-[72vh] overflow-hidden">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="100vw"
-            className="object-contain"
-            priority
-          />
+        <div
+          className="relative w-full h-72 sm:h-[60vh] md:h-[72vh] overflow-hidden flex items-center justify-center"
+          style={broken ? { background: gradients[index % gradients.length] } : undefined}
+        >
+          {broken ? (
+            <span className="text-white/50 text-sm">Image unavailable</span>
+          ) : (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="100vw"
+              className="object-contain"
+              priority
+              onError={() => setBroken(true)}
+            />
+          )}
         </div>
 
         {/* Caption — minimal */}
@@ -139,6 +149,8 @@ function MasonryGrid({
   images: GalleryImage[];
   onClickImage: (i: number) => void;
 }) {
+  const [broken, setBroken] = useState<Set<string>>(new Set());
+
   return (
     <div
       className="columns-1 sm:columns-2 lg:columns-3 gap-3"
@@ -151,14 +163,24 @@ function MasonryGrid({
           className="break-inside-avoid mb-3 relative overflow-hidden cursor-pointer group"
           style={{ background: gradients[i % gradients.length] }}
         >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={600}
-            height={i % 3 === 0 ? 480 : i % 3 === 1 ? 320 : 400}
-            className="w-full h-auto object-cover group-hover:scale-[1.03] transition duration-500 block"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          {broken.has(image.id) ? (
+            <div
+              className="w-full flex items-center justify-center"
+              style={{ height: i % 3 === 0 ? 480 : i % 3 === 1 ? 320 : 400 }}
+            >
+              <span className="text-white/50 text-sm">Image unavailable</span>
+            </div>
+          ) : (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={600}
+              height={i % 3 === 0 ? 480 : i % 3 === 1 ? 320 : 400}
+              className="w-full h-auto object-cover group-hover:scale-[1.03] transition duration-500 block"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onError={() => setBroken((prev) => new Set(prev).add(image.id))}
+            />
+          )}
           {/* Hover overlay — clean, just text at bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
             <div className="p-4 w-full">

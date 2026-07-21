@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
-import { rateLimit } from "@/app/lib/rate-limit";
+import { rateLimit, getClientIp } from "@/app/lib/rate-limit";
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = getClientIp(req);
   const { success } = rateLimit(`ping:${ip}`, 10, 60);
   if (!success) return NextResponse.json({ ok: false }, { status: 429 });
   try {

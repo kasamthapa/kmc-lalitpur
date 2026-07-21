@@ -1,11 +1,11 @@
 // Public alumni endpoints — GET returns approved alumni, POST registers a new one
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
-import { rateLimit } from "@/app/lib/rate-limit";
+import { rateLimit, getClientIp } from "@/app/lib/rate-limit";
 import { apiError } from "@/app/lib/api-response";
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = getClientIp(req);
   const { success } = rateLimit(`alumni:get:${ip}`, 30, 3600);
   if (!success) return apiError("Too many requests.", {}, 429);
 
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = getClientIp(req);
   const { success } = rateLimit(`alumni:post:${ip}`, 5, 3600);
   if (!success) return apiError("Too many requests.", {}, 429);
 

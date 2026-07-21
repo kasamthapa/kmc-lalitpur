@@ -7,7 +7,7 @@ function isMobileDevice(ua: string): boolean {
   return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(ua);
 }
 
-export default async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Block mobile devices from the entire admin panel

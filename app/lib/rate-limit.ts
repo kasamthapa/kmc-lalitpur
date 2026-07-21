@@ -1,4 +1,14 @@
+import type { NextRequest } from "next/server";
+
 const requests = new Map<string, { count: number; resetAt: number }>();
+
+// `x-forwarded-for` can be a client-supplied, comma-separated hop list —
+// always take the first (nearest-to-client) entry as the identifier.
+export function getClientIp(req: NextRequest): string {
+  const header = req.headers.get("x-forwarded-for");
+  if (!header) return "unknown";
+  return header.split(",")[0]!.trim() || "unknown";
+}
 
 // Prune expired entries to prevent unbounded memory growth.
 // Runs on every 500th call — cheap enough to be inline, effective enough for production.

@@ -1,5 +1,5 @@
 // Edge-compatible auth config — no Node.js modules, no Prisma.
-// Used by middleware.ts (Edge Runtime) and spread into auth.ts (Node.js).
+// Used by proxy.ts (Edge Runtime) and spread into auth.ts (Node.js).
 import type { NextAuthConfig } from "next-auth";
 
 export const authConfig = {

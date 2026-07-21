@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { rateLimit } from "@/app/lib/rate-limit";
+import { rateLimit, getClientIp } from "@/app/lib/rate-limit";
 import { apiError, apiServerError } from "@/app/lib/api-response";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
@@ -58,7 +58,7 @@ Hostel (separate for boys and girls), School transport, Psychosocial counselling
 E-library (kmclibrary.edu.np), Medical room, 21 classrooms`;
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = getClientIp(req);
   const { success } = rateLimit(`chatbot:${ip}`, 20, 3600);
   if (!success) {
     return apiError("Too many requests. Please try again later.", {}, 429);

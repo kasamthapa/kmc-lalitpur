@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/app/lib/prisma";
 import { apiSuccess, apiError, apiServerError } from "@/app/lib/api-response";
-import { rateLimit } from "@/app/lib/rate-limit";
+import { rateLimit, getClientIp } from "@/app/lib/rate-limit";
 import {
   validateEmail,
   validateLength,
@@ -10,7 +10,7 @@ import {
 } from "@/app/lib/validate";
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = getClientIp(req);
   const { success } = rateLimit(`careers:${ip}`, 5, 600);
   if (!success) {
     return apiError("Too many requests. Please wait 10 minutes.", {}, 429);
