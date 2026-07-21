@@ -141,21 +141,21 @@ function PhotoModal({
     /* backdrop */
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
+      style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       {/* panel */}
-      <div className="bg-gray-900 border border-white/[0.08] rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div className="bg-white border border-gray-200 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
         {/* header */}
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
-          <h2 className="text-white font-bold text-lg">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-200">
+          <h2 className="text-gray-900 font-bold text-lg">
             {editingId ? "Edit Photo" : "Add New Photo"}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-white text-2xl leading-none"
+            className="text-gray-500 hover:text-gray-900 text-2xl leading-none"
           >
             ×
           </button>
@@ -164,19 +164,19 @@ function PhotoModal({
         <form onSubmit={handleSubmit} className="px-6 py-5 space-y-5">
           {/* error */}
           {error && (
-            <div className="bg-red-950 border border-red-700 rounded-lg px-4 py-3 text-red-300 text-sm">
+            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-600 text-sm">
               ⚠ {error}
             </div>
           )}
 
           {/* ── image upload ──────────────────────────────────────────── */}
           <div>
-            <p className="text-gray-300 text-sm font-medium mb-2">Photo</p>
+            <p className="text-gray-700 text-sm font-medium mb-2">Photo</p>
 
             {uploading && (
-              <div className="border border-white/[0.08] rounded-xl p-5 flex items-center gap-3">
+              <div className="border border-gray-200 rounded-xl p-5 flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-amber-400 border-t-transparent rounded-full animate-spin shrink-0" />
-                <span className="text-gray-300 text-sm">
+                <span className="text-gray-700 text-sm">
                   Uploading to Cloudinary…
                 </span>
               </div>
@@ -184,7 +184,7 @@ function PhotoModal({
 
             {!uploading && src && (
               <div className="relative">
-                <div className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-800">
+                <div className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-100">
                   <Image
                     src={src}
                     alt="preview"
@@ -196,7 +196,7 @@ function PhotoModal({
                 <div className="mt-2 flex gap-2">
                   {/* Replace */}
                   <label className="relative flex-1 cursor-pointer">
-                    <span className="block text-center py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold rounded-lg transition-colors">
+                    <span className="block text-center py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-semibold rounded-lg transition-colors">
                       Replace image
                     </span>
                     <input
@@ -209,7 +209,7 @@ function PhotoModal({
                   <button
                     type="button"
                     onClick={() => setSrc("")}
-                    className="flex-1 py-2 bg-red-900/40 hover:bg-red-900 text-red-400 text-xs font-semibold rounded-lg transition-colors"
+                    className="flex-1 py-2 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold rounded-lg transition-colors"
                   >
                     Remove
                   </button>
@@ -219,7 +219,7 @@ function PhotoModal({
 
             {!uploading && !src && (
               <label
-                className="flex flex-col items-center gap-3 border-2 border-dashed border-gray-600 hover:border-amber-400 rounded-xl p-8 cursor-pointer transition-colors group"
+                className="flex flex-col items-center gap-3 border-2 border-dashed border-gray-300 hover:border-amber-400 rounded-xl p-8 cursor-pointer transition-colors group"
                 onDrop={onDrop}
                 onDragOver={(e) => e.preventDefault()}
               >
@@ -230,17 +230,17 @@ function PhotoModal({
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
-                  className="text-gray-500 group-hover:text-amber-400 transition-colors"
+                  className="text-gray-400 group-hover:text-amber-500 transition-colors"
                 >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="17 8 12 3 7 8" />
                   <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
                 <div className="text-center">
-                  <p className="text-gray-200 text-sm font-semibold group-hover:text-amber-400 transition-colors">
+                  <p className="text-gray-700 text-sm font-semibold group-hover:text-amber-600 transition-colors">
                     Click to browse files
                   </p>
-                  <p className="text-gray-500 text-xs mt-1">
+                  <p className="text-gray-400 text-xs mt-1">
                     or drag &amp; drop · JPEG, PNG, WebP · max 10 MB
                   </p>
                 </div>
@@ -256,22 +256,22 @@ function PhotoModal({
 
           {/* alt text */}
           <div>
-            <label className="block text-gray-300 text-sm font-medium mb-1.5">
-              Alt Text <span className="text-red-400">*</span>
+            <label className="block text-gray-700 text-sm font-medium mb-1.5">
+              Alt Text <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               value={alt}
               onChange={(e) => setAlt(e.target.value)}
               placeholder="Describe the photo"
-              className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+              className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-400/20"
             />
           </div>
 
           {/* category + order */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-gray-300 text-sm font-medium mb-1.5">
+              <label className="block text-gray-700 text-sm font-medium mb-1.5">
                 Category
               </label>
               {isNewCat ? (
@@ -283,13 +283,13 @@ function PhotoModal({
                     value={newCatValue}
                     onChange={(e) => setNewCatValue(e.target.value)}
                     placeholder="e.g. Alumni Day"
-                    className="flex-1 min-w-0 bg-gray-800 border border-amber-400/60 rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+                    className="flex-1 min-w-0 bg-white border border-amber-400/60 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500"
                   />
                   <button
                     type="button"
                     onClick={() => { setIsNewCat(false); setNewCatValue(""); }}
                     title="Cancel"
-                    className="px-2.5 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-xs transition-colors"
+                    className="px-2.5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-xs transition-colors"
                   >✕</button>
                 </div>
               ) : (
@@ -304,7 +304,7 @@ function PhotoModal({
                       setCategory(e.target.value);
                     }
                   }}
-                  className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:border-amber-500"
                 >
                   <option value="">— None —</option>
                   {existingCategories.map((c) => (
@@ -316,7 +316,7 @@ function PhotoModal({
               )}
             </div>
             <div>
-              <label className="block text-gray-300 text-sm font-medium mb-1.5">
+              <label className="block text-gray-700 text-sm font-medium mb-1.5">
                 Display Order
               </label>
               <input
@@ -324,14 +324,14 @@ function PhotoModal({
                 value={order}
                 onChange={(e) => setOrder(e.target.value)}
                 min="0"
-                className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400"
+                className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:border-amber-500"
               />
             </div>
           </div>
 
           {/* caption */}
           <div>
-            <label className="block text-gray-300 text-sm font-medium mb-1.5">
+            <label className="block text-gray-700 text-sm font-medium mb-1.5">
               Caption{" "}
               <span className="text-gray-500 font-normal">(optional)</span>
             </label>
@@ -340,7 +340,7 @@ function PhotoModal({
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Caption shown below the photo"
-              className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-400"
+              className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500"
             />
           </div>
 
@@ -349,7 +349,7 @@ function PhotoModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-semibold rounded-lg transition-colors"
+              className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold rounded-lg transition-colors"
             >
               Cancel
             </button>
@@ -448,22 +448,22 @@ export default function GalleryPage() {
       {deleteId && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
+          style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
         >
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full max-w-sm shadow-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
-                <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-full bg-red-50 flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Remove photo?</h3>
-                <p className="text-gray-600 text-xs">The image on Cloudinary won&apos;t be deleted.</p>
+                <h3 className="text-gray-900 font-bold text-sm">Remove photo?</h3>
+                <p className="text-gray-400 text-xs">The image on Cloudinary won&apos;t be deleted.</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <button onClick={() => setDeleteId(null)} className="flex-1 px-4 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] text-gray-300 text-sm font-semibold rounded-lg transition-colors">Cancel</button>
+              <button onClick={() => setDeleteId(null)} className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold rounded-lg transition-colors">Cancel</button>
               <button onClick={() => handleDelete(deleteId)} className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white text-sm font-bold rounded-lg transition-colors">Remove</button>
             </div>
           </div>
@@ -473,8 +473,8 @@ export default function GalleryPage() {
       {/* ── header ────────────────────────────────────────────────────── */}
       <div className="flex items-start justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-white text-2xl font-bold">Gallery</h1>
-          <p className="text-gray-400 text-sm mt-1">
+          <h1 className="text-gray-900 text-2xl font-bold">Gallery</h1>
+          <p className="text-gray-500 text-sm mt-1">
             Upload and manage school photos.
           </p>
         </div>
@@ -496,7 +496,7 @@ export default function GalleryPage() {
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                 filterCat === cat
                   ? "bg-amber-400 text-gray-900"
-                  : "bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+                  : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900"
               }`}
             >
               {cat} (
@@ -515,7 +515,7 @@ export default function GalleryPage() {
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
-              className="aspect-square bg-gray-800 rounded-xl animate-pulse"
+              className="aspect-square bg-gray-100 rounded-xl animate-pulse"
             />
           ))}
         </div>
@@ -545,7 +545,7 @@ export default function GalleryPage() {
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="group relative aspect-square bg-gray-800 rounded-xl overflow-hidden"
+              className="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden"
             >
               <Image
                 src={item.src}

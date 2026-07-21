@@ -145,8 +145,8 @@ export default function AdminCareersPage() {
     <div className="p-6 max-w-6xl mx-auto">
       <div className="flex items-start justify-between mb-7 gap-4 flex-wrap">
         <div>
-          <h1 className="text-white text-xl font-bold">Job Applications</h1>
-          <p className="text-gray-600 text-sm mt-0.5">
+          <h1 className="text-gray-900 text-xl font-bold">Job Applications</h1>
+          <p className="text-gray-400 text-sm mt-0.5">
             {pagination
               ? `${pagination.total} total application${pagination.total !== 1 ? "s" : ""}`
               : "Career form submissions"}
@@ -168,7 +168,7 @@ export default function AdminCareersPage() {
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-5">
         {/* Status filter */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-gray-600 text-xs font-semibold uppercase tracking-wider">
+          <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">
             Status:
           </span>
           <div className="flex gap-1.5 flex-wrap">
@@ -182,7 +182,7 @@ export default function AdminCareersPage() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   statusFilter === s
                     ? "bg-amber-400 text-gray-900"
-                    : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                    : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"
                 }`}
               >
                 {s ? statusLabel(s) : "All"}
@@ -193,7 +193,7 @@ export default function AdminCareersPage() {
 
         {/* Category filter */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-gray-600 text-xs font-semibold uppercase tracking-wider">
+          <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">
             Category:
           </span>
           <div className="flex gap-1.5 flex-wrap">
@@ -207,7 +207,7 @@ export default function AdminCareersPage() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   categoryFilter === c
                     ? "bg-amber-400 text-gray-900"
-                    : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                    : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"
                 }`}
               >
                 {c || "All"}
@@ -219,7 +219,7 @@ export default function AdminCareersPage() {
         {/* Vacancy / Position filter */}
         {vacancies.length > 0 && (
           <div className="flex items-center gap-2 flex-wrap w-full">
-            <span className="text-gray-600 text-xs font-semibold uppercase tracking-wider">
+            <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">
               Vacancy:
             </span>
             <div className="flex gap-1.5 flex-wrap">
@@ -228,7 +228,7 @@ export default function AdminCareersPage() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   positionFilter === ""
                     ? "bg-amber-400 text-gray-900"
-                    : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                    : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"
                 }`}
               >
                 All
@@ -240,7 +240,7 @@ export default function AdminCareersPage() {
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     positionFilter === v.title
                       ? "bg-amber-400 text-gray-900"
-                      : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                      : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"
                   }`}
                 >
                   {v.title}
@@ -252,28 +252,28 @@ export default function AdminCareersPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-gray-900 border border-white/[0.06] rounded-xl overflow-hidden mb-5">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden mb-5">
         {loading ? (
-          <div className="divide-y divide-white/[0.04]">
+          <div className="divide-y divide-gray-100">
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}
                 className="flex items-center gap-4 px-4 py-3.5 animate-pulse"
               >
                 <div className="flex-1 space-y-1.5">
-                  <div className="h-3.5 bg-gray-800 rounded w-1/4" />
-                  <div className="h-3 bg-gray-800 rounded w-1/3" />
+                  <div className="h-3.5 bg-gray-100 rounded w-1/4" />
+                  <div className="h-3 bg-gray-100 rounded w-1/3" />
                 </div>
-                <div className="h-3 bg-gray-800 rounded w-16" />
-                <div className="h-7 w-24 bg-gray-800 rounded-lg" />
+                <div className="h-3 bg-gray-100 rounded w-16" />
+                <div className="h-7 w-24 bg-gray-100 rounded-lg" />
               </div>
             ))}
           </div>
         ) : applications.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4">
+            <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-4">
               <svg
-                className="w-5 h-5 text-gray-600"
+                className="w-5 h-5 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -294,53 +294,53 @@ export default function AdminCareersPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm min-w-[820px]">
               <thead>
-                <tr className="border-b border-white/[0.06]">
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                <tr className="border-b border-gray-200">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Name
                   </th>
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Position
                   </th>
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Category
                   </th>
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Experience
                   </th>
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Date
                   </th>
-                  <th className="text-left text-gray-600 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
+                  <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Status
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.04]">
+              <tbody className="divide-y divide-gray-100">
                 {applications.map((app) => (
                   <>
                     <tr
                       key={app.id}
-                      className="cursor-pointer hover:bg-white/[0.02] transition-colors"
+                      className="cursor-pointer hover:bg-gray-50 transition-colors"
                       onClick={() =>
                         setExpanded(expanded === app.id ? null : app.id)
                       }
                     >
                       <td className="px-4 py-3.5">
-                        <p className="text-white font-medium">{app.fullName}</p>
-                        <p className="text-gray-600 text-xs mt-0.5">
+                        <p className="text-gray-900 font-medium">{app.fullName}</p>
+                        <p className="text-gray-400 text-xs mt-0.5">
                           {app.email}
                         </p>
                       </td>
-                      <td className="px-4 py-3.5 text-gray-300 text-sm">
+                      <td className="px-4 py-3.5 text-gray-700 text-sm">
                         {app.position}
                       </td>
-                      <td className="px-4 py-3.5 text-gray-400 text-sm">
+                      <td className="px-4 py-3.5 text-gray-500 text-sm">
                         {app.category}
                       </td>
-                      <td className="px-4 py-3.5 text-gray-400 text-sm">
+                      <td className="px-4 py-3.5 text-gray-500 text-sm">
                         {app.experience}
                       </td>
-                      <td className="px-4 py-3.5 text-gray-600 text-xs whitespace-nowrap">
+                      <td className="px-4 py-3.5 text-gray-400 text-xs whitespace-nowrap">
                         {new Date(app.createdAt).toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "short",
@@ -362,7 +362,7 @@ export default function AdminCareersPage() {
                               <option
                                 key={s}
                                 value={s}
-                                className="bg-gray-900 text-gray-200"
+                                className="bg-white text-gray-700"
                               >
                                 {statusLabel(s)}
                               </option>
@@ -375,41 +375,41 @@ export default function AdminCareersPage() {
                       <tr key={`${app.id}-expanded`}>
                         <td
                           colSpan={6}
-                          className="px-4 py-4 bg-white/[0.02] border-b border-white/[0.04]"
+                          className="px-4 py-4 bg-gray-50 border-b border-gray-100"
                         >
                           <div className="max-w-3xl space-y-3">
                             <div className="flex flex-wrap gap-6">
                               <div>
-                                <p className="text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1">
+                                <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1">
                                   Phone
                                 </p>
-                                <p className="text-gray-300 text-sm">
+                                <p className="text-gray-700 text-sm">
                                   {app.phone}
                                 </p>
                               </div>
                               <div>
-                                <p className="text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1">
+                                <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1">
                                   Qualification
                                 </p>
-                                <p className="text-gray-300 text-sm">
+                                <p className="text-gray-700 text-sm">
                                   {app.qualification}
                                 </p>
                               </div>
                             </div>
                             {app.coverLetter && (
                               <div>
-                                <p className="text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-2">
+                                <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-2">
                                   Cover Letter
                                 </p>
-                                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap break-words">
+                                <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap break-words">
                                   {app.coverLetter}
                                 </p>
                               </div>
                             )}
-                            <div className="pt-2 border-t border-white/[0.06] flex flex-wrap items-center gap-4">
+                            <div className="pt-2 border-t border-gray-200 flex flex-wrap items-center gap-4">
                               <a
                                 href={`mailto:${app.email}`}
-                                className="text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors"
+                                className="text-amber-600 hover:text-amber-700 text-xs font-medium transition-colors"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 Email applicant →
@@ -419,7 +419,7 @@ export default function AdminCareersPage() {
                                   href={`/api/admin/careers/cv?url=${encodeURIComponent(app.resumeUrl)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors"
+                                  className="text-blue-600 hover:text-blue-700 text-xs font-medium transition-colors"
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   Download CV / Resume →
@@ -427,7 +427,7 @@ export default function AdminCareersPage() {
                               )}
                               <button
                                 onClick={(e) => { e.stopPropagation(); setConfirmDelete(app.id); }}
-                                className="ml-auto text-xs font-semibold text-red-500 hover:text-red-400 transition-colors"
+                                className="ml-auto text-xs font-semibold text-red-600 hover:text-red-700 transition-colors"
                               >
                                 Delete Application
                               </button>
@@ -450,13 +450,13 @@ export default function AdminCareersPage() {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="px-4 py-2 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-30 border border-white/[0.06] text-gray-300 text-sm font-medium rounded-lg transition-colors"
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 border border-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"
           >
             ← Prev
           </button>
           <span className="text-gray-500 text-sm">
             Page{" "}
-            <span className="text-white font-semibold">{pagination.page}</span>{" "}
+            <span className="text-gray-900 font-semibold">{pagination.page}</span>{" "}
             of {pagination.totalPages}
           </span>
           <button
@@ -464,7 +464,7 @@ export default function AdminCareersPage() {
               setPage((p) => Math.min(pagination.totalPages, p + 1))
             }
             disabled={page === pagination.totalPages}
-            className="px-4 py-2 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-30 border border-white/[0.06] text-gray-300 text-sm font-medium rounded-lg transition-colors"
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 border border-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"
           >
             Next →
           </button>
@@ -473,17 +473,17 @@ export default function AdminCareersPage() {
 
       {/* Delete confirmation modal */}
       {confirmDelete && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-          <div className="bg-gray-900 border border-white/[0.08] rounded-xl p-6 max-w-sm w-full shadow-2xl">
-            <h3 className="text-white font-bold text-base mb-2">Delete Application?</h3>
-            <p className="text-gray-400 text-sm mb-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/40 backdrop-blur-sm px-4">
+          <div className="bg-white border border-gray-200 rounded-xl p-6 max-w-sm w-full shadow-2xl">
+            <h3 className="text-gray-900 font-bold text-base mb-2">Delete Application?</h3>
+            <p className="text-gray-500 text-sm mb-6">
               This will permanently delete the application and their uploaded CV from storage. This cannot be undone.
             </p>
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setConfirmDelete(null)}
                 disabled={deleting === confirmDelete}
-                className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white bg-white/[0.06] border border-white/[0.06] rounded-lg transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 bg-gray-100 border border-gray-200 rounded-lg transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>

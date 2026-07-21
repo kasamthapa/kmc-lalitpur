@@ -69,8 +69,8 @@ export default async function DashboardPage() {
       value: unreadEnquiries,
       sub: `${totalEnquiries} total`,
       href: "/admin/enquiries",
-      accent: unreadEnquiries > 0 ? "text-amber-400" : "text-green-400",
-      bg: unreadEnquiries > 0 ? "bg-amber-400/10" : "bg-green-400/10",
+      accent: unreadEnquiries > 0 ? "text-amber-700" : "text-green-700",
+      bg: unreadEnquiries > 0 ? "bg-amber-50" : "bg-green-50",
       dot: unreadEnquiries > 0,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -83,8 +83,8 @@ export default async function DashboardPage() {
       value: activeNotices,
       sub: "on marquee",
       href: "/admin/notices",
-      accent: "text-violet-400",
-      bg: "bg-violet-400/10",
+      accent: "text-violet-700",
+      bg: "bg-violet-50",
       dot: false,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -98,8 +98,8 @@ export default async function DashboardPage() {
       value: totalNews,
       sub: `${totalBlog} blog posts`,
       href: "/admin/news",
-      accent: "text-blue-400",
-      bg: "bg-blue-400/10",
+      accent: "text-blue-700",
+      bg: "bg-blue-50",
       dot: false,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -115,8 +115,8 @@ export default async function DashboardPage() {
       value: totalFaculty,
       sub: "active profiles",
       href: "/admin/faculty",
-      accent: "text-teal-400",
-      bg: "bg-teal-400/10",
+      accent: "text-teal-700",
+      bg: "bg-teal-50",
       dot: false,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -132,8 +132,8 @@ export default async function DashboardPage() {
       value: totalAlumni,
       sub: pendingAlumni > 0 ? `${pendingAlumni} pending` : "all approved",
       href: "/admin/alumni",
-      accent: pendingAlumni > 0 ? "text-orange-400" : "text-indigo-400",
-      bg: pendingAlumni > 0 ? "bg-orange-400/10" : "bg-indigo-400/10",
+      accent: pendingAlumni > 0 ? "text-orange-700" : "text-indigo-700",
+      bg: pendingAlumni > 0 ? "bg-orange-50" : "bg-indigo-50",
       dot: pendingAlumni > 0,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -147,8 +147,8 @@ export default async function DashboardPage() {
       value: totalGallery,
       sub: "in photo library",
       href: "/admin/gallery",
-      accent: "text-pink-400",
-      bg: "bg-pink-400/10",
+      accent: "text-pink-700",
+      bg: "bg-pink-50",
       dot: false,
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -171,16 +171,16 @@ export default async function DashboardPage() {
       {/* Header */}
       <div className="mb-8 flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <p className="text-gray-600 text-xs font-semibold uppercase tracking-widest mb-1">
+          <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-1">
             {formatDate(now)}
           </p>
-          <h1 className="text-white text-2xl font-bold">{greeting} 👋</h1>
+          <h1 className="text-gray-900 text-2xl font-bold">{greeting}</h1>
           <p className="text-gray-500 text-sm mt-1">Here&apos;s what&apos;s happening on the KMC website.</p>
         </div>
         <Link
           href="/"
           target="_blank"
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.07] text-gray-400 hover:text-white text-xs font-semibold rounded-xl transition-all"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-gray-50 border border-gray-300 text-gray-600 hover:text-gray-900 text-xs font-semibold rounded-xl transition-all"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
@@ -193,16 +193,16 @@ export default async function DashboardPage() {
 
       {/* Alerts */}
       {alerts.length > 0 && (
-        <div className="bg-amber-400/[0.06] border border-amber-400/20 rounded-2xl px-4 py-3 mb-6 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 mb-6 flex flex-col sm:flex-row sm:items-center gap-3">
           <div className="flex items-center gap-2 shrink-0">
-            <div className="w-5 h-5 rounded-full bg-amber-400/20 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
             </div>
-            <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">Needs attention</span>
+            <span className="text-amber-700 text-xs font-bold uppercase tracking-wider">Needs attention</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {alerts.map((a) => (
-              <Link key={a.href} href={a.href} className="text-amber-300 hover:text-amber-200 text-xs font-medium transition-colors underline-offset-2 hover:underline">
+              <Link key={a.href} href={a.href} className="text-amber-700 hover:text-amber-800 text-xs font-medium transition-colors underline-offset-2 hover:underline">
                 {a.text}
               </Link>
             ))}
@@ -216,7 +216,7 @@ export default async function DashboardPage() {
           <Link
             key={s.label}
             href={s.href}
-            className="group bg-gray-900 hover:bg-gray-800/80 border border-white/[0.06] hover:border-white/[0.1] rounded-xl p-4 transition-all"
+            className="group bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 rounded-xl p-4 transition-all"
           >
             <div className="flex items-center justify-between mb-3">
               <div className={`w-7 h-7 rounded-lg ${s.bg} flex items-center justify-center ${s.accent}`}>
@@ -224,9 +224,9 @@ export default async function DashboardPage() {
               </div>
               {s.dot && <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />}
             </div>
-            <p className="text-2xl font-bold text-white tabular-nums leading-none mb-1">{s.value}</p>
-            <p className="text-gray-400 text-[11px] font-semibold leading-snug">{s.label}</p>
-            {s.sub && <p className="text-gray-700 text-[10px] mt-0.5">{s.sub}</p>}
+            <p className="text-2xl font-bold text-gray-900 tabular-nums leading-none mb-1">{s.value}</p>
+            <p className="text-gray-600 text-[11px] font-semibold leading-snug">{s.label}</p>
+            {s.sub && <p className="text-gray-400 text-[10px] mt-0.5">{s.sub}</p>}
           </Link>
         ))}
       </div>
@@ -236,55 +236,55 @@ export default async function DashboardPage() {
         <div className="lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Recent Enquiries</h2>
-            <Link href="/admin/enquiries" className="text-amber-400 hover:text-amber-300 text-xs font-semibold transition-colors">
+            <Link href="/admin/enquiries" className="text-amber-600 hover:text-amber-700 text-xs font-semibold transition-colors">
               View all →
             </Link>
           </div>
-          <div className="bg-gray-900 border border-white/[0.06] rounded-2xl overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
             {recent.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-12">
-                <div className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center mb-3">
-                  <svg width="18" height="18" className="text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+                  <svg width="18" height="18" className="text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
                   </svg>
                 </div>
-                <p className="text-gray-600 text-sm font-medium">No enquiries yet</p>
-                <p className="text-gray-700 text-xs mt-0.5">Contact form submissions will appear here</p>
+                <p className="text-gray-500 text-sm font-medium">No enquiries yet</p>
+                <p className="text-gray-400 text-xs mt-0.5">Contact form submissions will appear here</p>
               </div>
             ) : (
-              <div className="divide-y divide-white/[0.04]">
+              <div className="divide-y divide-gray-100">
                 {recent.map((enq) => (
                   <Link
                     key={enq.id}
                     href="/admin/enquiries"
-                    className={`flex items-center gap-3 px-4 py-3 hover:bg-white/[0.02] transition-colors group ${!enq.read ? "bg-amber-400/[0.025]" : ""}`}
+                    className={`flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group ${!enq.read ? "bg-amber-50/40" : ""}`}
                   >
-                    <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-xs font-bold text-gray-400 group-hover:bg-gray-700 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-xs font-bold text-gray-500 group-hover:bg-gray-200 transition-colors">
                       {enq.name.charAt(0).toUpperCase()}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <p className="text-white text-sm font-medium truncate">{enq.name}</p>
+                        <p className="text-gray-900 text-sm font-medium truncate">{enq.name}</p>
                         {!enq.read && (
                           <span className="shrink-0 text-[9px] bg-amber-400 text-gray-900 font-bold px-1.5 py-0.5 rounded-full leading-none">
                             NEW
                           </span>
                         )}
                         {enq.responded && (
-                          <span className="shrink-0 text-[9px] bg-blue-500/20 text-blue-400 border border-blue-500/20 font-semibold px-1.5 py-0.5 rounded-full leading-none">
+                          <span className="shrink-0 text-[9px] bg-blue-50 text-blue-700 border border-blue-200 font-semibold px-1.5 py-0.5 rounded-full leading-none">
                             Done
                           </span>
                         )}
                       </div>
-                      <p className="text-gray-600 text-xs truncate">{enq.subject ?? enq.email}</p>
+                      <p className="text-gray-400 text-xs truncate">{enq.subject ?? enq.email}</p>
                     </div>
                     <div className="text-right shrink-0">
                       {enq.stream && (
-                        <span className="text-[10px] bg-white/[0.05] text-gray-500 px-1.5 py-0.5 rounded-full">
+                        <span className="text-[10px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full">
                           {enq.stream}
                         </span>
                       )}
-                      <p className="text-gray-700 text-[10px] mt-0.5">
+                      <p className="text-gray-400 text-[10px] mt-0.5">
                         {new Date(enq.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short" })}
                       </p>
                     </div>
@@ -347,15 +347,15 @@ export default async function DashboardPage() {
                 className={`flex items-center gap-3 px-3.5 py-3 rounded-xl transition-all group ${
                   action.primary
                     ? "bg-amber-400 hover:bg-amber-300 text-gray-900"
-                    : "bg-gray-900 hover:bg-gray-800/80 border border-white/[0.06] hover:border-white/[0.1] text-gray-300 hover:text-white"
+                    : "bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 text-gray-700 hover:text-gray-900"
                 }`}
               >
-                <div className={`shrink-0 ${action.primary ? "text-gray-900" : "text-gray-500 group-hover:text-gray-300"} transition-colors`}>
+                <div className={`shrink-0 ${action.primary ? "text-gray-900" : "text-gray-400 group-hover:text-gray-600"} transition-colors`}>
                   {action.icon}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold leading-none">{action.label}</p>
-                  <p className={`text-[10px] mt-0.5 truncate ${action.primary ? "text-gray-700" : "text-gray-600"}`}>
+                  <p className={`text-[10px] mt-0.5 truncate ${action.primary ? "text-gray-700" : "text-gray-400"}`}>
                     {action.desc}
                   </p>
                 </div>

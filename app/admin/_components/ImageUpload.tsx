@@ -76,16 +76,16 @@ export function ImageUpload({
 
   return (
     <div>
-      <p className="text-gray-300 text-sm font-medium mb-2">{label}</p>
+      <p className="text-gray-700 text-sm font-medium mb-2">{label}</p>
 
       {/* ── Uploading ──────────────────────────────────────────────────── */}
       {uploading && (
-        <div className="bg-gray-750 border border-gray-600 rounded-xl p-4 mb-2">
+        <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-2">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-4 h-4 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-            <span className="text-gray-300 text-sm">Uploading…</span>
+            <span className="text-gray-700 text-sm">Uploading…</span>
           </div>
-          <div className="w-full bg-gray-700 rounded-full h-1.5">
+          <div className="w-full bg-gray-200 rounded-full h-1.5">
             <div
               className="bg-amber-400 h-1.5 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
@@ -96,16 +96,16 @@ export function ImageUpload({
 
       {/* ── Preview (image selected) ───────────────────────────────────── */}
       {value && !uploading && (
-        <div className="rounded-xl overflow-hidden border border-gray-600 mb-2">
-          <div className="relative w-full h-48 bg-gray-800">
+        <div className="rounded-xl overflow-hidden border border-gray-200 mb-2">
+          <div className="relative w-full h-48 bg-gray-100">
             <Image src={value} alt="Preview" fill sizes="600px" className="object-cover" />
           </div>
-          <div className="flex gap-2 p-2 bg-gray-800">
+          <div className="flex gap-2 p-2 bg-gray-50">
             {/* Replace — file input overlaid on the button */}
             <div className="relative flex-1">
               <button
                 type="button"
-                className="w-full py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 text-xs font-semibold rounded-lg transition-colors"
+                className="w-full py-1.5 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-semibold rounded-lg transition-colors"
               >
                 Replace image
               </button>
@@ -121,7 +121,7 @@ export function ImageUpload({
             <button
               type="button"
               onClick={() => onChange("")}
-              className="flex-1 py-1.5 bg-red-900/60 hover:bg-red-800 text-red-300 text-xs font-semibold rounded-lg transition-colors"
+              className="flex-1 py-1.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 text-xs font-semibold rounded-lg transition-colors"
             >
               Remove
             </button>
@@ -132,7 +132,7 @@ export function ImageUpload({
       {/* ── Drop-zone / picker (no image yet) ─────────────────────────── */}
       {!value && !uploading && (
         <div
-          className="relative flex flex-col items-center justify-center gap-3 border-2 border-dashed border-gray-500 hover:border-amber-400 rounded-xl p-10 text-center transition-colors group cursor-pointer"
+          className="relative flex flex-col items-center justify-center gap-3 border-2 border-dashed border-gray-300 hover:border-amber-400 rounded-xl p-10 text-center transition-colors group cursor-pointer bg-gray-50/50"
           onDrop={onDrop}
           onDragOver={(e) => e.preventDefault()}
         >
@@ -140,18 +140,18 @@ export function ImageUpload({
           <svg
             width="40" height="40" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" strokeWidth="1.5"
-            className="text-gray-400 group-hover:text-amber-400 transition-colors pointer-events-none"
+            className="text-gray-400 group-hover:text-amber-500 transition-colors pointer-events-none"
           >
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
             <polyline points="17 8 12 3 7 8" />
             <line x1="12" y1="3" x2="12" y2="15" />
           </svg>
           <div className="pointer-events-none">
-            <p className="text-gray-200 text-sm font-semibold group-hover:text-amber-400 transition-colors">
+            <p className="text-gray-700 text-sm font-semibold group-hover:text-amber-600 transition-colors">
               Click to browse files
             </p>
             <p className="text-gray-400 text-xs mt-1">or drag &amp; drop here</p>
-            <p className="text-gray-500 text-xs mt-1">JPEG · PNG · WebP · max 10 MB</p>
+            <p className="text-gray-400 text-xs mt-1">JPEG · PNG · WebP · max 10 MB</p>
           </div>
 
           {/* Transparent file input covering the entire zone */}
@@ -168,7 +168,7 @@ export function ImageUpload({
 
       {/* ── Error ─────────────────────────────────────────────────────── */}
       {error && (
-        <div className="mt-2 bg-red-950 border border-red-700 rounded-lg px-3 py-2.5 text-red-300 text-sm">
+        <div className="mt-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2.5 text-red-600 text-sm">
           ⚠ {error}
         </div>
       )}

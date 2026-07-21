@@ -220,14 +220,14 @@ export default function AlumniAdminPage() {
 
   const pendingCount = members.filter((m) => !m.approved).length;
 
-  const inputCls = "w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors";
-  const labelCls = "block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5";
+  const inputCls = "w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors";
+  const labelCls = "block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5";
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
       {/* Toast */}
       {toast && (
-        <div className="fixed top-4 right-4 z-[60] bg-green-900 border border-green-700 text-green-300 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
+        <div className="fixed top-4 right-4 z-[60] bg-white border border-green-200 text-green-700 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
           <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
           {toast}
         </div>
@@ -236,12 +236,12 @@ export default function AlumniAdminPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-7 gap-4 flex-wrap">
         <div>
-          <h1 className="text-white text-xl font-bold">Alumni</h1>
-          <p className="text-gray-600 text-sm mt-0.5">Manage alumni registrations and profiles.</p>
+          <h1 className="text-gray-900 text-xl font-bold">Alumni</h1>
+          <p className="text-gray-400 text-sm mt-0.5">Manage alumni registrations and profiles.</p>
         </div>
         <div className="flex items-center gap-2">
           {pendingCount > 0 && (
-            <span className="px-2.5 py-1 bg-amber-400/15 text-amber-400 border border-amber-400/20 text-xs font-bold rounded-full">
+            <span className="px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold rounded-full">
               {pendingCount} pending
             </span>
           )}
@@ -253,10 +253,10 @@ export default function AlumniAdminPage() {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 mb-6">
-        <div className="flex bg-gray-900 border border-white/[0.06] rounded-lg p-1 gap-1">
+        <div className="flex bg-white border border-gray-200 rounded-lg p-1 gap-1">
           {(["all", "pending", "approved"] as FilterStatus[]).map((s) => (
             <button key={s} onClick={() => setFilterStatus(s)}
-              className={`px-3 py-1.5 rounded-md text-xs font-semibold capitalize transition-colors ${filterStatus === s ? "bg-amber-400 text-gray-900" : "text-gray-500 hover:text-gray-300"}`}>
+              className={`px-3 py-1.5 rounded-md text-xs font-semibold capitalize transition-colors ${filterStatus === s ? "bg-amber-400 text-gray-900" : "text-gray-500 hover:text-gray-700"}`}>
               {s}
               {s === "pending" && pendingCount > 0 && (
                 <span className="ml-1.5 bg-red-500 text-white rounded-full px-1.5 text-[10px]">{pendingCount}</span>
@@ -266,7 +266,7 @@ export default function AlumniAdminPage() {
         </div>
         {["All", ...PROGRAMS].map((p) => (
           <button key={p} onClick={() => setFilterProgram(p)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${filterProgram === p ? "bg-amber-400 text-gray-900" : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"}`}>
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${filterProgram === p ? "bg-amber-400 text-gray-900" : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"}`}>
             {p}
           </button>
         ))}
@@ -276,33 +276,33 @@ export default function AlumniAdminPage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-gray-900 border border-white/[0.06] rounded-xl overflow-hidden animate-pulse">
-              <div className="h-1.5 bg-gray-800" />
+            <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden animate-pulse">
+              <div className="h-1.5 bg-gray-100" />
               <div className="p-4 space-y-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-gray-800 shrink-0" />
+                  <div className="w-9 h-9 rounded-full bg-gray-100 shrink-0" />
                   <div className="space-y-1.5 flex-1">
-                    <div className="h-4 bg-gray-800 rounded w-2/3" />
-                    <div className="h-3 bg-gray-800 rounded w-1/2" />
+                    <div className="h-4 bg-gray-100 rounded w-2/3" />
+                    <div className="h-3 bg-gray-100 rounded w-1/2" />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <div className="h-3 bg-gray-800 rounded w-3/4" />
-                  <div className="h-3 bg-gray-800 rounded w-1/2" />
+                  <div className="h-3 bg-gray-100 rounded w-3/4" />
+                  <div className="h-3 bg-gray-100 rounded w-1/2" />
                 </div>
-                <div className="pt-3 border-t border-white/[0.04] flex gap-2">
-                  <div className="flex-1 h-7 bg-gray-800 rounded-lg" />
-                  <div className="flex-1 h-7 bg-gray-800 rounded-lg" />
-                  <div className="flex-1 h-7 bg-gray-800 rounded-lg" />
+                <div className="pt-3 border-t border-gray-100 flex gap-2">
+                  <div className="flex-1 h-7 bg-gray-100 rounded-lg" />
+                  <div className="flex-1 h-7 bg-gray-100 rounded-lg" />
+                  <div className="flex-1 h-7 bg-gray-100 rounded-lg" />
                 </div>
               </div>
             </div>
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-16 bg-gray-900 border border-white/[0.06] rounded-xl">
+        <div className="text-center py-16 bg-white border border-gray-200 rounded-xl">
           <p className="text-gray-500 text-sm">No alumni found.</p>
-          <button onClick={openAdd} className="mt-3 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">Add the first one →</button>
+          <button onClick={openAdd} className="mt-3 text-amber-600 hover:text-amber-700 text-sm font-semibold transition-colors">Add the first one →</button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -310,7 +310,7 @@ export default function AlumniAdminPage() {
             const color = programColors[m.program] ?? "#374151";
             const initials = m.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
             return (
-              <div key={m.id} className={`bg-gray-900 border rounded-xl overflow-hidden transition-all ${m.approved ? "border-white/[0.06] hover:border-white/[0.1]" : "border-amber-500/30"}`}>
+              <div key={m.id} className={`bg-white border rounded-xl overflow-hidden transition-all ${m.approved ? "border-gray-200 hover:border-gray-300" : "border-amber-500/30"}`}>
                 {m.imageUrl ? (
                   <div className="relative h-24 overflow-hidden">
                     <Image src={m.imageUrl} alt={m.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top" />
@@ -328,34 +328,34 @@ export default function AlumniAdminPage() {
                       <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs shrink-0" style={{ background: color }}>
                         {initials}
                       </div>
-                      {!m.approved && <span className="bg-amber-400/15 text-amber-400 border border-amber-400/20 text-[9px] font-bold px-2 py-0.5 rounded-full">Pending</span>}
-                      {m.featured && <span className="bg-purple-500/15 text-purple-400 border border-purple-500/20 text-[9px] font-bold px-2 py-0.5 rounded-full">Featured</span>}
+                      {!m.approved && <span className="bg-amber-50 text-amber-700 border border-amber-200 text-[9px] font-bold px-2 py-0.5 rounded-full">Pending</span>}
+                      {m.featured && <span className="bg-purple-50 text-purple-700 border border-purple-200 text-[9px] font-bold px-2 py-0.5 rounded-full">Featured</span>}
                     </div>
                   )}
 
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <div className="min-w-0">
-                      <p className="text-white font-semibold text-sm truncate">{m.name}</p>
+                      <p className="text-gray-900 font-semibold text-sm truncate">{m.name}</p>
                       <p className="text-gray-500 text-xs mt-0.5 truncate">{m.currentRole ?? "—"}{m.company ? ` · ${m.company}` : ""}</p>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white shrink-0" style={{ background: color }}>{m.program}</span>
                   </div>
 
-                  <div className="text-xs text-gray-600 space-y-0.5 mb-3">
+                  <div className="text-xs text-gray-400 space-y-0.5 mb-3">
                     <p>Batch: {m.gradYear}</p>
                     {m.location && <p>{m.location}</p>}
                     {m.email && <p className="truncate">{m.email}</p>}
                   </div>
 
-                  <div className="flex gap-2 pt-3 border-t border-white/[0.04]">
+                  <div className="flex gap-2 pt-3 border-t border-gray-100">
                     <button onClick={() => toggleApprove(m)}
-                      className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-colors ${m.approved ? "bg-white/[0.06] hover:bg-white/[0.1] text-gray-400 hover:text-gray-200" : "bg-green-500/15 hover:bg-green-500/25 text-green-400 border border-green-500/20"}`}>
+                      className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-colors ${m.approved ? "bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-700" : "bg-green-50 hover:bg-green-100 text-green-700 border border-green-200"}`}>
                       {m.approved ? "Unapprove" : "✓ Approve"}
                     </button>
-                    <button onClick={() => openEdit(m)} className="flex-1 py-1.5 bg-white/[0.06] hover:bg-white/[0.1] text-gray-300 hover:text-white text-xs font-semibold rounded-lg transition-colors">
+                    <button onClick={() => openEdit(m)} className="flex-1 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 text-xs font-semibold rounded-lg transition-colors">
                       Edit
                     </button>
-                    <button onClick={() => setDeleteTarget(m)} className="flex-1 py-1.5 bg-red-900/40 hover:bg-red-900/70 text-red-400 text-xs font-semibold rounded-lg transition-colors">
+                    <button onClick={() => setDeleteTarget(m)} className="flex-1 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold rounded-lg transition-colors">
                       Delete
                     </button>
                   </div>
@@ -368,12 +368,12 @@ export default function AlumniAdminPage() {
 
       {/* Add / Edit Modal */}
       {modal.open && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center p-4 overflow-y-auto" style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-4 overflow-y-auto" style={{ backgroundColor: "rgba(17,24,39,0.4)" }}
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-              <h2 className="text-white font-bold text-sm">{modal.member ? "Edit Alumni" : "Add Alumni"}</h2>
-              <button onClick={closeModal} className="text-gray-500 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/[0.06]">
+          <div className="bg-white border border-gray-200 rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h2 className="text-gray-900 font-bold text-sm">{modal.member ? "Edit Alumni" : "Add Alumni"}</h2>
+              <button onClick={closeModal} className="text-gray-500 hover:text-gray-900 transition-colors p-1 rounded-lg hover:bg-gray-100">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
@@ -381,15 +381,15 @@ export default function AlumniAdminPage() {
             </div>
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
-              {formError && <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">{formError}</div>}
+              {formError && <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-3">{formError}</div>}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className={labelCls}>Full Name <span className="text-red-400">*</span></label>
+                  <label className={labelCls}>Full Name <span className="text-red-500">*</span></label>
                   <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Ram Bahadur Thapa" className={inputCls} />
                 </div>
                 <div>
-                  <label className={labelCls}>Graduation Year <span className="text-red-400">*</span></label>
+                  <label className={labelCls}>Graduation Year <span className="text-red-500">*</span></label>
                   <select value={form.gradYear} onChange={(e) => setForm({ ...form, gradYear: e.target.value })} className={inputCls}>
                     {GRAD_YEARS.map((y) => <option key={y} value={y}>{y}</option>)}
                   </select>
@@ -397,11 +397,11 @@ export default function AlumniAdminPage() {
               </div>
 
               <div>
-                <label className={labelCls}>Program <span className="text-red-400">*</span></label>
+                <label className={labelCls}>Program <span className="text-red-500">*</span></label>
                 <div className="flex gap-2 flex-wrap">
                   {PROGRAMS.map((p) => (
                     <button key={p} type="button" onClick={() => setForm({ ...form, program: p })}
-                      className={`px-4 py-1.5 rounded-lg text-xs font-bold border transition-colors ${form.program === p ? "border-transparent text-white" : "border-gray-600 text-gray-400 hover:border-amber-400"}`}
+                      className={`px-4 py-1.5 rounded-lg text-xs font-bold border transition-colors ${form.program === p ? "border-transparent text-white" : "border-gray-300 text-gray-500 hover:border-amber-400"}`}
                       style={form.program === p ? { background: programColors[p] } : {}}>
                       {p}
                     </button>
@@ -453,7 +453,7 @@ export default function AlumniAdminPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
                 <div className="sm:col-span-2">
                   <label className={labelCls}>Photo</label>
-                  <label className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 transition-colors ${uploading ? "border-amber-400/50 bg-amber-400/5 cursor-wait" : "border-white/[0.08] hover:border-amber-400/50 hover:bg-white/[0.02] cursor-pointer"}`}>
+                  <label className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 transition-colors ${uploading ? "border-amber-400/50 bg-amber-400/5 cursor-wait" : "border-gray-300 hover:border-amber-400/50 hover:bg-gray-50 cursor-pointer"}`}>
                     {imagePreview ? (
                       <div className="w-full text-center">
                         <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden">
@@ -473,9 +473,9 @@ export default function AlumniAdminPage() {
                     )}
                     <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFileChange} disabled={uploading} className="sr-only" />
                   </label>
-                  {uploadError && <p className="text-red-400 text-xs mt-1.5">{uploadError}</p>}
+                  {uploadError && <p className="text-red-500 text-xs mt-1.5">{uploadError}</p>}
                   {imagePreview && !uploading && (
-                    <button type="button" onClick={() => { setImagePreview(null); setForm((f) => ({ ...f, imageUrl: "" })); }} className="mt-2 text-xs text-gray-500 hover:text-red-400 transition-colors">
+                    <button type="button" onClick={() => { setImagePreview(null); setForm((f) => ({ ...f, imageUrl: "" })); }} className="mt-2 text-xs text-gray-500 hover:text-red-500 transition-colors">
                       Remove photo
                     </button>
                   )}
@@ -487,38 +487,38 @@ export default function AlumniAdminPage() {
               </div>
 
               {/* Where this appears */}
-              <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
                 <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-3">Where this appears on the website</p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-2 h-2 rounded-full ${form.approved ? "bg-green-400" : "bg-gray-600"}`} />
-                    <span className="text-gray-300 text-xs font-medium">Campus → Alumni page</span>
-                    <span className="ml-auto text-[10px] text-gray-600">{form.approved ? "Visible" : "Pending"}</span>
+                    <div className={`w-2 h-2 rounded-full ${form.approved ? "bg-green-400" : "bg-gray-300"}`} />
+                    <span className="text-gray-700 text-xs font-medium">Campus → Alumni page</span>
+                    <span className="ml-auto text-[10px] text-gray-400">{form.approved ? "Visible" : "Pending"}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-2 h-2 rounded-full ${form.featured ? "bg-amber-400" : "bg-gray-600"}`} />
-                    <span className="text-gray-300 text-xs font-medium">Homepage → Testimonials / Featured Alumni</span>
-                    <span className="ml-auto text-[10px] text-gray-600">{form.featured ? "Featured" : "Not featured"}</span>
+                    <div className={`w-2 h-2 rounded-full ${form.featured ? "bg-amber-400" : "bg-gray-300"}`} />
+                    <span className="text-gray-700 text-xs font-medium">Homepage → Testimonials / Featured Alumni</span>
+                    <span className="ml-auto text-[10px] text-gray-400">{form.featured ? "Featured" : "Not featured"}</span>
                   </div>
                 </div>
-                <p className="text-gray-600 text-[10px] mt-3">Use the checkboxes below to control visibility.</p>
+                <p className="text-gray-400 text-[10px] mt-3">Use the checkboxes below to control visibility.</p>
               </div>
 
               <div className="flex gap-6">
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={form.approved} onChange={(e) => setForm({ ...form, approved: e.target.checked })}
-                    className="w-4 h-4 rounded accent-amber-400" />
-                  <span className="text-gray-400 text-sm">Approved (visible on site)</span>
+                    className="w-4 h-4 rounded accent-amber-500" />
+                  <span className="text-gray-500 text-sm">Approved (visible on site)</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })}
-                    className="w-4 h-4 rounded accent-amber-400" />
-                  <span className="text-gray-400 text-sm">Featured (homepage)</span>
+                    className="w-4 h-4 rounded accent-amber-500" />
+                  <span className="text-gray-500 text-sm">Featured (homepage)</span>
                 </label>
               </div>
 
               <div className="flex gap-3 pt-2">
-                <button type="button" onClick={closeModal} disabled={saving} className="flex-1 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors">
+                <button type="button" onClick={closeModal} disabled={saving} className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
                   Cancel
                 </button>
                 <button type="submit" disabled={saving || uploading} className="flex-1 py-2.5 bg-amber-400 hover:bg-amber-300 disabled:opacity-60 text-gray-900 text-sm font-bold rounded-lg transition-colors">
@@ -542,26 +542,26 @@ export default function AlumniAdminPage() {
 
       {/* Delete modal */}
       {deleteTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/40"
           onClick={(e) => { if (e.target === e.currentTarget) setDeleteTarget(null); }}>
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl p-6 w-full max-w-md shadow-2xl">
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full max-w-md shadow-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
-                <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-full bg-red-50 flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Delete alumni?</h3>
-                <p className="text-gray-600 text-xs">This cannot be undone.</p>
+                <h3 className="text-gray-900 font-bold text-sm">Delete alumni?</h3>
+                <p className="text-gray-400 text-xs">This cannot be undone.</p>
               </div>
             </div>
-            <div className="bg-gray-800 rounded-lg px-3 py-2.5 mb-5">
-              <p className="text-gray-300 text-sm font-semibold">{deleteTarget.name}</p>
-              <p className="text-gray-600 text-xs mt-0.5">{deleteTarget.program} · Batch {deleteTarget.gradYear}</p>
+            <div className="bg-gray-50 rounded-lg px-3 py-2.5 mb-5">
+              <p className="text-gray-700 text-sm font-semibold">{deleteTarget.name}</p>
+              <p className="text-gray-400 text-xs mt-0.5">{deleteTarget.program} · Batch {deleteTarget.gradYear}</p>
             </div>
             <div className="flex gap-2">
-              <button onClick={() => setDeleteTarget(null)} disabled={deleting} className="flex-1 px-4 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors">
+              <button onClick={() => setDeleteTarget(null)} disabled={deleting} className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
                 Cancel
               </button>
               <button onClick={confirmDelete} disabled={deleting} className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white text-sm font-bold rounded-lg transition-colors">

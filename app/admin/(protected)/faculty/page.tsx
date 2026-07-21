@@ -210,7 +210,7 @@ export default function FacultyAdminPage() {
     <div className="p-6 max-w-6xl mx-auto">
       {/* Toast */}
       {toast && (
-        <div className="fixed top-4 right-4 z-[60] bg-green-900 border border-green-700 text-green-300 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
+        <div className="fixed top-4 right-4 z-[60] bg-white border border-green-200 text-green-700 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
           <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
           {toast}
         </div>
@@ -218,8 +218,8 @@ export default function FacultyAdminPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-7 gap-4 flex-wrap">
         <div>
-          <h1 className="text-white text-xl font-bold">Faculty & Staff</h1>
-          <p className="text-gray-600 text-sm mt-0.5">Manage faculty profiles shown on the campus page.</p>
+          <h1 className="text-gray-900 text-xl font-bold">Faculty & Staff</h1>
+          <p className="text-gray-400 text-sm mt-0.5">Manage faculty profiles shown on the campus page.</p>
         </div>
         <button
           onClick={openAdd}
@@ -238,7 +238,7 @@ export default function FacultyAdminPage() {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               filterDept === d
                 ? "bg-amber-400 text-gray-900"
-                : "bg-white/[0.06] border border-white/[0.06] text-gray-400 hover:bg-white/[0.1] hover:text-gray-200"
+                : "bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-700"
             }`}
           >
             {d}
@@ -253,32 +253,32 @@ export default function FacultyAdminPage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-gray-900 border border-white/[0.06] rounded-xl overflow-hidden animate-pulse">
-              <div className="h-2 bg-gray-800" />
+            <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden animate-pulse">
+              <div className="h-2 bg-gray-100" />
               <div className="p-4 space-y-3">
                 <div className="flex justify-between gap-2">
                   <div className="space-y-1.5 flex-1">
-                    <div className="h-4 bg-gray-800 rounded w-2/3" />
-                    <div className="h-3 bg-gray-800 rounded w-1/2" />
+                    <div className="h-4 bg-gray-100 rounded w-2/3" />
+                    <div className="h-3 bg-gray-100 rounded w-1/2" />
                   </div>
-                  <div className="h-5 w-16 bg-gray-800 rounded-full" />
+                  <div className="h-5 w-16 bg-gray-100 rounded-full" />
                 </div>
                 <div className="space-y-1">
-                  <div className="h-3 bg-gray-800 rounded w-3/4" />
-                  <div className="h-3 bg-gray-800 rounded w-1/2" />
+                  <div className="h-3 bg-gray-100 rounded w-3/4" />
+                  <div className="h-3 bg-gray-100 rounded w-1/2" />
                 </div>
-                <div className="pt-3 border-t border-white/[0.04] flex gap-2">
-                  <div className="flex-1 h-7 bg-gray-800 rounded-lg" />
-                  <div className="flex-1 h-7 bg-gray-800 rounded-lg" />
+                <div className="pt-3 border-t border-gray-100 flex gap-2">
+                  <div className="flex-1 h-7 bg-gray-100 rounded-lg" />
+                  <div className="flex-1 h-7 bg-gray-100 rounded-lg" />
                 </div>
               </div>
             </div>
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-16 bg-gray-900 border border-white/[0.06] rounded-xl">
+        <div className="text-center py-16 bg-white border border-gray-200 rounded-xl">
           <p className="text-gray-500 text-sm">No faculty members yet.</p>
-          <button onClick={openAdd} className="mt-3 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
+          <button onClick={openAdd} className="mt-3 text-amber-600 hover:text-amber-700 text-sm font-semibold transition-colors">
             Add the first one →
           </button>
         </div>
@@ -287,8 +287,8 @@ export default function FacultyAdminPage() {
           {filtered.map((m) => (
             <div
               key={m.id}
-              className={`bg-gray-900 border rounded-xl overflow-hidden transition-opacity ${
-                m.active ? "border-white/[0.06] hover:border-white/[0.1]" : "border-white/[0.03] opacity-50"
+              className={`bg-white border rounded-xl overflow-hidden transition-opacity ${
+                m.active ? "border-gray-200 hover:border-gray-300" : "border-gray-100 opacity-50"
               }`}
             >
               {m.imageUrl ? (
@@ -302,23 +302,23 @@ export default function FacultyAdminPage() {
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div>
-                    <p className="text-white font-semibold text-sm leading-snug">{m.name}</p>
+                    <p className="text-gray-900 font-semibold text-sm leading-snug">{m.name}</p>
                     <p className="text-gray-500 text-xs mt-0.5">{m.title}</p>
                   </div>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white shrink-0" style={{ background: deptColors[m.dept] ?? "#374151" }}>
                     {m.dept}
                   </span>
                 </div>
-                <div className="text-xs text-gray-600 space-y-0.5 mb-3">
+                <div className="text-xs text-gray-400 space-y-0.5 mb-3">
                   <p>{m.qualification}</p>
                   <p>{m.experience} experience</p>
-                  {m.email && <p className="text-gray-600">{m.email}</p>}
+                  {m.email && <p className="text-gray-400">{m.email}</p>}
                 </div>
-                <div className="flex gap-2 pt-3 border-t border-white/[0.04]">
-                  <button onClick={() => openEdit(m)} className="flex-1 py-1.5 bg-white/[0.06] hover:bg-white/[0.1] text-gray-300 hover:text-white text-xs font-semibold rounded-lg transition-colors">
+                <div className="flex gap-2 pt-3 border-t border-gray-100">
+                  <button onClick={() => openEdit(m)} className="flex-1 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 text-xs font-semibold rounded-lg transition-colors">
                     Edit
                   </button>
-                  <button onClick={() => setDeleteTarget(m)} className="flex-1 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-semibold rounded-lg transition-colors">
+                  <button onClick={() => setDeleteTarget(m)} className="flex-1 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold rounded-lg transition-colors">
                     Delete
                   </button>
                 </div>
@@ -331,15 +331,15 @@ export default function FacultyAdminPage() {
       {/* Add / Edit Modal */}
       {modal.open && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center p-4 overflow-y-auto bg-black/80"
+          className="fixed inset-0 z-50 flex items-start justify-center p-4 overflow-y-auto bg-gray-900/40"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-              <h2 className="text-white font-bold text-sm">
+          <div className="bg-white border border-gray-200 rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h2 className="text-gray-900 font-bold text-sm">
                 {modal.member ? "Edit Faculty Member" : "Add Faculty Member"}
               </h2>
-              <button onClick={closeModal} className="text-gray-500 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/[0.06]">
+              <button onClick={closeModal} className="text-gray-500 hover:text-gray-900 transition-colors p-1 rounded-lg hover:bg-gray-100">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
@@ -348,7 +348,7 @@ export default function FacultyAdminPage() {
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
               {formError && (
-                <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">
+                <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-3">
                   {formError}
                 </div>
               )}
@@ -356,27 +356,27 @@ export default function FacultyAdminPage() {
               {/* Row 1: Name + Title */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Full Name <span className="text-red-400">*</span>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
                     placeholder="Dr. Rajendra Adhikari"
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Title / Role <span className="text-red-400">*</span>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                    Title / Role <span className="text-red-500">*</span>
                   </label>
                   <input
                     value={form.title}
                     onChange={(e) => setForm({ ...form, title: e.target.value })}
                     required
                     placeholder="Head of Science Department"
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
               </div>
@@ -384,71 +384,71 @@ export default function FacultyAdminPage() {
               {/* Row 2: Dept + Experience */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Department <span className="text-red-400">*</span>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                    Department <span className="text-red-500">*</span>
                   </label>
                   <select
                     value={form.dept}
                     onChange={(e) => setForm({ ...form, dept: e.target.value })}
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:border-amber-500 transition-colors"
                   >
                     {DEPTS.map((d) => <option key={d} value={d}>{d}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Experience <span className="text-red-400">*</span>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                    Experience <span className="text-red-500">*</span>
                   </label>
                   <input
                     value={form.experience}
                     onChange={(e) => setForm({ ...form, experience: e.target.value })}
                     required
                     placeholder="12 years"
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
               </div>
 
               {/* Qualification */}
               <div>
-                <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                  Qualification <span className="text-red-400">*</span>
+                <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                  Qualification <span className="text-red-500">*</span>
                 </label>
                 <input
                   value={form.qualification}
                   onChange={(e) => setForm({ ...form, qualification: e.target.value })}
                   required
                   placeholder="PhD Physics, Tribhuvan University"
-                  className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                  className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                 />
               </div>
 
               {/* Row 3: Subjects + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">Subjects</label>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">Subjects</label>
                   <input
                     value={form.subjects ?? ""}
                     onChange={(e) => setForm({ ...form, subjects: e.target.value })}
                     placeholder="Physics, Mechanics"
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">Email</label>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">Email</label>
                   <input
                     type="email"
                     value={form.email ?? ""}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="name@kmclalitpur.edu.np"
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
               </div>
 
               {/* Bio */}
               <div>
-                <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
                   Bio <span className="text-gray-500 font-normal">(shown on detail page)</span>
                 </label>
                 <textarea
@@ -456,13 +456,13 @@ export default function FacultyAdminPage() {
                   onChange={(e) => setForm({ ...form, bio: e.target.value })}
                   rows={3}
                   placeholder="A short paragraph about the faculty member's background and teaching philosophy…"
-                  className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors resize-none"
+                  className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors resize-none"
                 />
               </div>
 
               {/* Achievements */}
               <div>
-                <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
                   Achievements / Highlights{" "}
                   <span className="text-gray-500 font-normal">(one per line)</span>
                 </label>
@@ -471,20 +471,20 @@ export default function FacultyAdminPage() {
                   onChange={(e) => setForm({ ...form, achievements: e.target.value })}
                   rows={4}
                   placeholder={"Best Teacher Award 2079\nPublished 3 research papers in TU Journal\nFormer NEB examiner"}
-                  className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors resize-none"
+                  className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors resize-none"
                 />
               </div>
 
               {/* Photo upload + Display Order */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
                 <div className="sm:col-span-2">
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">Photo</label>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">Photo</label>
 
                   {/* Upload zone */}
                   <label className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 transition-colors ${
                     uploading
                       ? "border-amber-400/50 bg-amber-400/5 cursor-wait"
-                      : "border-white/[0.08] hover:border-amber-400/50 hover:bg-white/[0.02] cursor-pointer"
+                      : "border-gray-300 hover:border-amber-400/50 hover:bg-gray-50 cursor-pointer"
                   }`}>
                     {imagePreview ? (
                       <div className="relative w-full">
@@ -499,7 +499,7 @@ export default function FacultyAdminPage() {
                           />
                         </div>
                         {!uploading && (
-                          <p className="text-center text-xs text-gray-400 mt-2">
+                          <p className="text-center text-xs text-gray-500 mt-2">
                             Click to replace photo
                           </p>
                         )}
@@ -514,10 +514,10 @@ export default function FacultyAdminPage() {
                         <svg className="w-8 h-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                         </svg>
-                        <p className="text-gray-400 text-xs text-center">
+                        <p className="text-gray-500 text-xs text-center">
                           {uploading ? "Uploading…" : "Click to upload photo"}
                         </p>
-                        <p className="text-gray-600 text-xs">JPG, PNG, WebP · max 5MB</p>
+                        <p className="text-gray-400 text-xs">JPG, PNG, WebP · max 5MB</p>
                       </>
                     )}
                     <input
@@ -531,7 +531,7 @@ export default function FacultyAdminPage() {
                   </label>
 
                   {uploadError && (
-                    <p className="text-red-400 text-xs mt-1.5">{uploadError}</p>
+                    <p className="text-red-600 text-xs mt-1.5">{uploadError}</p>
                   )}
 
                   {/* Remove photo button */}
@@ -539,7 +539,7 @@ export default function FacultyAdminPage() {
                     <button
                       type="button"
                       onClick={() => { setImagePreview(null); setForm((f) => ({ ...f, imageUrl: "" })); }}
-                      className="mt-2 text-xs text-gray-500 hover:text-red-400 transition-colors"
+                      className="mt-2 text-xs text-gray-500 hover:text-red-500 transition-colors"
                     >
                       Remove photo
                     </button>
@@ -547,31 +547,31 @@ export default function FacultyAdminPage() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5">Display Order</label>
+                  <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">Display Order</label>
                   <input
                     type="number"
                     value={form.displayOrder}
                     onChange={(e) => setForm({ ...form, displayOrder: Number(e.target.value) })}
-                    className="w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400/70 transition-colors"
+                    className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
               </div>
 
               {/* Where this appears */}
-              <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
-                <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-3">Where this appears on the website</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                <p className="text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-3">Where this appears on the website</p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-2 h-2 rounded-full ${form.active ? "bg-green-400" : "bg-gray-600"}`} />
-                    <span className="text-gray-300 text-xs font-medium">Campus → Faculty & Staff page</span>
-                    <span className="ml-auto text-[10px] text-gray-600">{form.active ? "Visible" : "Hidden"}</span>
+                    <div className={`w-2 h-2 rounded-full ${form.active ? "bg-green-400" : "bg-gray-300"}`} />
+                    <span className="text-gray-700 text-xs font-medium">Campus → Faculty & Staff page</span>
+                    <span className="ml-auto text-[10px] text-gray-400">{form.active ? "Visible" : "Hidden"}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-gray-600" />
+                    <div className="w-2 h-2 rounded-full bg-gray-300" />
                     <span className="text-gray-500 text-xs">Homepage (not applicable for faculty)</span>
                   </div>
                 </div>
-                <p className="text-gray-600 text-[10px] mt-3">Toggle &ldquo;Active&rdquo; below to show or hide from the faculty page.</p>
+                <p className="text-gray-400 text-[10px] mt-3">Toggle &ldquo;Active&rdquo; below to show or hide from the faculty page.</p>
               </div>
 
               <label className="flex items-center gap-2">
@@ -579,9 +579,9 @@ export default function FacultyAdminPage() {
                   type="checkbox"
                   checked={form.active}
                   onChange={(e) => setForm({ ...form, active: e.target.checked })}
-                  className="w-4 h-4 rounded accent-amber-400"
+                  className="w-4 h-4 rounded accent-amber-500"
                 />
-                <span className="text-gray-400 text-sm">Active (visible on site)</span>
+                <span className="text-gray-500 text-sm">Active (visible on site)</span>
               </label>
 
               <div className="flex gap-3 pt-2">
@@ -589,7 +589,7 @@ export default function FacultyAdminPage() {
                   type="button"
                   onClick={closeModal}
                   disabled={saving}
-                  className="flex-1 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors"
+                  className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors"
                 >
                   Cancel
                 </button>
@@ -619,30 +619,30 @@ export default function FacultyAdminPage() {
       {/* Delete confirmation modal */}
       {deleteTarget && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/40"
           onClick={(e) => { if (e.target === e.currentTarget) setDeleteTarget(null); }}
         >
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl p-6 w-full max-w-md shadow-2xl">
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full max-w-md shadow-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
-                <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-full bg-red-50 flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Delete faculty member?</h3>
-                <p className="text-gray-600 text-xs">This cannot be undone.</p>
+                <h3 className="text-gray-900 font-bold text-sm">Delete faculty member?</h3>
+                <p className="text-gray-400 text-xs">This cannot be undone.</p>
               </div>
             </div>
-            <div className="bg-gray-800 rounded-lg px-3 py-2.5 mb-5">
-              <p className="text-gray-300 text-sm font-semibold">{deleteTarget.name}</p>
-              <p className="text-gray-600 text-xs mt-0.5">{deleteTarget.title} · {deleteTarget.dept}</p>
+            <div className="bg-gray-50 rounded-lg px-3 py-2.5 mb-5">
+              <p className="text-gray-700 text-sm font-semibold">{deleteTarget.name}</p>
+              <p className="text-gray-400 text-xs mt-0.5">{deleteTarget.title} · {deleteTarget.dept}</p>
             </div>
             <div className="flex gap-2">
               <button
                 onClick={() => setDeleteTarget(null)}
                 disabled={deleting}
-                className="flex-1 px-4 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors"
+                className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors"
               >
                 Cancel
               </button>

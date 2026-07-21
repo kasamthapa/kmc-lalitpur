@@ -18,7 +18,7 @@ function EyeIcon({ open }: { open: boolean }) {
 }
 
 const inputCls =
-  "w-full bg-gray-800 border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400/50 transition-all";
+  "w-full bg-white border border-gray-300 rounded-xl px-3.5 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/20 focus:border-amber-500 transition-all";
 const labelCls = "block text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1.5";
 
 export default function SettingsPage() {
@@ -75,15 +75,15 @@ export default function SettingsPage() {
     <div className="p-6 max-w-2xl mx-auto">
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-white text-xl font-bold">Settings</h1>
-        <p className="text-gray-600 text-sm mt-0.5">Manage your account and admin preferences.</p>
+        <h1 className="text-gray-900 text-xl font-bold">Settings</h1>
+        <p className="text-gray-400 text-sm mt-0.5">Manage your account and admin preferences.</p>
       </div>
 
       {/* Account info */}
-      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl overflow-hidden mb-5">
-        <div className="px-5 py-4 border-b border-white/[0.04]">
-          <h2 className="text-gray-300 text-sm font-bold">Account Information</h2>
-          <p className="text-gray-600 text-xs mt-0.5">Your admin identity — read-only.</p>
+      <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-5">
+        <div className="px-5 py-4 border-b border-gray-100">
+          <h2 className="text-gray-700 text-sm font-bold">Account Information</h2>
+          <p className="text-gray-400 text-xs mt-0.5">Your admin identity — read-only.</p>
         </div>
         <div className="px-5 py-4 grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
@@ -93,25 +93,25 @@ export default function SettingsPage() {
           ].map((row) => (
             <div key={row.label}>
               <p className={labelCls}>{row.label}</p>
-              <p className="text-white text-sm font-medium">{row.value}</p>
+              <p className="text-gray-900 text-sm font-medium">{row.value}</p>
             </div>
           ))}
         </div>
-        <div className="px-5 py-3 bg-white/[0.02] border-t border-white/[0.04] flex items-center gap-2">
+        <div className="px-5 py-3 bg-gray-50 border-t border-gray-100 flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-          <p className="text-gray-600 text-xs">Active session — JWT authenticated</p>
+          <p className="text-gray-400 text-xs">Active session — JWT authenticated</p>
         </div>
       </div>
 
       {/* Change password */}
-      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl overflow-hidden mb-5">
-        <div className="px-5 py-4 border-b border-white/[0.04]">
-          <h2 className="text-gray-300 text-sm font-bold">Change Password</h2>
-          <p className="text-gray-600 text-xs mt-0.5">Use a strong password with at least 8 characters.</p>
+      <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-5">
+        <div className="px-5 py-4 border-b border-gray-100">
+          <h2 className="text-gray-700 text-sm font-bold">Change Password</h2>
+          <p className="text-gray-400 text-xs mt-0.5">Use a strong password with at least 8 characters.</p>
         </div>
         <form onSubmit={handleSubmit} className="px-5 py-5 space-y-4">
           {error && (
-            <div className="flex items-start gap-2.5 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl px-4 py-3">
+            <div className="flex items-start gap-2.5 bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl px-4 py-3">
               <svg className="shrink-0 w-4 h-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
@@ -119,7 +119,7 @@ export default function SettingsPage() {
             </div>
           )}
           {success && (
-            <div className="flex items-center gap-2.5 bg-green-500/10 border border-green-500/20 text-green-400 text-sm rounded-xl px-4 py-3">
+            <div className="flex items-center gap-2.5 bg-green-50 border border-green-200 text-green-700 text-sm rounded-xl px-4 py-3">
               <svg className="shrink-0 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
@@ -152,7 +152,7 @@ export default function SettingsPage() {
                   onClick={field.toggle}
                   tabIndex={-1}
                   aria-label={field.show ? "Hide password" : "Show password"}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-300 transition-colors p-0.5"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors p-0.5"
                 >
                   <EyeIcon open={field.show} />
                 </button>
@@ -179,18 +179,18 @@ export default function SettingsPage() {
       </div>
 
       {/* Site config note */}
-      <div className="bg-gray-900 border border-white/[0.06] rounded-2xl px-5 py-4">
+      <div className="bg-white border border-gray-200 rounded-2xl px-5 py-4">
         <div className="flex items-start gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+          <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 mt-0.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500">
               <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
           <div>
-            <h3 className="text-gray-300 text-sm font-bold mb-1">Site Configuration</h3>
-            <p className="text-gray-600 text-xs leading-relaxed">
+            <h3 className="text-gray-700 text-sm font-bold mb-1">Site Configuration</h3>
+            <p className="text-gray-400 text-xs leading-relaxed">
               Global settings like phone number, email, social links, and branding are defined in{" "}
-              <code className="bg-gray-800 text-amber-400 px-1.5 py-0.5 rounded text-[11px]">
+              <code className="bg-gray-100 text-amber-700 px-1.5 py-0.5 rounded text-[11px]">
                 app/config/site.ts
               </code>
               . Changes require a code edit and redeploy — they are not managed through this panel.

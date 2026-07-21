@@ -27,17 +27,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div
-      className="min-h-screen bg-gray-950 flex items-center justify-center p-4"
-      style={{
-        backgroundImage:
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251,191,36,0.07) 0%, transparent 65%)",
-      }}
-    >
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         {/* Brand */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-amber-400 flex items-center justify-center mb-4 shadow-xl shadow-amber-400/20">
+          <div className="w-14 h-14 rounded-2xl bg-amber-400 flex items-center justify-center mb-4">
             <svg
               width="26"
               height="26"
@@ -52,19 +46,19 @@ export default function LoginPage() {
               <path d="M6 12v5c3 3 9 3 12 0v-5" />
             </svg>
           </div>
-          <h1 className="text-white text-xl font-bold tracking-tight">KMC Admin Portal</h1>
+          <h1 className="text-gray-900 text-xl font-bold tracking-tight">KMC Admin Portal</h1>
           <p className="text-gray-500 text-sm mt-1">Kathmandu Model Secondary School</p>
         </div>
 
         {/* Card */}
-        <div className="bg-gray-900 rounded-2xl border border-white/[0.07] shadow-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
           <div className="px-6 pt-6 pb-1">
-            <p className="text-gray-400 text-sm font-medium">Sign in to your account</p>
+            <p className="text-gray-600 text-sm font-medium">Sign in to your account</p>
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
             {error && (
-              <div className="flex items-start gap-2.5 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl px-4 py-3">
+              <div className="flex items-start gap-2.5 bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl px-4 py-3">
                 <svg
                   className="shrink-0 w-4 h-4 mt-0.5"
                   fill="none"
@@ -92,7 +86,7 @@ export default function LoginPage() {
                 autoComplete="email"
                 autoFocus
                 placeholder="admin@kmclalitpur.edu.np"
-                className="w-full bg-gray-800 border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400/50 transition-all"
+                className="w-full bg-white border border-gray-300 rounded-xl px-3.5 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 transition-all"
               />
             </div>
 
@@ -108,12 +102,12 @@ export default function LoginPage() {
                   required
                   autoComplete="current-password"
                   placeholder="••••••••"
-                  className="w-full bg-gray-800 border border-white/[0.08] rounded-xl px-3.5 py-2.5 pr-11 text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400/50 transition-all"
+                  className="w-full bg-white border border-gray-300 rounded-xl px-3.5 py-2.5 pr-11 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 transition-all"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPw((v) => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-300 transition-colors p-0.5"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-0.5"
                   aria-label={showPw ? "Hide password" : "Show password"}
                   tabIndex={-1}
                 >
@@ -152,7 +146,7 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <p className="text-center text-gray-700 text-xs mt-6">
+        <p className="text-center text-gray-400 text-xs mt-6">
           Authorised personnel only · KMC Lalitpur
         </p>
       </div>

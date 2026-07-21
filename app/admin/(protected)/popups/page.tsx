@@ -245,8 +245,8 @@ export default function PopupsAdminPage() {
 
   // ── Styles ───────────────────────────────────────────────────────────────────
 
-  const inputCls = "w-full bg-gray-800 border border-white/[0.08] rounded-lg px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-400/70 transition-colors";
-  const labelCls = "block text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-1.5";
+  const inputCls = "w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-400/20 transition-colors";
+  const labelCls = "block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5";
 
   // ── Render ───────────────────────────────────────────────────────────────────
 
@@ -254,7 +254,7 @@ export default function PopupsAdminPage() {
     <div className="p-6 max-w-5xl mx-auto">
       {/* Toast */}
       {toast && (
-        <div className="fixed top-4 right-4 z-[60] bg-green-900 border border-green-700 text-green-300 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
+        <div className="fixed top-4 right-4 z-[60] bg-white border border-green-200 text-green-700 text-sm font-medium px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
           <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
           {toast}
         </div>
@@ -263,8 +263,8 @@ export default function PopupsAdminPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-7 gap-4 flex-wrap">
         <div>
-          <h1 className="text-white text-xl font-bold">Popups</h1>
-          <p className="text-gray-600 text-sm mt-0.5">Create website popups with images, text, and action buttons.</p>
+          <h1 className="text-gray-900 text-xl font-bold">Popups</h1>
+          <p className="text-gray-400 text-sm mt-0.5">Create website popups with images, text, and action buttons.</p>
         </div>
         <button onClick={openAdd} className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-gray-900 text-sm font-bold rounded-lg transition-colors">
           + New Popup
@@ -272,11 +272,11 @@ export default function PopupsAdminPage() {
       </div>
 
       {/* Note */}
-      <div className="mb-6 bg-amber-400/8 border border-amber-400/20 rounded-xl px-4 py-3 flex items-start gap-3">
-        <svg className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-start gap-3">
+        <svg className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
         </svg>
-        <p className="text-amber-300 text-xs leading-relaxed">
+        <p className="text-amber-700 text-xs leading-relaxed">
           Only <strong>one popup</strong> can be active at a time. Activating a popup automatically deactivates all others.
         </p>
       </div>
@@ -285,25 +285,25 @@ export default function PopupsAdminPage() {
       {loading ? (
         <div className="space-y-3">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="bg-gray-900 border border-white/[0.06] rounded-xl p-5 animate-pulse flex gap-4">
-              <div className="w-24 h-16 bg-gray-800 rounded-lg shrink-0" />
+            <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 animate-pulse flex gap-4">
+              <div className="w-24 h-16 bg-gray-100 rounded-lg shrink-0" />
               <div className="flex-1 space-y-2">
-                <div className="h-4 bg-gray-800 rounded w-1/3" />
-                <div className="h-3 bg-gray-800 rounded w-2/3" />
-                <div className="h-3 bg-gray-800 rounded w-1/2" />
+                <div className="h-4 bg-gray-100 rounded w-1/3" />
+                <div className="h-3 bg-gray-100 rounded w-2/3" />
+                <div className="h-3 bg-gray-100 rounded w-1/2" />
               </div>
             </div>
           ))}
         </div>
       ) : popups.length === 0 ? (
-        <div className="text-center py-20 bg-gray-900 border border-white/[0.06] rounded-xl">
-          <div className="w-12 h-12 rounded-2xl bg-gray-800 flex items-center justify-center mx-auto mb-4">
-            <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <div className="text-center py-20 bg-white border border-gray-200 rounded-xl">
+          <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-4">
+            <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/>
             </svg>
           </div>
           <p className="text-gray-500 text-sm">No popups yet.</p>
-          <button onClick={openAdd} className="mt-3 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
+          <button onClick={openAdd} className="mt-3 text-amber-600 hover:text-amber-700 text-sm font-semibold transition-colors">
             Create your first popup →
           </button>
         </div>
@@ -312,16 +312,16 @@ export default function PopupsAdminPage() {
           {popups.map((p) => {
             const buttons = parseButtons(p.buttons);
             return (
-              <div key={p.id} className={`bg-gray-900 border rounded-xl overflow-hidden transition-all ${p.active ? "border-amber-400/40" : "border-white/[0.06] hover:border-white/[0.1]"}`}>
+              <div key={p.id} className={`bg-white border rounded-xl overflow-hidden transition-all ${p.active ? "border-amber-400/40" : "border-gray-200 hover:border-gray-300"}`}>
                 <div className="flex items-start gap-4 p-5">
                   {/* Image thumb */}
                   {p.imageUrl ? (
-                    <div className="relative w-28 h-18 rounded-lg overflow-hidden shrink-0 border border-white/[0.06]" style={{ height: "4.5rem" }}>
+                    <div className="relative w-28 h-18 rounded-lg overflow-hidden shrink-0 border border-gray-200" style={{ height: "4.5rem" }}>
                       <Image src={p.imageUrl} alt={p.title ?? "popup"} fill sizes="112px" className="object-cover" />
                     </div>
                   ) : (
-                    <div className="w-28 shrink-0 flex items-center justify-center h-[4.5rem] rounded-lg bg-gray-800 border border-white/[0.06]">
-                      <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <div className="w-28 shrink-0 flex items-center justify-center h-[4.5rem] rounded-lg bg-gray-100 border border-gray-200">
+                      <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
                       </svg>
                     </div>
@@ -330,19 +330,19 @@ export default function PopupsAdminPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      {p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20">● LIVE</span>}
-                      {!p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-gray-700 text-gray-500">Inactive</span>}
-                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                      {p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200">● LIVE</span>}
+                      {!p.active && <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">Inactive</span>}
+                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                         {p.frequency === "every_visit" ? "Every visit" : p.frequency === "session" ? "Once/session" : "Once/browser"}
                       </span>
-                      <span className="text-[9px] text-gray-600">{p.delaySeconds}s delay</span>
+                      <span className="text-[9px] text-gray-400">{p.delaySeconds}s delay</span>
                     </div>
-                    {p.title && <p className="text-white font-semibold text-sm truncate">{p.title}</p>}
+                    {p.title && <p className="text-gray-900 font-semibold text-sm truncate">{p.title}</p>}
                     {p.body && <p className="text-gray-500 text-xs mt-0.5 line-clamp-1">{p.body}</p>}
                     {buttons.length > 0 && (
                       <div className="flex gap-1 mt-2 flex-wrap">
                         {buttons.map((btn, i) => (
-                          <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-400 border border-white/[0.05]">
+                          <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-200">
                             {btn.label}
                           </span>
                         ))}
@@ -354,14 +354,14 @@ export default function PopupsAdminPage() {
                   <div className="flex flex-col gap-2 shrink-0">
                     <button
                       onClick={() => toggleActive(p)}
-                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${p.active ? "bg-gray-700 hover:bg-gray-600 text-gray-300" : "bg-green-500/15 hover:bg-green-500/25 text-green-400 border border-green-500/20"}`}
+                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${p.active ? "bg-gray-100 hover:bg-gray-200 text-gray-700" : "bg-green-50 hover:bg-green-100 text-green-700 border border-green-200"}`}
                     >
                       {p.active ? "Deactivate" : "Activate"}
                     </button>
-                    <button onClick={() => openEdit(p)} className="px-3 py-1.5 bg-white/[0.06] hover:bg-white/[0.1] text-gray-300 hover:text-white text-xs font-semibold rounded-lg transition-colors">
+                    <button onClick={() => openEdit(p)} className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 text-xs font-semibold rounded-lg transition-colors">
                       Edit
                     </button>
-                    <button onClick={() => setDeleteTarget(p)} className="px-3 py-1.5 bg-red-900/30 hover:bg-red-900/60 text-red-400 text-xs font-semibold rounded-lg transition-colors">
+                    <button onClick={() => setDeleteTarget(p)} className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold rounded-lg transition-colors">
                       Delete
                     </button>
                   </div>
@@ -376,13 +376,13 @@ export default function PopupsAdminPage() {
       {modal.open && (
         <div
           className="fixed inset-0 z-50 flex items-start justify-center p-4 overflow-y-auto"
-          style={{ backgroundColor: "rgba(0,0,0,0.8)" }}
+          style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
           onClick={(e) => { if (e.target === e.currentTarget) setModal({ open: false }); }}
         >
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-              <h2 className="text-white font-bold text-sm">{modal.popup ? "Edit Popup" : "New Popup"}</h2>
-              <button onClick={() => setModal({ open: false })} className="text-gray-500 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/[0.06]">
+          <div className="bg-white border border-gray-200 rounded-2xl w-full max-w-2xl my-8 shadow-2xl">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+              <h2 className="text-gray-900 font-bold text-sm">{modal.popup ? "Edit Popup" : "New Popup"}</h2>
+              <button onClick={() => setModal({ open: false })} className="text-gray-500 hover:text-gray-900 transition-colors p-1 rounded-lg hover:bg-gray-100">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
                 </svg>
@@ -390,11 +390,11 @@ export default function PopupsAdminPage() {
             </div>
 
             <form onSubmit={handleSave} className="p-6 space-y-5">
-              {formError && <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">{formError}</div>}
+              {formError && <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-3">{formError}</div>}
 
               {/* Title */}
               <div>
-                <label className={labelCls}>Title <span className="text-gray-600 font-normal normal-case tracking-normal">(optional headline)</span></label>
+                <label className={labelCls}>Title <span className="text-gray-400 font-normal normal-case tracking-normal">(optional headline)</span></label>
                 <input
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -405,7 +405,7 @@ export default function PopupsAdminPage() {
 
               {/* Body */}
               <div>
-                <label className={labelCls}>Body Text <span className="text-gray-600 font-normal normal-case tracking-normal">(optional)</span></label>
+                <label className={labelCls}>Body Text <span className="text-gray-400 font-normal normal-case tracking-normal">(optional)</span></label>
                 <textarea
                   value={form.body}
                   onChange={(e) => setForm({ ...form, body: e.target.value })}
@@ -417,14 +417,14 @@ export default function PopupsAdminPage() {
 
               {/* Image */}
               <div>
-                <label className={labelCls}>Banner Image <span className="text-gray-600 font-normal normal-case tracking-normal">(optional)</span></label>
-                <label className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 transition-colors cursor-pointer ${uploading ? "border-amber-400/50 bg-amber-400/5 cursor-wait" : "border-white/[0.08] hover:border-amber-400/50 hover:bg-white/[0.02]"}`}>
+                <label className={labelCls}>Banner Image <span className="text-gray-400 font-normal normal-case tracking-normal">(optional)</span></label>
+                <label className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 transition-colors cursor-pointer ${uploading ? "border-amber-400/50 bg-amber-50 cursor-wait" : "border-gray-300 hover:border-amber-400/50 hover:bg-gray-50"}`}>
                   {imagePreview ? (
                     <div className="w-full">
                       <div className="relative w-full h-36 rounded-lg overflow-hidden">
                         <Image src={imagePreview} alt="Preview" fill sizes="600px" className="object-cover" unoptimized={imagePreview.startsWith("blob:")} />
                       </div>
-                      <p className={`text-xs text-center mt-2 ${uploading ? "text-amber-400 animate-pulse" : "text-gray-500"}`}>
+                      <p className={`text-xs text-center mt-2 ${uploading ? "text-amber-700 animate-pulse" : "text-gray-500"}`}>
                         {uploading ? "Uploading…" : "Click to replace"}
                       </p>
                     </div>
@@ -433,15 +433,15 @@ export default function PopupsAdminPage() {
                       <svg className="w-8 h-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
                       </svg>
-                      <p className="text-gray-400 text-xs">Click to upload · JPG, PNG, WebP</p>
+                      <p className="text-gray-500 text-xs">Click to upload · JPG, PNG, WebP</p>
                     </>
                   )}
                   <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFileChange} disabled={uploading} className="sr-only" />
                 </label>
-                {uploadError && <p className="text-red-400 text-xs mt-1.5">{uploadError}</p>}
+                {uploadError && <p className="text-red-600 text-xs mt-1.5">{uploadError}</p>}
                 {imagePreview && !uploading && (
                   <button type="button" onClick={() => { setImagePreview(null); setForm((f) => ({ ...f, imageUrl: "" })); }}
-                    className="mt-1.5 text-xs text-gray-500 hover:text-red-400 transition-colors">
+                    className="mt-1.5 text-xs text-gray-500 hover:text-red-500 transition-colors">
                     Remove image
                   </button>
                 )}
@@ -459,10 +459,10 @@ export default function PopupsAdminPage() {
                           key={opt.value}
                           type="button"
                           onClick={() => setForm((f) => ({ ...f, imageFit: opt.value }))}
-                          className={`flex-1 px-3 py-2.5 rounded-xl border text-left transition-all ${form.imageFit === opt.value ? "border-amber-400 bg-amber-400/10" : "border-white/[0.08] bg-gray-800 hover:border-white/20"}`}
+                          className={`flex-1 px-3 py-2.5 rounded-xl border text-left transition-all ${form.imageFit === opt.value ? "border-amber-400 bg-amber-50" : "border-gray-300 bg-gray-50 hover:border-gray-400"}`}
                         >
-                          <p className={`text-xs font-bold ${form.imageFit === opt.value ? "text-amber-400" : "text-gray-300"}`}>{opt.label}</p>
-                          <p className="text-[10px] text-gray-600 mt-0.5">{opt.desc}</p>
+                          <p className={`text-xs font-bold ${form.imageFit === opt.value ? "text-amber-700" : "text-gray-700"}`}>{opt.label}</p>
+                          <p className="text-[10px] text-gray-400 mt-0.5">{opt.desc}</p>
                         </button>
                       ))}
                     </div>
@@ -472,19 +472,19 @@ export default function PopupsAdminPage() {
 
               {/* Buttons builder */}
               <div>
-                <label className={labelCls}>Action Buttons <span className="text-gray-600 font-normal normal-case tracking-normal">(optional, add up to 3)</span></label>
+                <label className={labelCls}>Action Buttons <span className="text-gray-400 font-normal normal-case tracking-normal">(optional, add up to 3)</span></label>
 
                 {/* Existing buttons */}
                 {form.buttons.length > 0 && (
                   <div className="space-y-2 mb-3">
                     {form.buttons.map((btn, i) => (
-                      <div key={i} className="flex items-center gap-2 bg-gray-800 border border-white/[0.06] rounded-lg px-3 py-2">
-                        <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${btn.style === "primary" ? "bg-amber-400 text-gray-900" : btn.style === "secondary" ? "bg-gray-700 text-gray-300" : "border border-gray-500 text-gray-400"}`}>
+                      <div key={i} className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+                        <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${btn.style === "primary" ? "bg-amber-400 text-gray-900" : btn.style === "secondary" ? "bg-gray-100 text-gray-700" : "border border-gray-300 text-gray-500"}`}>
                           {btn.style}
                         </span>
-                        <span className="text-white text-xs font-semibold truncate">{btn.label}</span>
-                        <span className="text-gray-600 text-xs truncate flex-1">→ {btn.url}</span>
-                        <button type="button" onClick={() => removeButton(i)} className="text-gray-600 hover:text-red-400 transition-colors shrink-0">
+                        <span className="text-gray-900 text-xs font-semibold truncate">{btn.label}</span>
+                        <span className="text-gray-400 text-xs truncate flex-1">→ {btn.url}</span>
+                        <button type="button" onClick={() => removeButton(i)} className="text-gray-400 hover:text-red-500 transition-colors shrink-0">
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
                           </svg>
@@ -496,7 +496,7 @@ export default function PopupsAdminPage() {
 
                 {/* Add new button */}
                 {form.buttons.length < 3 && (
-                  <div className="bg-gray-800/60 border border-white/[0.06] rounded-xl p-4 space-y-3">
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-3">
                     <p className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Add Button</p>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
@@ -526,7 +526,7 @@ export default function PopupsAdminPage() {
                             key={s}
                             type="button"
                             onClick={() => setNewBtn({ ...newBtn, style: s })}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${newBtn.style === s ? (s === "primary" ? "bg-amber-400 text-gray-900 border-amber-400" : s === "secondary" ? "bg-gray-600 text-white border-gray-600" : "border-white text-white") : "border-gray-700 text-gray-500 hover:border-gray-500"}`}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${newBtn.style === s ? (s === "primary" ? "bg-amber-400 text-gray-900 border-amber-400" : s === "secondary" ? "bg-gray-700 text-white border-gray-700" : "border-gray-900 text-gray-900") : "border-gray-300 text-gray-500 hover:border-gray-400"}`}
                           >
                             {s}
                           </button>
@@ -537,7 +537,7 @@ export default function PopupsAdminPage() {
                       type="button"
                       onClick={addButton}
                       disabled={!newBtn.label.trim() || !newBtn.url.trim()}
-                      className="w-full py-2 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-40 text-gray-300 text-xs font-bold rounded-lg transition-colors"
+                      className="w-full py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-40 text-gray-700 text-xs font-bold rounded-lg transition-colors"
                     >
                       + Add Button
                     </button>
@@ -554,17 +554,17 @@ export default function PopupsAdminPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setForm((f) => ({ ...f, frequency: opt.value }))}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border text-left transition-all ${form.frequency === opt.value ? "border-amber-400 bg-amber-400/10" : "border-white/[0.08] bg-gray-800 hover:border-white/20"}`}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border text-left transition-all ${form.frequency === opt.value ? "border-amber-400 bg-amber-50" : "border-gray-300 bg-gray-50 hover:border-gray-400"}`}
                     >
-                      <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center ${form.frequency === opt.value ? "border-amber-400" : "border-gray-600"}`}>
+                      <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center ${form.frequency === opt.value ? "border-amber-400" : "border-gray-300"}`}>
                         {form.frequency === opt.value && <div className="w-2 h-2 rounded-full bg-amber-400" />}
                       </div>
                       <div>
-                        <p className={`text-sm font-semibold ${form.frequency === opt.value ? "text-amber-400" : "text-gray-300"}`}>{opt.label}</p>
-                        <p className="text-xs text-gray-600 mt-0.5">{opt.desc}</p>
+                        <p className={`text-sm font-semibold ${form.frequency === opt.value ? "text-amber-700" : "text-gray-700"}`}>{opt.label}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{opt.desc}</p>
                       </div>
                       {opt.value === "session" && (
-                        <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20 shrink-0">Recommended</span>
+                        <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200 shrink-0">Recommended</span>
                       )}
                     </button>
                   ))}
@@ -585,14 +585,14 @@ export default function PopupsAdminPage() {
                 <div className="flex flex-col justify-end pb-0.5">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })}
-                      className="w-4 h-4 rounded accent-amber-400" />
-                    <span className="text-gray-400 text-sm">Active (live on site)</span>
+                      className="w-4 h-4 rounded accent-amber-500" />
+                    <span className="text-gray-500 text-sm">Active (live on site)</span>
                   </label>
                 </div>
               </div>
 
               {form.active && (
-                <div className="bg-amber-400/8 border border-amber-400/20 rounded-lg px-4 py-2.5 text-amber-300 text-xs">
+                <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-2.5 text-amber-700 text-xs">
                   ⚠️ Activating this popup will automatically deactivate any currently active popup.
                 </div>
               )}
@@ -600,7 +600,7 @@ export default function PopupsAdminPage() {
               {/* Footer */}
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setModal({ open: false })} disabled={saving}
-                  className="flex-1 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors">
+                  className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
                   Cancel
                 </button>
                 <button type="submit" disabled={saving || uploading}
@@ -625,17 +625,17 @@ export default function PopupsAdminPage() {
 
       {/* Delete confirm */}
       {deleteTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/40"
           onClick={(e) => { if (e.target === e.currentTarget) setDeleteTarget(null); }}>
-          <div className="bg-gray-900 border border-white/[0.08] rounded-2xl p-6 w-full max-w-sm shadow-2xl">
-            <h3 className="text-white font-bold text-sm mb-1">Delete popup?</h3>
-            <p className="text-gray-600 text-xs mb-5">This cannot be undone.</p>
-            <div className="bg-gray-800 rounded-lg px-3 py-2.5 mb-5">
-              <p className="text-gray-300 text-sm font-semibold">{deleteTarget.title ?? "(no title)"}</p>
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+            <h3 className="text-gray-900 font-bold text-sm mb-1">Delete popup?</h3>
+            <p className="text-gray-400 text-xs mb-5">This cannot be undone.</p>
+            <div className="bg-gray-50 rounded-lg px-3 py-2.5 mb-5">
+              <p className="text-gray-700 text-sm font-semibold">{deleteTarget.title ?? "(no title)"}</p>
             </div>
             <div className="flex gap-2">
               <button onClick={() => setDeleteTarget(null)} disabled={deleting}
-                className="flex-1 px-4 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] disabled:opacity-50 text-gray-300 text-sm font-semibold rounded-lg transition-colors">
+                className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
                 Cancel
               </button>
               <button onClick={confirmDelete} disabled={deleting}
