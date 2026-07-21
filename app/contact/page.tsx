@@ -58,12 +58,6 @@ const departments = [
     email: `admissions@${SITE_CONFIG.email.split("@")[1]}`,
     hours: "Sun–Fri, 9AM–4PM",
   },
-  {
-    name: "Principal's Office",
-    phone: SITE_CONFIG.phone,
-    email: `principal@${SITE_CONFIG.email.split("@")[1]}`,
-    hours: "By appointment",
-  },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
