@@ -72,6 +72,9 @@ export default function AdminCareersPage() {
   const [exporting, setExporting] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [deleting, setDeleting] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [confirmBulkDelete, setConfirmBulkDelete] = useState(false);
+  const [bulkDeleting, setBulkDeleting] = useState(false);
 
   useEffect(() => {
     fetch("/api/admin/vacancies")
@@ -119,6 +122,7 @@ export default function AdminCareersPage() {
 
   useEffect(() => {
     load();
+    setSelected(new Set());
   }, [load]);
 
   async function deleteApplication(id: string) {
@@ -126,6 +130,35 @@ export default function AdminCareersPage() {
     await fetch(`/api/admin/careers/${id}`, { method: "DELETE" });
     setDeleting(null);
     setConfirmDelete(null);
+    setExpanded(null);
+    load();
+  }
+
+  function toggleSelected(id: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function toggleSelectAll() {
+    setSelected((prev) =>
+      prev.size === applications.length ? new Set() : new Set(applications.map((a) => a.id))
+    );
+  }
+
+  async function bulkDelete() {
+    setBulkDeleting(true);
+    await fetch("/api/admin/careers/bulk", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ids: Array.from(selected) }),
+    });
+    setBulkDeleting(false);
+    setConfirmBulkDelete(false);
+    setSelected(new Set());
     setExpanded(null);
     load();
   }
@@ -251,6 +284,27 @@ export default function AdminCareersPage() {
         )}
       </div>
 
+      {/* Bulk action bar */}
+      {selected.size > 0 && (
+        <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-4">
+          <span className="text-amber-800 text-sm font-semibold">
+            {selected.size} selected
+          </span>
+          <button
+            onClick={() => setSelected(new Set())}
+            className="text-amber-700 hover:text-amber-800 text-xs font-medium transition-colors"
+          >
+            Clear
+          </button>
+          <button
+            onClick={() => setConfirmBulkDelete(true)}
+            className="ml-auto px-3.5 py-1.5 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg transition-colors"
+          >
+            Delete Selected
+          </button>
+        </div>
+      )}
+
       {/* Table */}
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden mb-5">
         {loading ? (
@@ -295,6 +349,15 @@ export default function AdminCareersPage() {
             <table className="w-full text-sm min-w-[820px]">
               <thead>
                 <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 w-8">
+                    <input
+                      type="checkbox"
+                      checked={applications.length > 0 && selected.size === applications.length}
+                      onChange={toggleSelectAll}
+                      className="w-3.5 h-3.5 rounded border-gray-300 accent-amber-500 cursor-pointer"
+                      aria-label="Select all applications on this page"
+                    />
+                  </th>
                   <th className="text-left text-gray-400 text-[10px] font-bold uppercase tracking-wider px-4 py-3">
                     Name
                   </th>
@@ -325,6 +388,15 @@ export default function AdminCareersPage() {
                         setExpanded(expanded === app.id ? null : app.id)
                       }
                     >
+                      <td className="px-4 py-3.5" onClick={(e) => e.stopPropagation()}>
+                        <input
+                          type="checkbox"
+                          checked={selected.has(app.id)}
+                          onChange={() => toggleSelected(app.id)}
+                          className="w-3.5 h-3.5 rounded border-gray-300 accent-amber-500 cursor-pointer"
+                          aria-label={`Select application from ${app.fullName}`}
+                        />
+                      </td>
                       <td className="px-4 py-3.5">
                         <p className="text-gray-900 font-medium">{app.fullName}</p>
                         <p className="text-gray-400 text-xs mt-0.5">
@@ -374,7 +446,7 @@ export default function AdminCareersPage() {
                     {expanded === app.id && (
                       <tr key={`${app.id}-expanded`}>
                         <td
-                          colSpan={6}
+                          colSpan={7}
                           className="px-4 py-4 bg-gray-50 border-b border-gray-100"
                         >
                           <div className="max-w-3xl space-y-3">
@@ -468,6 +540,36 @@ export default function AdminCareersPage() {
           >
             Next →
           </button>
+        </div>
+      )}
+
+      {/* Bulk delete confirmation modal */}
+      {confirmBulkDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/40 backdrop-blur-sm px-4">
+          <div className="bg-white border border-gray-200 rounded-xl p-6 max-w-sm w-full shadow-2xl">
+            <h3 className="text-gray-900 font-bold text-base mb-2">
+              Delete {selected.size} application{selected.size !== 1 ? "s" : ""}?
+            </h3>
+            <p className="text-gray-500 text-sm mb-6">
+              This will permanently delete {selected.size === 1 ? "this application" : "these applications"} and their uploaded CVs from storage. This cannot be undone.
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setConfirmBulkDelete(false)}
+                disabled={bulkDeleting}
+                className="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 bg-gray-100 border border-gray-200 rounded-lg transition-colors disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={bulkDelete}
+                disabled={bulkDeleting}
+                className="px-4 py-2 text-sm font-semibold text-white bg-red-600 hover:bg-red-500 rounded-lg transition-colors disabled:opacity-50"
+              >
+                {bulkDeleting ? "Deleting…" : "Delete"}
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
