@@ -102,7 +102,7 @@ export default async function BlogPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-16 bg-[#1B3E72] text-white">
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 mb-10">
           <div className="flex items-center gap-2 text-[#8ba7c7] text-sm">

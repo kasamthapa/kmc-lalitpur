@@ -230,7 +230,7 @@ export default function Admissions() {
       />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#1B3E72] overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
@@ -259,7 +259,7 @@ export default function Admissions() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
                 >
                   Contact Admissions
                   <IconArrow />
@@ -325,10 +325,10 @@ export default function Admissions() {
           <div className="flex items-center gap-4">
             <span className="text-3xl hidden sm:block">🎓</span>
             <div>
-              <p className="text-[#0B1F3A] font-bold text-lg leading-tight">
+              <p className="text-[#1B3E72] font-bold text-lg leading-tight">
                 Entrance Examination Information
               </p>
-              <p className="text-[#0B1F3A]/70 text-sm mt-0.5">
+              <p className="text-[#1B3E72]/70 text-sm mt-0.5">
                 Review the Science, Management, and Law admission process for
                 the next intake.
               </p>
@@ -336,7 +336,7 @@ export default function Admissions() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 inline-flex items-center gap-2 px-7 py-3 bg-[#0B1F3A] text-white font-bold rounded-xl hover:bg-[#162e57] transition-colors whitespace-nowrap"
+            className="shrink-0 inline-flex items-center gap-2 px-7 py-3 bg-[#1B3E72] text-white font-bold rounded-xl hover:bg-[#162e57] transition-colors whitespace-nowrap"
           >
             Contact Admissions
             <IconArrow size={16} />
@@ -352,7 +352,7 @@ export default function Admissions() {
               <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-1">
                 Entrance Preparation
               </p>
-              <h2 className="text-xl font-bold text-[#0B1F3A]">
+              <h2 className="text-xl font-bold text-[#1B3E72]">
                 Model Question Papers 2083
               </h2>
             </div>
@@ -369,7 +369,7 @@ export default function Admissions() {
               download
               className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
             >
-              <div className="w-12 h-12 bg-amber-400 flex items-center justify-center shrink-0 text-[#0B1F3A] group-hover:bg-amber-300 transition-colors">
+              <div className="w-12 h-12 bg-amber-400 flex items-center justify-center shrink-0 text-[#1B3E72] group-hover:bg-amber-300 transition-colors">
                 <svg
                   width="22"
                   height="22"
@@ -388,7 +388,7 @@ export default function Admissions() {
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                <p className="font-bold text-[#1B3E72] text-sm leading-tight">
                   Management Stream
                 </p>
                 <p className="text-xs text-[#6b7280] mt-0.5">
@@ -419,7 +419,7 @@ export default function Admissions() {
               download
               className="group flex items-center gap-4 p-5 border-2 border-[#eae6de] hover:border-amber-400 hover:bg-amber-50 transition-all duration-200"
             >
-              <div className="w-12 h-12 bg-[#0B1F3A] flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-[#162e57] transition-colors">
+              <div className="w-12 h-12 bg-[#1B3E72] flex items-center justify-center shrink-0 text-amber-400 group-hover:bg-[#162e57] transition-colors">
                 <svg
                   width="22"
                   height="22"
@@ -438,7 +438,7 @@ export default function Admissions() {
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                <p className="font-bold text-[#1B3E72] text-sm leading-tight">
                   Law Stream
                 </p>
                 <p className="text-xs text-[#6b7280] mt-0.5">
@@ -472,7 +472,7 @@ export default function Admissions() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-3" />
-              <h2 className="text-4xl font-bold text-[#0B1F3A]">
+              <h2 className="text-4xl font-bold text-[#1B3E72]">
                 Admission in 3 Steps
               </h2>
             </div>
@@ -504,13 +504,13 @@ export default function Admissions() {
                 key={i}
                 className={`relative p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200 ${i < 2 ? "md:border-r border-[#eae6de]" : ""}`}
               >
-                <p className="text-[7rem] font-bold text-[#0B1F3A]/[0.05] leading-none select-none absolute top-4 right-6">
+                <p className="text-[7rem] font-bold text-[#1B3E72]/[0.05] leading-none select-none absolute top-4 right-6">
                   {item.step}
                 </p>
                 <p className="text-amber-500 font-bold text-xs tracking-widest uppercase mb-3">
                   Step {item.step}
                 </p>
-                <h3 className="font-bold text-[#0B1F3A] text-xl mb-3 relative">
+                <h3 className="font-bold text-[#1B3E72] text-xl mb-3 relative">
                   {item.title}
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed relative">
@@ -527,7 +527,7 @@ export default function Admissions() {
       <section id="guide" className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-2">
+            <h2 className="text-4xl font-bold text-[#1B3E72] mb-2">
               Detailed Admission Guide
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
@@ -545,8 +545,8 @@ export default function Admissions() {
                 onClick={() => setActiveStream(key)}
                 className={`px-5 py-2.5 font-bold text-sm transition-all duration-200 border-b-2 -mb-px ${
                   activeStream === key
-                    ? "border-amber-400 text-[#0B1F3A]"
-                    : "border-transparent text-slate-400 hover:text-[#0B1F3A]"
+                    ? "border-amber-400 text-[#1B3E72]"
+                    : "border-transparent text-slate-400 hover:text-[#1B3E72]"
                 }`}
               >
                 {streams[key].label}
@@ -563,12 +563,12 @@ export default function Admissions() {
               >
                 <div className="flex items-start gap-8 p-8">
                   <div className="shrink-0 pt-1">
-                    <p className="text-5xl font-bold text-[#0B1F3A]/10 leading-none select-none">
+                    <p className="text-5xl font-bold text-[#1B3E72]/10 leading-none select-none">
                       {step.num}
                     </p>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">
+                    <h3 className="text-xl font-bold text-[#1B3E72] mb-3">
                       {step.title}
                     </h3>
                     <p className="text-slate-600 mb-6 leading-relaxed text-sm">
@@ -576,7 +576,7 @@ export default function Admissions() {
                     </p>
 
                     <div className="mb-5">
-                      <p className="font-bold text-[#0B1F3A] mb-3 text-xs uppercase tracking-wider">
+                      <p className="font-bold text-[#1B3E72] mb-3 text-xs uppercase tracking-wider">
                         Requirements & Details
                       </p>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -607,7 +607,7 @@ export default function Admissions() {
           <div className="mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
               Ask About {currentGuide.label}
               <IconArrow />
@@ -617,7 +617,7 @@ export default function Admissions() {
       </section>
 
       {/* Scholarships */}
-      <section id="scholarships" className="py-24 bg-[#0B1F3A]">
+      <section id="scholarships" className="py-24 bg-[#1B3E72]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
@@ -878,7 +878,7 @@ export default function Admissions() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-3" />
-              <h2 className="text-4xl font-bold text-[#0B1F3A]">
+              <h2 className="text-4xl font-bold text-[#1B3E72]">
                 Admission Timeline
               </h2>
             </div>
@@ -899,7 +899,7 @@ export default function Admissions() {
                       <p className="text-amber-600 font-bold text-xs tracking-wider uppercase mb-0.5">
                         {item.step}
                       </p>
-                      <h3 className="font-bold text-[#0B1F3A] mb-1">
+                      <h3 className="font-bold text-[#1B3E72] mb-1">
                         {item.event}
                       </h3>
                       <p className="text-slate-500 text-sm leading-relaxed">
@@ -918,7 +918,7 @@ export default function Admissions() {
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-14">
-            <h2 className="text-4xl font-bold text-[#0B1F3A] mb-2">
+            <h2 className="text-4xl font-bold text-[#1B3E72] mb-2">
               Eligibility & Documents
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
@@ -928,10 +928,10 @@ export default function Admissions() {
             {/* Documents */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="text-[#0B1F3A]">
+                <div className="text-[#1B3E72]">
                   <IconDoc size={22} />
                 </div>
-                <h3 className="text-lg font-bold text-[#0B1F3A]">
+                <h3 className="text-lg font-bold text-[#1B3E72]">
                   Required Documents
                 </h3>
               </div>
@@ -953,10 +953,10 @@ export default function Admissions() {
             {/* General Eligibility */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="text-[#0B1F3A]">
+                <div className="text-[#1B3E72]">
                   <IconAward size={22} />
                 </div>
-                <h3 className="text-lg font-bold text-[#0B1F3A]">
+                <h3 className="text-lg font-bold text-[#1B3E72]">
                   Stream Eligibility
                 </h3>
               </div>
@@ -986,7 +986,7 @@ export default function Admissions() {
                     className="border-l-4 border-amber-400 pl-4 py-4 mb-4"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-[#0B1F3A] text-sm">
+                      <span className="font-bold text-[#1B3E72] text-sm">
                         {s.stream} Stream
                       </span>
                       <span className="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
@@ -1003,7 +1003,7 @@ export default function Admissions() {
       </section>
 
       {/* Contact / CTA cards */}
-      <section className="py-24 bg-[#0B1F3A]">
+      <section className="py-24 bg-[#1B3E72]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 mb-14">
             <div className="p-8 hover:bg-white/[0.03] transition-colors">
@@ -1071,7 +1071,7 @@ export default function Admissions() {
             </div>
             <Link
               href="/faq"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm"
             >
               View FAQ <IconArrow />
             </Link>
@@ -1088,7 +1088,7 @@ export default function Admissions() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
               Contact Admissions
               <IconArrow />

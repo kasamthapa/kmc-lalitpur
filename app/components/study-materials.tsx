@@ -40,7 +40,7 @@ export function StudyMaterialsFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Study Materials"
-      className="group flex items-center gap-2 bg-amber-400 text-[#0B1F3A] font-bold text-sm shadow-xl hover:bg-amber-300 active:scale-95 transition-all duration-200"
+      className="group flex items-center gap-2 bg-amber-400 text-[#1B3E72] font-bold text-sm shadow-xl hover:bg-amber-300 active:scale-95 transition-all duration-200"
       style={{
         borderRadius: "18px",
         padding: "0 18px 0 14px",

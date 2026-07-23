@@ -44,8 +44,8 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                 onClick={() => setActiveDept(dept)}
                 className={`px-4 py-1.5 text-sm font-semibold transition-all duration-150 border ${
                   activeDept === dept
-                    ? "bg-[#0B1F3A] text-white border-[#0B1F3A]"
-                    : "bg-transparent text-[#374151] border-[#d1cdc5] hover:border-[#0B1F3A] hover:text-[#0B1F3A]"
+                    ? "bg-[#1B3E72] text-white border-[#1B3E72]"
+                    : "bg-transparent text-[#374151] border-[#d1cdc5] hover:border-[#1B3E72] hover:text-[#1B3E72]"
                 } rounded-lg`}
               >
                 {dept}
@@ -65,7 +65,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
         <div className="max-w-7xl mx-auto px-4">
           {filtered.length === 0 && (
             <div className="text-center py-24">
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">Faculty profiles coming soon</h3>
+              <h3 className="text-xl font-bold text-[#1B3E72] mb-2">Faculty profiles coming soon</h3>
               <p className="text-[#6b7280]">We&apos;re updating our faculty directory. Check back soon.</p>
             </div>
           )}
@@ -109,7 +109,7 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
                     >
                       {member.dept}
                     </p>
-                    <h3 className="font-bold text-[#0B1F3A] text-base leading-snug mb-0.5 group-hover:text-amber-600 transition">
+                    <h3 className="font-bold text-[#1B3E72] text-base leading-snug mb-0.5 group-hover:text-amber-600 transition">
                       {member.name}
                     </h3>
                     <p className="text-sm text-[#6b7280] mb-4">{member.title}</p>

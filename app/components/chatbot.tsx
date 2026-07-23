@@ -128,9 +128,9 @@ export function Chatbot() {
       {open && (
         <div className="fixed bottom-48 right-6 z-50 w-[340px] sm:w-[380px] max-h-[560px] bg-white rounded-2xl shadow-2xl border border-[#eae6de] flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="bg-[#0B1F3A] px-5 py-4 flex items-center justify-between shrink-0">
+          <div className="bg-[#1B3E72] px-5 py-4 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#0B1F3A] text-sm">
+              <div className="w-9 h-9 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#1B3E72] text-sm">
                 K
               </div>
               <div>
@@ -161,14 +161,14 @@ export function Chatbot() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 {msg.role === "bot" && (
-                  <div className="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#0B1F3A] text-xs mr-2 mt-1 shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#1B3E72] text-xs mr-2 mt-1 shrink-0">
                     K
                   </div>
                 )}
                 <div
                   className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${
                     msg.role === "user"
-                      ? "bg-[#0B1F3A] text-white rounded-tr-sm"
+                      ? "bg-[#1B3E72] text-white rounded-tr-sm"
                       : "bg-white text-[#374151] rounded-tl-sm border border-[#eae6de] shadow-sm"
                   }`}
                 >
@@ -182,7 +182,7 @@ export function Chatbot() {
 
             {typing && (
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#0B1F3A] text-xs shrink-0">
+                <div className="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center font-bold text-[#1B3E72] text-xs shrink-0">
                   K
                 </div>
                 <div className="bg-white border border-[#eae6de] rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
@@ -230,7 +230,7 @@ export function Chatbot() {
             <button
               onClick={() => send()}
               disabled={!input.trim() || typing}
-              className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-white flex items-center justify-center hover:bg-[#162d54] disabled:opacity-40 transition shrink-0"
+              className="w-10 h-10 rounded-xl bg-[#1B3E72] text-white flex items-center justify-center hover:bg-[#162d54] disabled:opacity-40 transition shrink-0"
               aria-label="Send"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -245,7 +245,7 @@ export function Chatbot() {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-[#0B1F3A] text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform"
+        className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-[#1B3E72] text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform"
         aria-label={open ? "Close chat" : "Open chat"}
       >
         {open ? (
@@ -259,7 +259,7 @@ export function Chatbot() {
           </svg>
         )}
         {!open && messages.length > 1 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-amber-400 rounded-full text-[#0B1F3A] text-xs font-bold flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-amber-400 rounded-full text-[#1B3E72] text-xs font-bold flex items-center justify-center">
             {messages.filter((m) => m.role === "bot").length}
           </span>
         )}

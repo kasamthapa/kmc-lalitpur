@@ -131,7 +131,7 @@ export default function Contact() {
       />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#1B3E72] overflow-hidden">
         <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-10 text-sm text-[#8ba7c7]">
@@ -194,7 +194,7 @@ export default function Contact() {
             {/* Form — wider column */}
             <div className="lg:col-span-3">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-[#0B1F3A] leading-tight mb-2">
+                <h2 className="text-3xl font-bold text-[#1B3E72] leading-tight mb-2">
                   Send Us a Message
                 </h2>
                 <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -202,10 +202,10 @@ export default function Contact() {
 
               {submitted ? (
                 <div className="bg-white p-10 border border-[#e8e8e8] text-center">
-                  <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-5 text-[#0B1F3A]">
+                  <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-5 text-[#1B3E72]">
                     <IconCheck />
                   </div>
-                  <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">
+                  <h3 className="text-xl font-bold text-[#1B3E72] mb-3">
                     Message Sent
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
@@ -236,7 +236,7 @@ export default function Contact() {
                   {/* Name + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                         Full Name <span className="text-red-400">*</span>
                       </label>
                       <input
@@ -245,12 +245,12 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.name ? "border-red-400" : "border-[#e0dcd4]"}`}
+                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#1B3E72] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.name ? "border-red-400" : "border-[#e0dcd4]"}`}
                       />
                       {fieldErrors.name && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                         Phone Number
                       </label>
                       <input
@@ -259,14 +259,14 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+977"
-                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors"
+                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#1B3E72] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                    <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                       Email Address <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -275,7 +275,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.email@example.com"
-                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.email ? "border-red-400" : "border-[#e0dcd4]"}`}
+                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#1B3E72] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.email ? "border-red-400" : "border-[#e0dcd4]"}`}
                     />
                     {fieldErrors.email && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.email}</p>}
                   </div>
@@ -283,7 +283,7 @@ export default function Contact() {
                   {/* Subject + Stream */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                         Subject
                       </label>
                       <input
@@ -292,19 +292,19 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can we help?"
-                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.subject ? "border-red-400" : "border-[#e0dcd4]"}`}
+                        className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#1B3E72] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors ${fieldErrors.subject ? "border-red-400" : "border-[#e0dcd4]"}`}
                       />
                       {fieldErrors.subject && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.subject}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                         Interested Stream
                       </label>
                       <select
                         name="stream"
                         value={formData.stream}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#0B1F3A] focus:outline-none focus:border-amber-400 transition-colors"
+                        className="w-full px-4 py-3 border-b-2 border-[#e0dcd4] bg-white text-sm text-[#1B3E72] focus:outline-none focus:border-amber-400 transition-colors"
                       >
                         <option value="">Select a stream</option>
                         <option value="science">Science</option>
@@ -317,7 +317,7 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#0B1F3A] mb-2 uppercase tracking-wider">
+                    <label className="block text-xs font-semibold text-[#1B3E72] mb-2 uppercase tracking-wider">
                       Message <span className="text-red-400">*</span>
                     </label>
                     <textarea
@@ -326,7 +326,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us how we can help you..."
                       rows={5}
-                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#0B1F3A] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors resize-none ${fieldErrors.message ? "border-red-400" : "border-[#e0dcd4]"}`}
+                      className={`w-full px-4 py-3 border-b-2 bg-white text-sm text-[#1B3E72] placeholder-slate-400 focus:outline-none focus:border-amber-400 transition-colors resize-none ${fieldErrors.message ? "border-red-400" : "border-[#e0dcd4]"}`}
                     />
                     {fieldErrors.message && <p className="mt-1.5 text-xs text-red-500">{fieldErrors.message}</p>}
                   </div>
@@ -340,7 +340,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-400/20"
                   >
                     {loading ? (
                       <>
@@ -390,7 +390,7 @@ export default function Contact() {
             <div className="lg:col-span-2 flex flex-col gap-10">
               {/* Map */}
               <div>
-                <h3 className="font-bold text-[#0B1F3A] mb-4 text-lg">Visit Our Campus</h3>
+                <h3 className="font-bold text-[#1B3E72] mb-4 text-lg">Visit Our Campus</h3>
                 <div className="overflow-hidden border border-[#e8e8e8] h-56">
                   <iframe
                     width="100%"
@@ -407,7 +407,7 @@ export default function Contact() {
                   href="https://maps.google.com/?q=Balkumari,Lalitpur,Nepal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 flex items-center gap-2 text-sm font-semibold text-[#0B1F3A] hover:text-amber-600 transition-colors"
+                  className="mt-3 flex items-center gap-2 text-sm font-semibold text-[#1B3E72] hover:text-amber-600 transition-colors"
                 >
                   <IconMapPin size={16} />
                   Get Directions on Google Maps
@@ -416,20 +416,20 @@ export default function Contact() {
 
               {/* Contact info — clean list, no card borders */}
               <div>
-                <h3 className="font-bold text-[#0B1F3A] mb-5 text-lg">Contact Information</h3>
+                <h3 className="font-bold text-[#1B3E72] mb-5 text-lg">Contact Information</h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
                     <span className="text-amber-500 mt-0.5 shrink-0"><IconPhone size={18} /></span>
                     <div>
                       <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Phone</p>
-                      <a href={SITE_CONFIG.phoneHref} className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors">{SITE_CONFIG.phone}</a>
+                      <a href={SITE_CONFIG.phoneHref} className="text-sm text-[#1B3E72] font-semibold hover:text-amber-600 transition-colors">{SITE_CONFIG.phone}</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <span className="text-amber-500 mt-0.5 shrink-0"><IconMail size={18} /></span>
                     <div>
                       <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Email</p>
-                      <a href={`mailto:${SITE_CONFIG.email}`} className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors block">{SITE_CONFIG.email}</a>
+                      <a href={`mailto:${SITE_CONFIG.email}`} className="text-sm text-[#1B3E72] font-semibold hover:text-amber-600 transition-colors block">{SITE_CONFIG.email}</a>
                       <a href={`mailto:admissions@${SITE_CONFIG.email.split("@")[1]}`} className="text-sm text-slate-500 hover:text-amber-600 transition-colors block mt-0.5">{`admissions@${SITE_CONFIG.email.split("@")[1]}`}</a>
                     </div>
                   </div>
@@ -437,7 +437,7 @@ export default function Contact() {
                     <span className="text-amber-500 mt-0.5 shrink-0"><IconMapPin size={18} /></span>
                     <div>
                       <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Address</p>
-                      <a href={SITE_CONFIG.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#0B1F3A] font-semibold hover:text-amber-600 transition-colors">
+                      <a href={SITE_CONFIG.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#1B3E72] font-semibold hover:text-amber-600 transition-colors">
                         {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.addressLocality}
                       </a>
                       <p className="text-xs text-slate-400 mt-0.5">Kathmandu Valley, Nepal</p>
@@ -447,7 +447,7 @@ export default function Contact() {
                     <span className="text-amber-500 mt-0.5 shrink-0"><IconClock size={18} /></span>
                     <div>
                       <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Office Hours</p>
-                      <p className="text-sm text-[#0B1F3A] font-semibold">Sun – Fri: 8 AM – 5 PM</p>
+                      <p className="text-sm text-[#1B3E72] font-semibold">Sun – Fri: 8 AM – 5 PM</p>
                       <p className="text-sm text-slate-500 mt-0.5">Saturday: 10 AM – 3 PM</p>
                     </div>
                   </div>
@@ -456,11 +456,11 @@ export default function Contact() {
 
               {/* Department contacts — minimal */}
               <div>
-                <h3 className="font-bold text-[#0B1F3A] mb-4 text-lg">By Department</h3>
+                <h3 className="font-bold text-[#1B3E72] mb-4 text-lg">By Department</h3>
                 <div className="space-y-3">
                   {departments.map((dept, i) => (
                     <div key={i} className="pb-3 border-b border-[#eae6de] last:border-0">
-                      <p className="font-semibold text-[#0B1F3A] text-sm mb-1">{dept.name}</p>
+                      <p className="font-semibold text-[#1B3E72] text-sm mb-1">{dept.name}</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1">
                         <a href={`tel:${dept.phone.replace(/[^+\d]/g, "")}`} className="text-xs text-slate-500 hover:text-amber-600 transition-colors">{dept.phone}</a>
                         <a href={`mailto:${dept.email}`} className="text-xs text-slate-500 hover:text-amber-600 transition-colors">{dept.email}</a>
@@ -478,7 +478,7 @@ export default function Contact() {
       {/* WhatsApp section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="bg-[#0B1F3A] p-10 md:p-14">
+          <div className="bg-[#1B3E72] p-10 md:p-14">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-3">
@@ -539,7 +539,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <h2 className="text-xl font-bold text-[#0B1F3A] mb-1">
+              <h2 className="text-xl font-bold text-[#1B3E72] mb-1">
                 Follow Us
               </h2>
               <p className="text-slate-500 text-sm">
@@ -551,7 +551,7 @@ export default function Contact() {
                 href={SITE_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#1B3E72] font-bold text-sm hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all"
               >
                 <IconFacebook size={20} /> Facebook
               </a>
@@ -559,7 +559,7 @@ export default function Contact() {
                 href={SITE_CONFIG.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#1B3E72] font-bold text-sm hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all"
               >
                 <IconInstagram size={20} /> Instagram
               </a>
@@ -567,7 +567,7 @@ export default function Contact() {
                 href={SITE_CONFIG.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#0B1F3A] font-bold text-sm hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
+                className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#e8e8e8] text-[#1B3E72] font-bold text-sm hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
               >
                 <IconYoutube size={20} /> YouTube
               </a>

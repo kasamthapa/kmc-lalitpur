@@ -10,6 +10,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand palette: retargets Tailwind's amber and blue ramps to the
+     school's official colors so every existing amber- and blue- utility
+     class site-wide picks these up automatically. */
+  --color-amber-50: #fef8f1;
+  --color-amber-100: #fcead4;
+  --color-amber-200: #f8d3a5;
+  --color-amber-300: #f4b971;
+  --color-amber-400: #f0a03c;
+  --color-amber-500: #ee8f1b;
+  --color-amber-600: #cc770f;
+  --color-amber-700: #a6610c;
+  --color-amber-800: #804b0a;
+  --color-amber-900: #5f3707;
+
+  --color-blue-50: #f1fcfd;
+  --color-blue-100: #d6f6fa;
+  --color-blue-200: #a9ebf4;
+  --color-blue-300: #77e0ee;
+  --color-blue-400: #3dc7de;
+  --color-blue-500: #1cacc0;
+  --color-blue-600: #16a2b3;
+  --color-blue-700: #12798a;
+  --color-blue-800: #0e6671;
+  --color-blue-900: #083d44;
+  --color-blue-950: #06292d;
 }
 
 @media (prefers-color-scheme: dark) {

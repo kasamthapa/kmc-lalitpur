@@ -80,10 +80,10 @@ function DropdownMenu({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="flex items-center justify-between px-4 py-2.5 text-sm text-[#374151] hover:bg-[#f7f5f0] hover:text-[#0B1F3A] font-medium transition-colors group"
+              className="flex items-center justify-between px-4 py-2.5 text-sm text-[#374151] hover:bg-[#f7f5f0] hover:text-[#1B3E72] font-medium transition-colors group"
             >
               {item.label}
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#C9A84C]">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F0A03C]">
                 <IconArrow size={13} />
               </span>
             </Link>
@@ -109,7 +109,7 @@ function MobileAccordion({
     <div className="border-b border-[#f0ece4]">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full py-3.5 text-[#0B1F3A] font-semibold text-sm"
+        className="flex items-center justify-between w-full py-3.5 text-[#1B3E72] font-semibold text-sm"
       >
         {label}
         <IconChevron open={open} />
@@ -121,7 +121,7 @@ function MobileAccordion({
               <Link
                 href={item.href}
                 onClick={onClose}
-                className="block py-2.5 text-sm text-[#6b7280] hover:text-[#C9A84C] transition-colors font-medium"
+                className="block py-2.5 text-sm text-[#6b7280] hover:text-[#F0A03C] transition-colors font-medium"
               >
                 {item.label}
               </Link>
@@ -175,7 +175,7 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#eae6de] transition-shadow duration-200 ${scrolled ? "shadow-md" : ""}`}
     >
       {/* Top bar */}
-      <div className="bg-[#0B1F3A] text-white">
+      <div className="bg-[#1B3E72] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-9">
           <a
             href={SITE_CONFIG.phoneHref}
@@ -189,7 +189,7 @@ export function Header() {
               href={SITE_CONFIG.emisUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#C9A84C] hover:text-white transition-colors tracking-wide"
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#F0A03C] hover:text-white transition-colors tracking-wide"
             >
               <IconLock size={13} />
               EMIS Login
@@ -243,8 +243,8 @@ export function Header() {
                 <button
                   className={`flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
                     activeDropdown === item.label
-                      ? "text-[#0B1F3A] bg-[#f7f5f0]"
-                      : "text-[#374151] hover:text-[#0B1F3A] hover:bg-[#f7f5f0]"
+                      ? "text-[#1B3E72] bg-[#f7f5f0]"
+                      : "text-[#374151] hover:text-[#1B3E72] hover:bg-[#f7f5f0]"
                   }`}
                 >
                   {item.label}
@@ -259,7 +259,7 @@ export function Header() {
               <Link
                 key={item.label}
                 href={item.href!}
-                className="px-3 py-2 text-sm font-semibold text-[#374151] hover:text-[#0B1F3A] hover:bg-[#f7f5f0] rounded-lg transition-colors"
+                className="px-3 py-2 text-sm font-semibold text-[#374151] hover:text-[#1B3E72] hover:bg-[#f7f5f0] rounded-lg transition-colors"
               >
                 {item.label}
               </Link>
@@ -270,13 +270,13 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/admissions"
-            className="px-4 py-2 text-sm font-bold text-[#0B1F3A] border border-[#0B1F3A]/20 rounded-lg hover:bg-[#f7f5f0] transition-colors"
+            className="px-4 py-2 text-sm font-bold text-[#1B3E72] border border-[#1B3E72]/20 rounded-lg hover:bg-[#f7f5f0] transition-colors"
           >
             Admission Info
           </Link>
           <Link
             href="/contact"
-            className="px-5 py-2 bg-[#C9A84C] text-[#0B1F3A] font-bold text-sm rounded-lg hover:bg-[#d4b560] transition-colors"
+            className="px-5 py-2 bg-[#F0A03C] text-[#1B3E72] font-bold text-sm rounded-lg hover:bg-[#F4B971] transition-colors"
           >
             Contact Us
           </Link>
@@ -284,7 +284,7 @@ export function Header() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-[#0B1F3A] hover:bg-[#f7f5f0] rounded-lg transition-colors"
+          className="lg:hidden p-2 text-[#1B3E72] hover:bg-[#f7f5f0] rounded-lg transition-colors"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <IconX size={22} /> : <IconMenu size={22} />}
@@ -311,7 +311,7 @@ export function Header() {
                 <Link
                   href={item.href!}
                   onClick={closeMobile}
-                  className="block py-3.5 text-sm font-semibold text-[#0B1F3A] hover:text-[#C9A84C] transition-colors"
+                  className="block py-3.5 text-sm font-semibold text-[#1B3E72] hover:text-[#F0A03C] transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -324,7 +324,7 @@ export function Header() {
               href={SITE_CONFIG.emisUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 border border-[#0B1F3A]/20 text-[#0B1F3A] font-semibold text-sm rounded-xl hover:bg-[#f7f5f0] transition-colors"
+              className="flex items-center justify-center gap-2 w-full py-3 border border-[#1B3E72]/20 text-[#1B3E72] font-semibold text-sm rounded-xl hover:bg-[#f7f5f0] transition-colors"
             >
               <IconLock size={13} />
               EMIS Login
@@ -332,14 +332,14 @@ export function Header() {
             <Link
               href="/admissions"
               onClick={closeMobile}
-              className="w-full py-3 border border-[#C9A84C] text-[#C9A84C] font-bold text-sm rounded-xl text-center hover:bg-[#C9A84C]/10 transition-colors"
+              className="w-full py-3 border border-[#F0A03C] text-[#F0A03C] font-bold text-sm rounded-xl text-center hover:bg-[#F0A03C]/10 transition-colors"
             >
               Admission Info
             </Link>
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="w-full py-3 bg-[#C9A84C] text-[#0B1F3A] font-bold text-sm rounded-xl text-center hover:bg-[#d4b560] transition-colors"
+              className="w-full py-3 bg-[#F0A03C] text-[#1B3E72] font-bold text-sm rounded-xl text-center hover:bg-[#F4B971] transition-colors"
             >
               Contact Us
             </Link>

@@ -44,7 +44,7 @@ export default function CatalystPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-10 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">
@@ -94,7 +94,7 @@ export default function CatalystPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#0B1F3A]">
+              <h2 className="text-3xl font-bold text-[#1B3E72]">
                 Executives &amp; Club Heads
               </h2>
             </div>
@@ -124,7 +124,7 @@ export default function CatalystPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#0B1F3A]">
+              <h2 className="text-3xl font-bold text-[#1B3E72]">
                 12 Active Clubs
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -143,7 +143,7 @@ export default function CatalystPage() {
                 className="group bg-white rounded-xl border border-[#eae6de] overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
               >
                 {/* Members photo */}
-                <div className={`relative w-full bg-[#0B1F3A] overflow-hidden ${idx < 2 ? "aspect-[4/3]" : "aspect-video"}`}>
+                <div className={`relative w-full bg-[#1B3E72] overflow-hidden ${idx < 2 ? "aspect-[4/3]" : "aspect-video"}`}>
                   <Image
                     src={`/images/catalyst/clubs/${club.folder}/members.png`}
                     alt={`${club.name} members`}
@@ -151,7 +151,7 @@ export default function CatalystPage() {
                     className="object-cover group-hover:scale-105 transition duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B3E72]/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
                 </div>
 
                 {/* Logo + name */}
@@ -165,7 +165,7 @@ export default function CatalystPage() {
                       className="object-contain w-full h-full"
                     />
                   </div>
-                  <span className="font-bold text-[#0B1F3A] text-sm leading-snug group-hover:text-amber-600 transition">
+                  <span className="font-bold text-[#1B3E72] text-sm leading-snug group-hover:text-amber-600 transition">
                     {club.name}
                   </span>
                 </div>

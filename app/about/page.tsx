@@ -204,14 +204,14 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {accreditations.map((a, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#0B1F3A] flex items-center justify-center shrink-0 text-amber-400">
+                <div className="w-9 h-9 rounded-full bg-[#1B3E72] flex items-center justify-center shrink-0 text-amber-400">
                   <IconAward />
                 </div>
                 <div>
-                  <p className="font-bold text-[#0B1F3A] text-sm leading-tight">
+                  <p className="font-bold text-[#1B3E72] text-sm leading-tight">
                     {a.label}
                   </p>
-                  <p className="text-[#0B1F3A]/70 text-xs">{a.sub}</p>
+                  <p className="text-[#1B3E72]/70 text-xs">{a.sub}</p>
                 </div>
               </div>
             ))}
@@ -232,9 +232,9 @@ export default function About() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#1B3E72]/20 to-transparent pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 right-0 bg-[#0B1F3A] text-white rounded-lg px-8 py-6 shadow-xl">
+              <div className="absolute bottom-0 right-0 bg-[#1B3E72] text-white rounded-lg px-8 py-6 shadow-xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
                   25+
                 </p>
@@ -245,7 +245,7 @@ export default function About() {
             </div>
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
+              <h2 className="text-4xl font-bold text-[#1B3E72] mb-6 leading-tight">
                 Building Excellence
                 <br />
                 Since 2000
@@ -294,7 +294,7 @@ export default function About() {
               <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
                 One KMC Family
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Same Institution,
                 <br />
                 Two Locations
@@ -316,7 +316,7 @@ export default function About() {
                   <p className="text-amber-600 text-xs font-bold uppercase tracking-wider mb-2">
                     {campus.name}
                   </p>
-                  <h3 className="text-xl font-bold text-[#0B1F3A] mb-4">
+                  <h3 className="text-xl font-bold text-[#1B3E72] mb-4">
                     {campus.label}
                   </h3>
                   <div className="space-y-3 text-sm">
@@ -354,7 +354,7 @@ export default function About() {
                     href={campus.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#0B1F3A] hover:text-amber-600 transition-colors mt-5"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-[#1B3E72] hover:text-amber-600 transition-colors mt-5"
                   >
                     Visit Website
                     <IconArrow size={14} />
@@ -371,7 +371,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Key Milestones
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -388,7 +388,7 @@ export default function About() {
                   key={i}
                   className={`relative flex items-start gap-8 md:gap-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
-                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-11 h-11 rounded-full bg-amber-400 flex items-center justify-center text-[#0B1F3A] font-bold text-xs shrink-0 shadow-lg z-10">
+                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-11 h-11 rounded-full bg-amber-400 flex items-center justify-center text-[#1B3E72] font-bold text-xs shrink-0 shadow-lg z-10">
                     {m.year.slice(2)}
                   </div>
                   <div
@@ -398,7 +398,7 @@ export default function About() {
                       <span className="text-xs font-bold text-amber-600 tracking-wider">
                         {m.year}
                       </span>
-                      <h3 className="text-lg font-bold text-[#0B1F3A] mt-1 mb-2">
+                      <h3 className="text-lg font-bold text-[#1B3E72] mt-1 mb-2">
                         {m.title}
                       </h3>
                       <p className="text-slate-600 text-sm leading-relaxed">
@@ -418,12 +418,12 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-16">
             <div className="w-6 h-px bg-amber-500 mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
               Mission, Vision &amp; Values
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0B1F3A] rounded-3xl p-8 flex flex-col">
+            <div className="bg-[#1B3E72] rounded-3xl p-8 flex flex-col">
               <div className="w-12 h-12 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6">
                 <IconLightbulb />
               </div>
@@ -437,10 +437,10 @@ export default function About() {
               </p>
             </div>
             <div className="bg-amber-400 rounded-3xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-lg bg-[#0B1F3A]/20 flex items-center justify-center text-[#0B1F3A] mb-6">
+              <div className="w-12 h-12 rounded-lg bg-[#1B3E72]/20 flex items-center justify-center text-[#1B3E72] mb-6">
                 <IconGlobe />
               </div>
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-4">
+              <h3 className="text-xl font-bold text-[#1B3E72] mb-4">
                 Our Vision
               </h3>
               <p className="text-[#3d2e0a] leading-relaxed text-sm flex-1">
@@ -451,10 +451,10 @@ export default function About() {
               </p>
             </div>
             <div className="bg-white border border-[#e8e8e8] rounded-3xl p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-lg bg-[#f7f5f0] border border-[#e8e8e8] flex items-center justify-center text-[#0B1F3A] mb-6">
+              <div className="w-12 h-12 rounded-lg bg-[#f7f5f0] border border-[#e8e8e8] flex items-center justify-center text-[#1B3E72] mb-6">
                 <IconHeart />
               </div>
-              <h3 className="text-xl font-bold text-[#0B1F3A] mb-5">
+              <h3 className="text-xl font-bold text-[#1B3E72] mb-5">
                 Our Values
               </h3>
               <ul className="space-y-2.5 flex-1">
@@ -488,7 +488,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
             <div className="lg:sticky lg:top-24">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Institutional
                 <br />
                 Objectives
@@ -537,7 +537,7 @@ export default function About() {
               <p className="text-amber-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
                 Global Reach
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 International
                 <br />
                 Partnerships
@@ -611,7 +611,7 @@ export default function About() {
                     />
                   </div>
                 </div>
-                <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">
+                <h3 className="text-sm font-bold text-[#1B3E72] mb-1">
                   {p.name}
                 </h3>
                 <p className="text-slate-500 text-xs">{p.country}</p>
@@ -626,7 +626,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 What We
                 <br />
                 Stand For
@@ -651,7 +651,7 @@ export default function About() {
                   <div className="w-11 h-11 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-600 mb-6">
                     <Icon />
                   </div>
-                  <h3 className="text-base font-bold text-[#0B1F3A] mb-3">
+                  <h3 className="text-base font-bold text-[#1B3E72] mb-3">
                     {title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed">
@@ -678,7 +678,7 @@ export default function About() {
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#1B3E72]/70 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white font-bold text-lg leading-tight">
@@ -692,13 +692,13 @@ export default function About() {
             </div>
             <div className="pt-4">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#0B1F3A] mb-8 leading-tight">
+              <h2 className="text-4xl font-bold text-[#1B3E72] mb-8 leading-tight">
                 Principal&apos;s
                 <br />
                 Message
               </h2>
               <blockquote className="border-l-4 border-amber-400 pl-6 mb-8">
-                <p className="text-[#0B1F3A] text-lg font-medium italic leading-relaxed">
+                <p className="text-[#1B3E72] text-lg font-medium italic leading-relaxed">
                   &quot;Education is the foundation of a better future — and at
                   KMC Lalitpur, that foundation is built on excellence, empathy,
                   and unwavering purpose.&quot;
@@ -749,7 +749,7 @@ export default function About() {
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-[#e2ddd4]">
-                <p className="font-bold text-[#0B1F3A]">Dr. Nagendra Aryal</p>
+                <p className="font-bold text-[#1B3E72]">Dr. Nagendra Aryal</p>
                 <p className="text-slate-500 text-sm">Principal</p>
               </div>
             </div>
@@ -761,7 +761,7 @@ export default function About() {
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-14">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
               Why Choose
               <br />
               KMC Lalitpur?
@@ -770,7 +770,7 @@ export default function About() {
           </div>
           {/* Asymmetric layout: first item large, rest in grid */}
           <div className="space-y-4">
-            <div className="bg-[#0B1F3A] rounded-xl p-8 flex flex-col sm:flex-row sm:items-start gap-6">
+            <div className="bg-[#1B3E72] rounded-xl p-8 flex flex-col sm:flex-row sm:items-start gap-6">
               <span className="text-6xl font-bold text-white/10 leading-none shrink-0 select-none">
                 01
               </span>
@@ -795,7 +795,7 @@ export default function About() {
                     </span>
                     <span className="flex-1 h-px bg-amber-400/30" />
                   </div>
-                  <h3 className="text-base font-bold text-[#0B1F3A] mb-2">
+                  <h3 className="text-base font-bold text-[#1B3E72] mb-2">
                     {item.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed">
@@ -805,11 +805,11 @@ export default function About() {
               ))}
             </div>
             <div className="bg-amber-400 rounded-xl p-8 flex flex-col sm:flex-row sm:items-start gap-6">
-              <span className="text-6xl font-bold text-[#0B1F3A]/15 leading-none shrink-0 select-none">
+              <span className="text-6xl font-bold text-[#1B3E72]/15 leading-none shrink-0 select-none">
                 06
               </span>
               <div>
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2">
+                <h3 className="text-lg font-bold text-[#1B3E72] mb-2">
                   {whyKMC[5].title}
                 </h3>
                 <p className="text-[#3d2e0a] text-sm leading-relaxed">
@@ -822,7 +822,7 @@ export default function About() {
       </section>
 
       {/* Global Achievement */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-[#1B3E72]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -859,7 +859,7 @@ export default function About() {
               </div>
               <Link
                 href="/alumni"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold rounded-lg hover:bg-amber-300 transition-colors text-sm"
               >
                 Meet Our Alumni <IconArrow />
               </Link>
@@ -872,7 +872,7 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#1B3E72] via-[#1B3E72]/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-amber-400 font-bold text-lg">
                   &quot;Academic Excellence through Quality Education&quot;
@@ -893,7 +893,7 @@ export default function About() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#0B1F3A] mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#1B3E72] mb-6 leading-tight">
             Join Our Growing
             <br />
             Community
@@ -905,13 +905,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-lg hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-lg hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
               Contact Admissions <IconArrow />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0B1F3A]/20 text-[#0B1F3A] font-bold rounded-lg hover:bg-[#0B1F3A] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#1B3E72]/20 text-[#1B3E72] font-bold rounded-lg hover:bg-[#1B3E72] hover:text-white transition-colors"
             >
               Get in Touch
             </Link>

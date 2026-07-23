@@ -49,7 +49,7 @@ export default function HostelPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-10 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
@@ -70,7 +70,7 @@ export default function HostelPage() {
               </p>
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
               >
                 <IconPhone size={17} />
                 Inquire Now
@@ -85,7 +85,7 @@ export default function HostelPage() {
                 { label: "Security", value: "24/7" },
                 { label: "Hot Water", value: "24/7" },
               ].map((s) => (
-                <div key={s.label} className="bg-[#0B1F3A] px-8 py-8">
+                <div key={s.label} className="bg-[#1B3E72] px-8 py-8">
                   <div className="text-3xl font-bold text-amber-400 tabular-nums mb-1">{s.value}</div>
                   <div className="text-[#8ba7c7] text-xs uppercase tracking-wider">{s.label}</div>
                 </div>
@@ -102,7 +102,7 @@ export default function HostelPage() {
             {/* Left: heading */}
             <div className="lg:w-72 shrink-0 lg:sticky lg:top-28">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">
+              <h2 className="text-3xl font-bold text-[#1B3E72] mb-4">
                 What&apos;s<br />Included
               </h2>
               <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -118,7 +118,7 @@ export default function HostelPage() {
                     <span className="text-xs font-bold text-amber-500 tabular-nums mt-0.5 w-5 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[#374151] text-sm leading-relaxed group-hover:text-[#0B1F3A] transition">
+                    <span className="text-[#374151] text-sm leading-relaxed group-hover:text-[#1B3E72] transition">
                       {item}
                     </span>
                   </div>
@@ -150,7 +150,7 @@ export default function HostelPage() {
               <div key={item.title} className="flex gap-4">
                 <div className="w-px bg-amber-400 shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-bold text-[#0B1F3A] mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-[#1B3E72] mb-2">{item.title}</h3>
                   <p className="text-sm text-[#6b7280] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function HostelPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0B1F3A] text-white">
+      <section className="py-24 bg-[#1B3E72] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
@@ -173,7 +173,7 @@ export default function HostelPage() {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
               >
                 <IconPhone size={17} />
                 Call Hostel Office

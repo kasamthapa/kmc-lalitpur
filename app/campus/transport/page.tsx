@@ -67,7 +67,7 @@ export default function TransportPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-16 bg-[#1B3E72] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
@@ -101,10 +101,10 @@ export default function TransportPage() {
       {/* Drop-off banner */}
       <section className="bg-amber-400 py-5">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full bg-[#0B1F3A]/10 flex items-center justify-center shrink-0">
-            <IconMapPin size={20} className="text-[#0B1F3A]" />
+          <div className="w-10 h-10 rounded-full bg-[#1B3E72]/10 flex items-center justify-center shrink-0">
+            <IconMapPin size={20} className="text-[#1B3E72]" />
           </div>
-          <p className="text-[#0B1F3A] font-semibold text-base leading-snug">
+          <p className="text-[#1B3E72] font-semibold text-base leading-snug">
             Our transport drops every student at the{" "}
             <span className="underline underline-offset-2">nearest location to their home</span>{" "}
             within the covered areas.
@@ -118,7 +118,7 @@ export default function TransportPage() {
 
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Coverage Areas</p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">Areas We Serve</h2>
+            <h2 className="text-4xl font-bold text-[#1B3E72]">Areas We Serve</h2>
             <p className="text-[#6b7280] mt-3 max-w-lg mx-auto">
               All routes connect to KMC Balkumari. Find your area below.
             </p>
@@ -138,7 +138,7 @@ export default function TransportPage() {
                       className="w-3.5 h-3.5 rounded-full flex-shrink-0"
                       style={{ background: route.color }}
                     />
-                    <h3 className="font-bold text-[#0B1F3A] text-lg">{zone}</h3>
+                    <h3 className="font-bold text-[#1B3E72] text-lg">{zone}</h3>
                     <span className={`ml-auto text-white text-xs font-bold px-2.5 py-1 rounded-full ${m.badge}`}>
                       {route.stops.length} stops
                     </span>
@@ -182,7 +182,7 @@ export default function TransportPage() {
               <IconMapPin size={16} className="text-amber-600" />
             </div>
             <div>
-              <p className="font-bold text-[#0B1F3A] mb-1">Don&apos;t see your area?</p>
+              <p className="font-bold text-[#1B3E72] mb-1">Don&apos;t see your area?</p>
               <p className="text-sm text-[#6b7280] leading-relaxed">
                 Our coverage is continuously expanding. Contact the transport office — if you live near any listed area, we&apos;ll do our best to include a nearby pickup point for you.
               </p>
@@ -196,7 +196,7 @@ export default function TransportPage() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Guidelines</p>
-            <h2 className="text-4xl font-bold text-[#0B1F3A]">Transport Policies</h2>
+            <h2 className="text-4xl font-bold text-[#1B3E72]">Transport Policies</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {policies.map((policy, i) => (
@@ -212,7 +212,7 @@ export default function TransportPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0B1F3A] text-white">
+      <section className="py-20 bg-[#1B3E72] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Register for Transport</h2>
           <p className="text-[#8ba7c7] text-lg mb-10">
@@ -221,7 +221,7 @@ export default function TransportPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={SITE_CONFIG.phoneHref}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#0B1F3A] font-bold rounded-xl hover:bg-amber-300 transition"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition"
             >
               <IconPhone size={18} />
               {SITE_CONFIG.phone}

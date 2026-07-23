@@ -253,7 +253,7 @@ export function GalleryClient({ images }: { images: GalleryImage[] }) {
       <Header />
 
       {/* Hero — dark, photographic, minimal text */}
-      <section className="pt-28 pb-14 bg-[#0B1F3A]">
+      <section className="pt-28 pb-14 bg-[#1B3E72]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-12 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
@@ -352,7 +352,7 @@ export function GalleryClient({ images }: { images: GalleryImage[] }) {
       </section>
 
       {/* CTA — sparse */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-[#1B3E72]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div>
@@ -364,7 +364,7 @@ export function GalleryClient({ images }: { images: GalleryImage[] }) {
             </div>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 text-[#0B1F3A] font-bold text-sm hover:bg-amber-300 transition-colors"
+              className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 text-[#1B3E72] font-bold text-sm hover:bg-amber-300 transition-colors"
             >
               Schedule a Tour
               <IconChevronRight size={16} />

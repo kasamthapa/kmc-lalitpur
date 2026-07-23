@@ -23,7 +23,7 @@ export default function Facilities() {
       />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative pt-28 pb-20 bg-[#1B3E72] overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-amber-400/8 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#1a3a5c]/60 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -71,7 +71,7 @@ export default function Facilities() {
           <div className="mb-16">
             <div className="w-6 h-px bg-amber-500 mb-4" />
             <div className="flex items-end justify-between gap-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Core Facilities
               </h2>
               <p className="hidden md:block text-sm text-[#6b7280] max-w-sm leading-relaxed pb-1">
@@ -89,7 +89,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">21 Classrooms</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">21 Classrooms</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   Spacious, well-ventilated, naturally lit, and equipped with modern decor and audio-visual aids — our 21 classrooms inspire a practical and engaging learning environment.
                 </p>
@@ -113,7 +113,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">Computer Lab</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">Computer Lab</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   Well-equipped with 52 computers, high-speed internet with dedicated IP, and a spacious, naturally lit environment designed to enhance digital learning.
                 </p>
@@ -137,7 +137,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">Science Laboratories</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">Science Laboratories</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   Bright, airy, and equipped with ample instruments and materials — dedicated Physics, Chemistry, and Biology labs provide the perfect space for experimentation and discovery.
                 </p>
@@ -161,7 +161,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">230-Seat Auditorium</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">230-Seat Auditorium</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   A simple yet elegant auditorium featuring French windows for natural light and fresh air, alongside internet hookup facilities for each of its 230 plush red seats.
                 </p>
@@ -185,7 +185,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">Moot Court</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">Moot Court</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   A dedicated moot court for Law stream students to practise advocacy, argumentation, and courtroom procedures in a realistic legal setting under experienced faculty.
                 </p>
@@ -209,7 +209,7 @@ export default function Facilities() {
               </div>
               <div className="md:col-span-4 pr-8">
                 <div className="w-8 h-0.5 bg-amber-400 mb-4" />
-                <h3 className="text-2xl font-bold text-[#0B1F3A] mb-3">Cafeteria</h3>
+                <h3 className="text-2xl font-bold text-[#1B3E72] mb-3">Cafeteria</h3>
                 <p className="text-[#4b5563] text-sm leading-relaxed">
                   A clean, well-maintained cafeteria serving fresh and hygienic meals daily in a comfortable and welcoming environment — keeping students energised throughout the day.
                 </p>
@@ -230,7 +230,7 @@ export default function Facilities() {
       </section>
 
       {/* Library & E-Library — dark, horizontal split */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-[#1B3E72]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -260,7 +260,7 @@ export default function Facilities() {
                 href="http://kmclibrary.edu.np"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#0B1F3A] font-bold text-sm hover:bg-amber-300 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold text-sm hover:bg-amber-300 transition-colors"
               >
                 Visit E-Library
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -296,7 +296,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14 items-end">
             <div className="lg:col-span-5">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Student<br />Wellbeing
               </h2>
             </div>
@@ -354,7 +354,7 @@ export default function Facilities() {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#0B1F3A] text-base mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-[#1B3E72] text-base mb-2">{item.title}</h3>
                   <p className="text-[#4b5563] text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -369,7 +369,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#0B1F3A] mb-6 leading-tight">
+              <h2 className="text-4xl font-bold text-[#1B3E72] mb-6 leading-tight">
                 Hostel Life
               </h2>
               <p className="text-[#4b5563] text-sm leading-relaxed mb-5">
@@ -399,7 +399,7 @@ export default function Facilities() {
             </div>
 
             {/* Hostel Activities — clean dark panel */}
-            <div className="bg-[#0B1F3A] p-8 lg:p-10">
+            <div className="bg-[#1B3E72] p-8 lg:p-10">
               <div className="w-6 h-px bg-amber-400 mb-4" />
               <h3 className="text-white font-bold text-xl mb-2">Hostel Activities</h3>
               <p className="text-[#8ba7c7] text-sm mb-8 leading-relaxed">
@@ -430,7 +430,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14 items-end">
             <div className="lg:col-span-5">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
                 Sports &amp; ECAs
               </h2>
             </div>
@@ -443,12 +443,12 @@ export default function Facilities() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="text-xs font-bold text-[#0B1F3A] uppercase tracking-[0.15em] mb-5">Sports</h3>
+              <h3 className="text-xs font-bold text-[#1B3E72] uppercase tracking-[0.15em] mb-5">Sports</h3>
               <div className="flex flex-wrap gap-2">
                 {["Badminton", "Swimming", "Basketball", "Table Tennis", "Futsal", "Cricket", "Chess", "Tug-of-War", "Fun Races"].map((s) => (
                   <span
                     key={s}
-                    className="px-3 py-1.5 bg-[#0B1F3A] text-white text-xs font-medium"
+                    className="px-3 py-1.5 bg-[#1B3E72] text-white text-xs font-medium"
                   >
                     {s}
                   </span>
@@ -456,7 +456,7 @@ export default function Facilities() {
               </div>
             </div>
             <div>
-              <h3 className="text-xs font-bold text-[#0B1F3A] uppercase tracking-[0.15em] mb-5">Events &amp; Competitions</h3>
+              <h3 className="text-xs font-bold text-[#1B3E72] uppercase tracking-[0.15em] mb-5">Events &amp; Competitions</h3>
               <div className="flex flex-wrap gap-2">
                 {["Technofest", "Fun Mania", "Mr. & Miss KMC", "Math Olympiad", "Debate & Quiz", "Essay Writing", "Art Competitions", "Group Rangoli", "Talent Shows"].map((e) => (
                   <span
@@ -473,7 +473,7 @@ export default function Facilities() {
       </section>
 
       {/* CTA — clean, editorial */}
-      <section className="py-20 bg-[#0B1F3A]">
+      <section className="py-20 bg-[#1B3E72]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -488,7 +488,7 @@ export default function Facilities() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-7 py-3.5 bg-amber-400 text-[#0B1F3A] font-bold text-sm hover:bg-amber-300 transition-colors"
+                className="inline-flex items-center justify-center px-7 py-3.5 bg-amber-400 text-[#1B3E72] font-bold text-sm hover:bg-amber-300 transition-colors"
               >
                 Schedule a Visit
               </Link>

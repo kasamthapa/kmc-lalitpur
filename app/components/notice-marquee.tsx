@@ -28,7 +28,7 @@ export function NoticeMarquee() {
   const displayed = [...items, ...items];
 
   return (
-    <div className="bg-amber-400 text-[#0B1F3A] py-3 overflow-hidden group">
+    <div className="bg-amber-400 text-[#1B3E72] py-3 overflow-hidden group">
       <div className="flex gap-16 animate-marquee group-hover:animate-marquee-pause whitespace-nowrap">
         {displayed.map((text, i) => (
           <span key={i} className="text-sm font-semibold inline-block shrink-0 pl-4">

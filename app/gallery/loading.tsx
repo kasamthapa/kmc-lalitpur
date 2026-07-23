@@ -6,7 +6,7 @@ export default function GalleryLoading() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#0B1F3A]">
+      <section className="pt-28 pb-16 bg-[#1B3E72]">
         <div className="max-w-7xl mx-auto px-4 space-y-4">
           <div className="h-3 bg-white/10 rounded animate-pulse w-24" />
           <div className="h-10 bg-white/10 rounded animate-pulse w-56 md:w-72" />

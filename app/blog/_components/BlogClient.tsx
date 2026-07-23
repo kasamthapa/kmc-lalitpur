@@ -67,8 +67,8 @@ export function BlogClient({ posts }: BlogClientProps) {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-4 text-sm font-semibold whitespace-nowrap transition border-b-2 -mb-px ${
                   activeCategory === cat
-                    ? "border-amber-500 text-[#0B1F3A]"
-                    : "border-transparent text-[#6b7280] hover:text-[#0B1F3A]"
+                    ? "border-amber-500 text-[#1B3E72]"
+                    : "border-transparent text-[#6b7280] hover:text-[#1B3E72]"
                 }`}
               >
                 {cat}
@@ -87,7 +87,7 @@ export function BlogClient({ posts }: BlogClientProps) {
             {featured && (
               <Link href={`/blog/${featured.slug}`} className="group block mb-16">
                 {/* Full-width image, no overlay text — clean */}
-                <div className="relative w-full aspect-[21/9] bg-[#0B1F3A] overflow-hidden">
+                <div className="relative w-full aspect-[21/9] bg-[#1B3E72] overflow-hidden">
                   <Image
                     src={featured.imageUrl ?? fallbackImage}
                     alt={featured.title}
@@ -105,7 +105,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                       {featured.category}
                     </span>
                   )}
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3A] leading-[1.15] mb-4 group-hover:text-[#1a3a6a] transition">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1B3E72] leading-[1.15] mb-4 group-hover:text-[#1a3a6a] transition">
                     {featured.title}
                   </h2>
                   {featured.excerpt && (
@@ -121,7 +121,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                     {featured.author && (
                       <><span>·</span><span>{featured.author}</span></>
                     )}
-                    <span className="ml-auto inline-flex items-center gap-2 text-[#0B1F3A] font-bold text-sm group-hover:gap-3 transition-all">
+                    <span className="ml-auto inline-flex items-center gap-2 text-[#1B3E72] font-bold text-sm group-hover:gap-3 transition-all">
                       Read Article <IconArrow size={15} />
                     </span>
                   </div>
@@ -148,7 +148,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                       href={`/blog/${post.slug}`}
                       className="group flex flex-col"
                     >
-                      <div className="relative w-full aspect-[16/9] bg-[#0B1F3A] overflow-hidden mb-4">
+                      <div className="relative w-full aspect-[16/9] bg-[#1B3E72] overflow-hidden mb-4">
                         <Image
                           src={post.imageUrl ?? fallbackImage}
                           alt={post.title}
@@ -162,7 +162,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                           {post.category}
                         </span>
                       )}
-                      <h3 className="font-bold text-[#0B1F3A] text-xl leading-snug mb-2 group-hover:text-[#1a3a6a] transition line-clamp-2">
+                      <h3 className="font-bold text-[#1B3E72] text-xl leading-snug mb-2 group-hover:text-[#1a3a6a] transition line-clamp-2">
                         {post.title}
                       </h3>
                       {post.excerpt && (
@@ -185,7 +185,7 @@ export function BlogClient({ posts }: BlogClientProps) {
             {filtered.length === 0 && (
               <div className="text-center py-24">
                 <p className="text-4xl mb-4">📭</p>
-                <h3 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                <h3 className="text-xl font-bold text-[#1B3E72] mb-2">
                   No posts found
                 </h3>
                 <p className="text-[#6b7280]">Try a different category.</p>
@@ -199,7 +199,7 @@ export function BlogClient({ posts }: BlogClientProps) {
 
               {/* Categories */}
               <div>
-                <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#374151] pb-3 border-b-2 border-[#0B1F3A]">
+                <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#374151] pb-3 border-b-2 border-[#1B3E72]">
                   Categories
                 </h3>
                 <ul>
@@ -214,8 +214,8 @@ export function BlogClient({ posts }: BlogClientProps) {
                           <span
                             className={
                               activeCategory === cat
-                                ? "font-bold text-[#0B1F3A]"
-                                : "text-[#374151] group-hover:text-[#0B1F3A] transition"
+                                ? "font-bold text-[#1B3E72]"
+                                : "text-[#374151] group-hover:text-[#1B3E72] transition"
                             }
                           >
                             {cat}
@@ -230,7 +230,7 @@ export function BlogClient({ posts }: BlogClientProps) {
 
               {/* Recent Posts */}
               <div>
-                <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#374151] pb-3 border-b-2 border-[#0B1F3A]">
+                <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#374151] pb-3 border-b-2 border-[#1B3E72]">
                   Recent Posts
                 </h3>
                 <div>
@@ -240,7 +240,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                       href={`/blog/${post.slug}`}
                       className="py-4 border-b border-[#eae6de] flex gap-3 group"
                     >
-                      <div className="relative w-14 h-12 overflow-hidden shrink-0 bg-[#0B1F3A]">
+                      <div className="relative w-14 h-12 overflow-hidden shrink-0 bg-[#1B3E72]">
                         <Image
                           src={post.imageUrl ?? fallbackImage}
                           alt={post.title}
@@ -250,7 +250,7 @@ export function BlogClient({ posts }: BlogClientProps) {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-[#0B1F3A] line-clamp-2 group-hover:text-amber-600 transition leading-snug">
+                        <p className="text-sm font-semibold text-[#1B3E72] line-clamp-2 group-hover:text-amber-600 transition leading-snug">
                           {post.title}
                         </p>
                         <p className="text-xs text-[#9ca3af] mt-1">
@@ -263,8 +263,8 @@ export function BlogClient({ posts }: BlogClientProps) {
               </div>
 
               {/* Subscribe — subtle, no dark box */}
-              <div className="border-t-2 border-[#0B1F3A] pt-6">
-                <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">
+              <div className="border-t-2 border-[#1B3E72] pt-6">
+                <h3 className="text-sm font-bold text-[#1B3E72] mb-1">
                   Stay Updated
                 </h3>
                 <p className="text-xs text-[#6b7280] mb-4 leading-relaxed">
@@ -273,9 +273,9 @@ export function BlogClient({ posts }: BlogClientProps) {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="w-full py-2.5 bg-transparent border-b-2 border-[#d1d5db] text-[#0B1F3A] placeholder:text-[#9ca3af] text-sm focus:outline-none focus:border-amber-500 mb-4"
+                  className="w-full py-2.5 bg-transparent border-b-2 border-[#d1d5db] text-[#1B3E72] placeholder:text-[#9ca3af] text-sm focus:outline-none focus:border-amber-500 mb-4"
                 />
-                <button className="w-full py-2.5 bg-[#0B1F3A] text-white text-sm font-bold hover:bg-[#162f55] transition">
+                <button className="w-full py-2.5 bg-[#1B3E72] text-white text-sm font-bold hover:bg-[#162f55] transition">
                   Subscribe
                 </button>
               </div>

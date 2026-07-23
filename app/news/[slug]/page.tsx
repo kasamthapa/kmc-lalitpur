@@ -66,7 +66,7 @@ export default async function NewsArticlePage({
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-12 bg-[#0B1F3A] text-white">
+      <section className="pt-28 pb-12 bg-[#1B3E72] text-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-6 text-[#8ba7c7] text-sm flex-wrap">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
@@ -142,10 +142,10 @@ export default async function NewsArticlePage({
           )}
 
           {/* Back link */}
-          <div className="mt-12 pt-8 border-t-2 border-[#0B1F3A] flex items-center justify-between">
+          <div className="mt-12 pt-8 border-t-2 border-[#1B3E72] flex items-center justify-between">
             <Link
               href="/news"
-              className="inline-flex items-center gap-2 text-[#0B1F3A] font-bold hover:text-amber-600 transition-colors"
+              className="inline-flex items-center gap-2 text-[#1B3E72] font-bold hover:text-amber-600 transition-colors"
             >
               <span className="rotate-180 inline-flex"><IconChevronRight size={16} /></span>
               Back to News & Updates
