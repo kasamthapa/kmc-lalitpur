@@ -150,7 +150,7 @@ export default function FAQPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-36 pb-16 bg-[#1B3E72] text-white">
+      <section className="pt-36 pb-16 bg-[#101F46] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
@@ -180,7 +180,7 @@ export default function FAQPage() {
               <a
                 key={cat.category}
                 href={`#${cat.category.toLowerCase().replace(/\s+/g, "-")}`}
-                className="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-[#1B3E72] transition-colors"
+                className="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-[#101F46] transition-colors"
               >
                 {cat.category}
               </a>
@@ -199,8 +199,8 @@ export default function FAQPage() {
                 id={cat.category.toLowerCase().replace(/\s+/g, "-")}
               >
                 {/* Category header */}
-                <div className="flex items-end justify-between mb-8 pb-4 border-b-2 border-[#1B3E72]">
-                  <h2 className="text-2xl font-bold text-[#1B3E72]">{cat.category}</h2>
+                <div className="flex items-end justify-between mb-8 pb-4 border-b-2 border-[#101F46]">
+                  <h2 className="text-2xl font-bold text-[#101F46]">{cat.category}</h2>
                   <span className="text-slate-400 text-sm">{cat.items.length} questions</span>
                 </div>
 
@@ -212,7 +212,7 @@ export default function FAQPage() {
                       className="group py-1"
                     >
                       <summary className="flex items-start justify-between gap-6 py-5 cursor-pointer list-none select-none">
-                        <span className="font-semibold text-[#1B3E72] text-base leading-snug group-open:text-amber-600 transition-colors">
+                        <span className="font-semibold text-[#101F46] text-base leading-snug group-open:text-amber-600 transition-colors">
                           {item.q}
                         </span>
                         <span className="shrink-0 text-slate-400 group-open:text-amber-500 transition-colors mt-0.5 text-xl font-light leading-none">
@@ -233,7 +233,7 @@ export default function FAQPage() {
       </section>
 
       {/* Still have questions CTA */}
-      <section className="py-20 bg-[#1B3E72] text-white">
+      <section className="py-20 bg-[#101F46] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
             <div>
@@ -245,7 +245,7 @@ export default function FAQPage() {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition"
               >
                 <IconPhone size={18} />
                 {SITE_CONFIG.phone}

@@ -67,7 +67,7 @@ export default async function AlumniPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-20 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-12 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
@@ -107,7 +107,7 @@ export default async function AlumniPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#1B3E72] leading-tight">
+              <h2 className="text-4xl font-bold text-[#101F46] leading-tight">
                 KMC Alumni Association<br />of Lalitpur
               </h2>
             </div>
@@ -147,12 +147,12 @@ export default async function AlumniPage() {
                             className="w-full h-full object-cover object-top"
                           />
                         ) : (
-                          <div className="w-full h-full bg-[#1B3E72] flex items-center justify-center">
+                          <div className="w-full h-full bg-[#101F46] flex items-center justify-center">
                             <span className="text-white text-2xl font-bold">{initials}</span>
                           </div>
                         )}
                       </div>
-                      <p className="font-bold text-[#1B3E72] text-base">{m.name}</p>
+                      <p className="font-bold text-[#101F46] text-base">{m.name}</p>
                       <p className="text-xs font-semibold text-amber-600 uppercase tracking-wider mt-1">{m.role}</p>
                       <p className="text-xs text-[#9ca3af] mt-1.5 leading-tight max-w-[160px]">{m.college}</p>
                     </div>
@@ -162,7 +162,7 @@ export default async function AlumniPage() {
 
               {/* Other members — compact horizontal list */}
               <div className="border-t border-[#f0ede7] pt-10">
-                <h3 className="text-xs font-bold text-[#1B3E72] uppercase tracking-[0.15em] mb-7">Board Members &amp; Officers</h3>
+                <h3 className="text-xs font-bold text-[#101F46] uppercase tracking-[0.15em] mb-7">Board Members &amp; Officers</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-7">
                   {ASSOCIATION_MEMBERS.filter(m => !["President", "Vice President"].includes(m.role)).map((m, i) => {
                     const initials = m.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
@@ -178,13 +178,13 @@ export default async function AlumniPage() {
                               className="w-full h-full object-cover object-top"
                             />
                           ) : (
-                            <div className="w-full h-full bg-[#1B3E72] flex items-center justify-center">
+                            <div className="w-full h-full bg-[#101F46] flex items-center justify-center">
                               <span className="text-white text-xs font-bold">{initials}</span>
                             </div>
                           )}
                         </div>
                         <div className="min-w-0">
-                          <p className="font-semibold text-[#1B3E72] text-sm leading-snug truncate">{m.name}</p>
+                          <p className="font-semibold text-[#101F46] text-sm leading-snug truncate">{m.name}</p>
                           <p className="text-xs text-amber-600 font-medium">{m.role}</p>
                         </div>
                       </div>
@@ -207,7 +207,7 @@ export default async function AlumniPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
               <div>
                 <div className="w-6 h-px bg-amber-500 mb-4" />
-                <h2 className="text-4xl font-bold text-[#1B3E72]">Alumni Stories</h2>
+                <h2 className="text-4xl font-bold text-[#101F46]">Alumni Stories</h2>
               </div>
               <p className="text-[#6b7280] text-sm leading-relaxed">
                 KMC graduates making their mark in technology, medicine, law, business, and beyond.
@@ -254,7 +254,7 @@ export default async function AlumniPage() {
                               </span>
                               <span className="text-xs text-[#9ca3af]">Batch {alumni.gradYear}</span>
                             </div>
-                            <h3 className="font-bold text-[#1B3E72] text-xl mb-1">{alumni.name}</h3>
+                            <h3 className="font-bold text-[#101F46] text-xl mb-1">{alumni.name}</h3>
                             {(alumni.currentRole || alumni.company) && (
                               <p className="text-sm text-amber-600 font-semibold mb-1">
                                 {[alumni.currentRole, alumni.company].filter(Boolean).join(" · ")}
@@ -273,7 +273,7 @@ export default async function AlumniPage() {
                                 href={alumni.linkedIn}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 mt-5 text-xs font-semibold text-[#1B3E72] hover:text-amber-600 transition-colors"
+                                className="inline-flex items-center gap-1.5 mt-5 text-xs font-semibold text-[#101F46] hover:text-amber-600 transition-colors"
                               >
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -325,7 +325,7 @@ export default async function AlumniPage() {
                                   {alumni.program}
                                 </span>
                               )}
-                              <h3 className="font-bold text-[#1B3E72] text-base leading-snug">{alumni.name}</h3>
+                              <h3 className="font-bold text-[#101F46] text-base leading-snug">{alumni.name}</h3>
                               {(alumni.currentRole || alumni.company) && (
                                 <p className="text-xs text-amber-600 font-semibold mt-1">
                                   {[alumni.currentRole, alumni.company].filter(Boolean).join(" · ")}
@@ -342,7 +342,7 @@ export default async function AlumniPage() {
                                   href={alumni.linkedIn}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#1B3E72] hover:text-amber-600 transition-colors"
+                                  className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#101F46] hover:text-amber-600 transition-colors"
                                 >
                                   <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -364,7 +364,7 @@ export default async function AlumniPage() {
       )}
 
       {/* Stay Connected — editorial split layout */}
-      <section className="py-20 bg-[#1B3E72] text-white">
+      <section className="py-20 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -379,7 +379,7 @@ export default async function AlumniPage() {
                 href={SITE_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold text-sm hover:bg-amber-300 transition-colors flex items-center justify-center gap-2"
+                className="px-6 py-3 bg-amber-400 text-[#101F46] font-bold text-sm hover:bg-amber-300 transition-colors flex items-center justify-center gap-2"
               >
                 <IconMail size={16} />
                 Facebook Community

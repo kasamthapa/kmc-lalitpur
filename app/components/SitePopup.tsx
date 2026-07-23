@@ -55,10 +55,10 @@ function isExternal(url: string) {
 function BtnEl({ btn, onClose }: { btn: PopupButton; onClose: () => void }) {
   const base =
     btn.style === "primary"
-      ? "flex-1 min-w-[120px] px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-[#1B3E72] font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-md text-center"
+      ? "flex-1 min-w-[120px] px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-[#101F46] font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-md text-center"
       : btn.style === "secondary"
-      ? "flex-1 min-w-[120px] px-5 py-2.5 bg-[#1B3E72] hover:bg-[#162d50] text-white font-bold text-sm rounded-xl transition-all shadow-sm text-center"
-      : "flex-1 min-w-[120px] px-5 py-2.5 border-2 border-[#1B3E72]/30 hover:border-[#1B3E72] text-[#1B3E72] font-bold text-sm rounded-xl transition-all text-center";
+      ? "flex-1 min-w-[120px] px-5 py-2.5 bg-[#101F46] hover:bg-[#162d50] text-white font-bold text-sm rounded-xl transition-all shadow-sm text-center"
+      : "flex-1 min-w-[120px] px-5 py-2.5 border-2 border-[#101F46]/30 hover:border-[#101F46] text-[#101F46] font-bold text-sm rounded-xl transition-all text-center";
 
   if (isExternal(btn.url)) {
     return (
@@ -154,7 +154,7 @@ export function SitePopup() {
           {(hasText || hasButtons) && (
             <div className={`px-6 pb-6 ${hasImage ? "pt-5" : "pt-8"}`}>
               {!hasImage && <div className="w-10 h-1 bg-amber-400 rounded-full mb-5" />}
-              {popup.title && <h2 className="text-[#1B3E72] font-bold text-xl leading-snug mb-2">{popup.title}</h2>}
+              {popup.title && <h2 className="text-[#101F46] font-bold text-xl leading-snug mb-2">{popup.title}</h2>}
               {popup.body && <p className="text-[#6b7280] text-sm leading-relaxed mb-5">{popup.body}</p>}
               {hasButtons && (
                 <div className="flex flex-wrap gap-3">

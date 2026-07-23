@@ -64,7 +64,7 @@ export function NewsClient({
       <Header />
 
       {/* Hero — editorial, dark, minimal */}
-      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-20 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-12 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
@@ -116,8 +116,8 @@ export function NewsClient({
                 onClick={() => setSelectedCategory(cat)}
                 className={`relative shrink-0 px-5 py-4 text-sm font-semibold transition-colors border-b-2 ${
                   selectedCategory === cat
-                    ? "border-amber-400 text-[#1B3E72]"
-                    : "border-transparent text-[#6b7280] hover:text-[#1B3E72]"
+                    ? "border-amber-400 text-[#101F46]"
+                    : "border-transparent text-[#6b7280] hover:text-[#101F46]"
                 }`}
               >
                 {cat}
@@ -133,7 +133,7 @@ export function NewsClient({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
             <div className="flex items-baseline justify-between mb-6">
               <div>
-                <h2 className="text-sm font-bold text-[#1B3E72] uppercase tracking-[0.12em]">Notice Board</h2>
+                <h2 className="text-sm font-bold text-[#101F46] uppercase tracking-[0.12em]">Notice Board</h2>
                 <div className="w-6 h-0.5 bg-amber-400 mt-2" />
               </div>
               {notices.filter((n) => n.urgent).length > 0 && (
@@ -170,7 +170,7 @@ export function NewsClient({
         <section className="bg-white pt-16 pb-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex items-baseline justify-between mb-8">
-              <h2 className="text-xs font-bold text-[#1B3E72] uppercase tracking-[0.15em]">Featured Story</h2>
+              <h2 className="text-xs font-bold text-[#101F46] uppercase tracking-[0.15em]">Featured Story</h2>
             </div>
             {featuredNews.isFallback ? (
               <div className="grid grid-cols-1 lg:grid-cols-5 overflow-hidden rounded-lg border border-[#e8e8e8]">
@@ -184,12 +184,12 @@ export function NewsClient({
                     priority
                   />
                   {featuredNews.category && (
-                    <span className="absolute top-5 left-5 text-xs font-semibold text-[#1B3E72] bg-amber-400 px-3 py-1.5 tracking-wide uppercase">
+                    <span className="absolute top-5 left-5 text-xs font-semibold text-[#101F46] bg-amber-400 px-3 py-1.5 tracking-wide uppercase">
                       {featuredNews.category}
                     </span>
                   )}
                 </div>
-                <div className="lg:col-span-2 bg-[#1B3E72] p-10 flex flex-col justify-center">
+                <div className="lg:col-span-2 bg-[#101F46] p-10 flex flex-col justify-center">
                   <span className="text-xs text-[#8ba7c7] mb-5 tracking-wider">{featuredNews.date}</span>
                   <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-5">
                     {featuredNews.title}
@@ -214,12 +214,12 @@ export function NewsClient({
                     priority
                   />
                   {featuredNews.category && (
-                    <span className="absolute top-5 left-5 text-xs font-semibold text-[#1B3E72] bg-amber-400 px-3 py-1.5 tracking-wide uppercase">
+                    <span className="absolute top-5 left-5 text-xs font-semibold text-[#101F46] bg-amber-400 px-3 py-1.5 tracking-wide uppercase">
                       {featuredNews.category}
                     </span>
                   )}
                 </div>
-                <div className="lg:col-span-2 bg-[#1B3E72] p-10 flex flex-col justify-center">
+                <div className="lg:col-span-2 bg-[#101F46] p-10 flex flex-col justify-center">
                   <span className="text-xs text-[#8ba7c7] mb-5 tracking-wider">{featuredNews.date}</span>
                   <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-5 group-hover:text-amber-400 transition-colors">
                     {featuredNews.title}
@@ -243,7 +243,7 @@ export function NewsClient({
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex items-baseline justify-between mb-8">
               <div>
-                <h2 className="text-xs font-bold text-[#1B3E72] uppercase tracking-[0.15em]">Latest News</h2>
+                <h2 className="text-xs font-bold text-[#101F46] uppercase tracking-[0.15em]">Latest News</h2>
                 <div className="w-6 h-0.5 bg-amber-400 mt-2" />
               </div>
               <span className="text-xs text-[#9ca3af]">{otherNews.length} stories</span>
@@ -276,7 +276,7 @@ export function NewsClient({
                             )}
                             <span className="text-xs text-[#9ca3af]">{news.date}</span>
                           </div>
-                          <h3 className="font-bold text-[#1B3E72] text-lg leading-snug mb-3 line-clamp-2">
+                          <h3 className="font-bold text-[#101F46] text-lg leading-snug mb-3 line-clamp-2">
                             {news.title}
                           </h3>
                           {news.description && (
@@ -308,7 +308,7 @@ export function NewsClient({
                             )}
                             <span className="text-xs text-[#9ca3af]">{news.date}</span>
                           </div>
-                          <h3 className="font-bold text-[#1B3E72] text-lg leading-snug mb-3 line-clamp-2 group-hover:text-amber-600 transition-colors">
+                          <h3 className="font-bold text-[#101F46] text-lg leading-snug mb-3 line-clamp-2 group-hover:text-amber-600 transition-colors">
                             {news.title}
                           </h3>
                           {news.description && (
@@ -316,7 +316,7 @@ export function NewsClient({
                               {news.description}
                             </p>
                           )}
-                          <span className="mt-auto text-xs font-semibold text-[#1B3E72] uppercase tracking-wider flex items-center gap-1.5">
+                          <span className="mt-auto text-xs font-semibold text-[#101F46] uppercase tracking-wider flex items-center gap-1.5">
                             Read more <IconChevronRight size={12} />
                           </span>
                         </div>
@@ -348,7 +348,7 @@ export function NewsClient({
                           {news.category && (
                             <span className="text-xs font-semibold text-amber-600 uppercase tracking-wider block mb-2">{news.category}</span>
                           )}
-                          <h3 className="font-bold text-[#1B3E72] text-sm leading-snug line-clamp-2">{news.title}</h3>
+                          <h3 className="font-bold text-[#101F46] text-sm leading-snug line-clamp-2">{news.title}</h3>
                           <span className="text-xs text-[#9ca3af] mt-2 block">{news.date}</span>
                         </div>
                       </div>
@@ -371,7 +371,7 @@ export function NewsClient({
                           {news.category && (
                             <span className="text-xs font-semibold text-amber-600 uppercase tracking-wider block mb-2">{news.category}</span>
                           )}
-                          <h3 className="font-bold text-[#1B3E72] text-sm leading-snug line-clamp-2 group-hover:text-amber-600 transition-colors">{news.title}</h3>
+                          <h3 className="font-bold text-[#101F46] text-sm leading-snug line-clamp-2 group-hover:text-amber-600 transition-colors">{news.title}</h3>
                           <span className="text-xs text-[#9ca3af] mt-2 block">{news.date}</span>
                         </div>
                       </Link>
@@ -388,7 +388,7 @@ export function NewsClient({
                       <Image src={otherNews[0].image ?? PLACEHOLDER_IMG} alt={otherNews[0].title} fill className="object-cover" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-[#1B3E72]">{otherNews[0].title}</h3>
+                      <h3 className="font-bold text-[#101F46]">{otherNews[0].title}</h3>
                     </div>
                   </div>
                 ) : (
@@ -397,7 +397,7 @@ export function NewsClient({
                       <Image src={otherNews[0].image ?? PLACEHOLDER_IMG} alt={otherNews[0].title} fill className="object-cover group-hover:scale-105 transition" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-[#1B3E72] group-hover:text-amber-600 transition">{otherNews[0].title}</h3>
+                      <h3 className="font-bold text-[#101F46] group-hover:text-amber-600 transition">{otherNews[0].title}</h3>
                     </div>
                   </Link>
                 )
@@ -412,11 +412,11 @@ export function NewsClient({
         <section className="py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="text-4xl mb-5 opacity-30">—</p>
-            <h3 className="text-xl font-bold text-[#1B3E72] mb-3">No stories found</h3>
+            <h3 className="text-xl font-bold text-[#101F46] mb-3">No stories found</h3>
             <p className="text-[#6b7280] mb-8 text-sm">Try adjusting your search or filter criteria.</p>
             <button
               onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
-              className="px-7 py-2.5 bg-[#1B3E72] text-white text-sm font-semibold hover:bg-[#162d54] transition"
+              className="px-7 py-2.5 bg-[#101F46] text-white text-sm font-semibold hover:bg-[#162d54] transition"
             >
               Clear filters
             </button>
@@ -425,7 +425,7 @@ export function NewsClient({
       )}
 
       {/* Stay Connected — stripped back */}
-      <section className="py-16 bg-[#1B3E72]">
+      <section className="py-16 bg-[#101F46]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -440,7 +440,7 @@ export function NewsClient({
                 href={SITE_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold text-sm hover:bg-amber-300 transition-colors text-center"
+                className="px-6 py-3 bg-amber-400 text-[#101F46] font-bold text-sm hover:bg-amber-300 transition-colors text-center"
               >
                 Facebook
               </a>

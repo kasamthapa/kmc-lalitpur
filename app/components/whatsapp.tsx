@@ -123,7 +123,7 @@ export function WhatsAppFloat() {
                       {action.emoji}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-[#1B3E72] group-hover:text-[#128C7E] transition-colors leading-tight">
+                      <p className="text-sm font-semibold text-[#101F46] group-hover:text-[#128C7E] transition-colors leading-tight">
                         {action.label}
                       </p>
                       <p className="text-xs text-[#6b7280] mt-0.5">{action.desc}</p>

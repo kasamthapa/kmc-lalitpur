@@ -605,7 +605,7 @@ export default async function BlogPostPage({
       <Header />
 
       {/* Hero — dark band, no pill badge */}
-      <section className="pt-28 pb-0 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-0 bg-[#101F46] text-white">
         <div className="max-w-4xl mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm">
@@ -662,7 +662,7 @@ export default async function BlogPostPage({
             {post.content.split("\n\n").map((block, i) => {
               if (block.startsWith("## ")) {
                 return (
-                  <h2 key={i} className="text-2xl font-bold text-[#1B3E72] mt-12 mb-5 pb-3 border-b border-[#eae6de]">
+                  <h2 key={i} className="text-2xl font-bold text-[#101F46] mt-12 mb-5 pb-3 border-b border-[#eae6de]">
                     {block.replace("## ", "")}
                   </h2>
                 );
@@ -682,7 +682,7 @@ export default async function BlogPostPage({
               }
               if (block.startsWith("**") && block.endsWith("**")) {
                 return (
-                  <p key={i} className="font-bold text-[#1B3E72] mb-4 text-lg">
+                  <p key={i} className="font-bold text-[#101F46] mb-4 text-lg">
                     {block.replace(/\*\*/g, "")}
                   </p>
                 );
@@ -692,7 +692,7 @@ export default async function BlogPostPage({
                 <p key={i} className="mb-6 leading-[1.85] text-[17px]">
                   {parts.map((part, j) =>
                     part.startsWith("**") && part.endsWith("**") ? (
-                      <strong key={j} className="font-bold text-[#1B3E72]">
+                      <strong key={j} className="font-bold text-[#101F46]">
                         {part.replace(/\*\*/g, "")}
                       </strong>
                     ) : (
@@ -705,19 +705,19 @@ export default async function BlogPostPage({
           </div>
 
           {/* Author — divider style, no card box */}
-          <div className="mt-14 pt-8 border-t-2 border-[#1B3E72] flex items-center justify-between flex-wrap gap-4">
+          <div className="mt-14 pt-8 border-t-2 border-[#101F46] flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#1B3E72] flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">
+              <div className="w-10 h-10 bg-[#101F46] flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">
                 {post.author.charAt(0)}
               </div>
               <div>
-                <p className="font-bold text-[#1B3E72] text-sm">{post.author}</p>
+                <p className="font-bold text-[#101F46] text-sm">{post.author}</p>
                 <p className="text-xs text-[#9ca3af]">KMC Lalitpur</p>
               </div>
             </div>
             <Link
               href="/blog"
-              className="text-sm font-bold text-[#1B3E72] hover:text-amber-600 transition-colors"
+              className="text-sm font-bold text-[#101F46] hover:text-amber-600 transition-colors"
             >
               ← Back to Blog
             </Link>
@@ -742,7 +742,7 @@ export default async function BlogPostPage({
                   href={`/blog/${r.slug}`}
                   className="group flex flex-col"
                 >
-                  <div className="relative w-full aspect-[16/9] bg-[#1B3E72] overflow-hidden mb-4">
+                  <div className="relative w-full aspect-[16/9] bg-[#101F46] overflow-hidden mb-4">
                     <Image
                       src={r.image}
                       alt={r.title}
@@ -756,7 +756,7 @@ export default async function BlogPostPage({
                       {r.category}
                     </span>
                   )}
-                  <h3 className="font-bold text-[#1B3E72] leading-snug group-hover:text-[#1a3a6a] transition line-clamp-2 mb-1">
+                  <h3 className="font-bold text-[#101F46] leading-snug group-hover:text-[#1a3a6a] transition line-clamp-2 mb-1">
                     {r.title}
                   </h3>
                   <p className="text-xs text-[#9ca3af] mt-auto pt-2">{r.readTime}</p>
@@ -768,7 +768,7 @@ export default async function BlogPostPage({
       )}
 
       {/* CTA — asymmetric split, no centered box */}
-      <section className="py-20 bg-[#1B3E72] text-white">
+      <section className="py-20 bg-[#101F46] text-white">
         <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400 mb-3">
@@ -781,7 +781,7 @@ export default async function BlogPostPage({
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <Link
               href="/admissions"
-              className="px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold hover:bg-amber-300 transition text-sm"
+              className="px-8 py-4 bg-amber-400 text-[#101F46] font-bold hover:bg-amber-300 transition text-sm"
             >
               Admission Info
             </Link>

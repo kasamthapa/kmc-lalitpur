@@ -20,7 +20,7 @@ export default function BlogLoading() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#1B3E72]">
+      <section className="pt-28 pb-16 bg-[#101F46]">
         <div className="max-w-7xl mx-auto px-4 space-y-4">
           <div className="h-3 bg-white/10 rounded animate-pulse w-20" />
           <div className="h-12 bg-white/10 rounded animate-pulse w-40 md:w-56" />

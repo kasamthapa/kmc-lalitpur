@@ -51,7 +51,7 @@ export default async function FacultyPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-20 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-10 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">Home</Link>
@@ -99,7 +99,7 @@ export default async function FacultyPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 border-t border-[#eae6de] pt-16">
             <div className="max-w-xl">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#1B3E72] mb-3">Join Our Team</h2>
+              <h2 className="text-3xl font-bold text-[#101F46] mb-3">Join Our Team</h2>
               <p className="text-[#6b7280] text-lg leading-relaxed">
                 We are always looking for passionate, qualified educators to join the KMC family.
               </p>
@@ -107,14 +107,14 @@ export default async function FacultyPage() {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1B3E72] text-white font-semibold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#101F46] text-white font-semibold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
               >
                 <IconMail size={17} />
                 Send Your CV
               </a>
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#d1cdc5] text-[#1B3E72] font-semibold rounded-xl hover:border-amber-400 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#d1cdc5] text-[#101F46] font-semibold rounded-xl hover:border-amber-400 transition-all duration-200"
               >
                 <IconPhone size={17} />
                 {SITE_CONFIG.phone}

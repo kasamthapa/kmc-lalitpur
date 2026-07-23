@@ -308,7 +308,7 @@ export default async function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/admissions"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-all duration-200 hover:scale-105 shadow-lg shadow-amber-400/30"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition-all duration-200 hover:scale-105 shadow-lg shadow-amber-400/30"
               >
                 View Admission Guide
                 <IconArrow />
@@ -317,7 +317,7 @@ export default async function Home() {
                 href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=I+would+like+to+schedule+a+campus+visit`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/60 text-white font-bold rounded-xl hover:bg-white hover:text-[#1B3E72] transition-all duration-200 backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/60 text-white font-bold rounded-xl hover:bg-white hover:text-[#101F46] transition-all duration-200 backdrop-blur-sm"
               >
                 Book a Campus Visit
               </a>
@@ -330,7 +330,7 @@ export default async function Home() {
       <NoticeMarquee />
 
       {/* ── Stats ────────────────────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-[#1B3E72]">
+      <section className="py-14 md:py-20 bg-[#101F46]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, i) => (
@@ -365,10 +365,10 @@ export default async function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1B3E72]/30 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#101F46]/30 to-transparent pointer-events-none" />
               </div>
               {/* Floating stat */}
-              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-40 md:max-w-none bg-[#1B3E72] text-white rounded-xl px-8 py-6 shadow-2xl">
+              <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 max-w-40 md:max-w-none bg-[#101F46] text-white rounded-xl px-8 py-6 shadow-2xl">
                 <p className="text-amber-400 text-4xl font-bold leading-none">
                   22+
                 </p>
@@ -386,7 +386,7 @@ export default async function Home() {
                   About KMC
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1B3E72] mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#101F46] mb-6 leading-tight">
                 Leading Institution of
                 <br />
                 Learning Excellence
@@ -405,7 +405,7 @@ export default async function Home() {
               </p>
 
               <div className="mb-8 border-l-4 border-amber-400 pl-5">
-                <p className="text-[#1B3E72] font-bold leading-snug">
+                <p className="text-[#101F46] font-bold leading-snug">
                   One KMC standard across two trusted campuses.
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed mt-1">
@@ -417,7 +417,7 @@ export default async function Home() {
                   {SITE_CONFIG.campuses.map((campus) => (
                     <span
                       key={campus.name}
-                      className="text-xs font-semibold text-[#1B3E72] bg-amber-50 border border-amber-100 px-3 py-1.5 rounded-full"
+                      className="text-xs font-semibold text-[#101F46] bg-amber-50 border border-amber-100 px-3 py-1.5 rounded-full"
                     >
                       {campus.name}
                     </span>
@@ -438,7 +438,7 @@ export default async function Home() {
                       <IconCheck size={15} />
                     </span>
                     <div>
-                      <p className="font-bold text-[#1B3E72] text-sm">
+                      <p className="font-bold text-[#101F46] text-sm">
                         {f.label}
                       </p>
                       <p className="text-xs text-slate-500">{f.sub}</p>
@@ -449,7 +449,7 @@ export default async function Home() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-[#1B3E72] font-bold hover:text-amber-600 transition-colors group"
+                className="inline-flex items-center gap-2 text-[#101F46] font-bold hover:text-amber-600 transition-colors group"
               >
                 Learn More About Us
                 <span className="group-hover:translate-x-1 transition-transform">
@@ -469,7 +469,7 @@ export default async function Home() {
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-amber-600 mb-3 block">
                 Academic Streams
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
                 Our Programs
               </h2>
             </div>
@@ -519,13 +519,13 @@ export default async function Home() {
                     {p.careers.map((c) => (
                       <span
                         key={c}
-                        className="text-xs font-semibold text-[#1B3E72] bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-full"
+                        className="text-xs font-semibold text-[#101F46] bg-amber-50 border border-amber-100 px-2.5 py-1 rounded-full"
                       >
                         {c}
                       </span>
                     ))}
                   </div>
-                  <div className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#1B3E72] group-hover:text-amber-600 transition-colors">
+                  <div className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#101F46] group-hover:text-amber-600 transition-colors">
                     Explore Program <IconChevronRight size={15} />
                   </div>
                 </div>
@@ -536,7 +536,7 @@ export default async function Home() {
           <div className="mt-10">
             <Link
               href="/academics"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#1B3E72] text-white font-bold rounded-xl hover:bg-[#162d4a] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#101F46] text-white font-bold rounded-xl hover:bg-[#162d4a] transition-colors"
             >
               View All Programs
               <IconArrow />
@@ -550,7 +550,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] mb-2 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-2 leading-tight">
                 Simple 3-Step
                 <br />
                 Admission Process
@@ -584,11 +584,11 @@ export default async function Home() {
                     key={s.step}
                     className="flex gap-6 group border-t border-[#f0ede6] pt-5 pb-5"
                   >
-                    <span className="text-3xl font-bold text-[#1B3E72]/15 leading-none shrink-0">
+                    <span className="text-3xl font-bold text-[#101F46]/15 leading-none shrink-0">
                       {s.step}
                     </span>
                     <div>
-                      <h4 className="font-bold text-[#1B3E72] mb-1">
+                      <h4 className="font-bold text-[#101F46] mb-1">
                         {s.title}
                       </h4>
                       <p className="text-sm text-slate-500 leading-relaxed">
@@ -601,7 +601,7 @@ export default async function Home() {
 
               <Link
                 href="/admissions"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition-colors"
               >
                 Full Admission Guide
                 <IconArrow />
@@ -609,7 +609,7 @@ export default async function Home() {
             </div>
 
             {/* Scholarship highlight */}
-            <div className="bg-[#1B3E72] rounded-2xl p-6 md:p-8 text-white">
+            <div className="bg-[#101F46] rounded-2xl p-6 md:p-8 text-white">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-6 h-px bg-amber-400" />
                 <span className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase">
@@ -630,7 +630,7 @@ export default async function Home() {
                     key={i}
                     className="flex gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-amber-400/30 transition-colors"
                   >
-                    <span className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-[#1B3E72] font-bold text-xs shrink-0">
+                    <span className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-[#101F46] font-bold text-xs shrink-0">
                       {i + 1}
                     </span>
                     <div>
@@ -643,7 +643,7 @@ export default async function Home() {
 
               <Link
                 href="/admissions#scholarships"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition-colors text-sm w-full justify-center"
               >
                 View All Scholarships
                 <IconArrow />
@@ -658,7 +658,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row lg:gap-24 lg:items-start">
             <div className="lg:w-80 shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-28">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
                 Why Students
                 <br />
                 Thrive Here
@@ -669,7 +669,7 @@ export default async function Home() {
               </p>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#1B3E72] hover:text-amber-600 transition-colors group"
+                className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#101F46] hover:text-amber-600 transition-colors group"
               >
                 About KMC{" "}
                 <span className="group-hover:translate-x-1 transition-transform">
@@ -680,11 +680,11 @@ export default async function Home() {
             <div className="flex-1 divide-y divide-[#e0dcd4]">
               {whyKMC.map((item, i) => (
                 <div key={i} className="py-7 flex gap-6 group cursor-default">
-                  <span className="text-4xl font-bold text-[#1B3E72]/10 leading-none shrink-0 w-12 text-right group-hover:text-amber-400/50 transition-colors duration-300">
+                  <span className="text-4xl font-bold text-[#101F46]/10 leading-none shrink-0 w-12 text-right group-hover:text-amber-400/50 transition-colors duration-300">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-bold text-[#1B3E72] mb-1.5 group-hover:text-amber-700 transition-colors">
+                    <h3 className="font-bold text-[#101F46] mb-1.5 group-hover:text-amber-700 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-slate-500 leading-relaxed">
@@ -702,12 +702,12 @@ export default async function Home() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
               News &<br className="md:hidden" /> Updates
             </h2>
             <Link
               href="/news"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-[#1B3E72] hover:text-amber-600 transition-colors group border-b border-[#1B3E72]/20 pb-0.5 hover:border-amber-600"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-[#101F46] hover:text-amber-600 transition-colors group border-b border-[#101F46]/20 pb-0.5 hover:border-amber-600"
             >
               All news{" "}
               <span className="group-hover:translate-x-1 transition-transform">
@@ -732,9 +732,9 @@ export default async function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1B3E72]/70 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#101F46]/70 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block bg-amber-400 text-[#1B3E72] text-xs font-bold px-3 py-1 rounded-full mb-2">
+                  <span className="inline-block bg-amber-400 text-[#101F46] text-xs font-bold px-3 py-1 rounded-full mb-2">
                     {latestNews[0].category}
                   </span>
                   <h3 className="text-white font-bold text-xl leading-tight">
@@ -768,7 +768,7 @@ export default async function Home() {
                     <span className="inline-block text-xs font-bold text-amber-600 mb-1">
                       {news.category}
                     </span>
-                    <h4 className="text-sm font-bold text-[#1B3E72] leading-tight line-clamp-2 group-hover:text-amber-600 transition-colors">
+                    <h4 className="text-sm font-bold text-[#101F46] leading-tight line-clamp-2 group-hover:text-amber-600 transition-colors">
                       {news.title}
                     </h4>
                     <p className="text-xs text-slate-400 mt-1">{news.date}</p>
@@ -778,7 +778,7 @@ export default async function Home() {
 
               <Link
                 href="/news"
-                className="flex items-center justify-center gap-2 w-full py-3 border-2 border-[#1B3E72]/20 text-[#1B3E72] font-bold text-sm rounded-xl hover:bg-[#1B3E72] hover:text-white hover:border-[#1B3E72] transition-all"
+                className="flex items-center justify-center gap-2 w-full py-3 border-2 border-[#101F46]/20 text-[#101F46] font-bold text-sm rounded-xl hover:bg-[#101F46] hover:text-white hover:border-[#101F46] transition-all"
               >
                 All News & Events
                 <IconArrow />
@@ -789,7 +789,7 @@ export default async function Home() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-32 bg-[#1B3E72] text-white overflow-hidden">
+      <section className="py-20 md:py-32 bg-[#101F46] text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-16">
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -853,7 +853,7 @@ export default async function Home() {
       <section className="py-20 md:py-28 bg-[#f7f5f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-4 leading-tight">
               Our Students,
               <br />
               Their Dreams
@@ -893,7 +893,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1B3E72] mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-4 leading-tight">
                 Beyond the
                 <br />
                 Classroom
@@ -928,7 +928,7 @@ export default async function Home() {
               </div>
               <Link
                 href="/news"
-                className="inline-flex items-center gap-2 text-[#1B3E72] font-bold hover:text-amber-600 transition-colors group"
+                className="inline-flex items-center gap-2 text-[#101F46] font-bold hover:text-amber-600 transition-colors group"
               >
                 See Latest Events
                 <span className="group-hover:translate-x-1 transition-transform">
@@ -956,7 +956,7 @@ export default async function Home() {
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#1B3E72]/20 group-hover:bg-[#1B3E72]/10 transition-colors pointer-events-none" />
+                  <div className="absolute inset-0 bg-[#101F46]/20 group-hover:bg-[#101F46]/10 transition-colors pointer-events-none" />
                 </div>
               ))}
             </div>
@@ -965,7 +965,7 @@ export default async function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-[#1B3E72] relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#101F46] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full border border-amber-400/10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full border border-amber-400/10" />
@@ -986,7 +986,7 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admissions"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
               View Admission Guide
               <IconArrow />

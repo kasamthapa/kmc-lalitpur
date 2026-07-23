@@ -17,8 +17,8 @@ export default function Error({
   return (
     <main className="min-h-screen flex items-center justify-center bg-white">
       <div className="text-center px-4">
-        <p className="text-8xl font-bold text-[#1B3E72] mb-4">500</p>
-        <h1 className="text-2xl font-bold text-[#1B3E72] mb-3">
+        <p className="text-8xl font-bold text-[#101F46] mb-4">500</p>
+        <h1 className="text-2xl font-bold text-[#101F46] mb-3">
           Something went wrong
         </h1>
         <p className="text-slate-500 mb-8 max-w-md mx-auto">
@@ -28,13 +28,13 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={reset}
-            className="px-6 py-3 bg-[#F0A03C] text-[#1B3E72] font-bold rounded-xl hover:bg-[#F4B971] transition-colors"
+            className="px-6 py-3 bg-[#E48B25] text-[#101F46] font-bold rounded-xl hover:bg-[#E4A358] transition-colors"
           >
             Try Again
           </button>
           <Link
             href="/"
-            className="px-6 py-3 border border-[#1B3E72]/20 text-[#1B3E72] font-bold rounded-xl hover:bg-[#f7f5f0] transition-colors"
+            className="px-6 py-3 border border-[#101F46]/20 text-[#101F46] font-bold rounded-xl hover:bg-[#f7f5f0] transition-colors"
           >
             Go Home
           </Link>

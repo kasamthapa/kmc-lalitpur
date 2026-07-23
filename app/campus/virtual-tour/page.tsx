@@ -81,7 +81,7 @@ export default function VirtualTourPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-20 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 mb-10 text-[#8ba7c7] text-sm">
             <Link href="/" className="hover:text-amber-400 transition">
@@ -119,7 +119,7 @@ export default function VirtualTourPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#1B3E72]">
+              <h2 className="text-3xl font-bold text-[#101F46]">
                 See KMC in Action
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -163,7 +163,7 @@ export default function VirtualTourPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#1B3E72]">Campus Areas</h2>
+              <h2 className="text-3xl font-bold text-[#101F46]">Campus Areas</h2>
             </div>
             <p className="text-[#6b7280] text-sm max-w-xs md:text-right leading-relaxed">
               Every space is designed to support learning, collaboration, and
@@ -178,7 +178,7 @@ export default function VirtualTourPage() {
                 key={area.name}
                 className="group rounded-xl overflow-hidden bg-white border border-[#eae6de] hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
               >
-                <div className="relative h-64 bg-[#1B3E72] overflow-hidden">
+                <div className="relative h-64 bg-[#101F46] overflow-hidden">
                   <Image
                     src={area.image}
                     alt={area.name}
@@ -187,7 +187,7 @@ export default function VirtualTourPage() {
                     className="object-cover group-hover:scale-105 transition duration-500"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B3E72]/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101F46]/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5">
                     <h3 className="font-bold text-white text-lg mb-1">{area.name}</h3>
                     <span className="text-xs font-semibold text-amber-300">{area.highlight}</span>
@@ -207,7 +207,7 @@ export default function VirtualTourPage() {
                 key={area.name}
                 className="group rounded-xl overflow-hidden bg-white border border-[#eae6de] hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
               >
-                <div className="relative h-44 bg-[#1B3E72] overflow-hidden">
+                <div className="relative h-44 bg-[#101F46] overflow-hidden">
                   <Image
                     src={area.image}
                     alt={area.name}
@@ -215,10 +215,10 @@ export default function VirtualTourPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B3E72]/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101F46]/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-[#1B3E72] mb-1 text-sm group-hover:text-amber-600 transition">
+                  <h3 className="font-bold text-[#101F46] mb-1 text-sm group-hover:text-amber-600 transition">
                     {area.name}
                   </h3>
                   <p className="text-xs text-[#6b7280] mb-3 leading-relaxed line-clamp-2">
@@ -235,7 +235,7 @@ export default function VirtualTourPage() {
       </section>
 
       {/* Physical tour CTA — left-aligned editorial */}
-      <section className="py-24 bg-[#1B3E72] text-white">
+      <section className="py-24 bg-[#101F46] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
@@ -249,7 +249,7 @@ export default function VirtualTourPage() {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-400 text-[#1B3E72] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
               >
                 Schedule a Visit
                 <IconArrow size={17} />

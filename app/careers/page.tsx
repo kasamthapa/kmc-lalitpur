@@ -129,7 +129,7 @@ export default function CareersPage() {
   }
 
   const inputCls =
-    "w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#1B3E72] bg-white text-gray-900 placeholder-gray-400";
+    "w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-[#101F46] bg-white text-gray-900 placeholder-gray-400";
 
   const labelCls =
     "block text-xs font-bold uppercase tracking-wider mb-2";
@@ -146,7 +146,7 @@ export default function CareersPage() {
               <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
                 Open Positions
               </p>
-              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#1B3E72" }}>
+              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
                 Current Openings
               </h2>
               <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
@@ -173,7 +173,7 @@ export default function CareersPage() {
                   No vacancies are currently listed. Please check back soon or email us at{" "}
                   <a
                     href="mailto:info@kmclalitpur.edu.np"
-                    className="font-semibold text-[#1B3E72] hover:text-amber-600 transition-colors"
+                    className="font-semibold text-[#101F46] hover:text-amber-600 transition-colors"
                   >
                     info@kmclalitpur.edu.np
                   </a>
@@ -187,7 +187,7 @@ export default function CareersPage() {
                     <div className="mb-6">
                       <h3
                         className="text-[11px] font-bold uppercase tracking-[0.18em] pb-3"
-                        style={{ color: "#1B3E72" }}
+                        style={{ color: "#101F46" }}
                       >
                         {category === "Teaching" ? "Teaching Faculty" : "Non-Teaching Staff"}
                       </h3>
@@ -205,7 +205,7 @@ export default function CareersPage() {
                             <div>
                               <p
                                 className="font-bold text-sm leading-snug"
-                                style={{ color: "#1B3E72" }}
+                                style={{ color: "#101F46" }}
                               >
                                 {v.title}
                               </p>
@@ -237,7 +237,7 @@ export default function CareersPage() {
                   To apply, fill the form below or email your CV to{" "}
                   <a
                     href="mailto:info@kmclalitpur.edu.np"
-                    className="font-semibold text-[#1B3E72] hover:text-amber-600 transition-colors"
+                    className="font-semibold text-[#101F46] hover:text-amber-600 transition-colors"
                   >
                     info@kmclalitpur.edu.np
                   </a>
@@ -255,7 +255,7 @@ export default function CareersPage() {
               <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
                 Apply
               </p>
-              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#1B3E72" }}>
+              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
                 Submit Your Application
               </h2>
               <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
@@ -291,7 +291,7 @@ export default function CareersPage() {
                     <div className="flex items-center gap-3 mb-6">
                       <p
                         className="text-[11px] font-bold uppercase tracking-[0.2em]"
-                        style={{ color: "#1B3E72" }}
+                        style={{ color: "#101F46" }}
                       >
                         Personal Information
                       </p>
@@ -301,7 +301,7 @@ export default function CareersPage() {
                     {/* Name + Email */}
                     <div className="grid sm:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="fullName" className={labelCls} style={{ color: "#1B3E72" }}>
+                        <label htmlFor="fullName" className={labelCls} style={{ color: "#101F46" }}>
                           Full Name <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -319,7 +319,7 @@ export default function CareersPage() {
                         )}
                       </div>
                       <div>
-                        <label htmlFor="email" className={labelCls} style={{ color: "#1B3E72" }}>
+                        <label htmlFor="email" className={labelCls} style={{ color: "#101F46" }}>
                           Email <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -340,7 +340,7 @@ export default function CareersPage() {
 
                     {/* Phone */}
                     <div className="max-w-xs">
-                      <label htmlFor="phone" className={labelCls} style={{ color: "#1B3E72" }}>
+                      <label htmlFor="phone" className={labelCls} style={{ color: "#101F46" }}>
                         Phone <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -364,7 +364,7 @@ export default function CareersPage() {
                     <div className="flex items-center gap-3 mb-6">
                       <p
                         className="text-[11px] font-bold uppercase tracking-[0.2em]"
-                        style={{ color: "#1B3E72" }}
+                        style={{ color: "#101F46" }}
                       >
                         Application Details
                       </p>
@@ -373,7 +373,7 @@ export default function CareersPage() {
 
                     {/* Position */}
                     <div className="mb-6">
-                      <label htmlFor="position" className={labelCls} style={{ color: "#1B3E72" }}>
+                      <label htmlFor="position" className={labelCls} style={{ color: "#101F46" }}>
                         Position Applied For <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -409,7 +409,7 @@ export default function CareersPage() {
                     {/* Qualification + Experience */}
                     <div className="grid sm:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="qualification" className={labelCls} style={{ color: "#1B3E72" }}>
+                        <label htmlFor="qualification" className={labelCls} style={{ color: "#101F46" }}>
                           Highest Qualification <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -427,7 +427,7 @@ export default function CareersPage() {
                         )}
                       </div>
                       <div>
-                        <label htmlFor="experience" className={labelCls} style={{ color: "#1B3E72" }}>
+                        <label htmlFor="experience" className={labelCls} style={{ color: "#101F46" }}>
                           Years of Experience <span className="text-red-500">*</span>
                         </label>
                         <select
@@ -453,7 +453,7 @@ export default function CareersPage() {
 
                     {/* Cover Letter */}
                     <div className="mb-6">
-                      <label htmlFor="coverLetter" className={labelCls} style={{ color: "#1B3E72" }}>
+                      <label htmlFor="coverLetter" className={labelCls} style={{ color: "#101F46" }}>
                         Cover Letter / Message{" "}
                         <span className="text-gray-400 normal-case font-normal">(optional)</span>
                       </label>
@@ -473,7 +473,7 @@ export default function CareersPage() {
 
                     {/* CV / Resume Upload */}
                     <div className="mb-8">
-                      <label className={labelCls} style={{ color: "#1B3E72" }}>
+                      <label className={labelCls} style={{ color: "#101F46" }}>
                         CV / Resume{" "}
                         <span className="text-red-500">*</span>{" "}
                         <span className="text-gray-400 normal-case font-normal">
@@ -491,7 +491,7 @@ export default function CareersPage() {
                       type="submit"
                       disabled={state === "submitting"}
                       className="px-10 py-3.5 text-sm font-bold uppercase tracking-wider transition-opacity disabled:opacity-60"
-                      style={{ backgroundColor: "#f59e0b", color: "#1B3E72" }}
+                      style={{ backgroundColor: "#f59e0b", color: "#101F46" }}
                     >
                       {state === "submitting" ? "Submitting…" : "Submit Application"}
                     </button>

@@ -99,7 +99,7 @@ export default async function FacultyDetailPage({
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-12 bg-[#1B3E72] text-white">
+      <section className="pt-28 pb-12 bg-[#101F46] text-white">
         <div className="max-w-5xl mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8 text-[#8ba7c7] text-sm flex-wrap">
@@ -170,7 +170,7 @@ export default async function FacultyDetailPage({
             {bioParas.length > 0 && (
               <div className="pb-8 border-b border-[#e8e4dc]">
                 <h2
-                  className="text-[#1B3E72] font-bold text-xs tracking-[0.15em] uppercase mb-5 border-b-2 pb-2"
+                  className="text-[#101F46] font-bold text-xs tracking-[0.15em] uppercase mb-5 border-b-2 pb-2"
                   style={{ borderColor: deptColor }}
                 >
                   About
@@ -187,7 +187,7 @@ export default async function FacultyDetailPage({
             {achievements.length > 0 && (
               <div className="pb-8 border-b border-[#e8e4dc]">
                 <h2
-                  className="text-[#1B3E72] font-bold text-xs tracking-[0.15em] uppercase mb-5 border-b-2 pb-2"
+                  className="text-[#101F46] font-bold text-xs tracking-[0.15em] uppercase mb-5 border-b-2 pb-2"
                   style={{ borderColor: deptColor }}
                 >
                   Achievements &amp; Highlights
@@ -213,7 +213,7 @@ export default async function FacultyDetailPage({
               </div>
             )}
 
-            <Link href="/campus/faculty" className="inline-flex items-center gap-2 text-sm font-bold text-[#1B3E72] hover:text-amber-600 transition-colors mt-4">
+            <Link href="/campus/faculty" className="inline-flex items-center gap-2 text-sm font-bold text-[#101F46] hover:text-amber-600 transition-colors mt-4">
               ← All Faculty
             </Link>
           </div>
@@ -227,7 +227,7 @@ export default async function FacultyDetailPage({
                   <ColorIcon color={deptColor}>
                     <IconBook size={15} />
                   </ColorIcon>
-                  <p className="text-sm text-[#1B3E72] font-semibold self-center">{member.qualification}</p>
+                  <p className="text-sm text-[#101F46] font-semibold self-center">{member.qualification}</p>
                 </div>
               </div>
 
@@ -237,7 +237,7 @@ export default async function FacultyDetailPage({
                   <ColorIcon color={deptColor}>
                     <IconUsers size={15} />
                   </ColorIcon>
-                  <p className="text-sm text-[#1B3E72] font-semibold self-center">{member.experience}</p>
+                  <p className="text-sm text-[#101F46] font-semibold self-center">{member.experience}</p>
                 </div>
               </div>
 

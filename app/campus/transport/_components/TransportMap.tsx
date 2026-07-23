@@ -19,7 +19,7 @@ const schoolIcon = L.divIcon({
       "></div>
       <div style="
         width:46px;height:46px;border-radius:50%;
-        background:#F0A03C;border:3px solid #fff;
+        background:#E48B25;border:3px solid #fff;
         box-shadow:0 3px 12px rgba(0,0,0,0.3);
         display:flex;align-items:center;justify-content:center;
         font-size:20px;position:relative;z-index:1;
@@ -75,7 +75,7 @@ export default function TransportMap() {
               pathOptions={{ color: "white", weight: 2, fillColor: route.color, fillOpacity: 1 }}
             >
               <Tooltip direction="top" offset={[0, -8]} opacity={1}>
-                <span className="text-xs font-semibold text-[#1B3E72]">{stop.name}</span>
+                <span className="text-xs font-semibold text-[#101F46]">{stop.name}</span>
               </Tooltip>
             </CircleMarker>
           ))
@@ -83,7 +83,7 @@ export default function TransportMap() {
 
         <Marker position={SCHOOL} icon={schoolIcon}>
           <Tooltip direction="top" offset={[0, -32]} permanent opacity={1}>
-            <span className="text-xs font-bold text-[#1B3E72]">KMC Balkumari</span>
+            <span className="text-xs font-bold text-[#101F46]">KMC Balkumari</span>
           </Tooltip>
         </Marker>
       </MapContainer>

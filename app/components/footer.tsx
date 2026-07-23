@@ -19,7 +19,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1B3E72] text-slate-300">
+    <footer className="bg-[#101F46] text-slate-300">
       {/* ── Main footer content ───────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
@@ -113,7 +113,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#1B3E72] text-slate-300 transition-all duration-200"
+                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#101F46] text-slate-300 transition-all duration-200"
               >
                 <IconFacebook size={18} />
               </a>
@@ -122,7 +122,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#1B3E72] text-slate-300 transition-all duration-200"
+                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#101F46] text-slate-300 transition-all duration-200"
               >
                 <IconInstagram size={18} />
               </a>
@@ -131,7 +131,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#1B3E72] text-slate-300 transition-all duration-200"
+                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-[#101F46] text-slate-300 transition-all duration-200"
               >
                 <IconYoutube size={18} />
               </a>
@@ -246,7 +246,7 @@ export function Footer() {
               </p>
               <Link
                 href="/admissions"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-400 text-[#1B3E72] font-bold text-xs rounded-lg hover:bg-amber-300 transition-colors w-full justify-center"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-400 text-[#101F46] font-bold text-xs rounded-lg hover:bg-amber-300 transition-colors w-full justify-center"
               >
                 View Admission Guide
                 <IconArrow size={14} />
