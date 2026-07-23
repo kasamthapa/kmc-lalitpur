@@ -235,7 +235,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="w-6 h-px bg-amber-400 mb-5" />
-              <h2 className="text-4xl font-bold text-white mb-5 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
                 Library &amp;<br />E-Library
               </h2>
               <p className="text-[#8ba7c7] text-sm leading-relaxed mb-8">
@@ -369,7 +369,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#101F46] mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-6 leading-tight">
                 Hostel Life
               </h2>
               <p className="text-[#4b5563] text-sm leading-relaxed mb-5">
@@ -478,7 +478,7 @@ export default function Facilities() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="w-8 h-px bg-amber-400 mb-5" />
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
                 Experience KMC in Person
               </h2>
               <p className="text-[#8ba7c7] text-sm leading-relaxed">

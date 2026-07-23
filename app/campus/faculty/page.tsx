@@ -99,7 +99,7 @@ export default async function FacultyPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 border-t border-[#eae6de] pt-16">
             <div className="max-w-xl">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#101F46] mb-3">Join Our Team</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-3">Join Our Team</h2>
               <p className="text-[#6b7280] text-lg leading-relaxed">
                 We are always looking for passionate, qualified educators to join the KMC family.
               </p>

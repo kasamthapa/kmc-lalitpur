@@ -107,7 +107,7 @@ export default async function AlumniPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#101F46] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
                 KMC Alumni Association<br />of Lalitpur
               </h2>
             </div>
@@ -207,7 +207,7 @@ export default async function AlumniPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14">
               <div>
                 <div className="w-6 h-px bg-amber-500 mb-4" />
-                <h2 className="text-4xl font-bold text-[#101F46]">Alumni Stories</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">Alumni Stories</h2>
               </div>
               <p className="text-[#6b7280] text-sm leading-relaxed">
                 KMC graduates making their mark in technology, medicine, law, business, and beyond.
@@ -369,7 +369,7 @@ export default async function AlumniPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="w-8 h-px bg-amber-400 mb-5" />
-              <h2 className="text-3xl font-bold mb-3">Stay Connected</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-3">Stay Connected</h2>
               <p className="text-[#8ba7c7] text-sm leading-relaxed">
                 Follow us on social media and be part of every milestone in the KMC community.
               </p>

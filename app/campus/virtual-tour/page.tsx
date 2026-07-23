@@ -119,7 +119,7 @@ export default function VirtualTourPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#101F46]">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">
                 See KMC in Action
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -163,7 +163,7 @@ export default function VirtualTourPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#101F46]">Campus Areas</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">Campus Areas</h2>
             </div>
             <p className="text-[#6b7280] text-sm max-w-xs md:text-right leading-relaxed">
               Every space is designed to support learning, collaboration, and
@@ -240,7 +240,7 @@ export default function VirtualTourPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
               <div className="w-6 h-px bg-amber-400 mb-4" />
-              <h2 className="text-3xl font-bold mb-2">Experience It in Person</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-2">Experience It in Person</h2>
               <p className="text-[#8ba7c7] text-lg max-w-md leading-relaxed">
                 Nothing beats a guided campus tour. Schedule your visit and meet our
                 faculty and students in person.

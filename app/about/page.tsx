@@ -245,7 +245,7 @@ export default function About() {
             </div>
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#101F46] mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-6 leading-tight">
                 Building Excellence
                 <br />
                 Since 2000
@@ -692,7 +692,7 @@ export default function About() {
             </div>
             <div className="pt-4">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#101F46] mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-8 leading-tight">
                 Principal&apos;s
                 <br />
                 Message
@@ -829,7 +829,7 @@ export default function About() {
               <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-5">
                 Global Success
               </p>
-              <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Our Students Reach
                 <br />
                 the World&apos;s Best Universities
@@ -893,7 +893,7 @@ export default function About() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#101F46] mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-6 leading-tight">
             Join Our Growing
             <br />
             Community

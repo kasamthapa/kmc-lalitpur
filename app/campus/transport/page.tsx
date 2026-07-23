@@ -118,7 +118,7 @@ export default function TransportPage() {
 
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Coverage Areas</p>
-            <h2 className="text-4xl font-bold text-[#101F46]">Areas We Serve</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">Areas We Serve</h2>
             <p className="text-[#6b7280] mt-3 max-w-lg mx-auto">
               All routes connect to KMC Balkumari. Find your area below.
             </p>
@@ -196,7 +196,7 @@ export default function TransportPage() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">Guidelines</p>
-            <h2 className="text-4xl font-bold text-[#101F46]">Transport Policies</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">Transport Policies</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {policies.map((policy, i) => (
@@ -214,7 +214,7 @@ export default function TransportPage() {
       {/* CTA */}
       <section className="py-20 bg-[#101F46] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Register for Transport</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Register for Transport</h2>
           <p className="text-[#8ba7c7] text-lg mb-10">
             Contact our transport office to register, confirm your pickup point, or inquire about coverage in your area.
           </p>

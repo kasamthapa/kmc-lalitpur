@@ -237,7 +237,7 @@ export default function FAQPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
             <div>
-              <h2 className="text-3xl font-bold mb-3">Still have questions?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-3">Still have questions?</h2>
               <p className="text-[#8ba7c7] text-sm leading-relaxed max-w-md">
                 Our admissions team is happy to help. Reach out to us directly and we&apos;ll get back to you within 24 hours.
               </p>

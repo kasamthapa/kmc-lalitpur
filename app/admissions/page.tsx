@@ -350,7 +350,7 @@ export default function Admissions() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-3" />
-              <h2 className="text-4xl font-bold text-[#101F46]">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">
                 Admission in 3 Steps
               </h2>
             </div>
@@ -405,7 +405,7 @@ export default function Admissions() {
       <section id="guide" className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-[#101F46] mb-2">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-2">
               Detailed Admission Guide
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
@@ -499,7 +499,7 @@ export default function Admissions() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-2">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
                 Scholarships & Financial Aid
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -756,7 +756,7 @@ export default function Admissions() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-3" />
-              <h2 className="text-4xl font-bold text-[#101F46]">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46]">
                 Admission Timeline
               </h2>
             </div>
@@ -796,7 +796,7 @@ export default function Admissions() {
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-14">
-            <h2 className="text-4xl font-bold text-[#101F46] mb-2">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-2">
               Eligibility & Documents
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3 mb-6" />
@@ -956,7 +956,7 @@ export default function Admissions() {
           </div>
 
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Planning for the Next Intake?
             </h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-sm leading-relaxed">

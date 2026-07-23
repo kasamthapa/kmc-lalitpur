@@ -344,7 +344,7 @@ export default function Academics() {
             </div>
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#101F46] mb-5 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-5 leading-tight">
                 Education Beyond
                 <br />
                 the Textbook
@@ -643,7 +643,7 @@ export default function Academics() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
-              <h2 className="text-4xl font-bold text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Our Teaching Approach
               </h2>
               <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -696,7 +696,7 @@ export default function Academics() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start mb-12">
             <div>
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-4xl font-bold text-[#101F46] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
                 Dedicated Faculty
               </h2>
             </div>
@@ -757,7 +757,7 @@ export default function Academics() {
       <section className="py-24 bg-[#f7f5f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-14">
-            <h2 className="text-4xl font-bold text-[#101F46] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight">
               Student Learning Outcomes
             </h2>
             <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -958,7 +958,7 @@ export default function Academics() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-amber-400/10" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Ready to Choose Your Stream?
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">

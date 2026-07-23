@@ -194,7 +194,7 @@ export default function Contact() {
             {/* Form — wider column */}
             <div className="lg:col-span-3">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-[#101F46] leading-tight mb-2">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] leading-tight mb-2">
                   Send Us a Message
                 </h2>
                 <div className="w-10 h-0.5 bg-amber-400 mt-3" />
@@ -481,7 +481,7 @@ export default function Contact() {
           <div className="bg-[#101F46] p-10 md:p-14">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-3">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
                   Chat With Us on WhatsApp
                 </h2>
                 <p className="text-slate-400 text-sm leading-relaxed max-w-md">
@@ -539,7 +539,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <h2 className="text-xl font-bold text-[#101F46] mb-1">
+              <h2 className="text-2xl font-bold text-[#101F46] mb-1">
                 Follow Us
               </h2>
               <p className="text-slate-500 text-sm">

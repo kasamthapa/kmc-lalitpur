@@ -102,7 +102,7 @@ export default function HostelPage() {
             {/* Left: heading */}
             <div className="lg:w-72 shrink-0 lg:sticky lg:top-28">
               <div className="w-6 h-px bg-amber-500 mb-4" />
-              <h2 className="text-3xl font-bold text-[#101F46] mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#101F46] mb-4">
                 What&apos;s<br />Included
               </h2>
               <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -165,7 +165,7 @@ export default function HostelPage() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
               <div className="w-6 h-px bg-amber-400 mb-4" />
-              <h2 className="text-3xl font-bold mb-2">Ready to Apply for Hostel?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-2">Ready to Apply for Hostel?</h2>
               <p className="text-[#8ba7c7] text-lg max-w-md leading-relaxed">
                 Limited seats available. Contact our hostel office to check availability and reserve your room.
               </p>

@@ -146,7 +146,7 @@ export default function CareersPage() {
               <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
                 Open Positions
               </p>
-              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
                 Current Openings
               </h2>
               <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
@@ -255,7 +255,7 @@ export default function CareersPage() {
               <p className="text-amber-500 text-[11px] font-bold uppercase tracking-[0.25em] mb-3">
                 Apply
               </p>
-              <h2 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight" style={{ color: "#101F46" }}>
                 Submit Your Application
               </h2>
               <div className="w-16 h-0.5 bg-amber-400" aria-hidden="true" />
