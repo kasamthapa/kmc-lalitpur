@@ -410,7 +410,7 @@ export default function CareersPage() {
                     <div className="grid sm:grid-cols-2 gap-6 mb-6">
                       <div>
                         <label htmlFor="qualification" className={labelCls} style={{ color: "#101F46" }}>
-                          Highest Qualification <span className="text-red-500">*</span>
+                          Highest Qualification
                         </label>
                         <input
                           id="qualification"
@@ -418,7 +418,6 @@ export default function CareersPage() {
                           type="text"
                           value={form.qualification}
                           onChange={handleChange}
-                          required
                           className={inputCls}
                           placeholder="e.g. M.Sc. Physics, B.Ed."
                         />
@@ -428,14 +427,13 @@ export default function CareersPage() {
                       </div>
                       <div>
                         <label htmlFor="experience" className={labelCls} style={{ color: "#101F46" }}>
-                          Years of Experience <span className="text-red-500">*</span>
+                          Years of Experience
                         </label>
                         <select
                           id="experience"
                           name="experience"
                           value={form.experience}
                           onChange={handleChange}
-                          required
                           className={inputCls}
                         >
                           <option value="">— Select —</option>

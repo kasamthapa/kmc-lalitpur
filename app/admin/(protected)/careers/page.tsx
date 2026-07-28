@@ -410,7 +410,7 @@ export default function AdminCareersPage() {
                         {app.category}
                       </td>
                       <td className="px-4 py-3.5 text-gray-500 text-sm">
-                        {app.experience}
+                        {app.experience || "—"}
                       </td>
                       <td className="px-4 py-3.5 text-gray-400 text-xs whitespace-nowrap">
                         {new Date(app.createdAt).toLocaleDateString("en-GB", {
@@ -464,7 +464,7 @@ export default function AdminCareersPage() {
                                   Qualification
                                 </p>
                                 <p className="text-gray-700 text-sm">
-                                  {app.qualification}
+                                  {app.qualification || "—"}
                                 </p>
                               </div>
                             </div>

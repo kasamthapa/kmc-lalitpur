@@ -46,10 +46,10 @@ export async function POST(req: NextRequest) {
     errors.position = "Please select a position.";
   if (!category || !validateLength(category.trim(), 2, 50))
     errors.category = "Please select a category.";
-  if (!qualification || !validateLength(qualification.trim(), 2, 200))
-    errors.qualification = "Please enter your qualification.";
-  if (!experience || !validateLength(experience.trim(), 1, 50))
-    errors.experience = "Please select your experience level.";
+  if (qualification && !validateLength(qualification.trim(), 0, 200))
+    errors.qualification = "Qualification must be under 200 characters.";
+  if (experience && !validateLength(experience.trim(), 0, 50))
+    errors.experience = "Experience must be under 50 characters.";
   if (coverLetter && !validateLength(coverLetter.trim(), 0, 3000))
     errors.coverLetter = "Cover letter must be under 3,000 characters.";
   if (!resumeUrl || !resumeUrl.trim().startsWith("https://"))
@@ -67,8 +67,8 @@ export async function POST(req: NextRequest) {
         phone: phone.trim(),
         position: position.trim(),
         category: category.trim(),
-        qualification: qualification.trim(),
-        experience: experience.trim(),
+        qualification: qualification?.trim() || "",
+        experience: experience?.trim() || "",
         coverLetter: coverLetter?.trim() || null,
         resumeUrl: resumeUrl?.trim() || null,
       },
