@@ -103,27 +103,35 @@ export function FacultyFilter({ faculty, departments, deptColors, hasSlug }: Pro
 
                   <div className="p-5">
                     {/* Department label */}
-                    <p
-                      className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2"
-                      style={{ color }}
-                    >
-                      {member.dept}
-                    </p>
+                    {member.dept && (
+                      <p
+                        className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style={{ color }}
+                      >
+                        {member.dept}
+                      </p>
+                    )}
                     <h3 className="font-bold text-[#101F46] text-base leading-snug mb-0.5 group-hover:text-amber-600 transition">
                       {member.name}
                     </h3>
                     <p className="text-sm text-[#6b7280] mb-4">{member.title}</p>
 
-                    <div className="space-y-1.5 text-xs text-[#374151]">
-                      <div className="flex items-start gap-2">
-                        <IconBook size={11} className="mt-0.5 shrink-0 text-amber-500" />
-                        <span className="leading-relaxed">{member.qualification}</span>
+                    {(member.qualification || member.experience) && (
+                      <div className="space-y-1.5 text-xs text-[#374151]">
+                        {member.qualification && (
+                          <div className="flex items-start gap-2">
+                            <IconBook size={11} className="mt-0.5 shrink-0 text-amber-500" />
+                            <span className="leading-relaxed">{member.qualification}</span>
+                          </div>
+                        )}
+                        {member.experience && (
+                          <div className="flex items-center gap-2">
+                            <IconUsers size={11} className="shrink-0 text-amber-500" />
+                            <span>{member.experience} experience</span>
+                          </div>
+                        )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <IconUsers size={11} className="shrink-0 text-amber-500" />
-                        <span>{member.experience} experience</span>
-                      </div>
-                    </div>
+                    )}
 
                     <div className="mt-4 pt-4 border-t border-[#eae6de] flex items-center justify-between">
                       {member.email ? (

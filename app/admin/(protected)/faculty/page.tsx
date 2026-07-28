@@ -385,24 +385,24 @@ export default function FacultyAdminPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Department <span className="text-red-500">*</span>
+                    Department
                   </label>
                   <select
                     value={form.dept}
                     onChange={(e) => setForm({ ...form, dept: e.target.value })}
                     className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:border-amber-500 transition-colors"
                   >
+                    <option value="">— Not specified —</option>
                     {DEPTS.map((d) => <option key={d} value={d}>{d}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                    Experience <span className="text-red-500">*</span>
+                    Experience
                   </label>
                   <input
                     value={form.experience}
                     onChange={(e) => setForm({ ...form, experience: e.target.value })}
-                    required
                     placeholder="12 years"
                     className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                   />
@@ -412,12 +412,11 @@ export default function FacultyAdminPage() {
               {/* Qualification */}
               <div>
                 <label className="block text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                  Qualification <span className="text-red-500">*</span>
+                  Qualification
                 </label>
                 <input
                   value={form.qualification}
                   onChange={(e) => setForm({ ...form, qualification: e.target.value })}
-                  required
                   placeholder="PhD Physics, Tribhuvan University"
                   className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                 />

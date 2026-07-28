@@ -41,12 +41,6 @@ export async function POST(req: NextRequest) {
     return apiError("Name is required (min 2 characters).");
   if (!title || typeof title !== "string")
     return apiError("Title/role is required.");
-  if (!dept || typeof dept !== "string")
-    return apiError("Department is required.");
-  if (!qualification || typeof qualification !== "string")
-    return apiError("Qualification is required.");
-  if (!experience || typeof experience !== "string")
-    return apiError("Experience is required.");
 
   const baseSlug = slugify(name as string);
   // ensure unique slug
@@ -62,9 +56,9 @@ export async function POST(req: NextRequest) {
         name: (name as string).trim(),
         slug,
         title: (title as string).trim(),
-        dept: (dept as string).trim(),
-        qualification: (qualification as string).trim(),
-        experience: (experience as string).trim(),
+        dept: typeof dept === "string" ? dept.trim() : "",
+        qualification: typeof qualification === "string" ? qualification.trim() : "",
+        experience: typeof experience === "string" ? experience.trim() : "",
         subjects: subjects ? (subjects as string).trim() : null,
         email: email ? (email as string).trim() : null,
         bio: bio ? (bio as string).trim() : null,

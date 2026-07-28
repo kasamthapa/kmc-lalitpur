@@ -44,7 +44,7 @@ export default async function FacultyPage() {
   const faculty = await getFaculty();
   const hasSlug = faculty.some((f) => f.slug !== "");
 
-  const departments = ["All", ...Array.from(new Set(faculty.map((f) => f.dept as string)))];
+  const departments = ["All", ...Array.from(new Set(faculty.map((f) => f.dept).filter((d): d is string => Boolean(d))))];
 
   return (
     <main className="bg-white">

@@ -46,11 +46,14 @@ export async function generateMetadata({
   const member = await prisma.faculty.findUnique({ where: { slug } });
   if (!member) return { title: "Faculty Member Not Found" };
 
+  const deptClause = member.dept ? ` in the ${member.dept} department` : "";
+  const experienceClause = member.experience ? ` with ${member.experience} of experience` : "";
+
   return {
     title: `${member.name} — ${member.title}`,
     description:
       member.bio ??
-      `${member.name} is a ${member.title} in the ${member.dept} department at KMC Lalitpur with ${member.experience} of experience.`,
+      `${member.name} is a ${member.title}${deptClause} at KMC Lalitpur${experienceClause}.`,
   };
 }
 
@@ -137,12 +140,14 @@ export default async function FacultyDetailPage({
             </div>
 
             <div>
-              <span
-                className="text-xs font-bold tracking-[0.15em] uppercase mb-4 inline-block"
-                style={{ color: deptColor }}
-              >
-                {member.dept}
-              </span>
+              {member.dept && (
+                <span
+                  className="text-xs font-bold tracking-[0.15em] uppercase mb-4 inline-block"
+                  style={{ color: deptColor }}
+                >
+                  {member.dept}
+                </span>
+              )}
               <h1 className="text-3xl md:text-4xl font-bold mb-1">{member.name}</h1>
               <p className="text-[#8ba7c7] text-lg">{member.title}</p>
 
@@ -221,25 +226,29 @@ export default async function FacultyDetailPage({
           {/* Right: Quick info */}
           <div>
             <div className="divide-y divide-[#e8e4dc]">
-              <div className="py-4 flex flex-col gap-1">
-                <p className="text-xs text-[#6b7280] font-medium uppercase tracking-[0.1em]">Qualification</p>
-                <div className="flex items-start gap-3 mt-1">
-                  <ColorIcon color={deptColor}>
-                    <IconBook size={15} />
-                  </ColorIcon>
-                  <p className="text-sm text-[#101F46] font-semibold self-center">{member.qualification}</p>
+              {member.qualification && (
+                <div className="py-4 flex flex-col gap-1">
+                  <p className="text-xs text-[#6b7280] font-medium uppercase tracking-[0.1em]">Qualification</p>
+                  <div className="flex items-start gap-3 mt-1">
+                    <ColorIcon color={deptColor}>
+                      <IconBook size={15} />
+                    </ColorIcon>
+                    <p className="text-sm text-[#101F46] font-semibold self-center">{member.qualification}</p>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="py-4 flex flex-col gap-1">
-                <p className="text-xs text-[#6b7280] font-medium uppercase tracking-[0.1em]">Experience</p>
-                <div className="flex items-start gap-3 mt-1">
-                  <ColorIcon color={deptColor}>
-                    <IconUsers size={15} />
-                  </ColorIcon>
-                  <p className="text-sm text-[#101F46] font-semibold self-center">{member.experience}</p>
+              {member.experience && (
+                <div className="py-4 flex flex-col gap-1">
+                  <p className="text-xs text-[#6b7280] font-medium uppercase tracking-[0.1em]">Experience</p>
+                  <div className="flex items-start gap-3 mt-1">
+                    <ColorIcon color={deptColor}>
+                      <IconUsers size={15} />
+                    </ColorIcon>
+                    <p className="text-sm text-[#101F46] font-semibold self-center">{member.experience}</p>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {subjects.length > 0 && (
                 <div className="py-4 flex flex-col gap-1">
