@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
+import { useIsDesktop } from "./useIsDesktop";
 
 const NAV_GROUPS = [
   {
@@ -180,16 +181,23 @@ function NavContent({ userName, pathname, onClose }: { userName: string; pathnam
 export function Sidebar({ userName }: { userName: string }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isDesktop = useIsDesktop();
+
+  // Avoid a flash of the wrong layout before the viewport is measured.
+  if (isDesktop === null) return null;
+
+  if (isDesktop) {
+    return (
+      <aside className="flex flex-col w-56 bg-white shrink-0 h-screen sticky top-0 border-r border-gray-200">
+        <NavContent userName={userName} pathname={pathname} onClose={() => {}} />
+      </aside>
+    );
+  }
 
   return (
     <>
-      {/* Desktop sidebar */}
-      <aside className="hidden md:flex flex-col w-56 bg-white shrink-0 h-screen sticky top-0 border-r border-gray-200">
-        <NavContent userName={userName} pathname={pathname} onClose={() => {}} />
-      </aside>
-
       {/* Mobile top bar */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 sticky top-0 z-30">
+      <div className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 sticky top-0 z-30">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded bg-amber-400 flex items-center justify-center">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -217,7 +225,7 @@ export function Sidebar({ userName }: { userName: string }) {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-40 flex">
+        <div className="fixed inset-0 z-40 flex">
           <div className="w-56 bg-white flex flex-col border-r border-gray-200">
             <NavContent userName={userName} pathname={pathname} onClose={() => setMobileOpen(false)} />
           </div>
