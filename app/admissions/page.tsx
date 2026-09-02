@@ -483,7 +483,7 @@ export default function Admissions() {
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-[#101F46] font-bold rounded-xl hover:bg-amber-300 transition-colors shadow-lg shadow-amber-400/20"
             >
-              Ask About {currentGuide.label}
+              Learn More About Our Streams
               <IconArrow />
             </Link>
           </div>
