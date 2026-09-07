@@ -77,7 +77,7 @@ A secure, role-protected content management system for school staff:
 | Framework | [Next.js 16](https://nextjs.org) — App Router, React Server Components |
 | Language | TypeScript 5 |
 | Styling | Tailwind CSS v4 |
-| Database | [Neon](https://neon.tech) — Serverless PostgreSQL |
+| Database | [Supabase](https://supabase.com) — Serverless PostgreSQL |
 | ORM | [Prisma 7](https://prisma.io) with PgBouncer connection pooling |
 | Auth | [NextAuth v5](https://authjs.dev) — JWT sessions, credentials provider |
 | Images | [Cloudinary](https://cloudinary.com) — upload, crop, CDN delivery |
@@ -157,7 +157,7 @@ The site is fully optimised for search engines, AI answer engines, and generativ
 ### Prerequisites
 
 - Node.js ≥ 20
-- A [Neon](https://neon.tech) PostgreSQL project
+- A [Supabase](https://supabase.com) PostgreSQL project
 - A [Cloudinary](https://cloudinary.com) account
 - A [Google Gemini](https://aistudio.google.com) API key
 
@@ -176,7 +176,7 @@ cp .env.example .env
 # Fill in all values in .env
 
 # 4. Initialise the database
-npm run db:push     # Push schema to Neon
+npm run db:push     # Push schema to Supabase
 npm run db:seed     # Create the admin account
 
 # 5. Start the dev server
@@ -208,8 +208,8 @@ Copy `.env.example` to `.env` and fill in each value. All variables are required
 
 | Variable | Description |
 |---|---|
-| `DATABASE_URL` | Neon **pooled** connection string (PgBouncer) — used at runtime |
-| `DIRECT_URL` | Neon **direct** connection string — used for migrations only |
+| `DATABASE_URL` | Supabase **transaction pooler** connection string (port 6543) — used at runtime |
+| `DIRECT_URL` | Supabase **session pooler** connection string (port 5432) — used for migrations only |
 | `ADMIN_EMAIL` | Email address for the initial admin account |
 | `ADMIN_PASSWORD` | Password for the initial admin account |
 | `NEXTAUTH_SECRET` | Random secret for JWT signing — generate with `openssl rand -base64 32` |
@@ -228,7 +228,7 @@ The project is deployed on **Vercel** with automatic deployments on push to `mai
 2. Set `NEXTAUTH_URL` to your production domain
 3. Push to `main` — Vercel handles the rest
 
-> The Prisma connection pool is capped at `max: 3` to stay within Neon's free-tier connection limit.
+> The Prisma connection pool is capped at `max: 3` as a conservative limit; Supabase's pooler (Supavisor) handles pooling above this.
 
 ---
 

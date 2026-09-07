@@ -2,7 +2,7 @@
 // Singleton Prisma client — prevents connection pool exhaustion during hot reloads in dev.
 //
 // Prisma 7: connection URL is passed via the pg adapter (not in schema.prisma).
-//   DATABASE_URL → Neon PgBouncer pooled connection (pgbouncer=true)
+//   DATABASE_URL → Supabase transaction-mode pooler connection (pgbouncer=true)
 //   Used for all runtime DB queries in API routes and Server Components.
 //
 // Usage:
@@ -21,7 +21,7 @@ function createPrismaClient() {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
-    max: 3, // Neon free tier safe limit (PgBouncer handles pooling above this)
+    max: 3, // Conservative limit; Supabase's pooler (Supavisor) handles pooling above this
   });
 
   const adapter = new PrismaPg(pool);
